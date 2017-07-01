@@ -1,29 +1,24 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types'
 
-class CalculatorSmallCounter extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div className="calc-sm-input">
-                <div className="calc-sm-counter">
-                    <div>-</div>
-                    <div>
-                        <input type="text"/><span>page</span>
-                    </div>
-                    <div>+</div>
-                </div>
+const CalculatorSmallCounter = ({onClickPlus, onClickMinus, pageNumber}) => (
+    <div className="calc-sm-input">
+        <div className="calc-sm-counter">
+            <div onClick={onClickMinus}>-</div>
+            <div>
+                <input value={pageNumber} type="text"/><span>page</span>
             </div>
-        )
-    }
-}
+            <div onClick={onClickPlus}>+</div>
+        </div>
+    </div>
+);
 
-
-CalculatorSmallCounter.displayName = 'CalculatorSmallCounter';
+CalculatorSmallCounter.propTypes = {
+    onClickPlus: PropTypes.func.isRequired,
+    onClickMinus: PropTypes.func.isRequired,
+    pageNumber: PropTypes.number.isRequired
+};
 
 export default CalculatorSmallCounter;

@@ -5,6 +5,9 @@ import PropTypes from 'prop-types'
 import CalculatorSmall from './calculatorSmall/CalculatorSmall'
 import CalculatorLarge from './calculatorLarge/CalculatorLarge'
 import TablePrices from './tablePrices/TablePrices'
+import { createStore } from 'redux'
+
+import {changePageNumber} from './calculatorSmall/reducers'
 
 class App extends React.Component {
     static propTypes = {
@@ -12,17 +15,22 @@ class App extends React.Component {
         routes: PropTypes.object.isRequired,
     }
 
+
+
     shouldComponentUpdate() {
         return false
     }
 
     render() {
+        let store = createStore(changePageNumber);
         return (
-            <div>
-                <CalculatorSmall/>
-                <CalculatorLarge/>
-                <TablePrices/>
-            </div>
+            <Provider store={store}>
+                <div>
+                    <CalculatorSmall/>
+                    <CalculatorLarge/>
+                    <TablePrices/>
+                </div>
+            </Provider>
         )
     }
 }
