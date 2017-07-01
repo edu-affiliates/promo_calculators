@@ -12,11 +12,11 @@ class CalculatorSmallCounter extends React.Component {
         return (
             <div className="calc-sm-input">
                 <div className="calc-sm-counter">
-                    <div/>
+                    <div>-</div>
                     <div>
                         <input type="text"/><span>page</span>
                     </div>
-                    <div/>
+                    <div>+</div>
                 </div>
             </div>
         )
