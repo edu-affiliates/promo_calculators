@@ -59,6 +59,37 @@ $input-margin: 0 0 6px;
   margin: $input-margin;
 }
 
-.calc-sm-counter{
+.calc-sm-counter-container {
   display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.calc-sm-counter {
+  @extend %center-flex;
+  height: 100%;
+  width: 50px;
+  text-align: center;
+  color: #273952;
+  font-size: 27px;
+  cursor: pointer;
+  &--plus {
+  }
+  &--minus {
+  }
+}
+
+.calc-sm-page-value {
+  height: 100%;
+  &__input {
+    height: 100%;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: normal;
+    color: #273952;
+    cursor: text;
+    width: 30px;
+  }
 }

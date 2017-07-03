@@ -5,12 +5,17 @@ import PropTypes from 'prop-types'
 
 const CalculatorSmallCounter = ({onClickPlus, onClickMinus, pageNumber}) => (
     <div className="calc-sm-input">
-        <div className="calc-sm-counter">
-            <div onClick={onClickMinus}>-</div>
-            <div>
-                <input value={pageNumber} type="text"/><span>page</span>
+        <div className="calc-sm-counter-container">
+            <div onClick={onClickMinus} className="calc-sm-counter calc-sm-counter--minus">
+                <span>&#65293;</span>
             </div>
-            <div onClick={onClickPlus}>+</div>
+            <div className="calc-sm-page-value">
+                <input value={pageNumber} type="text" className="calc-sm-page-value__input"/>
+                <span>{(pageNumber == 1) ? 'page' : 'pages'}</span>
+            </div>
+            <div onClick={onClickPlus} className="calc-sm-counter calc-sm-counter--plus">
+                <span>+</span>
+            </div>
         </div>
     </div>
 );
