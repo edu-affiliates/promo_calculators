@@ -2,6 +2,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import {plusPage, minusPage} from './actions'
+
+
+//presentation of the counter in calc small
 
 const CalculatorSmallCounter = ({onClickPlus, onClickMinus, pageNumber}) => (
     <div className="calc-sm-input">
@@ -26,4 +31,22 @@ CalculatorSmallCounter.propTypes = {
     pageNumber: PropTypes.number.isRequired
 };
 
-export default CalculatorSmallCounter;
+//container to match redux state to component props and dispatch redux actions to callback props
+const mapStateToProps = state => {
+    return {
+        pageNumber: state.pageNumber
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onClickMinus: () => {
+            dispatch(minusPage())
+        },
+        onClickPlus: () => {
+            dispatch(plusPage())
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CalculatorSmallCounter);
