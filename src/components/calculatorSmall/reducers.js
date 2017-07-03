@@ -5,7 +5,9 @@
 import {PLUS_PAGE, MINUS_PAGE} from './actions'
 
 const initialState = {
-    pageNumber: 1
+    pageNumber: 1,
+    fullPrice: 12,
+    dcsPrice: 10
 };
 
 export const changePageNumber = (state = initialState, action) => {

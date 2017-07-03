@@ -3,6 +3,7 @@
 import React from 'react';
 import CalculatorSmallInput from './CalculatorSmallInput';
 import ContainerSmallCounter from "./ContainerSmallCounter";
+import CalculatorSmallPrices from "./CalculatorSmallPrices";
 
 class CalculatorSmall extends React.Component {
 
@@ -17,6 +18,7 @@ class CalculatorSmall extends React.Component {
                 <CalculatorSmallInput/>
                 <CalculatorSmallInput/>
                 <ContainerSmallCounter/>
+                <CalculatorSmallPrices/>
             </div>
         )
     }
