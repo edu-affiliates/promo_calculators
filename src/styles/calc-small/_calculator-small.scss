@@ -1,0 +1,33 @@
+@import "cs-variables";
+@import "cs-input";
+@import "cs-counter";
+@import "cs-prices";
+
+%calc-sm-wrap-custom {
+  z-index: 100;
+  height: $calc-sm-height;
+  width: $calc-sm-width;
+  border-radius: $calc-sm-border-radius;
+  padding: $calc-sm-box-padding;
+  box-shadow: $calc-sm-box-shadow;
+  border: $calc-sm-border;
+  background: $calc-sm-background-color $calc-sm-background-url no-repeat center calc(100% - 37px)/80% auto;
+  @include respond-to($xx-bt) {
+    padding: 20px 15px;
+  }
+}
+
+.calc-sm-wrap {
+  @extend %calc-sm-wrap-custom;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  @include respond-to($xs-bt) {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
