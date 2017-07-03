@@ -15,9 +15,11 @@ export const changePageNumber = (state = initialState, action) => {
                 pageNumber: state.pageNumber + 1
             });
         case MINUS_PAGE:
-            return Object.assign({}, state, {
-                pageNumber: state.pageNumber - 1
-            });
+            if (state.pageNumber > 1) {
+                return Object.assign({}, state, {
+                    pageNumber: state.pageNumber - 1
+                });
+            }
         default :
             return state
     }
