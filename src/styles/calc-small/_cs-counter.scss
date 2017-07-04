@@ -1,3 +1,19 @@
+%calc-sm-wrap {
+  height: $input-height;
+  border-radius: $input-border-radius;
+  background-color: $input-background-color;
+  box-shadow: $input-box-shadow;
+  border: $input-border;
+  margin: $input-margin;
+}
+
+.calc-sm-counter-wrap {
+  @extend %calc-sm-wrap;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .calc-sm-counter {
   @extend %center-flex;
   height: 100%;

@@ -1,6 +1,4 @@
-.calc-sm-input {
-  position: relative;
-  flex: 0 0 100%;
+%calc-sm-wrap {
   height: $input-height;
   border-radius: $input-border-radius;
   background-color: $input-background-color;
@@ -9,8 +7,12 @@
   margin: $input-margin;
 }
 
-.calc-sm-counter-container {
+.calc-sm-select-wrap {
+  @extend %calc-sm-wrap;
+  position: relative;
+  padding: 5px 15px;
+  flex: 0 0 100%;
   display: flex;
-  justify-content: space-between;
-  height: 100%;
+  align-items: center;
+  justify-content: flex-start;
 }
