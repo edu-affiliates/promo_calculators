@@ -4,32 +4,44 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {changeService} from './actions'
+import CalculatorSmallDropdown from './CalculatorSmallDropdown'
 
 class CalculatorSmallInput extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {openDropdown: false};
+        this.openDropdown = this.openDropdown.bind(this);
+    }
+
+    openDropdown() {
+        const openDropdown = !this.state.openDropdown;
+        console.log(openDropdown);
+        this.setState({openDropdown: openDropdown});
     }
 
     render() {
         if (this.props.serviceComponent) {
             return (
-                <div onClick={this.props.changeService} className="calc-sm-select-wrap">
-                    <div className="calc-sm-select">{this.props.service}</div>
+                <div className="calc-sm-select-wrap ">
+                    <div onClick={this.openDropdown} className="calc-sm-select calc-sm-select--service">
+                        {this.props.service}
+                    </div>
+                    <CalculatorSmallDropdown open={this.state.openDropdown}/>
                 </div>
             )
         }
         if (this.props.levelComponent) {
             return (
                 <div onClick={this.props.changeService} className="calc-sm-select-wrap">
-                    <div className="calc-sm-select">{this.props.level}</div>
+                    <div className="calc-sm-select calc-sm-select--level">{this.props.level}</div>
                 </div>
             )
         }
         if (this.props.deadlineComponent) {
             return (
                 <div onClick={this.props.changeService} className="calc-sm-select-wrap">
-                    <div className="calc-sm-select">{this.props.deadline}</div>
+                    <div className="calc-sm-select calc-sm-select--deadline">{this.props.deadline}</div>
                 </div>
             )
         }

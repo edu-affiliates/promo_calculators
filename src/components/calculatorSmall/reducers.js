@@ -34,10 +34,15 @@ const currentDeadline = (initDeadlineID = '67595') => {
     return normalizedTree.entities.deadline[initDeadlineID];
 };
 
+const currentServiceList = () => {
+    return normalizedTree.entities.tree.undefined.services;
+};
+
 const initialState = {
     pageNumber: 1,
     tree: normalizedTree.entities,
     discount: 0.85,
+    currentServices: currentServiceList(),
     currentLevels: [],
     currentDeadlines: [],
     current: {
