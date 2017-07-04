@@ -36,10 +36,8 @@ const currentDeadline = (initDeadlineID = '67595') => {
 
 const initialState = {
     pageNumber: 1,
-    fullPrice: 12,
-    dcsPrice: 10,
     tree: normalizedTree.entities,
-    discount: 1,
+    discount: 0.85,
     currentLevels: [],
     currentDeadlines: [],
     current: {
@@ -86,11 +84,15 @@ export const changePageNumber = (state = initialState, action) => {
                     level: selectedLevel,
                     deadline: selectedDeadline
                 }
-            })
-        case PLUS_PAGE:
-            return Object.assign({}, state, {
-                pageNumber: state.pageNumber + 1
             });
+        case PLUS_PAGE:
+            if (state.pageNumber < state.current.deadline.max_pages) {
+                return Object.assign({}, state, {
+                    pageNumber: state.pageNumber + 1
+                });
+            } else {
+                return state
+            }
         case MINUS_PAGE:
             if (state.pageNumber > 1) {
                 return Object.assign({}, state, {
