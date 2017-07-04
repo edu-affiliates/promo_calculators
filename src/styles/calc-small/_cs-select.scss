@@ -16,3 +16,22 @@
   align-items: center;
   justify-content: flex-start;
 }
+
+.calc-sm-select {
+  position: relative;
+  width: 100%;
+  &:after {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    display: block;
+    right: 20px;
+    top: calc(50% - 16.200000000000003px / 2);
+    right: 0;
+    border-bottom: 2px solid #273952;
+    border-left: 2px solid #273952;
+    transform: rotate(-45deg);
+    pointer-events: none;
+  }
+}

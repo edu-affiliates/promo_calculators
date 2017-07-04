@@ -22,14 +22,14 @@ class CalculatorSmallInput extends React.Component {
         if (this.props.levelComponent) {
             return (
                 <div onClick={this.props.changeService} className="calc-sm-select-wrap">
-                    <div>{this.props.level}</div>
+                    <div className="calc-sm-select">{this.props.level}</div>
                 </div>
             )
         }
         if (this.props.deadlineComponent) {
             return (
                 <div onClick={this.props.changeService} className="calc-sm-select-wrap">
-                    <div>{this.props.deadline}</div>
+                    <div className="calc-sm-select">{this.props.deadline}</div>
                 </div>
             )
         }
