@@ -38,12 +38,19 @@ const currentServiceList = () => {
     return normalizedTree.entities.tree.undefined.services;
 };
 
+const currentLevelList = (initServiceID = '2185') => {
+    const levelID = normalizedTree.entities.service[initServiceID].level;
+    console.log(levelID);
+    return normalizedTree.entities.service[initServiceID].level;
+
+};
+
 const initialState = {
     pageNumber: 1,
     tree: normalizedTree.entities,
     discount: 0.85,
     currentServices: currentServiceList(),
-    currentLevels: [],
+    currentLevels: currentLevelList(),
     currentDeadlines: [],
     current: {
         service: currentService(),

@@ -13,21 +13,57 @@ class CalculatorSmallDropdown extends React.Component {
     }
 
     render() {
-        let servicesList = this.props.currentServices.map(
-            (serviceItem) => {
-                return <li key={serviceItem.name} onClick={this.props.changeService}
-                           className="calc-sm-dropdown__item">{serviceItem.name}</li>
-            }
-        );
-        return (
-            <div className={(this.props.open) ? 'open' : ''}>
-                <div className="calc-sm-dropdown-wrap">
-                    <ul className="calc-sm-dropdown">
-                        {servicesList}
-                    </ul>
+        if (this.props.serviceComponent) {
+            let servicesList = this.props.currentServices.map(
+                (serviceItem) => {
+                    return <li key={serviceItem.id} onClick={this.props.changeService}
+                               className="calc-sm-dropdown__item">{serviceItem.name}</li>
+                }
+            );
+            return (
+                <div className={(this.props.open) ? 'open' : ''}>
+                    <div className="calc-sm-dropdown-wrap calc-sm-dropdown-wrap--service">
+                        <ul className="calc-sm-dropdown">
+                            {servicesList}
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }
+        if (this.props.levelComponent) {
+            let levelsList = this.props.currentLevels.map(
+                (levelItem) => {
+                    return <li key={levelItem.id} onClick={this.props.changeService}
+                               className="calc-sm-dropdown__item">{levelItem.name}</li>
+                }
+            );
+            return (
+                <div className={(this.props.open) ? 'open' : ''}>
+                    <div className="calc-sm-dropdown-wrap calc-sm-dropdown-wrap--level">
+                        <ul className="calc-sm-dropdown">
+                            {levelsList}
+                        </ul>
+                    </div>
+                </div>
+            )
+        }
+        if (this.props.deadlineComponent) {
+            let deadlinesList = this.props.currentDeadlines.map(
+                (deadlineItem) => {
+                    return <li key={deadlineItem.id} onClick={this.props.changeService}
+                               className="calc-sm-dropdown__item">{deadlineItem.name}</li>
+                }
+            );
+            return (
+                <div className={(this.props.open) ? 'open' : ''}>
+                    <div className="calc-sm-dropdown-wrap calc-sm-dropdown-wrap--deadline">
+                        <ul className="calc-sm-dropdown">
+                            {deadlinesList}
+                        </ul>
+                    </div>
+                </div>
+            )
+        }
     }
 }
 
@@ -39,9 +75,9 @@ CalculatorSmallDropdown.propTypes = {
 const mapStateToProps = state => {
     return {
         currentServices: state.currentServices,
-        service: state.current.service.name,
-        level: state.current.level.name,
-        deadline: state.current.deadline.name
+        currentLevels: state.currentLevels,
+        currentDeadlines: state.currentDeadlines,
+
     }
 };
 

@@ -27,21 +27,24 @@ class CalculatorSmallInput extends React.Component {
                     <div onClick={this.openDropdown} className="calc-sm-select calc-sm-select--service">
                         {this.props.service}
                     </div>
-                    <CalculatorSmallDropdown open={this.state.openDropdown}/>
+                    <CalculatorSmallDropdown serviceComponent={this.props.serviceComponent} open={this.state.openDropdown}/>
                 </div>
             )
         }
         if (this.props.levelComponent) {
             return (
-                <div onClick={this.props.changeService} className="calc-sm-select-wrap">
-                    <div className="calc-sm-select calc-sm-select--level">{this.props.level}</div>
+                <div className="calc-sm-select-wrap">
+                    <div onClick={this.openDropdown} className="calc-sm-select calc-sm-select--level">{this.props.level}</div>
+                    <CalculatorSmallDropdown levelComponent={this.props.levelComponent} open={this.state.openDropdown}/>
                 </div>
+
             )
         }
         if (this.props.deadlineComponent) {
             return (
-                <div onClick={this.props.changeService} className="calc-sm-select-wrap">
-                    <div className="calc-sm-select calc-sm-select--deadline">{this.props.deadline}</div>
+                <div className="calc-sm-select-wrap">
+                    <div onClick={this.openDropdown} className="calc-sm-select calc-sm-select--deadline">{this.props.deadline}</div>
+                    <CalculatorSmallDropdown deadlineComponent={this.props.deadlineComponent} open={this.state.openDropdown}/>
                 </div>
             )
         }
