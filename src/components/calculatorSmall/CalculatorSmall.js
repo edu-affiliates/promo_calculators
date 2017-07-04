@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import CalculatorSmallInput from './CalculatorSmallInput';
+import CalculatorSmallInput from './CalculatorSmallSelect';
 import CalculatorSmallCounter from "./CalculatorSmallCounter";
 import CalculatorSmallPrices from "./CalculatorSmallPrices";
 
@@ -14,9 +14,9 @@ class CalculatorSmall extends React.Component {
     render() {
         return (
             <div className="calc-sm-wrap">
-                <CalculatorSmallInput/>
-                <CalculatorSmallInput/>
-                <CalculatorSmallInput/>
+                <CalculatorSmallInput serviceComponent={true}/>
+                <CalculatorSmallInput levelComponent={true}/>
+                <CalculatorSmallInput deadlineComponent={true}/>
                 <CalculatorSmallCounter/>
                 <CalculatorSmallPrices/>
             </div>
