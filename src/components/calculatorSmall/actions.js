@@ -3,6 +3,7 @@
  */
 export const PLUS_PAGE = 'PLUS_PAGE';
 export const MINUS_PAGE = 'MINUS_PAGE';
+export const CHANGE_SERVICE = 'CHANGE_SERVICE';
 
 export function plusPage() {
     return {type: PLUS_PAGE}
@@ -11,5 +12,9 @@ export function plusPage() {
 export function minusPage() {
 
     return {type: MINUS_PAGE}
+}
+
+export function changeService(serviceID) {
+    return {type: CHANGE_SERVICE, id: serviceID}
 }
 
