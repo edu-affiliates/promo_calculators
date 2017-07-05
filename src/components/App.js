@@ -5,9 +5,10 @@ import PropTypes from 'prop-types'
 import CalculatorSmall from './calculatorSmall/CalculatorSmall'
 import CalculatorLarge from './calculatorLarge/CalculatorLarge'
 import TablePrices from './tablePrices/TablePrices'
-import { createStore } from 'redux'
-
+import { createStore , applyMiddleware} from 'redux'
+import createSagaMiddleware from 'redux-saga'
 import {changePageNumber} from './calculatorSmall/reducers'
+import mysaga from './calculatorSmall/sagas'
 
 class App extends React.Component {
     static propTypes = {
@@ -22,7 +23,10 @@ class App extends React.Component {
     }
 
     render() {
-        let store = createStore(changePageNumber);
+        const sagaMiddleware = createSagaMiddleware();
+
+        let store = createStore(changePageNumber, applyMiddleware(sagaMiddleware));
+        sagaMiddleware.run(mysaga);
         return (
             <Provider store={store}>
                 <div>
