@@ -2,43 +2,25 @@
  * Created by nadiadaliavska on 7/1/17.
  */
 
-import {PLUS_PAGE, MINUS_PAGE, CHANGE_SERVICE} from './actions';
-import {normalize, schema} from 'normalizr';
-import {serviceTree} from './serviceTree';
+import {PLUS_PAGE, MINUS_PAGE, CHANGE_SERVICE, FETCH_SUCCESS} from './actions';
 
-const deadlineSchema = new schema.Entity('deadline');
 
-const levelSchema = new schema.Entity('level', {
-    deadline: [deadlineSchema]
-});
-
-const serviceSchema = new schema.Entity('service', {
-    level: [levelSchema]
-});
-
-const treeSchema = new schema.Entity('tree', {
-    services_tree: [serviceSchema]
-});
-
-const normalizedTree = normalize(serviceTree['info'], treeSchema);
-console.log(normalizedTree);
-
-const currentService = (initServiceID = '2185') => {
+const currentService = (normalizedTree, initServiceID = '2185') => {
     return normalizedTree.entities.service[initServiceID];
 };
 
-const currentLevel = (initLevelID = '8496') => {
+const currentLevel = (normalizedTree, initLevelID = '8496') => {
     return normalizedTree.entities.level[initLevelID];
 };
-const currentDeadline = (initDeadlineID = '67595') => {
+const currentDeadline = (normalizedTree, initDeadlineID = '67595') => {
     return normalizedTree.entities.deadline[initDeadlineID];
 };
 
-const currentServiceList = () => {
+const currentServiceList = (normalizedTree) => {
     return normalizedTree.entities.tree.undefined.services;
 };
 
-const currentLevelList = (initServiceID = '2185') => {
+const currentLevelList = (normalizedTree, initServiceID = '2185') => {
     const levelID = normalizedTree.entities.service[initServiceID].level;
     console.log(levelID);
     return normalizedTree.entities.service[initServiceID].level;
@@ -46,16 +28,17 @@ const currentLevelList = (initServiceID = '2185') => {
 };
 
 const initialState = {
+    inited: false,
     pageNumber: 1,
-    tree: normalizedTree.entities,
+    tree: {},
     discount: 0.85,
-    currentServices: currentServiceList(),
-    currentLevels: currentLevelList(),
+    currentServices: {},
+    currentLevels: {},
     currentDeadlines: [],
     current: {
-        service: currentService(),
-        level: currentLevel(),
-        deadline: currentDeadline()
+        service: {},
+        level: {},
+        deadline: {}
     }
 };
 
@@ -69,6 +52,19 @@ export const changeService = (state = initialState, action) => {
 
 export const changePageNumber = (state = initialState, action) => {
     switch (action.type) {
+        case FETCH_SUCCESS:
+            return Object.assign({}, state, {
+                inited: true,
+                tree: action.tree,
+                currentServices: currentServiceList(action.tree),
+                currentLevels: currentLevelList(action.tree),
+                currentDeadlines: [],
+                current: {
+                    service: currentService(action.tree),
+                    level: currentLevel(action.tree),
+                    deadline: currentDeadline(action.tree)
+                }
+            });
         case CHANGE_SERVICE:
             const serviceID = action.id;
             const selectedService = state.tree.service[serviceID];
@@ -110,6 +106,8 @@ export const changePageNumber = (state = initialState, action) => {
                 return Object.assign({}, state, {
                     pageNumber: state.pageNumber - 1
                 });
+            } else {
+                return state;
             }
         default :
             return state
