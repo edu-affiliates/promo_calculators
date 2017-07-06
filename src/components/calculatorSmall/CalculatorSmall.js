@@ -1,11 +1,14 @@
 'use strict';
 
 import React from 'react';
-import CalculatorSmallTitle from './CalculatorSmallTitle';
-import CalculatorSmallSelect from './CalculatorSmallSelect';
-import CalculatorSmallCounter from "./CalculatorSmallCounter";
-import CalculatorSmallPrices from "./CalculatorSmallPrices";
-import CalculatorSmallButtons from "./CalculatorSmallButtons";
+import {connect} from 'react-redux'
+import {changeService, fetchInitTree} from './actions'
+
+import Title from './CalculatorSmallTitle';
+import Select from './CalculatorSmallSelect';
+import Counter from "./CalculatorSmallCounter";
+import Prices from "./CalculatorSmallPrices";
+import Buttons from "./CalculatorSmallButtons";
 
 class CalculatorSmall extends React.Component {
 
@@ -16,19 +19,41 @@ class CalculatorSmall extends React.Component {
     render() {
         return (
             <div className="calc-sm-wrap">
-                <CalculatorSmallTitle/>
-                <CalculatorSmallSelect serviceComponent={true}/>
-                <CalculatorSmallSelect levelComponent={true}/>
-                <CalculatorSmallSelect deadlineComponent={true}/>
-                <CalculatorSmallCounter/>
-                <CalculatorSmallPrices/>
-                <CalculatorSmallButtons/>
+                <Title/>
+                <Select type={'service'} current={this.props.service} currentList={this.props.serviceList}/>
+                <Select type={'level'} current={this.props.level} currentList={this.props.serviceList}/>
+                <Select type={'deadline'} current={this.props.deadline} currentList={this.props.serviceList}/>
+                <Counter/>
+                <Prices/>
+                <Buttons/>
             </div>
         )
     }
 }
 
+//container to match redux state to component props and dispatch redux actions to callback props
+const mapStateToProps = state => {
+    return {
+        inited: state.inited,
+        service: state.current.service.name,
+        level: state.current.level.name,
+        deadline: state.current.deadline.name,
+        serviceList: state.currentServices,
+        levelList: state.currentLevels,
+        deadlineList: state.currentDeadlines
 
-CalculatorSmall.displayName = 'CalculatorSmall';
+    }
+};
 
-export default CalculatorSmall;
+const mapDispatchToProps = dispatch => {
+    return {
+        init: () => {
+            dispatch(fetchInitTree())
+        },
+        changeService: () => {
+            dispatch(changeService('2183'))
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CalculatorSmall);

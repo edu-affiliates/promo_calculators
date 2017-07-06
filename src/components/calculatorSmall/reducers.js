@@ -17,12 +17,12 @@ const currentDeadline = (normalizedTree, initDeadlineID = '67595') => {
 };
 
 const currentServiceList = (normalizedTree) => {
+    // console.log(normalizedTree.entities.tree.undefined.services);
     return normalizedTree.entities.tree.undefined.services;
 };
 
 const currentLevelList = (normalizedTree, initServiceID = '2185') => {
     const levelID = normalizedTree.entities.service[initServiceID].level;
-    console.log(levelID);
     return normalizedTree.entities.service[initServiceID].level;
 
 };
@@ -32,8 +32,8 @@ const initialState = {
     pageNumber: 1,
     tree: {},
     discount: 0.15,
-    currentServices: {},
-    currentLevels: {},
+    currentServices: [],
+    currentLevels: [],
     currentDeadlines: [],
     current: {
         service: {},
