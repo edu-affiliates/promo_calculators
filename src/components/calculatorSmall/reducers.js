@@ -31,7 +31,7 @@ const initialState = {
     inited: false,
     pageNumber: 1,
     tree: {},
-    discount: 0.85,
+    discount: 0.15,
     currentServices: {},
     currentLevels: {},
     currentDeadlines: [],
