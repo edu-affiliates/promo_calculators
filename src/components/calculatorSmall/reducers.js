@@ -2,30 +2,17 @@
  * Created by nadiadaliavska on 7/1/17.
  */
 
-import {PLUS_PAGE, MINUS_PAGE, CHANGE_SERVICE, FETCH_SUCCESS} from './actions';
+import {PLUS_PAGE, MINUS_PAGE, CHANGE_SERVICE, CHANGE_LEVEL, CHANGE_DEADLINE, FETCH_SUCCESS} from './actions';
+import {
+    currentService,
+    currentServiceList,
+    currentLevelList,
+    currentLevel,
+    currentDeadlineList,
+    currentDeadline,
+    checkMaxPageNumber
+} from './calcLogic'
 
-
-const currentService = (normalizedTree, initServiceID = '2185') => {
-    return normalizedTree.entities.service[initServiceID];
-};
-
-const currentLevel = (normalizedTree, initLevelID = '8496') => {
-    return normalizedTree.entities.level[initLevelID];
-};
-const currentDeadline = (normalizedTree, initDeadlineID = '67595') => {
-    return normalizedTree.entities.deadline[initDeadlineID];
-};
-
-const currentServiceList = (normalizedTree) => {
-    // console.log(normalizedTree.entities.tree.undefined.services);
-    return normalizedTree.entities.tree.undefined.services;
-};
-
-const currentLevelList = (normalizedTree, initServiceID = '2185') => {
-    const levelID = normalizedTree.entities.service[initServiceID].level;
-    return normalizedTree.entities.service[initServiceID].level;
-
-};
 
 const initialState = {
     inited: false,
@@ -35,66 +22,63 @@ const initialState = {
     currentServices: [],
     currentLevels: [],
     currentDeadlines: [],
-    current: {
-        service: {},
-        level: {},
-        deadline: {}
-    }
+    service: {},
+    level: {},
+    deadline: {}
+
 };
 
 
-export const changeService = (state = initialState, action) => {
-    switch (action.type) {
+// export const changeService = (state = initialState, action) => {
+//     switch (action.type) {
+//     }
+// };
 
-    }
-};
 
-
-export const changePageNumber = (state = initialState, action) => {
+export const reducers = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_SUCCESS:
             return Object.assign({}, state, {
                 inited: true,
-                tree: action.tree,
-                currentServices: currentServiceList(action.tree),
-                currentLevels: currentLevelList(action.tree),
-                currentDeadlines: [],
-                current: {
-                    service: currentService(action.tree),
-                    level: currentLevel(action.tree),
-                    deadline: currentDeadline(action.tree)
-                }
+                tree: action.tree.entities,
+                currentServices: currentServiceList(action.tree.entities),
+                currentLevels: currentLevelList(action.tree.entities),
+                currentDeadlines: currentDeadlineList(action.tree.entities),
+                service: currentService(action.tree.entities),
+                level: currentLevel(action.tree.entities),
+                deadline: currentDeadline(action.tree.entities)
+
             });
         case CHANGE_SERVICE:
-            const serviceID = action.id;
-            const selectedService = state.tree.service[serviceID];
-            const levelsID = selectedService.level;
-            let levels = levelsID.map((levelID) => {
-                return state.tree.level[levelID];
-            });
-            levels = levels.sort((a, b) => {
-                return parseInt(a.order) - parseInt(b.order);
-            });
-            const selectedLevel = levels[0];
-
-            const deadlineID = selectedLevel.deadline;
-            let deadlines = deadlineID.map((deadlineID) => {
-                return state.tree.deadline[deadlineID];
-            }).reverse();
-
-            const selectedDeadline = deadlines[0];
-
+            const selectedService = state.tree.service[action.id];
             return Object.assign({}, state, {
-                currentLevels: levels,
-                currentDeadlines: deadlines,
-                current: {
-                    service: selectedService,
-                    level: selectedLevel,
-                    deadline: selectedDeadline
-                }
+                currentLevels: currentLevelList(state.tree, action.id),
+                currentDeadlines: currentDeadlineList(state.tree),
+                service: selectedService,
+                level: currentLevel(state.tree),
+                deadline: currentDeadline(state.tree),
+                pageNumber: checkMaxPageNumber(state.pageNumber, currentDeadline(state.tree).max_pages)
             });
+        case CHANGE_LEVEL:
+            const selectedLevel = state.tree.level[action.id];
+            return Object.assign({}, state, {
+                currentDeadlines: currentDeadlineList(state.tree, state.service, action.id),
+                level: selectedLevel,
+                deadline: currentDeadline(state.tree),
+                pageNumber: checkMaxPageNumber(state.pageNumber, currentDeadline(state.tree).max_pages)
+            });
+
+
+        case CHANGE_DEADLINE:
+            const selectedDeadline = state.tree.deadline[action.id];
+            return Object.assign({}, state, {
+                deadline: selectedDeadline,
+                pageNumber: checkMaxPageNumber(state.pageNumber, selectedDeadline.max_pages)
+
+            });
+
         case PLUS_PAGE:
-            if (state.pageNumber < state.current.deadline.max_pages) {
+            if (state.pageNumber < state.deadline.max_pages) {
                 return Object.assign({}, state, {
                     pageNumber: state.pageNumber + 1
                 });
@@ -113,4 +97,4 @@ export const changePageNumber = (state = initialState, action) => {
             return state
     }
 };
-// export default changePageNumber;
+// export default reducers;

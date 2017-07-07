@@ -1,9 +1,9 @@
 'use strict';
 
 import React from 'react';
-import {connect} from 'react-redux'
-import {plusPage, minusPage} from './actions'
-import PropTypes from 'prop-types'
+import {connect} from 'react-redux';
+import {plusPage, minusPage} from './actions';
+import PropTypes from 'prop-types';
 
 //presentation of the price in calc small
 
@@ -23,7 +23,7 @@ CalculatorSmallPrices.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        fullPrice: state.current.deadline.price,
+        fullPrice: state.deadline.price,
         discount: state.discount,
         pageNumber: state.pageNumber
     }

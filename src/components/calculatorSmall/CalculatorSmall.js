@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import {changeService, fetchInitTree} from './actions'
+import {changeService, changeLevel, changeDeadline, fetchInitTree} from './actions'
 
 import Title from './CalculatorSmallTitle';
 import Select from './CalculatorSmallSelect';
@@ -16,18 +16,27 @@ class CalculatorSmall extends React.Component {
         super(props);
     }
 
+    componentWillMount() {
+        this.props.init();
+    }
+
     render() {
-        return (
-            <div className="calc-sm-wrap">
-                <Title/>
-                <Select type={'service'} current={this.props.service} currentList={this.props.serviceList}/>
-                <Select type={'level'} current={this.props.level} currentList={this.props.serviceList}/>
-                <Select type={'deadline'} current={this.props.deadline} currentList={this.props.serviceList}/>
-                <Counter/>
-                <Prices/>
-                <Buttons/>
-            </div>
-        )
+        if (this.props.inited) {
+            return (
+                <div className="calc-sm-wrap">
+                    <Title/>
+                    <Select type={'service'} current={this.props.service} currentList={this.props.serviceList}
+                            onChange={this.props.changeService}/>
+                    <Select type={'level'} current={this.props.level} currentList={this.props.levelList}
+                            onChange={this.props.changeLevel}/>
+                    <Select type={'deadline'} current={this.props.deadline} currentList={this.props.deadlineList}
+                            onChange={this.props.changeDeadline}/>
+                    <Counter/>
+                    <Prices/>
+                    <Buttons/>
+                </div>
+            )
+        } else return (<div></div>)
     }
 }
 
@@ -35,9 +44,9 @@ class CalculatorSmall extends React.Component {
 const mapStateToProps = state => {
     return {
         inited: state.inited,
-        service: state.current.service.name,
-        level: state.current.level.name,
-        deadline: state.current.deadline.name,
+        service: state.service.name,
+        level: state.level.name,
+        deadline: state.deadline.name,
         serviceList: state.currentServices,
         levelList: state.currentLevels,
         deadlineList: state.currentDeadlines
@@ -50,8 +59,14 @@ const mapDispatchToProps = dispatch => {
         init: () => {
             dispatch(fetchInitTree())
         },
-        changeService: () => {
-            dispatch(changeService('2183'))
+        changeService: (id) => {
+            dispatch(changeService(id))
+        },
+        changeLevel: (id) => {
+            dispatch(changeLevel(id))
+        },
+        changeDeadline: (id) => {
+            dispatch(changeDeadline(id))
         }
     }
 };

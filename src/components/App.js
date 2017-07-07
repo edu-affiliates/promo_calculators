@@ -7,7 +7,7 @@ import CalculatorLarge from './calculatorLarge/CalculatorLarge'
 import TablePrices from './tablePrices/TablePrices'
 import { createStore , applyMiddleware} from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import {changePageNumber} from './calculatorSmall/reducers'
+import {reducers} from './calculatorSmall/reducers'
 import mysaga from './calculatorSmall/sagas'
 
 class App extends React.Component {
@@ -25,7 +25,7 @@ class App extends React.Component {
     render() {
         const sagaMiddleware = createSagaMiddleware();
 
-        let store = createStore(changePageNumber, applyMiddleware(sagaMiddleware));
+        let store = createStore(reducers, applyMiddleware(sagaMiddleware));
         sagaMiddleware.run(mysaga);
         return (
             <Provider store={store}>

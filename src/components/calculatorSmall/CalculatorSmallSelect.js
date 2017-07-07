@@ -3,37 +3,44 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {changeService, fetchInitTree} from './actions'
-import Dropdown from './CalculatorSmallDropdown'
 
 class CalculatorSmallSelect extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {openDropdown: false};
-        this.openDropdown = this.openDropdown.bind(this);
+        this.toggleDropdown = this.toggleDropdown.bind(this);
     }
 
-    componentWillMount() {
-        this.props.init();
-    }
-
-    openDropdown() {
+    toggleDropdown() {
         const openDropdown = !this.state.openDropdown;
         this.setState({openDropdown: openDropdown});
     }
 
     render() {
-        if (this.props.inited) {
-            return (
-                <div className="calc-sm-select-wrap ">
-                    <div onClick={this.openDropdown} className={`calc-sm-select calc-sm-select--${this.props.type}`}>
-                        {this.props.current}
-                    </div>
-                    <Dropdown type={this.props.type} currentList={this.props.currentList} open={this.state.openDropdown}/>
+        let currentList = this.props.currentList.map(
+            (item) => {
+                return <li key={item.id} onClick={() => {
+                    this.toggleDropdown();
+                    this.props.onChange(item.id)
+                }} className="calc-sm-dropdown__item">{item.name}</li>
+            }
+        );
+        return (
+            <div className="calc-sm-select-wrap ">
+                <div onClick={this.toggleDropdown} className={`calc-sm-select calc-sm-select--${this.props.type}`}>
+                    {this.props.current}
                 </div>
-            )
-        } else return (<div></div>)
+                <div className={(this.state.openDropdown) ? 'open' : ''}>
+                    <div className={`calc-sm-dropdown-wrap calc-sm-dropdown-wrap--${this.props.type}`}>
+                        <ul className="calc-sm-dropdown">
+                            {currentList}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        )
+
     }
 }
 
@@ -43,15 +50,12 @@ CalculatorSmallSelect.propTypes = {
 
 //container to match redux state to component props and dispatch redux actions to callback props
 const mapStateToProps = state => {
-    return {
-        inited: state.inited,
-    }
+    return {}
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         init: () => {
-            dispatch(fetchInitTree())
         },
         changeService: () => {
         }

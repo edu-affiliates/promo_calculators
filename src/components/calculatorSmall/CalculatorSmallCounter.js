@@ -8,7 +8,7 @@ import {plusPage, minusPage, changeService} from './actions'
 
 //presentation of the counter in calc small
 
-const CalculatorSmallCounter = ({onClickPlus, onClickMinus, pageNumber, changeService, deadline}) => (
+const CalculatorSmallCounter = ({onClickPlus, onClickMinus, pageNumber, deadline}) => (
     <div className="calc-sm-counter-wrap">
         <div onClick={onClickMinus} className="calc-sm-counter calc-sm-counter--minus">
             <span>&#65293;</span>
@@ -26,15 +26,13 @@ const CalculatorSmallCounter = ({onClickPlus, onClickMinus, pageNumber, changeSe
 CalculatorSmallCounter.propTypes = {
     onClickPlus: PropTypes.func.isRequired,
     onClickMinus: PropTypes.func.isRequired,
-    changeService: PropTypes.func.isRequired,
     pageNumber: PropTypes.number.isRequired
 };
 
 //container to match redux state to component props and dispatch redux actions to callback props
 const mapStateToProps = state => {
     return {
-        pageNumber: state.pageNumber,
-        deadline: state.current.deadline
+        pageNumber: state.pageNumber
     }
 };
 
@@ -45,9 +43,6 @@ const mapDispatchToProps = dispatch => {
         },
         onClickPlus: () => {
             dispatch(plusPage())
-        },
-        changeService: () => {
-            dispatch(changeService('2183'))
         }
     }
 };

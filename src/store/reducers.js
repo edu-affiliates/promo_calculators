@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 import locationReducer from './location'
-import {changePageNumber} from '../components/calculatorSmall/reducers'
+import {reducers} from '../components/calculatorSmall/reducers'
 
 export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
     location: locationReducer,
     ...asyncReducers
-  }, changePageNumber)
+  }, reducers)
 }
 
 export const injectReducer = (store, { key, reducer }) => {

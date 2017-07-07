@@ -1,7 +1,7 @@
 /**
  * Created by nadiadaliavska on 7/4/17.
  */
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import {call, put, takeEvery, takeLatest} from 'redux-saga/effects'
 import {FETCH_SERVICE, FETCH_INIT_TREE, fetchSuccess} from './actions'
 // import Api from '...'
 import {normalize, schema} from 'normalizr';
@@ -25,16 +25,16 @@ const treeSchema = new schema.Entity('tree', {
 });
 
 const normalizedTree = normalize(serviceTree['info'], treeSchema);
-console.log(normalizedTree);
 
 
-function api(){
+function api() {
     //TODO use fetch api instead of jquery ajax
 }
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function* fetchServiceTree(action) {
     try {
         const tree = yield call(normalize, serviceTree['info'], treeSchema);
+        console.log(tree);
         yield put(fetchSuccess(tree));
     } catch (e) {
         yield put({type: "USER_FETCH_FAILED", message: e.message});
