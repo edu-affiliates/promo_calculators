@@ -2,7 +2,15 @@
  * Created by nadiadaliavska on 7/1/17.
  */
 
-import {PLUS_PAGE, MINUS_PAGE, CHANGE_SERVICE, CHANGE_LEVEL, CHANGE_DEADLINE, FETCH_SUCCESS} from './actions';
+import {
+    PLUS_PAGE,
+    MINUS_PAGE,
+    CHANGE_SERVICE,
+    CHANGE_LEVEL,
+    CHANGE_DEADLINE,
+    FETCH_SUCCESS,
+    FETCH_SUCCESS_SINGLE
+} from './actions';
 import {
     currentService,
     currentServiceList,
@@ -37,6 +45,18 @@ const initialState = {
 
 export const reducers = (state = initialState, action) => {
     switch (action.type) {
+        case FETCH_SUCCESS_SINGLE:
+            //merge current tree and tree for single service
+            const mergedServices = Object.assign({}, state.tree.service, action.tree.entities.service);
+            const mergedLevels = Object.assign({}, state.tree.level, action.tree.entities.level);
+            const mergedDeadline = Object.assign({}, state.tree.deadline, action.tree.entities.deadline);
+            return Object.assign({}, state, {
+                tree: {
+                    service: mergedServices,
+                    level: mergedLevels,
+                    deadline: mergedDeadline
+                },
+            });
         case FETCH_SUCCESS:
             return Object.assign({}, state, {
                 inited: true,

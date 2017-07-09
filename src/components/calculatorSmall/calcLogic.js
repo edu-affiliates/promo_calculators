@@ -1,6 +1,9 @@
 //return object that contain current service name
-export const currentService = (tree, serviceID = '2185') => {
-    return tree.service[serviceID];
+export const currentService = (tree, serviceID) => {
+    if (serviceID) {
+        return tree.service[serviceID];
+    }
+    return tree.service[Object.keys(tree.service)[0]];
 };
 
 //return all services from api
@@ -36,7 +39,6 @@ export const currentDeadline = (tree, id = 0) => {
 
 //compare current and max page number and set last one if its smaller
 export const checkMaxPageNumber = (numPage, maxNumPage) => {
-    console.log(maxNumPage);
     if (numPage > maxNumPage) return maxNumPage;
     return numPage;
 };
