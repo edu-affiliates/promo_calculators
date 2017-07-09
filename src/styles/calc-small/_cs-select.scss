@@ -6,6 +6,10 @@
   border: $input-border;
   margin: $input-margin;
 }
+.calc-sm-select-group{
+  position: relative;
+  flex: 0 0 100%;
+}
 
 .calc-sm-select-wrap {
   @extend %calc-sm-wrap;
