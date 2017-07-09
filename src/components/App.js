@@ -8,7 +8,7 @@ import TablePrices from './tablePrices/TablePrices'
 import { createStore , applyMiddleware} from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import {reducers} from './calculatorSmall/reducers'
-import mysaga from './calculatorSmall/sagas'
+import mysaga from './sagas'
 
 class App extends React.Component {
     static propTypes = {
