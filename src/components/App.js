@@ -14,8 +14,7 @@ class App extends React.Component {
     static propTypes = {
         store: PropTypes.object.isRequired,
         routes: PropTypes.object.isRequired,
-    }
-
+    };
 
 
     shouldComponentUpdate() {
@@ -26,6 +25,10 @@ class App extends React.Component {
         const sagaMiddleware = createSagaMiddleware();
 
         let store = createStore(reducers, applyMiddleware(sagaMiddleware));
+        // in such way we can store all state in localStorage
+        // store.subscribe(() => {
+        //     localStorage.setItem('state', JSON.stringify(store.getState()));
+        // });
         sagaMiddleware.run(mysaga);
         return (
             <Provider store={store}>
