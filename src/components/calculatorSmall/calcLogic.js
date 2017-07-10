@@ -1,18 +1,25 @@
-//return object that contain current service name
-export const currentService = (tree, serviceID) => {
-    if (serviceID) {
-        return tree.service[serviceID];
-    }
-    return tree.service[Object.keys(tree.service)[0]];
-};
-
-//return all services from api
+/** return all services from api **/
 export const currentServiceList = (tree) => {
-    return tree.tree.undefined.services;
+
+    /** convert the default services to array **/
+    let defaultServices = Object.keys(tree.service).map((serviceID) => {
+        return tree.service[serviceID];
+    });
+
+    /** sort array of the default services by order property**/
+    defaultServices = defaultServices.sort((a, b) => {
+        return parseInt(a.order) - parseInt(b.order);
+    });
+    /** filter array of all services except of the default services **/
+    const services = tree.tree.undefined.services.filter((s) => {
+        return !tree.service[s.id];
+    });
+    /**  return concatenated  array of default and all services**/
+    return defaultServices.concat(services);
 };
 
 export const currentLevelList = (tree, serviceID) => {
-    const levelsID = currentService(tree, serviceID).level;
+    const levelsID = tree.service[serviceID].level;
     let levels = levelsID.map((levelID) => {
         return tree.level[levelID];
     });
@@ -21,21 +28,14 @@ export const currentLevelList = (tree, serviceID) => {
     });
 };
 
-export const currentLevel = (tree, id = 0) => {
-    return currentLevelList(tree)[id];
-};
-
-export const currentDeadlineList = (tree, serviceID, levelID) => {
-    const deadlineID = currentLevel(tree).deadline;
+export const currentDeadlineList = (tree, levelID) => {
+    const deadlineID = tree.level[levelID].deadline;
     let deadlines = deadlineID.map((deadlineID) => {
         return tree.deadline[deadlineID];
     }).reverse();
     return deadlines;
 };
 
-export const currentDeadline = (tree, id = 0) => {
-    return currentDeadlineList(tree)[id];
-};
 
 //compare current and max page number and set last one if its smaller
 export const checkMaxPageNumber = (numPage, maxNumPage) => {

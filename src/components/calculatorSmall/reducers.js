@@ -1,7 +1,3 @@
-/**
- * Created by nadiadaliavska on 7/1/17.
- */
-
 import {
     PLUS_PAGE,
     MINUS_PAGE,
@@ -12,12 +8,9 @@ import {
     FETCH_SUCCESS_SINGLE
 } from './actions';
 import {
-    currentService,
     currentServiceList,
     currentLevelList,
-    currentLevel,
     currentDeadlineList,
-    currentDeadline,
     checkMaxPageNumber
 } from './calcLogic'
 
@@ -36,13 +29,6 @@ const initialState = {
 
 };
 
-
-// export const changeService = (state = initialState, action) => {
-//     switch (action.type) {
-//     }
-// };
-
-
 export const reducers = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_SUCCESS_SINGLE:
@@ -58,34 +44,40 @@ export const reducers = (state = initialState, action) => {
                 },
             });
         case FETCH_SUCCESS:
+            let services = currentServiceList(action.tree.entities);
+            let levels = currentLevelList(action.tree.entities, services[0].id);
+            let deadlines = currentDeadlineList(action.tree.entities, levels[0].id);
             return Object.assign({}, state, {
                 inited: true,
                 tree: action.tree.entities,
-                currentServices: currentServiceList(action.tree.entities),
-                currentLevels: currentLevelList(action.tree.entities),
-                currentDeadlines: currentDeadlineList(action.tree.entities),
-                service: currentService(action.tree.entities),
-                level: currentLevel(action.tree.entities),
-                deadline: currentDeadline(action.tree.entities)
+                currentServices: services,
+                currentLevels: levels,
+                currentDeadlines: deadlines,
+                service: services[0],
+                level: levels[0],
+                deadline: deadlines[0]
 
             });
         case CHANGE_SERVICE:
             const selectedService = state.tree.service[action.id];
+            const levelList = currentLevelList(state.tree, action.id);
+            const deadlineList = currentDeadlineList(state.tree, levelList[0].id);
             return Object.assign({}, state, {
-                currentLevels: currentLevelList(state.tree, action.id),
-                currentDeadlines: currentDeadlineList(state.tree),
+                currentLevels: levelList,
+                currentDeadlines: deadlineList,
                 service: selectedService,
-                level: currentLevel(state.tree),
-                deadline: currentDeadline(state.tree),
-                pageNumber: checkMaxPageNumber(state.pageNumber, currentDeadline(state.tree).max_pages)
+                level: levelList[0],
+                deadline: deadlineList[0],
+                pageNumber: checkMaxPageNumber(state.pageNumber, deadlineList[0].max_pages)
             });
         case CHANGE_LEVEL:
             const selectedLevel = state.tree.level[action.id];
+            const deadlineList2 = currentDeadlineList(state.tree, action.id);
             return Object.assign({}, state, {
-                currentDeadlines: currentDeadlineList(state.tree, state.service, action.id),
+                currentDeadlines: deadlineList2,
                 level: selectedLevel,
-                deadline: currentDeadline(state.tree),
-                pageNumber: checkMaxPageNumber(state.pageNumber, currentDeadline(state.tree).max_pages)
+                deadline: deadlineList2[0],
+                pageNumber: checkMaxPageNumber(state.pageNumber, deadlineList2[0].max_pages)
             });
 
 
@@ -117,4 +109,3 @@ export const reducers = (state = initialState, action) => {
             return state
     }
 };
-// export default reducers;
