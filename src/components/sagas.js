@@ -1,5 +1,11 @@
 import {call, put, select, takeEvery, takeLatest} from 'redux-saga/effects'
-import {FETCH_SERVICE, FETCH_INIT_TREE, fetchSuccess, fetchSuccessSingle, changeService} from './calculatorSmall/actions'
+import {
+    FETCH_SERVICE,
+    FETCH_INIT_TREE,
+    fetchSuccess,
+    fetchSuccessSingle,
+    changeService
+} from './calculatorSmall/actions'
 import generalOptions from './generalOptions'
 import {getData} from './dataFactory';
 import {normalize, schema} from 'normalizr';
@@ -31,6 +37,7 @@ function api(services_id = generalOptions.service_ids) {
             (response) => {
                 const treeJson = JSON.parse(response);
                 const tree = normalize(treeJson['info'], treeSchema);
+
                 return tree;
             },
             (fail) => {
@@ -38,17 +45,35 @@ function api(services_id = generalOptions.service_ids) {
             }
         );
 }
+function putToLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+function getFromLocalStorage(key) {
+    const item = localStorage.getItem(key);
+    if (item) return JSON.parse(item);
+}
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
+/**process api call for the initial state **/
 function* fetchServiceTree(action) {
     try {
-        const tree = yield call(api);
-        console.log(tree);
-        yield put(fetchSuccess(tree));
+        const treeLocalStorage = yield call(getFromLocalStorage, 'tree');
+        if (treeLocalStorage) {
+            yield put(fetchSuccess(treeLocalStorage));
+        } else {
+            const tree = yield call(api);
+            yield call(putToLocalStorage, 'tree', tree);
+            yield put(fetchSuccess(tree));
+        }
+
     } catch (e) {
         yield put({type: "USER_FETCH_FAILED", message: e.message});
+        console.log(e);
     }
 }
+
+/**process api call for the selected service **/
 function* fetchService(action) {
     try {
         const currentTree = yield  select((state) => state.tree);
