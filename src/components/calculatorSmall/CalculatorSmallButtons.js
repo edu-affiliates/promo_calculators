@@ -1,9 +1,8 @@
 'use strict';
 
 import React from 'react';
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {changeService} from './actions'
+import generalOptions from '../generalOptions';
 
 class CalculatorSmallButtons extends React.Component {
 
@@ -11,21 +10,39 @@ class CalculatorSmallButtons extends React.Component {
         super(props);
     }
 
+    redirectTo(type) {
+        const {serviceId, levelId, deadlineId, countPages} = this.props;
+        let redirectTo = generalOptions.siteMyUrl
+            + `/${type}.html?csi=` + serviceId
+            + '&cli=' + levelId
+            + '&cdi=' + deadlineId
+            + '&ccu=' + countPages;
+        if (generalOptions.apiMode !== 'M') {
+            redirectTo += `&rid=${generalOptions.rid}`
+        }
+        location.href = redirectTo;
+    }
+
     render() {
         return (
             <div className="calc-sm-btn-group">
-                <div className="calc-sm-btn calc-sm-btn--qoute">free quote</div>
-                <div className="calc-sm-btn calc-sm-btn--order">order now</div>
+                <div onClick={() => this.redirectTo('inquiry')} className="calc-sm-btn calc-sm-btn--qoute">free quote
+                </div>
+                <div onClick={() => this.redirectTo('order')} className="calc-sm-btn calc-sm-btn--order">order now</div>
             </div>
         )
     }
 }
 
-CalculatorSmallButtons.propTypes = {};
 
 //container to match redux state to component props and dispatch redux actions to callback props
 const mapStateToProps = state => {
-    return {}
+    return {
+        serviceId: state.service.id,
+        levelId: state.level.id,
+        deadlineId: state.deadline.id,
+        countPages: state.pageNumber
+    }
 };
 
 const mapDispatchToProps = dispatch => {
