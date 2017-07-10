@@ -42,3 +42,9 @@ export const checkMaxPageNumber = (numPage, maxNumPage) => {
     if (numPage > maxNumPage) return maxNumPage;
     return numPage;
 };
+
+export const filterServices = (allServices, search) => {
+    return allServices.filter((service) => {
+        return service.name.toLocaleLowerCase().indexOf(search.toLowerCase()) !== -1;
+    });
+};

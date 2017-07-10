@@ -5,13 +5,15 @@ import {
     CHANGE_LEVEL,
     CHANGE_DEADLINE,
     FETCH_SUCCESS,
-    FETCH_SUCCESS_SINGLE
+    FETCH_SUCCESS_SINGLE,
+    FILTER_SERVICES
 } from './actions';
 import {
     currentServiceList,
     currentLevelList,
     currentDeadlineList,
-    checkMaxPageNumber
+    checkMaxPageNumber,
+    filterServices
 } from './calcLogic'
 
 
@@ -20,6 +22,8 @@ const initialState = {
     pageNumber: 1,
     tree: {},
     discount: 0.15,
+    searchString: '',
+    allServices: '',
     currentServices: [],
     currentLevels: [],
     currentDeadlines: [],
@@ -50,6 +54,7 @@ export const reducers = (state = initialState, action) => {
             return Object.assign({}, state, {
                 inited: true,
                 tree: action.tree.entities,
+                allServices: services,
                 currentServices: services,
                 currentLevels: levels,
                 currentDeadlines: deadlines,
@@ -58,6 +63,12 @@ export const reducers = (state = initialState, action) => {
                 deadline: deadlines[0]
 
             });
+        case FILTER_SERVICES:
+            const filteredServices = filterServices(state.allServices, action.search);
+            return Object.assign({}, state, {
+                currentServices: filteredServices
+            });
+
         case CHANGE_SERVICE:
             const selectedService = state.tree.service[action.id];
             const levelList = currentLevelList(state.tree, action.id);

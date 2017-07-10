@@ -10,6 +10,7 @@ export const FETCH_INIT_TREE = 'FETCH_INIT_TREE';
 export const FETCH_SERVICE = 'FETCH_SERVICE';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_SUCCESS_SINGLE = 'FETCH_SUCCESS_SINGLE';
+export const FILTER_SERVICES = 'FILTER_SERVICES';
 
 export function plusPage() {
     return {type: PLUS_PAGE}
@@ -40,5 +41,9 @@ export function fetchSuccess(tree) {
 }
 export function fetchSuccessSingle(tree, id) {
     return {type: FETCH_SUCCESS_SINGLE, tree: tree, id: id}
+}
+
+export function filterServices(search) {
+    return {type: FILTER_SERVICES, search: search}
 }
 

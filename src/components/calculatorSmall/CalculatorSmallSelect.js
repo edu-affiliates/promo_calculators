@@ -1,8 +1,7 @@
 'use strict';
 
 import React from 'react';
-import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
+import Search from './CalculatorSmallSearch';
 
 class CalculatorSmallSelect extends React.Component {
 
@@ -21,7 +20,12 @@ class CalculatorSmallSelect extends React.Component {
                            }} className="calc-sm-dropdown__item">{item.name}</li>
             }
         );
+        let searchService;
+        if (this.props.type === 'service') {
+            searchService = <Search/>;
+        }
         return (
+
             <div className="calc-sm-select-wrap ">
                 <div onClick={() => this.props.toggleDropdown(this.props.type)}
                      className={`calc-sm-select calc-sm-select--${this.props.type}`}>
@@ -29,6 +33,7 @@ class CalculatorSmallSelect extends React.Component {
                 </div>
                 <div className={(this.props.openDropdown[this.props.type]) ? 'open' : ''}>
                     <div className={`calc-sm-dropdown-wrap calc-sm-dropdown-wrap--${this.props.type}`}>
+                        {searchService}
                         <ul className="calc-sm-dropdown">
                             {currentList}
                         </ul>
