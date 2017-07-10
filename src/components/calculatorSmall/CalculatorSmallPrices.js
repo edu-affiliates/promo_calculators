@@ -2,7 +2,6 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {plusPage, minusPage} from './actions';
 import PropTypes from 'prop-types';
 
 //presentation of the price in calc small
@@ -16,7 +15,8 @@ const CalculatorSmallPrices = ({fullPrice, discount, pageNumber}) => (
 
 CalculatorSmallPrices.propTypes = {
     fullPrice: PropTypes.number.isRequired,
-    dcsPrice: PropTypes.number.isRequired
+    discount: PropTypes.number.isRequired,
+    pageNumber: PropTypes.number.isRequired
 };
 
 //container to match redux state to component props and dispatch redux actions to callback props
