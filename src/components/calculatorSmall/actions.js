@@ -11,6 +11,7 @@ export const FETCH_SERVICE = 'FETCH_SERVICE';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_SUCCESS_SINGLE = 'FETCH_SUCCESS_SINGLE';
 export const FILTER_SERVICES = 'FILTER_SERVICES';
+export const INPUT_PAGE_NUMBER = 'INPUT_PAGE_NUMBER';
 
 export function plusPage() {
     return {type: PLUS_PAGE}
@@ -45,5 +46,9 @@ export function fetchSuccessSingle(tree, id) {
 
 export function filterServices(search) {
     return {type: FILTER_SERVICES, search: search}
+}
+
+export function handleInputPageNumber(number) {
+    return{type: INPUT_PAGE_NUMBER, number: number}
 }
 

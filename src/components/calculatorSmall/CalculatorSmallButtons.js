@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
 import generalOptions from '../generalOptions';
 
 class CalculatorSmallButtons extends React.Component {
@@ -34,6 +35,12 @@ class CalculatorSmallButtons extends React.Component {
     }
 }
 
+CalculatorSmallButtons.propTypes = {
+    serviceId: PropTypes.number.isRequired,
+    levelId: PropTypes.number.isRequired,
+    deadlineId: PropTypes.number.isRequired,
+    countPages: PropTypes.number.isRequired
+};
 
 //container to match redux state to component props and dispatch redux actions to callback props
 const mapStateToProps = state => {

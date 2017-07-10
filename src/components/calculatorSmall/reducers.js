@@ -6,7 +6,8 @@ import {
     CHANGE_DEADLINE,
     FETCH_SUCCESS,
     FETCH_SUCCESS_SINGLE,
-    FILTER_SERVICES
+    FILTER_SERVICES,
+    INPUT_PAGE_NUMBER
 } from './actions';
 import {
     currentServiceList,
@@ -98,6 +99,10 @@ export const reducers = (state = initialState, action) => {
                 deadline: selectedDeadline,
                 pageNumber: checkMaxPageNumber(state.pageNumber, selectedDeadline.max_pages)
 
+            });
+        case INPUT_PAGE_NUMBER:
+            return Object.assign({}, state, {
+                pageNumber: checkMaxPageNumber(action.number, state.deadline.max_pages)
             });
 
         case PLUS_PAGE:
