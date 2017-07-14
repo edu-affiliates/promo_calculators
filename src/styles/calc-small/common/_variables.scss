@@ -1,0 +1,104 @@
+/** to customize the look and feel the calc override this variables  in your own variable scss file
+* !!IMPORTANT Be sure that you include your own variables earlier than default ones**/
+
+//default styles for calc container
+$calc-sm-width: 280px !default;
+$calc-sm-height: auto !default;
+$calc-sm-border-radius: 24px !default;
+$calc-sm-border: solid 2px #34616e !default;
+$calc-sm-background-color: #21414a !default;
+$calc-sm-background-url: url("../images/icons/payments.svg") no-repeat center calc(100% - 20px)/80% auto !default;
+$calc-sm-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42) !default;
+$calc-sm-box-padding: 36px 30px 60px !default;
+
+//default styles for calc title
+$calc-sm-title-font-family: 'OpenSans-ExtraBold' !default;
+$calc-sm-title-font-size: 18px !default;
+$calc-sm-title-color: #fce23f !default;
+
+//default styles for select
+$select-height: 34px !default;
+$select-border-radius: 24px !default;
+$select-background-color: #34616e !default;
+$select-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42) !default;
+$select-border: solid 1px #fff !default;
+$select-margin: 0 0 12px !default;
+$select-color: #ffffff !default;
+
+//default styles for buttons
+$calc-sm-btn-color: #ffffff!default;
+$calc-sm-btn-font-family: 'OpenSans-Bold'!default;
+$calc-sm-btn-font-size: 13px!default;
+$calc-sm-btn-border-radius: 24px!default;
+$calc-sm-btn-height: 34px!default;
+//quote btn
+$calc-sm-quote-background-color: #34616e!default;
+$calc-sm-quote-border-quote: 1px solid #fff!default;
+
+//order btn
+$calc-sm-order-background-color: #ea6e0d!default;
+$calc-sm-order-border-quote: 0!default;
+
+/**  end of the default variables **/
+
+//theme lists
+$themes: $theme-dark-blue, $theme-green;
+
+// Slick Carousel font path
+$slick-font-path: "~slick-carousel/slick/fonts/";
+// Slick Carousel ajax-loader.gif path
+$slick-loader-path: "~slick-carousel/slick/";
+
+// Colors
+$primary-color-dark-blue: #273952;
+$primary-color-yellow: #febc09;
+
+//Fonts
+$font-stack-regular: 'OpenSans-Regular', serif;
+$font-stack-bold: 'OpenSans-Bold', serif;
+$font-stack-extrabold: 'OpenSans-ExtraBold', serif;
+$font-stack-semibold: 'OpenSans-Semibold', serif;
+
+//bootstrap breakpoint
+
+$xx-bt: '(max-width: 576px)';
+$xs-bt: '(max-width: 767px)';
+$sm-bt: '(max-width: 991px)';
+$md-bt: '(max-width: 1199px)';
+$lg-bt: '(max-width: 1439px)';
+
+//breakpoints
+$phone: '(max-width: 667px)';
+$phonePortrait: '(max-width: 414px)';
+$phoneLandscape: '(min-width: 415px) and (max-width: 667px)';
+$tablet: '(min-width: 668px) and (max-width: 1024px)';
+$tabletPortrait: '(min-width: 668px) and (max-width: 768px)';
+$tabletLandscape: '(min-width: 769px) and (max-width: 1024px)';
+$desktop: '(min-width: 1025px) and (max-width: 1366px)';
+$desktopWide: '(min-width: 1367px) and (max-width: 1680px)';
+$desktopHD: '(min-width: 1681px) and (max-width: 1920px)';
+$desktopMega: '(min-width: 1921px)';
+
+$landscape: '(orientation: landscape)';
+//Layouts
+//$page-names: 'home' 'custom-essays' 'research-papers' 'term-papers' 'custom-book-review';
+
+$nav-prefix: ch-nav;
+$navbar-width: 1440px;
+$navbar-height: 70px;
+$navbar-color-bg: #ffffff;
+
+$arc-width: percentage(1743px/1440px);
+$section-yellow-home-min-height: 776px;
+$section-yellow-min-height: 626px;
+$section-yellow-bottom-min-height: 796px;
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1170px
+)

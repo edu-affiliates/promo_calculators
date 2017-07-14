@@ -1,0 +1,36 @@
+$theme-green: (
+  name: theme-green,
+  container: (
+    border-radius: 50px,
+    background-color: #2ecc71,
+    box-shadow: 0 0 6px 0 rgba(2, 204, 3, 0.42),
+    border: solid 2px #7aba6f,
+    width: 322px,
+    height: 470px
+  ),
+  title: (
+    font-family:'OpenSans-ExtraBold',
+    font-size: 18px,
+    color: #273952,
+  ),
+  select: (
+    border-radius: 24px,
+    background-color: #2ecc71,
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42),
+    border: solid 2px #34616e,
+    color: #273952
+  ),
+  btn :(
+    font-family:'OpenSans-Bold',
+    font-size: 14px,
+    color: #ffffff,
+    border-radius: 5px
+  ),
+  qoute :(
+    background-color: #479aae,
+  ),
+  order :(
+    background-color: #273952,
+
+  ),
+);

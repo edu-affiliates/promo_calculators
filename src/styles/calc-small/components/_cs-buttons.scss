@@ -1,0 +1,64 @@
+.calc-sm-btn-group {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+%calc-sm-btn-default {
+  font-family: $calc-sm-btn-font-family, serif;
+  font-size: $calc-sm-btn-font-size;
+  color: $calc-sm-btn-color;
+  border-radius: $calc-sm-btn-border-radius;
+  height: $calc-sm-btn-height;
+}
+
+.calc-sm-btn {
+  @extend %center-flex;
+  @extend %calc-sm-btn-default;
+  min-width: 110px;
+  flex: 0 0 49%;
+  text-transform: uppercase;
+  text-shadow: 0 0 3px rgba(0, 0, 0, .24);
+  cursor: pointer;
+
+  &--qoute {
+    background-color: $calc-sm-quote-background-color;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .5);
+    border: $calc-sm-quote-border-quote;
+    margin-right: 4px;
+    &:hover {
+      background-color: darken($calc-sm-quote-background-color, 10%);
+    }
+  }
+  &--order {
+    background-color: $calc-sm-order-background-color;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .35);
+    border: $calc-sm-order-border-quote;
+    margin-left: 4px;
+    &:hover {
+      background-color: darken($calc-sm-order-background-color, 10%);
+    }
+  }
+}
+
+@each $theme in $themes {
+  .#{map_get($theme, name)} .calc-sm-btn {
+    background-color: map_get(map_get($theme, btn), background-color);
+    border-radius: map_get(map_get($theme, btn), border-radius);
+    height: map_get(map_get($theme, btn), height);
+    color: map_get(map_get($theme, btn), color);
+    font-size: map_get(map_get($theme, btn), font-size);
+    font-family: map_get(map_get($theme, btn), font-family);
+  }
+  .#{map_get($theme, name)} .calc-sm-btn--qoute {
+    background-color: map_get(map_get($theme, qoute), background-color);
+    box-shadow: map_get(map_get($theme, qoute), box-shadow);
+    border: map_get(map_get($theme, qoute), border);
+
+  }
+  .#{map_get($theme, name)} .calc-sm-btn--order {
+    background-color: map_get(map_get($theme, order), background-color);
+    box-shadow: map_get(map_get($theme, order), box-shadow);
+    border: map_get(map_get($theme, order), border);
+  }
+}

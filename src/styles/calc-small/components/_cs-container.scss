@@ -1,0 +1,43 @@
+%calc-sm-wrap-default {
+  z-index: 100;
+  height: $calc-sm-height;
+  width: $calc-sm-width;
+  border-radius: $calc-sm-border-radius;
+  padding: $calc-sm-box-padding;
+  box-shadow: $calc-sm-box-shadow;
+  border: $calc-sm-border;
+  background: $calc-sm-background-color $calc-sm-background-url ;
+  @include respond-to($xs-bt) {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  @include respond-to($xx-bt) {
+    padding: 20px 15px;
+  }
+}
+
+.calc-sm {
+  margin: 15px;
+}
+
+.calc-sm-wrap {
+  @extend %calc-sm-wrap-default;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+@each $theme in $themes {
+  .#{map_get($theme, name)} .calc-sm-wrap {
+    border-radius: map_get(map_get($theme, container), border-radius);
+    background-color: map_get(map_get($theme, container), background-color);
+    box-shadow: map_get(map_get($theme, container), box-shadow);
+    border: map_get(map_get($theme, container), border);
+    width: map_get(map_get($theme, container), width);
+    height: map_get(map_get($theme, container), height);
+  }
+}

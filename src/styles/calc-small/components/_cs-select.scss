@@ -1,0 +1,73 @@
+.calc-sm-select-group {
+  position: relative;
+  flex: 0 0 100%;
+}
+
+%calc-sm-wrap {
+  border-radius: $select-border-radius;
+  background-color: $select-background-color;
+  box-shadow: $select-box-shadow;
+  border: $select-border;
+  margin: $select-margin;
+}
+
+.calc-sm-select-wrap {
+  @extend %calc-sm-wrap;
+  position: relative;
+  flex: 0 0 100%;
+}
+
+%calc-sm-select {
+  height: $select-height;
+  color: $select-color;
+}
+
+.calc-sm-select {
+  @extend %calc-sm-select;
+  position: relative;
+  width: 100%;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  &--service {
+    z-index: 30;
+  }
+  &--level {
+    z-index: 20;
+  }
+  &--deadline {
+    z-index: 10;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    display: block;
+    right: 15px;
+    top: calc(50% - 16.200000000000003px / 2);
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    border-color:  $select-color;
+    transform: rotate(-45deg);
+    pointer-events: none;
+  }
+}
+
+@each $theme in $themes {
+  .#{map_get($theme, name)} .calc-sm-select-wrap {
+    border-radius: map_get(map_get($theme, select), border-radius);
+    background-color: map_get(map_get($theme, select), background-color);
+    box-shadow: map_get(map_get($theme, select), box-shadow);
+    border: map_get(map_get($theme, select), border);
+    margin: map_get(map_get($theme, select), margin);
+  }
+  .#{map_get($theme, name)} .calc-sm-select {
+    height: map_get(map_get($theme, select), height);
+    color: map_get(map_get($theme, select), color);
+  }
+  .#{map_get($theme, name)} .calc-sm-select:after {
+    border-color: map_get(map_get($theme, select), color);
+  }
+}

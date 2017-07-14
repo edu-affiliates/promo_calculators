@@ -1,0 +1,42 @@
+$theme-dark-blue: (
+  name: theme-dark-blue,
+  container: (
+    border-radius:15px,
+    background-color:#273952,
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.35),
+    border: 0,
+    width: 322px,
+    height: 470px
+  ),
+  title: (
+    font-family: 'OpenSans-ExtraBold',
+    font-size: 18px,
+    color: #ffffff
+  ),
+  select: (
+    height: 44px,
+    border-radius: 5px,
+    background-color: #ffffff,
+    box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.35),
+    border: 0,
+    margin: 0 0 6px,
+    color: #273952
+  ),
+  btn :(
+    font-family:'OpenSans-Bold',
+    font-size: 14px,
+    color: #ffffff,
+    border-radius: 5px,
+    height: 44px
+  ),
+  qoute :(
+    background-color: #4990e2,
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .5),
+    border: 0
+  ),
+  order :(
+    background-color: #d0011b,
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .35),
+    border: 0
+  ),
+);

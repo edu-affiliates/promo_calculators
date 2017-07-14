@@ -33,9 +33,9 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <div>
-                    <CalculatorSmall/>
-                    <CalculatorLarge/>
-                    <TablePrices/>
+                    <CalculatorSmall containerClass = {'calc-sm'}/>
+                    <CalculatorSmall  containerClass = {'calc-sm theme-dark-blue'}/>
+                    <CalculatorSmall  containerClass = {'calc-sm theme-green'}/>
                 </div>
             </Provider>
         )
