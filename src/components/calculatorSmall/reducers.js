@@ -16,23 +16,8 @@ import {
     checkMaxPageNumber,
     filterServices
 } from './calcLogic'
+import initialState from '../../store/initState';
 
-
-const initialState = {
-    inited: false,
-    pageNumber: 1,
-    tree: {},
-    discount: 0.15,
-    searchString: '',
-    allServices: '',
-    currentServices: [],
-    currentLevels: [],
-    currentDeadlines: [],
-    service: {},
-    level: {},
-    deadline: {}
-
-};
 
 export const reducers = (state = initialState, action) => {
     switch (action.type) {

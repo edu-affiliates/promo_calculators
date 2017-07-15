@@ -4,11 +4,11 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {fetchInitTree} from './actions'
 
-import Title from './CalculatorSmallTitle';
-import SelectGroup from './CalculatorSmallSelectGroup';
-import Counter from "./CalculatorSmallCounter";
-import Prices from "./CalculatorSmallPrices";
-import Buttons from "./CalculatorSmallButtons";
+import Title from './presentation/CalculatorSmallTitle';
+import SelectGroup from './presentation/CalculatorSmallSelectGroup';
+import Counter from "./presentation/CalculatorSmallCounter";
+import Prices from "./presentation/CalculatorSmallPrices";
+import Buttons from "./presentation/CalculatorSmallButtons";
 
 class CalculatorSmall extends React.Component {
 

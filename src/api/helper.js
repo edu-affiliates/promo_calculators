@@ -1,4 +1,4 @@
-import  generalOptions  from './generalOptions';
+import  generalOptions  from '../config/generalOptions';
 
 class Helper{
     constructor(){}

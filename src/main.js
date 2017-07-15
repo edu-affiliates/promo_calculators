@@ -1,25 +1,47 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import createStore from './store/createStore'
 import './styles/main.scss'
+import CalculatorSmall from './components/calculatorSmall/CalculatorSmall'
+import createStore from './store/createStore'
+import initialState from './store/initState';
+import {Provider} from 'react-redux'
+
 
 // Store Initialization
 // ------------------------------------
-const store = createStore(window.__INITIAL_STATE__)
+const store = createStore(initialState);
 
 // Render Setup
 // ------------------------------------
-const MOUNT_NODE = document.getElementById('root')
-
+const MOUNT_NODE_1 = document.getElementById('cs-1');
+const MOUNT_NODE_2 = document.getElementById('cs-2');
+const MOUNT_NODE_3 = document.getElementById('cs-3');
 let render = () => {
-  const App = require('./components/App').default
-  const routes = require('./routes/index').default(store)
-
   ReactDOM.render(
-    <App store={store} routes={routes} />,
-    MOUNT_NODE
-  )
-}
+    <Provider store={store}>
+      <div>
+        <CalculatorSmall containerClass={'calc-sm'}/>
+      </div>
+    </Provider>,
+    MOUNT_NODE_1
+  );
+  ReactDOM.render(
+    <Provider store={store}>
+      <div>
+        <CalculatorSmall containerClass={'calc-sm theme-dark-blue'}/>
+      </div>
+    </Provider>,
+    MOUNT_NODE_2
+  );
+  ReactDOM.render(
+    <Provider store={store}>
+      <div>
+        <CalculatorSmall containerClass={'calc-sm theme-green'}/>
+      </div>
+    </Provider>,
+    MOUNT_NODE_3
+  );
+};
 
 // Development Tools
 // ------------------------------------
@@ -29,7 +51,7 @@ if (__DEV__) {
     const renderError = (error) => {
       const RedBox = require('redbox-react').default
 
-      ReactDOM.render(<RedBox error={error} />, MOUNT_NODE)
+      ReactDOM.render(<RedBox error={error}/>, MOUNT_NODE_1)
     }
 
     render = () => {
@@ -43,13 +65,12 @@ if (__DEV__) {
 
     // Setup hot module replacement
     module.hot.accept([
-      './components/App',
-      './routes/index',
-    ], () =>
-      setImmediate(() => {
-        ReactDOM.unmountComponentAtNode(MOUNT_NODE)
-        render()
-      })
+        './main',
+      ], () =>
+        setImmediate(() => {
+          ReactDOM.unmountComponentAtNode(MOUNT_NODE_1)
+          render()
+        })
     )
   }
 }

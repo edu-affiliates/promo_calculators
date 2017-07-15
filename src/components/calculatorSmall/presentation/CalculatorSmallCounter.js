@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {plusPage, minusPage, handleInputPageNumber} from './actions'
+import {plusPage, minusPage, handleInputPageNumber} from '../actions'
 
 
 //presentation of the counter in calc small

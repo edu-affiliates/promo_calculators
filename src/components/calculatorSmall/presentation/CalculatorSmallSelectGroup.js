@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import {fetchService, changeLevel, changeDeadline, fetchInitTree} from './actions'
+import {fetchService, changeLevel, changeDeadline, fetchInitTree} from '../actions'
 import Select from './CalculatorSmallSelect';
 
 

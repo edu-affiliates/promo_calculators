@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { helper } from './helper'
-import  generalOptions from './generalOptions';
+import  generalOptions from '../config/generalOptions';
 
 export class Api{
 	constructor(){

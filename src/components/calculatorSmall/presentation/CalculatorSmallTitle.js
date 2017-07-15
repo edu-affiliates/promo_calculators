@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {changeService} from './actions'
+import {changeService} from '../actions'
 
 class CalculatorSmallTitle extends React.Component {
 

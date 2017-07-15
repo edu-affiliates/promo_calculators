@@ -1,14 +1,14 @@
-import { applyMiddleware, compose, createStore as createReduxStore } from 'redux'
-import thunk from 'redux-thunk'
-import { browserHistory } from 'react-router'
-import makeRootReducer from './reducers'
-import { updateLocation } from './location'
+import {applyMiddleware, compose, createStore as createReduxStore} from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import {reducers} from '../components/calculatorSmall/reducers'
+import mysaga from './sagas'
 
 const createStore = (initialState = {}) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
-  const middleware = [thunk]
+  const sagaMiddleware = createSagaMiddleware();
+
 
   // ======================================================
   // Store Enhancers
@@ -23,21 +23,15 @@ const createStore = (initialState = {}) => {
   }
 
   // ======================================================
-  // Store Instantiation and HMR Setup
+  // Store Instantiation
   // ======================================================
-  const store = createReduxStore(
-    makeRootReducer(),
-    initialState,
-    composeEnhancers(
-      applyMiddleware(...middleware),
-      ...enhancers
-    )
-  )
-  store.asyncReducers = {}
 
-  // To unsubscribe, invoke `store.unsubscribeHistory()` anytime
-  store.unsubscribeHistory = browserHistory.listen(updateLocation(store))
-
+  let store = createReduxStore(reducers, initialState, composeEnhancers(applyMiddleware(sagaMiddleware), ...enhancers));
+  // in such way we can store all state in localStorage
+  // store.subscribe(() => {
+  //     localStorage.setItem('state', JSON.stringify(store.getState()));
+  // });
+  sagaMiddleware.run(mysaga);
   if (module.hot) {
     module.hot.accept('./reducers', () => {
       const reducers = require('./reducers').default
@@ -46,6 +40,6 @@ const createStore = (initialState = {}) => {
   }
 
   return store
-}
+};
 
 export default createStore

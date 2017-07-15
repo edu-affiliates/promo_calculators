@@ -1,5 +1,5 @@
 import $ from "jquery";
-import generalOptions from './generalOptions'
+import generalOptions from '../config/generalOptions'
 
 export const getData = (services_ids = '') => {
     let apiRequestBody = {

@@ -5,11 +5,11 @@ import {
     fetchSuccess,
     fetchSuccessSingle,
     changeService
-} from './calculatorSmall/actions'
-import generalOptions from './generalOptions'
-import {getData} from './dataFactory';
+} from '../components/calculatorSmall/actions'
+import generalOptions from '../config/generalOptions'
+import {getData} from '../api/dataFactory';
 import {normalize, schema} from 'normalizr';
-import {Api} from './apiScript';
+import {Api} from '../api/apiScript';
 
 // taking JSON with a schema definition
 // and returning nested entities with their IDs,
