@@ -21,10 +21,11 @@ CalculatorSmallPrices.propTypes = {
 
 //container to match redux state to component props and dispatch redux actions to callback props
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = reduxState => {
+  const state = reduxState.calculatorSmall;
+  return {
         fullPrice: state.deadline.price,
-        discount: state.discount,
+        discount: reduxState.discount,
         pageNumber: state.pageNumber
     }
 };

@@ -3,7 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {changeService} from '../actions'
 
 class CalculatorSmallTitle extends React.Component {
 
@@ -23,12 +22,14 @@ class CalculatorSmallTitle extends React.Component {
     }
 }
 
-CalculatorSmallTitle.propTypes = {};
+CalculatorSmallTitle.propTypes = {
+  discount: PropTypes.number.isRequired,
+};
 
 //container to match redux state to component props and dispatch redux actions to callback props
-const mapStateToProps = state => {
-    return {
-        discount: state.discount,
+const mapStateToProps = reduxState => {
+  return {
+        discount: reduxState.discount,
     }
 };
 

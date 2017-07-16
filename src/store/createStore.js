@@ -1,6 +1,6 @@
 import {applyMiddleware, compose, createStore as createReduxStore} from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import {reducers} from '../components/calculatorSmall/reducers'
+import {reducers} from './reducers'
 import mysaga from './sagas'
 
 const createStore = (initialState = {}) => {

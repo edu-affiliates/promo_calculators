@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {plusPage, minusPage, handleInputPageNumber} from '../actions'
+import {plusPage, minusPage, handleInputPageNumber} from '../../../store/actions'
 
 
 //presentation of the counter in calc small
@@ -46,8 +46,9 @@ CalculatorSmallCounter.propTypes = {
 };
 
 //container to match redux state to component props and dispatch redux actions to callback props
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = reduxState => {
+  const state = reduxState.calculatorSmall;
+  return {
         pageNumber: state.pageNumber
     }
 };

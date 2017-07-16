@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import {filterServices} from '../actions'
+import {filterServices} from  '../../../store/actions'
 
 
 class CalculatorSmallSearch extends React.Component {

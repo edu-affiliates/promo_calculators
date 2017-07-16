@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import {fetchService, changeLevel, changeDeadline, fetchInitTree} from '../actions'
+import {changeLevel, changeDeadline,fetchService} from  '../../../store/actions'
 import Select from './CalculatorSmallSelect';
 
 
@@ -64,7 +64,8 @@ class CalculatorSmallSelectGroup extends React.Component {
 }
 
 //container to match redux state to component props and dispatch redux actions to callback props
-const mapStateToProps = state => {
+const mapStateToProps = reduxState => {
+  const state = reduxState.calculatorSmall;
     return {
         inited: state.inited,
         service: state.service.name,
@@ -79,9 +80,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        init: () => {
-            dispatch(fetchInitTree())
-        },
         changeService: (id) => {
             dispatch(fetchService(id))
         },

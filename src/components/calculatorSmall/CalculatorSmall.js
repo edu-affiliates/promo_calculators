@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import {fetchInitTree} from './actions'
+import {fetchInitTree} from '../../store/actions'
 
 import Title from './presentation/CalculatorSmallTitle';
 import SelectGroup from './presentation/CalculatorSmallSelectGroup';
