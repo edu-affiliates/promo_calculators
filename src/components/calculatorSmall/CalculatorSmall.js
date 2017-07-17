@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import {fetchInitTree} from '../../store/actions'
+import {initCalc} from '../../store/actions'
 
 import Title from './presentation/CalculatorSmallTitle';
 import SelectGroup from './presentation/CalculatorSmallSelectGroup';
@@ -17,7 +17,7 @@ class CalculatorSmall extends React.Component {
   }
 
   componentWillMount() {
-    this.props.init();
+    this.props.initCalc(this.props.calcId);
   }
 
   render() {
@@ -25,11 +25,11 @@ class CalculatorSmall extends React.Component {
       return (
         <div className={this.props.containerClass}>
           <div className="calc-sm-wrap">
-            <Title/>
-            <SelectGroup/>
-            <Counter/>
-            <Prices/>
-            <Buttons/>
+            <Title />
+            <SelectGroup calcId={this.props.calcId}/>
+            <Counter calcId={this.props.calcId}/>
+            <Prices calcId={this.props.calcId}/>
+            <Buttons calcId={this.props.calcId}/>
           </div>
         </div>
       )
@@ -47,8 +47,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    init: () => {
-      dispatch(fetchInitTree())
+    initCalc: (calcId) => {
+      dispatch(initCalc(calcId))
     },
   }
 };
