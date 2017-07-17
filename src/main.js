@@ -22,23 +22,35 @@ const MOUNT_NODE = document.getElementById('cl');
 const MOUNT_NODE_1 = document.getElementById('cs-1');
 const MOUNT_NODE_2 = document.getElementById('cs-2');
 const MOUNT_NODE_3 = document.getElementById('cs-3');
-const MOUNT_NODES = [MOUNT_NODE_1, MOUNT_NODE_2, MOUNT_NODE_3];
-const MOUNT_CLASSES = ['calc-sm', 'calc-sm theme-dark-blue', 'calc-sm theme-green'];
+const MOUNT_NODES = [MOUNT_NODE, MOUNT_NODE_1, MOUNT_NODE_2, MOUNT_NODE_3];
+const MOUNT_CLASSES = ['calc-lg', 'calc-sm', 'calc-sm theme-dark-blue', 'calc-sm theme-green'];
 
 let render = () => {
-  ReactDOM.render(
-    <CalculatorLarge/>,
-    MOUNT_NODE
-  ),
+  // ReactDOM.render(
+  //   <CalculatorLarge/>,
+  //   MOUNT_NODE
+  // ),
     MOUNT_NODES.forEach((MOUNT_NODE, i) => {
-      ReactDOM.render(
-        <Provider store={store}>
-          <div>
-            <CalculatorSmall calcId={i} containerClass={MOUNT_CLASSES[i]}/>
-          </div>
-        </Provider>,
-        MOUNT_NODE
-      );
+      if(MOUNT_CLASSES[i] == 'calc-lg'){
+        ReactDOM.render(
+          <Provider store={store}>
+            <div>
+              <CalculatorLarge calcId={i} containerClass={MOUNT_CLASSES[i]}/>
+            </div>
+          </Provider>,
+          MOUNT_NODE
+        );
+      }
+      else {
+        ReactDOM.render(
+          <Provider store={store}>
+            <div>
+              <CalculatorSmall calcId={i} containerClass={MOUNT_CLASSES[i]}/>
+            </div>
+          </Provider>,
+          MOUNT_NODE
+        );
+      }
     });
 };
 
