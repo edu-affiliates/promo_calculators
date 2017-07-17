@@ -14,7 +14,8 @@ import {
   CHANGE_DEADLINE,
   FILTER_SERVICES,
   INPUT_PAGE_NUMBER,
-changeService,
+  SET_INIT_SERVICE,
+  changeService,
 } from './actions';
 
 const defaultCalcState = {
@@ -70,11 +71,19 @@ export const reducers = (state = initialState, action) => {
         allServices: services
       });
     case INIT_CALC:
-          return{
-            ...state,
-            calculatorSmall: [...state.calculatorSmall,
-              calcSmallReducers(defaultCalcState, changeService(defaultId, action.calcId), state.tree, state.allServices)]
-          };
+      const calcState = state.inited ? calcSmallReducers(defaultCalcState, changeService(defaultId, action.calcId), state.tree, state.allServices) : defaultCalcState;
+      return {
+        ...state,
+        calculatorSmall: [...state.calculatorSmall, calcState]
+      };
+    case SET_INIT_SERVICE:
+      return Object.assign({}, state, {
+        calculatorSmall: state.calculatorSmall.map(
+          (calcState) => {
+            return calcSmallReducers(calcState, changeService(action.initServiceId), state.tree, state.allServices)
+          }
+        )
+      });
     case CHANGE_SERVICE:
     case CHANGE_LEVEL:
     case CHANGE_DEADLINE:
@@ -82,15 +91,17 @@ export const reducers = (state = initialState, action) => {
     case MINUS_PAGE:
     case FILTER_SERVICES:
     case INPUT_PAGE_NUMBER:
-       return {
-         ...state,
-         calculatorSmall: state.calculatorSmall.map(
-           (cs, i) => {
+      return {
+        ...state,
+        calculatorSmall: state.calculatorSmall.map(
+          (cs, i) => {
             return i === action.calcId ? calcSmallReducers(cs, action, state.tree, state.allServices) : cs
-           }
-         )};
-        // calculatorSmall: calcSmallReducers(state.calculatorSmall[action.calcId], action, state.tree)
+          }
+        )
+      };
+    // calculatorSmall: calcSmallReducers(state.calculatorSmall[action.calcId], action, state.tree)
     default:
       return state;
   }
-};
+}
+  ;

@@ -10,6 +10,7 @@ export const CHANGE_DEADLINE = 'CHANGE_DEADLINE';
 export const FILTER_SERVICES = 'FILTER_SERVICES';
 export const INPUT_PAGE_NUMBER = 'INPUT_PAGE_NUMBER';
 export const INIT_CALC = 'INIT_CALC';
+export const SET_INIT_SERVICE = 'SET_INIT_SERVICE';
 
 export function plusPage(calcId) {
   return {type: PLUS_PAGE, calcId: calcId}
@@ -20,7 +21,7 @@ export function minusPage(calcId) {
   return {type: MINUS_PAGE, calcId: calcId}
 }
 
-export function changeService(id,calcId) {
+export function changeService(id, calcId) {
   return {type: CHANGE_SERVICE, id: id, calcId: calcId}
 }
 export function changeLevel(id,calcId) {
@@ -56,4 +57,7 @@ export function fetchSuccessSingle(tree, id) {
 
 export function initCalc(calcId) {
   return {type: INIT_CALC, calcId: calcId}
+}
+export function setInitService(initServiceId) {
+  return {type: SET_INIT_SERVICE, initServiceId: initServiceId}
 }

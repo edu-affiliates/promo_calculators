@@ -1,5 +1,5 @@
 import {call, put, select, takeEvery, takeLatest} from 'redux-saga/effects'
-import {FETCH_SERVICE, FETCH_INIT_TREE, fetchSuccess, fetchSuccessSingle,changeService} from './actions'
+import {FETCH_SERVICE, FETCH_INIT_TREE, fetchSuccess, fetchSuccessSingle, changeService, setInitService} from './actions'
 import generalOptions from '../config/generalOptions'
 import {getData} from '../api/dataFactory';
 import {normalize, schema} from 'normalizr';
@@ -56,13 +56,13 @@ function* fetchServiceTree(action) {
     const defaultId = generalOptions.service_ids.split(',')[0].trim();
     if (treeLocalStorage) {
       yield put(fetchSuccess(treeLocalStorage));
-      yield put(changeService(defaultId));
+      yield put(setInitService(defaultId));
     } else {
       const tree = yield call(api);
 
       yield call(putToLocalStorage, 'tree', tree);
       yield put(fetchSuccess(tree));
-      yield put(changeService(defaultId));
+      yield put(setInitService(defaultId));
     }
 
   } catch (e) {
@@ -72,16 +72,16 @@ function* fetchServiceTree(action) {
 }
 
 /**process api call for the selected service **/
-function* fetchService(action) {
+function* fetchServiceSingle(action) {
   try {
     const currentTree = yield  select((state) => state.tree);
     if (currentTree.service[action.id]) {
-      yield put(changeService(action.id));
+      yield put(changeService(action.id, action.calcId));
     } else {
       const tree = yield call(api, action.id);
       // console.log(tree);
       yield put(fetchSuccessSingle(tree, action.id));
-      yield put(changeService(action.id));
+      yield put(changeService(action.id, action.calcId));
     }
   } catch (e) {
     yield put({type: "USER_FETCH_FAILED", message: e.message});
@@ -94,7 +94,7 @@ function* fetchService(action) {
  */
 function* mysaga() {
   yield takeEvery(FETCH_INIT_TREE, fetchServiceTree);
-  yield takeEvery(FETCH_SERVICE, fetchService)
+  yield takeEvery(FETCH_SERVICE, fetchServiceSingle)
 }
 
 export default mysaga;
