@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import {changeLevel, changeDeadline,fetchService} from  '../../../store/actions'
+import {changeLevel, changeDeadline, fetchService} from  '../../../store/actions'
 import Select from './CalculatorSmallSelect';
 
 
@@ -42,6 +42,7 @@ class CalculatorSmallSelectGroup extends React.Component {
                         onChange={this.props.changeService}
                         toggleDropdown={this.toggleDropdown}
                         openDropdown={this.state.openDropdown}
+                        calcId={this.props.calcId}
                 />
                 <Select type={'level'}
                         current={this.props.level}
@@ -49,6 +50,7 @@ class CalculatorSmallSelectGroup extends React.Component {
                         onChange={this.props.changeLevel}
                         toggleDropdown={this.toggleDropdown}
                         openDropdown={this.state.openDropdown}
+                        calcId={this.props.calcId}
 
                 />
                 <Select type={'deadline'}
@@ -57,6 +59,8 @@ class CalculatorSmallSelectGroup extends React.Component {
                         onChange={this.props.changeDeadline}
                         toggleDropdown={this.toggleDropdown}
                         openDropdown={this.state.openDropdown}
+                        calcId={this.props.calcId}
+
                 />
             </div>
         )
@@ -64,10 +68,9 @@ class CalculatorSmallSelectGroup extends React.Component {
 }
 
 //container to match redux state to component props and dispatch redux actions to callback props
-const mapStateToProps = reduxState => {
-  const state = reduxState.calculatorSmall;
+const mapStateToProps = (reduxState, ownProps) => {
+  const state = reduxState.calculatorSmall[ownProps.calcId];
     return {
-        inited: state.inited,
         service: state.service.name,
         level: state.level.name,
         deadline: state.deadline.name,
@@ -78,16 +81,16 @@ const mapStateToProps = reduxState => {
     }
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         changeService: (id) => {
-            dispatch(fetchService(id))
+            dispatch(fetchService(id,ownProps.calcId))
         },
         changeLevel: (id) => {
-            dispatch(changeLevel(id))
+            dispatch(changeLevel(id, ownProps.calcId))
         },
         changeDeadline: (id) => {
-            dispatch(changeDeadline(id))
+            dispatch(changeDeadline(id, ownProps.calcId))
         }
     }
 };

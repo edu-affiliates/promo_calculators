@@ -46,23 +46,23 @@ CalculatorSmallCounter.propTypes = {
 };
 
 //container to match redux state to component props and dispatch redux actions to callback props
-const mapStateToProps = reduxState => {
-  const state = reduxState.calculatorSmall;
+const mapStateToProps =  (reduxState, ownProps)  => {
+  const state = reduxState.calculatorSmall[ownProps.calcId];
   return {
         pageNumber: state.pageNumber
     }
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onClickMinus: () => {
-            dispatch(minusPage())
+            dispatch(minusPage(ownProps.calcId))
         },
         onClickPlus: () => {
-            dispatch(plusPage())
+            dispatch(plusPage(ownProps.calcId))
         },
         handleInputPageNumber: (number) => {
-            dispatch(handleInputPageNumber(number));
+            dispatch(handleInputPageNumber(number, ownProps.calcId));
         }
     }
 };

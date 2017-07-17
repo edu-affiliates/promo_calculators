@@ -36,10 +36,10 @@ const mapStateToProps = state => {
     return {}
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         filterServices: (search) => {
-            dispatch(filterServices(search))
+            dispatch(filterServices(search, ownProps.calcId))
         },
     }
 };

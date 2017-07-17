@@ -43,8 +43,8 @@ CalculatorSmallButtons.propTypes = {
 };
 
 //container to match redux state to component props and dispatch redux actions to callback props
-const mapStateToProps = reduxState => {
-  const state = reduxState.calculatorSmall;
+const mapStateToProps = (reduxState, ownProps) => {
+  const state = reduxState.calculatorSmall[ownProps.calcId];
     return {
         serviceId: state.service.id,
         levelId: state.level.id,

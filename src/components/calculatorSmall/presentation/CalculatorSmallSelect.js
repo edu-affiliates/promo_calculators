@@ -22,7 +22,7 @@ class CalculatorSmallSelect extends React.Component {
         );
         let searchService;
         if (this.props.type === 'service') {
-            searchService = <Search/>;
+            searchService = <Search  calcId={this.props.calcId}/>;
         }
         return (
 
