@@ -1,11 +1,17 @@
+
+
+%calc-sm-dropdown-wrap-default {
+  background-color: $calc-sm-dropdown-background;
+  border-radius: $calc-sm-dropdown-border-radius;
+}
+
 .calc-sm-dropdown-wrap {
+  @extend %calc-sm-dropdown-wrap-default;
   position: absolute;
   top: 0;
   left: 0;
-  background: #fff;
   padding: 44px 10px 10px;
   width: 100%;
-  border-radius: 5px;
   overflow-y: hidden;
   opacity: 0;
   visibility: hidden;
@@ -30,7 +36,7 @@
   padding: 0;
   width: 100%;
   overflow-x: hidden;
-  max-height: 180px;
+  max-height: 160px;
   overflow-y: auto;
   &__item {
     display: inline-block;
@@ -40,5 +46,27 @@
     width: 100%;
     padding: 5px 10px;
     cursor: pointer;
+  }
+  &::-webkit-scrollbar {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    width: 10px;
+    border-radius: 5px;
+    background-color: $select-background-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #fce23f;
+    border: solid 2px  $select-background-color;
+  }
+}
+
+@each $theme in $themes {
+  .#{map_get($theme, name)} .calc-sm-dropdown-wrap {
+    border-radius: map_get(map_get($theme, dropdown), border-radius);
+    background-color: map_get(map_get($theme, dropdown), background-color);
+    border: map_get(map_get($theme, dropdown), border);
+  }
+  .#{map_get($theme, name)} .calc-sm-dropdown::-webkit-scrollbar {
+    background-color: map_get(map_get($theme, dropdown), background-color);
   }
 }
