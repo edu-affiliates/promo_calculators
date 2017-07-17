@@ -1,4 +1,3 @@
-
 import {
   PLUS_PAGE,
   MINUS_PAGE,
@@ -6,16 +5,16 @@ import {
   CHANGE_LEVEL,
   CHANGE_DEADLINE,
   FILTER_SERVICES,
-  INPUT_PAGE_NUMBER
+  INPUT_PAGE_NUMBER,
+
 } from "../../store/actions";
-import {currentServiceList, currentLevelList, currentDeadlineList, checkMaxPageNumber, filterServices} from "./calcLogic";
+import {currentLevelList, currentDeadlineList, checkMaxPageNumber, filterServices} from "./calcLogic";
 
-
-export const calcSmallReducers = (state, action, tree) => {
+export const calcSmallReducers = (state, action, tree, allServices) => {
   switch (action.type) {
 
     case FILTER_SERVICES:
-      const filteredServices = filterServices(state.allServices, action.search);
+      const filteredServices = filterServices(allServices, action.search);
       return Object.assign({}, state, {
         currentServices: filteredServices
       });
@@ -25,6 +24,7 @@ export const calcSmallReducers = (state, action, tree) => {
       const levelList = currentLevelList(tree, action.id);
       const deadlineList = currentDeadlineList(tree, levelList[0].id);
       return Object.assign({}, state, {
+          currentServices: allServices,
           currentLevels: levelList,
           currentDeadlines: deadlineList,
           service: selectedService,
@@ -33,8 +33,8 @@ export const calcSmallReducers = (state, action, tree) => {
           pageNumber: checkMaxPageNumber(state.pageNumber, deadlineList[0].max_pages)
       });
     case CHANGE_LEVEL:
-      const selectedLevel = state.tree.level[action.id];
-      const deadlineList2 = currentDeadlineList(state.tree, action.id);
+      const selectedLevel = tree.level[action.id];
+      const deadlineList2 = currentDeadlineList(tree, action.id);
       return Object.assign({}, state, {
           currentDeadlines: deadlineList2,
           level: selectedLevel,
@@ -44,7 +44,7 @@ export const calcSmallReducers = (state, action, tree) => {
 
 
     case CHANGE_DEADLINE:
-      const selectedDeadline = state.tree.deadline[action.id];
+      const selectedDeadline = tree.deadline[action.id];
       return Object.assign({}, state, {
           deadline: selectedDeadline,
           pageNumber: checkMaxPageNumber(state.pageNumber, selectedDeadline.max_pages)
