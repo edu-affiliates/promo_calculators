@@ -1,17 +1,32 @@
+"use strict";
+
 import initialState from './initState';
 import {calcSmallReducers} from '../components/calculatorSmall/calcSmallReducers'
+import generalOptions from '../config/generalOptions'
 import {
   FETCH_SUCCESS,
   FETCH_SUCCESS_SINGLE,
+  INIT_CALC,
   PLUS_PAGE,
   MINUS_PAGE,
   CHANGE_SERVICE,
   CHANGE_LEVEL,
   CHANGE_DEADLINE,
   FILTER_SERVICES,
-  INPUT_PAGE_NUMBER
+  INPUT_PAGE_NUMBER,
+changeService,
 } from './actions';
 
+const defaultCalcState = {
+  pageNumber: 1,
+  searchString: '',
+  currentServices: [],
+  currentLevels: [],
+  currentDeadlines: [],
+  service: {},
+  level: {},
+  deadline: {}
+}
 /** return all services from api **/
 export const allServiceList = (tree) => {
 
@@ -31,6 +46,7 @@ export const allServiceList = (tree) => {
   /**  return concatenated  array of default and all services**/
   return defaultServices.concat(services);
 };
+const defaultId = generalOptions.service_ids.split(',')[0].trim();
 
 export const reducers = (state = initialState, action) => {
   switch (action.type) {
@@ -53,6 +69,12 @@ export const reducers = (state = initialState, action) => {
         tree: action.tree.entities,
         allServices: services
       });
+    case INIT_CALC:
+          return{
+            ...state,
+            calculatorSmall: [...state.calculatorSmall,
+              calcSmallReducers(defaultCalcState, changeService(defaultId, action.calcId), state.tree, state.allServices)]
+          };
     case CHANGE_SERVICE:
     case CHANGE_LEVEL:
     case CHANGE_DEADLINE:
@@ -60,9 +82,14 @@ export const reducers = (state = initialState, action) => {
     case MINUS_PAGE:
     case FILTER_SERVICES:
     case INPUT_PAGE_NUMBER:
-      return Object.assign({}, state, {
-        calculatorSmall: calcSmallReducers(state.calculatorSmall, action, state.tree)
-      });
+       return {
+         ...state,
+         calculatorSmall: state.calculatorSmall.map(
+           (cs, i) => {
+            return i === action.calcId ? calcSmallReducers(cs, action, state.tree, state.allServices) : cs
+           }
+         )};
+        // calculatorSmall: calcSmallReducers(state.calculatorSmall[action.calcId], action, state.tree)
     default:
       return state;
   }

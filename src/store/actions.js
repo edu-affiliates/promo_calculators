@@ -9,41 +9,42 @@ export const CHANGE_LEVEL = 'CHANGE_LEVEL';
 export const CHANGE_DEADLINE = 'CHANGE_DEADLINE';
 export const FILTER_SERVICES = 'FILTER_SERVICES';
 export const INPUT_PAGE_NUMBER = 'INPUT_PAGE_NUMBER';
+export const INIT_CALC = 'INIT_CALC';
 
-export function plusPage() {
-  return {type: PLUS_PAGE}
+export function plusPage(calcId) {
+  return {type: PLUS_PAGE, calcId: calcId}
 }
 
-export function minusPage() {
+export function minusPage(calcId) {
 
-  return {type: MINUS_PAGE}
+  return {type: MINUS_PAGE, calcId: calcId}
 }
 
-export function changeService(id) {
-  return {type: CHANGE_SERVICE, id: id}
+export function changeService(id,calcId) {
+  return {type: CHANGE_SERVICE, id: id, calcId: calcId}
 }
-export function changeLevel(id) {
-  return {type: CHANGE_LEVEL, id: id}
+export function changeLevel(id,calcId) {
+  return {type: CHANGE_LEVEL, id: id, calcId: calcId}
 }
-export function changeDeadline(id) {
-  return {type: CHANGE_DEADLINE, id: id}
-}
-
-
-export function filterServices(search) {
-  return {type: FILTER_SERVICES, search: search}
+export function changeDeadline(id,calcId) {
+  return {type: CHANGE_DEADLINE, id: id, calcId: calcId}
 }
 
-export function handleInputPageNumber(number) {
-  return{type: INPUT_PAGE_NUMBER, number: number}
+
+export function filterServices(search, calcId) {
+  return {type: FILTER_SERVICES, search: search, calcId: calcId}
+}
+
+export function handleInputPageNumber(number, calcId) {
+  return{type: INPUT_PAGE_NUMBER, number: number, calcId: calcId}
 }
 
 // saga
 export function fetchInitTree() {
   return {type: FETCH_INIT_TREE}
 }
-export function fetchService(serviceId) {
-  return {type: FETCH_SERVICE, id: serviceId}
+export function fetchService(serviceId, calcId) {
+  return {type: FETCH_SERVICE, id: serviceId, calcId: calcId}
 }
 //reducer
 export function fetchSuccess(tree) {
@@ -51,4 +52,8 @@ export function fetchSuccess(tree) {
 }
 export function fetchSuccessSingle(tree, id) {
   return {type: FETCH_SUCCESS_SINGLE, tree: tree, id: id}
+}
+
+export function initCalc(calcId) {
+  return {type: INIT_CALC, calcId: calcId}
 }

@@ -3,15 +3,6 @@ const initialState = {
   tree: {},
   discount: 0.15,
   allServices: [],
-  calculatorSmall: {
-    pageNumber: 1,
-    searchString: '',
-    currentServices: [],
-    currentLevels: [],
-    currentDeadlines: [],
-    service: {},
-    level: {},
-    deadline: {}
-  }
+  calculatorSmall: []
 };
 export default initialState
