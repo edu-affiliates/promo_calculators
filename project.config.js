@@ -1,4 +1,4 @@
-const NODE_ENV = process.env.NODE_ENV || 'development'
+const NODE_ENV = process.env.NODE_ENV || 'production'
 
 module.exports = {
   /** The environment to use when building the project */
@@ -14,7 +14,7 @@ module.exports = {
   /** The base path for all projects assets (relative to the website root) */
   publicPath: '/',
   /** Whether to generate sourcemaps */
-  sourcemaps: true,
+  sourcemaps: false,
   /** A hash map of keys that the compiler should treat as external to the project */
   externals: {},
   /** A hash map of variables and their values to expose globally */
@@ -23,11 +23,11 @@ module.exports = {
   verbose: false,
   /** The list of modules to bundle separately from the core application code */
   vendors: [
-    'react',
-    'react-dom',
-    'redux',
-    'react-redux',
-    'redux-thunk',
-    'react-router',
+    // 'react',
+    // 'react-dom',
+    // 'redux',
+    // 'react-redux',
+    // 'redux-thunk',
+    // 'react-router',
   ],
 }
