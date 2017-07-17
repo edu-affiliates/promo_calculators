@@ -4,11 +4,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './styles/main.scss'
 import CalculatorSmall from './components/calculatorSmall/CalculatorSmall'
+import CalculatorLarge from './components/calculatorLarge/CalculatorLarge'
 import createStore from './store/createStore'
 import initialState from './store/initState';
 import {Provider} from 'react-redux';
 import {fetchInitTree} from './store/actions';
-
 
 
 // Store Initialization
@@ -18,23 +18,28 @@ store.dispatch(fetchInitTree());
 
 // Render Setup
 // ------------------------------------
+const MOUNT_NODE = document.getElementById('cl');
 const MOUNT_NODE_1 = document.getElementById('cs-1');
 const MOUNT_NODE_2 = document.getElementById('cs-2');
 const MOUNT_NODE_3 = document.getElementById('cs-3');
 const MOUNT_NODES = [MOUNT_NODE_1, MOUNT_NODE_2, MOUNT_NODE_3];
-const MOUNT_CLASSES = ['calc-sm', 'calc-sm theme-dark-blue', 'calc-sm theme-green', 'calc-lg'];
+const MOUNT_CLASSES = ['calc-sm', 'calc-sm theme-dark-blue', 'calc-sm theme-green'];
 
 let render = () => {
-  MOUNT_NODES.forEach((MOUNT_NODE, i) => {
-    ReactDOM.render(
-      <Provider store={store}>
-        <div>
-          <CalculatorSmall calcId={i} containerClass={MOUNT_CLASSES[i]}/>
-        </div>
-      </Provider>,
-      MOUNT_NODE
-    );
-  });
+  ReactDOM.render(
+    <CalculatorLarge/>,
+    MOUNT_NODE
+  ),
+    MOUNT_NODES.forEach((MOUNT_NODE, i) => {
+      ReactDOM.render(
+        <Provider store={store}>
+          <div>
+            <CalculatorSmall calcId={i} containerClass={MOUNT_CLASSES[i]}/>
+          </div>
+        </Provider>,
+        MOUNT_NODE
+      );
+    });
 };
 
 // Development Tools

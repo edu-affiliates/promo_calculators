@@ -1,0 +1,71 @@
+.calc-lg-range-wrap {
+  width: 500px;
+}
+
+.calc-lg-range {
+  overflow: hidden;
+  padding-top: 50px;
+  padding-left: 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  list-style: none;
+  &:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    top: 55px;
+    height: 2px;
+    background-color: #23dbe1;
+    z-index: 1;
+  }
+}
+
+.calc-lg-range-item {
+  z-index: 100;
+  position: relative;
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  background: #23dbe1;
+  border-radius: 50%;
+  &:not(:first-child):before {
+    z-index: 10;
+    position: absolute;
+    content: '';
+    width: calc(500px/3 - 5px*3);
+    top: 5px;
+    right: 10px;
+    height: 2px;
+    background-color: #fce23f;
+  }
+}
+
+
+.calc-lg-range-popup {
+  position: absolute;
+  top: -40px;
+  left: -31px;
+  bottom: 35px;
+  height: 30px;
+  width: 72px;
+  text-align: center;
+  background-color: #72dcfb;
+  box-shadow: inset 0 1px 2px 0 rgba(64, 62, 62, 0.15);
+  border-radius: 14px;
+  margin-bottom: 10px;
+  @extend %center-flex;
+  &__text {
+    color: #30505a;
+    letter-spacing: 1px;
+    font-size: 12px;
+  }
+  .calc-lg-range-item:first-child & {
+    left: 0;
+  }
+  .calc-lg-range-item:last-child & {
+    right: 0;
+    left: auto;
+  }
+}

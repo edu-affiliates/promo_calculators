@@ -1,0 +1,28 @@
+
+@mixin respond-to($media) {
+  @media #{$media} {
+    @content
+  }
+}
+
+@mixin font-face-to($name, $path, $type) {
+  @font-face {
+    font-family: $name;
+    src: url($path) format($type);
+  }
+}
+@mixin btn-hover($color, $speed) {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $color;
+  z-index: -1;
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: -webkit-transform $speed;
+  transition: transform $speed;
+}
