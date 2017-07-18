@@ -40,6 +40,7 @@ export const currentDeadlineList = (tree, levelID) => {
 //compare current and max page number and set last one if its smaller
 export const checkMaxPageNumber = (numPage, maxNumPage) => {
     if (numPage > maxNumPage) return maxNumPage;
+    if(isNaN(numPage)) return 1;
     return numPage;
 };
 

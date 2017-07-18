@@ -1,71 +1,230 @@
-.calc-lg-range-wrap {
-  width: 500px;
+$calc-type-btn-background: transparent;
+$calc-type-btn-box-shadow: none;
+$calc-type-btn-color: #273952;
+$calc-type-btn-font: 'OpenSans-Regular', serif;
+$calc-type-btn-border-radius: 100px;
+$calc-type-btn-font-size: 14px;
+$calc-type-btn-line-height: 1.14;
+$calc-type-btn-border: solid 1px #273952;
+$calc-type-btn-padding: 0 10px 0 10px;
+
+$button-on-colors-background: #273952;
+$button-on-colors-color: #ffffff;
+$button-on-colors-font: 'OpenSans-Bold', serif;
+$button-on-colors-box-shadow: none;
+$button-on-colors-letter-spacing: 1px;
+
+.clearfix {
+  *zoom: 1;
 }
 
-.calc-lg-range {
-  overflow: hidden;
-  padding-top: 50px;
-  padding-left: 0;
+.calculator {
+  //max-width: 500px;
+  max-width: 457px;
+  min-width: 280px;
+  margin: 0 auto;
+}
+
+.clearfix:before {
+  content: '';
+  display: table;
+}
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.range {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  list-style: none;
-  &:before {
-    position: absolute;
-    content: '';
+  width: 100%;
+  //height: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 75px;
+}
+
+.range input {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: -52px;
+  //height: 100px;
+  background: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+@supports (-moz-transform: translate(0, 0)) {
+  .range input {
     width: 100%;
-    top: 55px;
-    height: 2px;
-    background-color: #23dbe1;
-    z-index: 1;
+    left: -9px;
   }
 }
 
-.calc-lg-range-item {
-  z-index: 100;
+$range-input-thumb-width: 24px;
+$range-input-thumb-height: 24px;
+$range-input-thumb-border: 0;
+$range-input-thumb-background-color: #fce23f;
+
+%rage-input-thumb {
+  -webkit-appearance: none;
+  width: $range-input-thumb-width;
+  height: $range-input-thumb-height;
+  margin: -13px 0px 0px -15px;
+  border-radius: 100px;
+  background-color: $range-input-thumb-background-color;
+  border: $range-input-thumb-border;
+  cursor: pointer;
+}
+
+.range input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: $range-input-thumb-width;
+  height: $range-input-thumb-height;
+  margin: -13px 0px 0px -15px;
+  border-radius: 100px;
+  background-color: $range-input-thumb-background-color;
+  border: $range-input-thumb-border;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.range input::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: $range-input-thumb-width;
+  height: $range-input-thumb-height;
+  margin: -13px 0px 0px -15px;
+  border-radius: 100px;
+  background-color: $range-input-thumb-background-color;
+  border: $range-input-thumb-border;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.range input::-ms-thumb {
+  -webkit-appearance: none;
+  width: $range-input-thumb-width;
+  height: $range-input-thumb-height;
+  margin: -13px 0px 0px -15px;
+  border-radius: 100px;
+  background-color: $range-input-thumb-background-color;
+  border: $range-input-thumb-border;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.range input::-webkit-slider-runnable-track {
+  width: calc(100% - 10px);
+  height: 3px;
+  cursor: pointer;
+  background: $range-input-thumb-background-color !important;
+}
+
+.range input::-moz-range-track {
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  background: $range-input-thumb-background-color !important;
+}
+
+.range input::-ms-track {
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  background: $range-input-thumb-background-color !important;
+}
+
+.range input:focus {
+  background: none;
+  outline: none;
+}
+
+.range input::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.range-labels {
   position: relative;
+  padding: 0;
+  list-style: none;
+  font-family: 'OpenSans-Regular', serif;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+$range-labels-background: #fce23f;
+$range-labels-border: 0;
+
+.range-labels__step {
+  position: absolute;
+  float: left;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
   cursor: pointer;
   width: 10px;
   height: 10px;
-  background: #23dbe1;
+  background: $range-labels-background;
   border-radius: 50%;
-  &:not(:first-child):before {
-    z-index: 10;
-    position: absolute;
-    content: '';
-    width: calc(500px/3 - 5px*3);
-    top: 5px;
-    right: 10px;
-    height: 2px;
-    background-color: #fce23f;
+  z-index: 1;
+  &:nth-child(2) {
+    left: calc(11.1111% - 10px)
+  }
+  &:nth-child(3) {
+    left: calc(22.2222% - 10px)
+  }
+  &:nth-child(4) {
+    left: calc(33.3333% - 10px)
+  }
+  &:nth-child(5) {
+    left: calc(44.4444% - 10px)
+  }
+  &:nth-child(6) {
+    left: calc(55.5556% - 10px)
+  }
+  &:nth-child(7) {
+    left: calc(66.6667% - 10px)
+  }
+  &:nth-child(8) {
+    left: calc(77.7778% - 10px)
+  }
+
+  &:nth-child(9) {
+    left: calc(88.8889% - 10px)
+  }
+
+  &:nth-child(10) {
+    left: calc(100% - 10px)
   }
 }
 
-
-.calc-lg-range-popup {
-  position: absolute;
-  top: -40px;
-  left: -31px;
-  bottom: 35px;
-  height: 30px;
-  width: 72px;
-  text-align: center;
-  background-color: #72dcfb;
-  box-shadow: inset 0 1px 2px 0 rgba(64, 62, 62, 0.15);
-  border-radius: 14px;
-  margin-bottom: 10px;
-  @extend %center-flex;
-  &__text {
-    color: #30505a;
-    letter-spacing: 1px;
-    font-size: 12px;
-  }
-  .calc-lg-range-item:first-child & {
-    left: 0;
-  }
-  .calc-lg-range-item:last-child & {
-    right: 0;
-    left: auto;
-  }
+.calculator__type-deadline > div.range-labels {
+  width: 100%;
+  margin-left: 0%;
+  padding: 0;
+  display: block;
+  position: relative;
+  bottom: 20px;
+  height: 0;
 }
+
+.calculator__type-deadline > div.range-labels .selected {
+  background: $range-input-thumb-background-color;
+  border: 0;
+}
+
+.range-labels .active.selected::before {
+  display: none;
+}
+
+/* CUSTOM INPUT RANGE end
+===============================
+*/
