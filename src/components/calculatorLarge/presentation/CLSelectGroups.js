@@ -9,6 +9,25 @@ class CLSelectGroups extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            openDropdown: {
+                service: false,
+                level: false,
+                deadline: false
+            }
+        };
+        this.toggleDropdown = this.toggleDropdown.bind(this);
+    }
+    toggleDropdown(type) {
+        const openDropdown = Object.assign({}, this.state.openDropdown);
+        for (let toggleType in openDropdown) {
+            if (toggleType === type) {
+                openDropdown[toggleType] = !openDropdown[toggleType];
+            } else {
+                openDropdown[toggleType] = false;
+            }
+        }
+        this.setState({openDropdown: openDropdown});
     }
 
     render() {
@@ -19,13 +38,16 @@ class CLSelectGroups extends React.Component {
                         currentList={this.props.serviceList}
                         onChange={this.props.changeService}
                         calcId={this.props.calcId}
+                        toggleDropdown={this.toggleDropdown}
+                        openDropdown={this.state.openDropdown}
                 />
                 <Select type={'level'}
                         current={this.props.level}
                         currentList={this.props.levelList}
                         onChange={this.props.changeLevel}
                         calcId={this.props.calcId}
-
+                        toggleDropdown={this.toggleDropdown}
+                        openDropdown={this.state.openDropdown}
                 />
             </div>
         )

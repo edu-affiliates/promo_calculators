@@ -19,7 +19,7 @@ class CLCounter extends React.Component {
     }
 
     render() {
-        const {onClickPlus, onClickMinus, pageNumber, fullPrice} = this.props;
+        const {onClickPlus, onClickMinus, pageNumber, fullPrice, discount} = this.props;
         return (
             <div className="calc-lg-counter-group">
                 <div className="calc-lg-counter-wrap">
@@ -39,7 +39,7 @@ class CLCounter extends React.Component {
                 </div>
                 <div className="calc-lg-single-price">
                     <span className="calc-lg-single-price__title">Price per page</span>
-                    <span className="calc-lg-single-price__value">$ {fullPrice.toFixed(2)}</span></div>
+                    <span className="calc-lg-single-price__value">$ {(fullPrice * (1 - discount)).toFixed(2)}</span></div>
             </div>
         )
     }
@@ -48,7 +48,9 @@ class CLCounter extends React.Component {
 CLCounter.propTypes = {
     onClickPlus: PropTypes.func.isRequired,
     onClickMinus: PropTypes.func.isRequired,
-    pageNumber: PropTypes.number.isRequired
+    pageNumber: PropTypes.number.isRequired,
+    fullPrice: PropTypes.number.isRequired,
+    discount: PropTypes.number.isRequired,
 };
 
 //container to match redux state to component props and dispatch redux actions to callback props
@@ -56,6 +58,7 @@ const mapStateToProps = (reduxState, ownProps) => {
     const state = reduxState.calculatorSmall[ownProps.calcId];
     return {
         fullPrice: state.deadline.price,
+        discount: reduxState.discount,
         pageNumber: state.pageNumber
     }
 };

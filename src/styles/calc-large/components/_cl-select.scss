@@ -1,4 +1,5 @@
 .calc-lg-select-wrap {
+  position: relative;
 }
 
 .calc-lg-select-title {
@@ -7,9 +8,11 @@
 }
 
 .calc-lg-select-list {
+  position: relative;
   padding-left: 0;
   list-style: none;
   display: flex;
+  z-index: 50;
 }
 
 .calc-lg-select-item {
@@ -28,5 +31,9 @@
   &:last-child {
     border-top-right-radius: 70px;
     border-bottom-right-radius: 70px;
+  }
+  &.active {
+    background-color: #23dbe1;
+    color: #30505a
   }
 }

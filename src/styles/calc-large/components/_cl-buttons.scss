@@ -1,0 +1,73 @@
+//default styles for buttons
+$calc-lg-btn-color: #ffffff!default;
+$calc-lg-btn-font-family: 'OpenSans-Bold'!default;
+$calc-lg-btn-font-size: 23px!default;
+$calc-lg-btn-border-radius: 100px!default;
+$calc-lg-btn-height: 70px!default;
+//quote btn
+$calc-lg-quote-background-color: #34616e!default;
+$calc-lg-quote-border-quote: 1px solid #fff!default;
+
+//order btn
+$calc-lg-order-background-color: #ea6e0d!default;
+$calc-lg-order-border-quote: 0!default;
+.calc-lg-btn-group {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+%calc-lg-btn-default {
+  font-family: $calc-lg-btn-font-family, serif;
+  font-size: $calc-lg-btn-font-size;
+  color: $calc-lg-btn-color;
+  border-radius: $calc-lg-btn-border-radius;
+  height: $calc-lg-btn-height;
+}
+
+.calc-lg-btn {
+  @extend %center-flex;
+  @extend %calc-lg-btn-default;
+  flex: 0 0 calc(48% - 0px);
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &--qoute {
+    background-color: $calc-lg-quote-background-color;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.83), inset 0 1px 0 0 rgba(255, 255, 255, 0.44);
+    border: $calc-lg-quote-border-quote;
+    &:hover {
+      background-color: darken($calc-lg-quote-background-color, 10%);
+    }
+  }
+  &--order {
+    background-color: $calc-lg-order-background-color;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.83), inset 0 1px 0 0 rgba(255, 255, 255, 0.44);
+    border: $calc-lg-order-border-quote;
+    &:hover {
+      background-color: darken($calc-lg-order-background-color, 10%);
+    }
+  }
+}
+
+//@each $theme in $themes {
+//  .#{map_get($theme, name)} .calc-lg-btn {
+//    background-color: map_get(map_get($theme, btn), background-color);
+//    border-radius: map_get(map_get($theme, btn), border-radius);
+//    height: map_get(map_get($theme, btn), height);
+//    color: map_get(map_get($theme, btn), color);
+//    font-size: map_get(map_get($theme, btn), font-size);
+//    font-family: map_get(map_get($theme, btn), font-family);
+//  }
+//  .#{map_get($theme, name)} .calc-lg-btn--qoute {
+//    background-color: map_get(map_get($theme, qoute), background-color);
+//    box-shadow: map_get(map_get($theme, qoute), box-shadow);
+//    border: map_get(map_get($theme, qoute), border);
+//
+//  }
+//  .#{map_get($theme, name)} .calc-lg-btn--order {
+//    background-color: map_get(map_get($theme, order), background-color);
+//    box-shadow: map_get(map_get($theme, order), box-shadow);
+//    border: map_get(map_get($theme, order), border);
+//  }
+//}

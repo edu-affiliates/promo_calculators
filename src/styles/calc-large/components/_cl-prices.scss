@@ -1,0 +1,39 @@
+.calc-lg-prices-group {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.calc-lg-prices-wrap {
+  flex: 0 0 50%;
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calc-lg-price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 50%;
+  height: 100%;
+  color: #fff;
+  &--currency {
+    color: #72dcfb;
+  }
+  &--full {
+    font-size: 22px;
+    text-decoration: line-through;
+    padding-right: 10px;
+  }
+  &--dsc {
+    font-size: 46px;
+  }
+}
+
+.calc-lg-price-payment {
+  flex: 0 0 50%;
+  background: url("../images/icons/payments.svg") no-repeat left center;
+  background-size: contain;
+}
