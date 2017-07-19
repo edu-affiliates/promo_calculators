@@ -9,50 +9,63 @@ class CLSelect extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            active: {
-                service: false,
-                level: false,
-            }
-        };
-        this.setActive = this.setActive.bind(this);
-
+        this.openSingle = this.openSingle.bind(this);
     }
 
-    setActive(type) {
-        const active = Object.assign({}, this.state.active);
-        for (let t in active) {
-            if (t === type) {
-                active[t] = !active[t];
-            } else {
-                active[t] = false;
-            }
-        }
-        this.setState({active: active});
+    openSingle(current) {
+        this.props.allServices.slice(0, 4).forEach((s) => {
+            return s !== current;
+        });
     }
+
+    ;
 
     render() {
         let chooseOther;
         let titleList;
         let searchService;
         let currentList;
+        let currentDropdownList;
+        let selectedService;
 
         if (this.props.type === 'service') {
             searchService = <Search calcId={this.props.calcId}/>;
             titleList = 'Type of Service:';
             chooseOther =
-                <li className="calc-lg-select-item" onClick={() => this.props.toggleDropdown(this.props.type)}>Choose
-                    Other</li>;
+                <li className={`${(this.props.openDropdown[this.props.type]) ? 'active' : ''} calc-lg-select-item`}
+                    onClick={() => this.props.toggleDropdown(this.props.type)}>Choose Other</li>;
 
             currentList = this.props.allServices.slice(0, 4).map(
                 (item) => {
                     return <li key={item.id}
-                               className={`${(this.state.active[this.props.type] && this.props.current === item.name) ? 'active' : ''} calc-lg-select-item`}
+                               className={`${(this.props.current === item.name && !this.props.openDropdown[this.props.type]) ? 'active' : ''} calc-lg-select-item`}
                                onClick={() => {
-                                   this.setActive(this.props.type);
+                                   if (this.props.openDropdown[this.props.type]) {
+                                       this.props.toggleDropdown(this.props.type);
+                                   }
                                    this.props.onChange(item.id);
                                }}>{item.name}</li>
                 });
+            currentDropdownList = this.props.currentList.map(
+                (item, i) => {
+                    return <li key={item.id} className="calc-lg-dropdown__item"
+                               onClick={() => {
+                                   this.props.onChange(item.id);
+                                   this.props.toggleDropdown(this.props.type)
+                               }}>{item.name}</li>
+                }
+            );
+            selectedService = <div className={`
+            ${(this.props.current !== 'Essay'
+            && this.props.current !== 'Research Paper'
+            && this.props.current !== 'Term Paper'
+            && this.props.current !== 'Case Study'
+            && !this.props.openDropdown[this.props.type]) ? 'open' : ''} calc-lg-select-single`}>
+                <div className="calc-lg-select-single__text">{this.props.current}</div>
+                <div onClick={() => this.props.toggleDropdown(this.props.type)}
+                     className="calc-lg-select-single__close">✕
+                </div>
+            </div>;
         }
         else if (this.props.type === 'level') {
             titleList = 'Academic level:';
@@ -60,26 +73,15 @@ class CLSelect extends React.Component {
                 (item) => {
                     return <li
                         key={item.id}
-                        className="calc-lg-select-item"
+                        className={`${(this.props.current === item.name) ? 'active' : ''} calc-lg-select-item`}
                         onClick={() => {
                             this.props.onChange(item.id);
-                            this.props.toggleDropdown(this.props.type)
                         }}>
                         {item.name.replace(/Undergraduate /gi, 'Undergrad.')}
                     </li>
                 });
         }
 
-        let currentDropdownList;
-        currentDropdownList = this.props.currentList.map(
-            (item, i) => {
-                return <li key={item.id} className="calc-lg-dropdown__item"
-                           onClick={() => {
-                               this.props.onChange(item.id);
-                               this.props.toggleDropdown(this.props.type)
-                           }}>{item.name}</li>
-            }
-        );
 
         return (
             <div>
@@ -89,6 +91,7 @@ class CLSelect extends React.Component {
                         {currentList}
                         {chooseOther}
                     </ul>
+                    {selectedService}
                     <div className={(this.props.openDropdown[this.props.type]) ? 'open' : ''}>
                         <div className={`calc-lg-dropdown-wrap calc-lg-dropdown-wrap--${this.props.type}`}>
                             {searchService}
@@ -104,7 +107,7 @@ class CLSelect extends React.Component {
 }
 
 CLSelect.propTypes = {
-    allServices: PropTypes.number.isRequired,
+    allServices: PropTypes.array.isRequired,
 };
 
 //container to match redux state to component props and dispatch redux actions to callback props

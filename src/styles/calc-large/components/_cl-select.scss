@@ -37,3 +37,32 @@
     color: #30505a
   }
 }
+
+.calc-lg-select-single {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 27px;
+  height: 60px;
+  border-radius: 70px;
+  border: 1px solid #23dbe1;
+  background-color: #23dbe1;
+  &__text {
+    color: #30505a;
+  }
+  &__close {
+    font-size: 18px;
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    background-color: #23dbe1;
+    border: solid 2px #30505a;
+    text-align: center;
+    line-height: 56px;
+    cursor: pointer;
+    color: #30505a;
+  }
+  &.open {
+    display: flex;
+  }
+}
