@@ -9,7 +9,7 @@
   justify-content: space-between;
   height: 55px;
   width: 190px;
-  background-color: #72dcfb;
+  background-color: #23dbe1;
   border-radius: 100px;
   padding: 1px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.44);
@@ -26,12 +26,12 @@
   &--plus {
     color: #30505a;
     border: 2px solid #30505a;
-    background-color: #72dcfb;
+    background-color: #23dbe1;
   }
   &--minus {
     background-color: #30505a;
-    color: #72dcfb;
-    border: 1px solid #72dcfb;
+    color: #23dbe1;
+    border: 1px solid #23dbe1;
   }
 }
 
@@ -57,18 +57,18 @@
     font-size: 14px;
     line-height: 1.21;
     text-align: right;
-    color: #72dcfb;
+    color: #23dbe1;
 
   }
   &__value {
     font-family: OpenSans;
     height: 40px;
     border-radius: 100px;
-    border: solid 1px #72dcfb;
+    border: solid 1px #23dbe1;
     font-size: 18px;
     font-weight: bold;
     letter-spacing: 1px;
-    color: #72dcfb;
+    color: #23dbe1;
     padding: 8px 17px;
     margin-left: 10px;
   }
