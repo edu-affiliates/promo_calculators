@@ -29,6 +29,8 @@
     width: calc(50% - 5px - 2px);
     height: 2px;
     background-color: #23dbe1;
+    top: 50%;
+    transform: translateY(-50%);
   }
   &::after {
     right: 0;
