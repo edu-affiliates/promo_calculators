@@ -7,8 +7,8 @@ import {
   FILTER_SERVICES,
   INPUT_PAGE_NUMBER,
 
-} from "../../store/actions";
-import {currentLevelList, currentDeadlineList, checkMaxPageNumber, filterServices} from "./calcLogic";
+} from "./actions";
+import {currentLevelList, currentDeadlineList, checkMaxPageNumber, filterServices} from "./reducerLogic";
 
 export const calcSmallReducers = (singleCalcState, action, tree, allServices) => {
   switch (action.type) {

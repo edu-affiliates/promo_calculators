@@ -1,7 +1,9 @@
 "use strict";
 
 import initialState from './initState';
-import {calcSmallReducers} from '../components/calculatorSmall/calcSmallReducers'
+import {calcSmallReducers} from './reducerCalc'
+import {allServiceList} from "./reducerLogic";
+
 import generalOptions from '../config/generalOptions'
 import {
   FETCH_SUCCESS,
@@ -28,25 +30,7 @@ const defaultCalcState = {
   level: {},
   deadline: {}
 }
-/** return all services from api **/
-export const allServiceList = (tree) => {
 
-  /** convert the default services to array **/
-  let defaultServices = Object.keys(tree.service).map((serviceID) => {
-    return tree.service[serviceID];
-  });
-
-  /** sort array of the default services by order property**/
-  defaultServices = defaultServices.sort((a, b) => {
-    return parseInt(a.order) - parseInt(b.order);
-  });
-  /** filter array of all services except of the default services **/
-  const services = tree.tree.undefined.services.filter((s) => {
-    return !tree.service[s.id];
-  });
-  /**  return concatenated  array of default and all services**/
-  return defaultServices.concat(services);
-};
 const defaultId = generalOptions.service_ids.split(',')[0].trim();
 
 export const reducers = (state = initialState, action) => {

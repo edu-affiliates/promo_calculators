@@ -1,5 +1,5 @@
 /** return all services from api **/
-export const currentServiceList = (tree) => {
+export const allServiceList = (tree) => {
 
     /** convert the default services to array **/
     let defaultServices = Object.keys(tree.service).map((serviceID) => {
@@ -17,6 +17,7 @@ export const currentServiceList = (tree) => {
     /**  return concatenated  array of default and all services**/
     return defaultServices.concat(services);
 };
+
 
 export const currentLevelList = (tree, serviceID) => {
     const levelsID = tree.service[serviceID].level;
