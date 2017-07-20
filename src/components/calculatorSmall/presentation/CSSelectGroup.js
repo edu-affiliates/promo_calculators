@@ -3,7 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {changeLevel, changeDeadline, fetchService} from  '../../../store/actions'
-import Select from './CalculatorSmallSelect';
+import Select from './CSSelect';
 
 
 class CalculatorSmallSelectGroup extends React.Component {

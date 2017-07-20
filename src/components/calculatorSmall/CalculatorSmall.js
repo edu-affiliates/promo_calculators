@@ -4,11 +4,11 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {initCalc} from '../../store/actions'
 
-import Title from './presentation/CalculatorSmallTitle';
-import SelectGroup from './presentation/CalculatorSmallSelectGroup';
-import Counter from "./presentation/CalculatorSmallCounter";
-import Prices from "./presentation/CalculatorSmallPrices";
-import Buttons from "./presentation/CalculatorSmallButtons";
+import Title from './presentation/CSlTitle';
+import SelectGroup from './presentation/CSSelectGroup';
+import Counter from "./presentation/CSCounter";
+import Prices from "./presentation/CSPrices";
+import Buttons from "./presentation/CSButtons";
 
 class CalculatorSmall extends React.Component {
 

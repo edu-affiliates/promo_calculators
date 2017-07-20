@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import Search from './CalculatorSmallSearch';
+import Search from './CSSearch';
 
 class CalculatorSmallSelect extends React.Component {
 
