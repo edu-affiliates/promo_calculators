@@ -1,6 +1,11 @@
 'use strict';
 
 import React from 'react';
+import {connect} from 'react-redux';
+import {changeDeadline} from  '../../../store/actions'
+
+import PropTypes from 'prop-types';
+
 
 class CLCounter extends React.Component {
 
@@ -8,35 +13,54 @@ class CLCounter extends React.Component {
         super(props);
     }
 
+    handleChange() {
+
+    }
+
     render() {
-        return (
-            <div className="calculator__deadline clearfix">
-                <p>Deadline:</p>
-                <div id="deadlines"/>
-                <div className="calculator__type-deadline" id="deadline_select-button">
-                    <p className="range clearfix">
-                        {/*<span className="range-before">15 days +</span>*/}
-                        {/*<span className="range-after">3 hours</span>*/}
-                        {/*<span className="range-popup">15 days +</span>*/}
-                        {/*<span className="range-popup__triangle-left"/>*/}
-                        <input type="range" name="rangeInput" min="1" max="10" step="1" value="1" id="range"/>
-                    </p>
-                    <div id="steplist" className="range-labels clearfix">
-                        <div id="range0" className="range-labels__step"/>
-                        <div id="range1" className="range-labels__step"/>
-                        <div id="range2" className="range-labels__step"/>
-                        <div id="range3" className="range-labels__step"/>
-                        <div id="range4" className="range-labels__step"/>
-                        <div id="range5" className="range-labels__step"/>
-                        <div id="range6" className="range-labels__step"/>
-                        <div id="range7" className="range-labels__step"/>
-                        <div id="range8" className="range-labels__step"/>
-                        <div id="range9" className="range-labels__step"/>
+        const {currentDeadline, deadlineList} = this.props;
+        let deadList = deadlineList.map((d) => {
+            return <li
+                className={`${(currentDeadline.name === d.name) ? 'active' : '' } ${(currentDeadline.id < d.id) ? 'checked' : '' } calc-lg-range-item`}
+                onClick={() => {
+                    this.props.changeDeadline(d.id)
+                }}>
+                <div className="calc-lg-range-item__circle">
+                    <div className="calc-lg-range-popup">
+                        <span className="calc-lg-range-popup__text">{d.name}</span>
                     </div>
+                </div>
+            </li>
+        });
+        return (
+            <div>
+                <div className="calc-lg-select-title">Deadline:</div>
+                <div className="calc-lg-range-wrap">
+                    <ul className="calc-lg-range">
+                        {deadList}
+                    </ul>
                 </div>
             </div>
         )
     }
 }
 
-export default CLCounter;
+//container to match redux state to component props and dispatch redux actions to callback props
+const mapStateToProps = (reduxState, ownProps) => {
+    const state = reduxState.calculatorSmall[ownProps.calcId];
+    return {
+        currentDeadline: state.deadline,
+        deadlineList: state.currentDeadlines
+
+    }
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        changeDeadline: (id) => {
+            dispatch(changeDeadline(id, ownProps.calcId))
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CLCounter);

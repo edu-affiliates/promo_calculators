@@ -27,7 +27,7 @@ class CalculatorLarge extends React.Component {
                 <div className="calc-lg-container">
                     <CLTitle/>
                     <CLSelectGroups calcId={this.props.calcId}/>
-                    <CLRange/>
+                    <CLRange calcId={this.props.calcId}/>
                     <CLCounter calcId={this.props.calcId}/>
                     <CLPrices calcId={this.props.calcId}/>
                     <CLButtons calcId={this.props.calcId}/>
