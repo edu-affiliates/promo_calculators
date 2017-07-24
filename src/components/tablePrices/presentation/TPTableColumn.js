@@ -5,16 +5,20 @@ import {connect} from 'react-redux'
 import {changeLevel, changeDeadline, fetchService} from '../../../store/actions'
 import {currentDeadlineList} from '../../../store/reducerLogic'
 
-class TPRow extends React.Component {
+class TPTableColumn extends React.Component {
 
     constructor(props) {
         super(props);
     }
 
     render() {
-        const {tree, discount, lev} = this.props;
+        const {tree, discount, lev, changeDeadline, changeLevel} = this.props;
         let prices = currentDeadlineList(tree, lev.id).map((deadline) => {
-            return <div className="tp-table__price">
+            return <div onClick={() => {
+                changeLevel(lev.id);
+                changeDeadline(deadline.id);
+            }
+            } className="tp-table__price">
                 <span className="tp-table__price--full">${deadline.price}</span>
                 <span className="tp-table__price--dsc">${(deadline.price * (1 - discount)).toFixed(2)}</span>
             </div>
@@ -37,11 +41,8 @@ const mapStateToProps = (reduxState, ownProps) => {
     }
 };
 
-const mapDispatchToProps = (reduxState, ownProps) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        changeService: (id) => {
-            dispatch(fetchService(id, ownProps.calcId))
-        },
         changeLevel: (id) => {
             dispatch(changeLevel(id, ownProps.calcId))
         },
@@ -51,4 +52,4 @@ const mapDispatchToProps = (reduxState, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TPRow);
+export default connect(mapStateToProps, mapDispatchToProps)(TPTableColumn);

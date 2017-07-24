@@ -10,9 +10,9 @@ class TPService extends React.Component {
     }
 
     render() {
-        const {deadlineList} = this.props;
-        let list = deadlineList.map((deadline) => {
-            return <li className="tp-deadline__item">{deadline.name}</li>
+        const {deadlineList, deadline} = this.props;
+        let list = deadlineList.map((d) => {
+            return <li className={`${(deadline === d.name) ? 'active' : ''} tp-deadline__item`}>{d.name}</li>
         });
         return (
             <ul className="tp-deadline">
@@ -27,7 +27,7 @@ const mapStateToProps = (reduxState, ownProps) => {
     const state = reduxState.calculatorSmall[ownProps.calcId];
     return {
         deadlineList: state.currentDeadlines,
-
+        deadline: state.deadline.name,
     }
 };
 

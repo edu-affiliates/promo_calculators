@@ -13,7 +13,7 @@ class TPLevels extends React.Component {
     render() {
         const {level, levelList} = this.props;
         let list = levelList.map((l) => {
-            return <div className="tp-level__title">{l.name}</div>
+            return <div className={`${(level === l.name)? 'active': ''} tp-level__title`}>{l.name}</div>
         });
         return (
             <div className="tp-level">

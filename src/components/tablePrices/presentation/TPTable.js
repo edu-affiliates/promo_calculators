@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import TPRow from './TPRow'
+import TableColumn from './TPTableColumn'
 import {changeLevel, changeDeadline, fetchService} from '../../../store/actions'
 
 class TPTable extends React.Component {
@@ -14,7 +14,7 @@ class TPTable extends React.Component {
     render() {
         const {level, levelList} = this.props;
         let list = levelList.map((lev) => {
-            return <TPRow lev={lev}/>
+            return <TableColumn lev={lev}/>
         });
         return (
             <div className="tp-table">

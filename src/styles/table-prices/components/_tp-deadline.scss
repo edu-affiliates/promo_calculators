@@ -14,5 +14,8 @@
     text-align: left;
     color: #ffffff;
     border: 1px solid #ffffff;
+    &.active {
+      background-color: #21414a;
+    }
   }
 }
