@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 import './styles/main.scss'
 import CalculatorSmall from './components/calculatorSmall/CalculatorSmall'
 import CalculatorLarge from './components/calculatorLarge/CalculatorLarge'
+import TablePrices from './components/tablePrices/TablePrices'
 import createStore from './store/createStore'
 import initialState from './store/initState';
 import {Provider} from 'react-redux';
@@ -18,69 +19,79 @@ store.dispatch(fetchInitTree());
 
 // Render Setup
 // ------------------------------------
+const MOUNT_NODE_TP = document.getElementById('tp');
 const MOUNT_NODE = document.getElementById('cl');
 const MOUNT_NODE_1 = document.getElementById('cs-1');
 const MOUNT_NODE_2 = document.getElementById('cs-2');
 const MOUNT_NODE_3 = document.getElementById('cs-3');
-const MOUNT_NODES = [MOUNT_NODE, MOUNT_NODE_1, MOUNT_NODE_2, MOUNT_NODE_3];
-const MOUNT_CLASSES = ['calc-lg', 'calc-sm', 'calc-sm theme-dark-blue', 'calc-sm theme-green'];
+const MOUNT_NODES = [MOUNT_NODE_TP, MOUNT_NODE, MOUNT_NODE_1, MOUNT_NODE_2, MOUNT_NODE_3];
+const MOUNT_CLASSES = ['tp', 'calc-lg', 'calc-sm', 'calc-sm theme-dark-blue', 'calc-sm theme-green'];
 
 let render = () => {
 
     MOUNT_NODES.forEach((MOUNT_NODE, i) => {
-      if(MOUNT_CLASSES[i] == 'calc-lg'){
-        ReactDOM.render(
-          <Provider store={store}>
-            <div>
-              <CalculatorLarge calcId={i} containerClass={MOUNT_CLASSES[i]}/>
-            </div>
-          </Provider>,
-          MOUNT_NODE
-        );
-      }
-      else {
-        ReactDOM.render(
-          <Provider store={store}>
-            <div>
-              <CalculatorSmall calcId={i} containerClass={MOUNT_CLASSES[i]}/>
-            </div>
-          </Provider>,
-          MOUNT_NODE
-        );
-      }
+        if (MOUNT_CLASSES[i] === 'calc-lg') {
+            ReactDOM.render(
+                <Provider store={store}>
+                    <div>
+                        <CalculatorLarge calcId={i} containerClass={MOUNT_CLASSES[i]}/>
+                    </div>
+                </Provider>,
+                MOUNT_NODE
+            );
+        } else if (MOUNT_CLASSES[i] === 'tp') {
+            ReactDOM.render(
+                <Provider store={store}>
+                    <div>
+                        <TablePrices calcId={i} containerClass={MOUNT_CLASSES[i]}/>
+                    </div>
+                </Provider>,
+                MOUNT_NODE
+            );
+        }
+        else {
+            ReactDOM.render(
+                <Provider store={store}>
+                    <div>
+                        <CalculatorSmall calcId={i} containerClass={MOUNT_CLASSES[i]}/>
+                    </div>
+                </Provider>,
+                MOUNT_NODE
+            );
+        }
     });
 };
 
 // Development Tools
 // ------------------------------------
 if (__DEV__) {
-  if (module.hot) {
-    const renderApp = render
-    const renderError = (error) => {
-      const RedBox = require('redbox-react').default
+    if (module.hot) {
+        const renderApp = render
+        const renderError = (error) => {
+            const RedBox = require('redbox-react').default
 
-      ReactDOM.render(<RedBox error={error}/>, MOUNT_NODE_1)
+            ReactDOM.render(<RedBox error={error}/>, MOUNT_NODE_1)
+        }
+
+        render = () => {
+            try {
+                renderApp()
+            } catch (e) {
+                console.error(e)
+                renderError(e)
+            }
+        }
+
+        // Setup hot module replacement
+        module.hot.accept([
+                './main',
+            ], () =>
+                setImmediate(() => {
+                    ReactDOM.unmountComponentAtNode(MOUNT_NODE_1)
+                    render()
+                })
+        )
     }
-
-    render = () => {
-      try {
-        renderApp()
-      } catch (e) {
-        console.error(e)
-        renderError(e)
-      }
-    }
-
-    // Setup hot module replacement
-    module.hot.accept([
-        './main',
-      ], () =>
-        setImmediate(() => {
-          ReactDOM.unmountComponentAtNode(MOUNT_NODE_1)
-          render()
-        })
-    )
-  }
 }
 
 // Let's Go!

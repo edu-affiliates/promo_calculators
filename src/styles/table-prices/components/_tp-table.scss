@@ -1,0 +1,31 @@
+.tp-table{
+  width: calc(100% - 135px);
+  display: flex;
+  flex-wrap: wrap;
+  &__column {
+    flex: 1;
+  }
+  &__price {
+    @extend %center-flex;
+    //font-family: OpenSans;
+    text-align: left;
+    height: 40px;
+    border: 1px solid #fff;
+    &:nth-child(even){
+      background-color: #f7f7f7;
+    }
+    &--full {
+      font-size: 14px;
+      text-align: left;
+      color: #797d81;
+      text-decoration: line-through;
+    }
+    &--dsc {
+      font-weight: bold;
+      text-align: left;
+      font-size: 18px;
+      color: #21414a;
+      margin-left: 10px;
+    }
+  }
+}

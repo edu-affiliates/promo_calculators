@@ -1,0 +1,31 @@
+.tp-container {
+  width: 790px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tp-top {
+  display: flex;
+  flex: 0 0 100%;
+  &__deadline{
+    width: 135px;
+    border-top-left-radius: 24px;
+    background-color: #21414a;
+    @extend %center-flex;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+    text-align: left;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  &__body{
+    width: calc(100% - 135px);
+  }
+}
+
+.tp-body {
+  flex: 0 0 100%;
+  display: flex;
+}
