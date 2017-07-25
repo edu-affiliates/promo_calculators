@@ -12,20 +12,24 @@ class TPTableColumn extends React.Component {
     }
 
     render() {
-        const {tree, discount, lev, changeDeadline, changeLevel} = this.props;
+        const {tree, discount, currentDeadline, currentLevel, lev, changeDeadline, changeLevel} = this.props;
         let prices = currentDeadlineList(tree, lev.id).map((deadline) => {
-            return <div key={deadline.id} onClick={() => {
-                changeLevel(lev.id);
-                changeDeadline(deadline.id);
-            }
-            } className="tp-table__price">
+            return <div key={deadline.id}
+                        onClick={() => {
+                            if(currentLevel.id !== lev.id) {
+                                changeLevel(lev.id);
+                            }
+                            if(currentDeadline.id !== deadline.id) {
+                                changeDeadline(deadline.id);
+                            }
+                        }
+                        } className={`${(currentDeadline.id === deadline.id) ? 'active': ''} tp-table__price`}>
                 <span className="tp-table__price--full">${deadline.price}</span>
                 <span className="tp-table__price--dsc">${(deadline.price * (1 - discount)).toFixed(2)}</span>
             </div>
         });
         return (
             <div className="tp-table__column">
-
                 {prices}
             </div>
         )
@@ -37,7 +41,9 @@ const mapStateToProps = (reduxState, ownProps) => {
     const state = reduxState.calculatorSmall[ownProps.calcId];
     return {
         tree: reduxState.tree,
-        discount: reduxState.discount
+        discount: reduxState.discount,
+        currentDeadline : state.deadline,
+        currentLevel : state.level
     }
 };
 
