@@ -2,7 +2,8 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import {fetchService} from '../../../store/actions'
+import {fetchService} from '../../../store/actions';
+import Search from './TPSearch'
 
 class TPService extends React.Component {
 
@@ -35,7 +36,7 @@ class TPService extends React.Component {
                     <div onClick={() => this.toggleDropdown()} className="tp-select">{service}</div>
                     <div className={(this.state.openDropdown) ? 'open' : ''}>
                         <div className={`tp-dropdown-wrap tp-dropdown-wrap--${this.props.type}`}>
-                            {/*{searchService}*/}
+                            <Search calcId={this.props.calcId}/>
                             <ul className="tp-dropdown">
                                 {list}
                             </ul>

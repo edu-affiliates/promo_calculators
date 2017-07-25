@@ -14,7 +14,7 @@ class TPTable extends React.Component {
     render() {
         const {level, levelList} = this.props;
         let list = levelList.map((lev) => {
-            return <TableColumn lev={lev}/>
+            return <TableColumn key={lev.id} lev={lev}/>
         });
         return (
             <div className="tp-table">

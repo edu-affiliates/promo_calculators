@@ -14,7 +14,7 @@ class TPTableColumn extends React.Component {
     render() {
         const {tree, discount, lev, changeDeadline, changeLevel} = this.props;
         let prices = currentDeadlineList(tree, lev.id).map((deadline) => {
-            return <div onClick={() => {
+            return <div key={deadline.id} onClick={() => {
                 changeLevel(lev.id);
                 changeDeadline(deadline.id);
             }
