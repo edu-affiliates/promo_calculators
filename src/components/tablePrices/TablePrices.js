@@ -25,7 +25,7 @@ class TablePrices extends React.Component {
             <div className={this.props.containerClass}>
                 <div className="tp-container">
                     <div className="tp-top">
-                        <div className="tp-top__deadline"><img src="" alt=""/>Deadline</div>
+                        <div className="tp-top__deadline"/>
                         <div className="tp-top__body">
                             <Service calcId={this.props.calcId}/>
                             <Levels calcId={this.props.calcId}/>

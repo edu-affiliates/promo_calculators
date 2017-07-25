@@ -1,9 +1,12 @@
-.tp-table{
+.tp-table {
   width: calc(100% - 135px);
   display: flex;
   flex-wrap: wrap;
   &__column {
     flex: 1;
+    &:last-child .tp-table__price:last-child{
+      border-bottom-right-radius: 24px;
+    }
   }
   &__price {
     @extend %center-flex;
@@ -11,7 +14,7 @@
     text-align: left;
     height: 40px;
     border: 1px solid #fff;
-    &:nth-child(even){
+    &:nth-child(even) {
       background-color: #f7f7f7;
     }
     &--full {

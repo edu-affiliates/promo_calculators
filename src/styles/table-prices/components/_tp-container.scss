@@ -1,6 +1,6 @@
 .tp-container {
   width: 790px;
-  margin: 0 auto;
+  margin: 15px auto;
   display: flex;
   flex-wrap: wrap;
 }
@@ -8,19 +8,20 @@
 .tp-top {
   display: flex;
   flex: 0 0 100%;
-  &__deadline{
+  &__deadline {
     width: 135px;
     border-top-left-radius: 24px;
-    background-color: #21414a;
+    background: #21414a url('../images/icons/tp.svg') no-repeat center center;
+    background-size: initial;
     @extend %center-flex;
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 0.7px;
-    text-align: left;
-    color: #ffffff;
-    text-transform: uppercase;
+    //font-size: 18px;
+    //font-weight: bold;
+    //letter-spacing: 0.7px;
+    //text-align: left;
+    //color: #ffffff;
+    //text-transform: uppercase;
   }
-  &__body{
+  &__body {
     width: calc(100% - 135px);
   }
 }
