@@ -4,9 +4,10 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {initCalc} from '../../store/actions'
 import Deadlines from './presentation/TPDeadlines'
-import Service from './presentation/TPServices'
+import Top from './presentation/TPTop'
 import Levels from './presentation/TPLevels'
 import Table from './presentation/TPTable'
+import Select from './presentation/TPSelect'
 
 class TablePrices extends React.Component {
 
@@ -24,10 +25,18 @@ class TablePrices extends React.Component {
         return (
             <div className={this.props.containerClass}>
                 <div className="tp-container">
-                    <div className="tp-top">
-                        <div className="tp-top__deadline"/>
-                        <div className="tp-top__body">
-                            <Service calcId={this.props.calcId}/>
+                    <Select calcId={this.props.calcId}/>
+                    <div className="tp-header">
+                        <div className="tp-header__deadline">
+                            <div className="tp-header__deadline-top">
+                                <img src={require("../../images/icons/tp.svg")}/>
+                            </div>
+                            <div className="tp-header__deadline-bottom">
+                                <span>DEADLINE</span>
+                            </div>
+                        </div>
+                        <div className="tp-header__body">
+                            <Top calcId={this.props.calcId}/>
                             <Levels calcId={this.props.calcId}/>
                         </div>
                     </div>

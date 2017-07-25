@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {fetchService} from '../../../store/actions';
 import Search from './TPSearch'
 
-class TPService extends React.Component {
+class TPSelect extends React.Component {
 
     constructor(props) {
         super(props);
@@ -21,7 +21,7 @@ class TPService extends React.Component {
     }
 
     render() {
-        const {discount, service, serviceList, changeService} = this.props;
+        const {service, serviceList, changeService} = this.props;
         let list = serviceList.map((service) => {
             return <li key={service.id}
                        onClick={() => {
@@ -32,6 +32,7 @@ class TPService extends React.Component {
         });
         return (
             <div className="tp-service">
+                <div>Type of Service:</div>
                 <div className="tp-select-wrap ">
                     <div onClick={() => this.toggleDropdown()} className="tp-select">{service}</div>
                     <div className={(this.state.openDropdown) ? 'open' : ''}>
@@ -43,11 +44,6 @@ class TPService extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="tp-service-dsc">
-                    <span className="tp-service-dsc--title">Your first order</span>
-                    <span className="tp-service-dsc--value">{discount * 100}% OFF</span>
-                    <span className="tp-service-dsc-text">Limited time!</span>
-                </div>
             </div>
         )
     }
@@ -57,7 +53,6 @@ class TPService extends React.Component {
 const mapStateToProps = (reduxState, ownProps) => {
     const state = reduxState.calculatorSmall[ownProps.calcId];
     return {
-        discount: reduxState.discount,
         service: state.service.name,
         serviceList: state.currentServices,
     }
@@ -71,4 +66,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TPService);
+export default connect(mapStateToProps, mapDispatchToProps)(TPSelect);

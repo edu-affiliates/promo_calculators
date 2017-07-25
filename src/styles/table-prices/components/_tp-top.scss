@@ -1,0 +1,48 @@
+.tp-top {
+  min-height: 60px;
+  border-top-right-radius: 24px;
+  background-color: #21414a;
+  border: 1px solid #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  &__title{
+    flex: 0 0 40%;
+    @extend %center-flex;
+    //font-family: FoundersGrotesk;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+    text-align: left;
+    color: #ffffff;
+  }
+  &__dsc {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 0 0 60%;
+    //font-family: FoundersGrotesk;
+    //height: 100%;
+    padding: 12px;
+    font-weight: 600;
+    text-align: left;
+    color: #fbe23f;
+    &--title {
+      letter-spacing: 0.7px;
+      font-size: 20px;
+    }
+    &--value {
+      color: #21414a;
+      letter-spacing: 0.7px;
+      font-size: 20px;
+      background-color: #fbe23f;
+      margin: 0 9px;
+      padding: 5px;
+    }
+    &--text {
+      font-size: 16px;
+      letter-spacing: 0.5px;
+    }
+  }
+}

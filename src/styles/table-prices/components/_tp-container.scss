@@ -5,21 +5,40 @@
   flex-wrap: wrap;
 }
 
-.tp-top {
+.tp-header {
   display: flex;
   flex: 0 0 100%;
   &__deadline {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
     width: 135px;
     border-top-left-radius: 24px;
-    background: #21414a url('../images/icons/tp.svg') no-repeat center center;
     background-size: initial;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+    text-align: left;
+    color: #ffffff;
+    text-transform: uppercase;
+    background: #21414a;
+  }
+  &__deadline-top{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  &__deadline-bottom {
+    height: 50%;
+    width: 100%;
     @extend %center-flex;
-    //font-size: 18px;
-    //font-weight: bold;
-    //letter-spacing: 0.7px;
-    //text-align: left;
-    //color: #ffffff;
-    //text-transform: uppercase;
+  }
+  &__deadline-icon {
+    background: url('../images/icons/tp.svg') no-repeat center center;
+    background-size: initial;
   }
   &__body {
     width: calc(100% - 135px);

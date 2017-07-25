@@ -1,0 +1,6 @@
+.tp-counter-wrap {
+  display: none;
+  &.active {
+    display: block;
+  }
+}

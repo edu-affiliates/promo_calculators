@@ -4,6 +4,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {changeLevel, changeDeadline, fetchService} from '../../../store/actions'
 import {currentDeadlineList} from '../../../store/reducerLogic'
+import Counter from './TPTableCounter'
 
 class TPTableColumn extends React.Component {
 
@@ -26,6 +27,7 @@ class TPTableColumn extends React.Component {
                         } className={`${(currentDeadline.id === deadline.id) ? 'active': ''} tp-table__price`}>
                 <span className="tp-table__price--full">${deadline.price}</span>
                 <span className="tp-table__price--dsc">${(deadline.price * (1 - discount)).toFixed(2)}</span>
+                {/*<Counter deadlineId = {deadline.id}  calcId={this.props.calcId}/>*/}
             </div>
         });
         return (

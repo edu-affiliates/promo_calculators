@@ -3,12 +3,14 @@
 @import "common/mixin";
 @import "common/placeholders";
 @import "components/tp-container";
-@import "components/tp-service";
+@import "components/tp-select";
+@import "components/tp-top";
 @import "components/tp-search";
 @import "components/tp-dropdown";
 @import "components/tp-level";
 @import "components/tp-deadline";
 @import "components/tp-table";
+@import "components/tp-counter";
 
 
 //@include font-face-to('OpenSans-Regular', 'fonts/OpenSans-Regular.ttf', 'truetype');
