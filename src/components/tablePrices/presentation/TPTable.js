@@ -2,7 +2,9 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import TableColumn from './TPTableColumn'
+import Column from './TPTableColumn'
+import Counter from './TPTableModal'
+
 import {changeLevel, changeDeadline, fetchService} from '../../../store/actions'
 
 class TPTable extends React.Component {
@@ -14,10 +16,11 @@ class TPTable extends React.Component {
     render() {
         const {level, levelList} = this.props;
         let list = levelList.map((lev) => {
-            return <TableColumn key={lev.id} lev={lev} calcId={this.props.calcId}/>
+            return <Column key={lev.id} lev={lev} calcId={this.props.calcId}/>
         });
         return (
             <div className="tp-table">
+                <Counter calcId={this.props.calcId}/>
                 {list}
             </div>
         )

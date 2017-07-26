@@ -31,7 +31,7 @@ class TPSelect extends React.Component {
                        className="tp-dropdown__item">{service.name}</li>
         });
         return (
-            <div className="tp-service">
+            <div className="">
                 <div>Type of Service:</div>
                 <div className="tp-select-wrap ">
                     <div onClick={() => this.toggleDropdown()} className="tp-select">{service}</div>
