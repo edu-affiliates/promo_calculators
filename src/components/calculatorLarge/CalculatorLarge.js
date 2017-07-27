@@ -22,15 +22,16 @@ class CalculatorLarge extends React.Component {
     }
 
     render() {
+        const {calcId, calcTitle, containerClass, calcTitleDiscount} = this.props;
         return (
-            <div className={this.props.containerClass}>
+            <div className={containerClass}>
                 <div className="calc-lg-container">
-                    <CLTitle/>
-                    <CLSelectGroups calcId={this.props.calcId}/>
-                    <CLRange calcId={this.props.calcId}/>
-                    <CLCounter calcId={this.props.calcId}/>
-                    <CLPrices calcId={this.props.calcId}/>
-                    <CLButtons calcId={this.props.calcId}/>
+                    <CLTitle calcTitle={calcTitle} calcTitleDiscount={calcTitleDiscount}/>
+                    <CLSelectGroups calcId={calcId}/>
+                    <CLRange calcId={calcId}/>
+                    <CLCounter calcId={calcId}/>
+                    <CLPrices calcId={calcId}/>
+                    <CLButtons calcId={calcId}/>
                 </div>
             </div>
         )

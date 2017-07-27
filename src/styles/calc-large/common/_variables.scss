@@ -1,7 +1,11 @@
 /** to customize the look and feel the calc override this variables  in your own variable scss file
 * !!IMPORTANT Be sure that you include your own variables earlier than default ones**/
 
-
+//default styles for title
+$cl-title-font-family: 'OpenSans-SemiBold' !default;
+$cl-title-color: #fce23f !default;
+$cl-title-font-size: 18px !default;
+$cl-title-text-transform: uppercase !default;
 
 /**  end of the default variables **/
 
@@ -61,8 +65,8 @@ $section-yellow-bottom-min-height: 796px;
 //
 // Define the maximum width of `.container` for different screen sizes.
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1170px
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1170px
 )

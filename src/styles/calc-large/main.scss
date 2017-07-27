@@ -1,3 +1,4 @@
+@import "themes/dark-blue";
 @import "common/variables";
 @import "common/base";
 @import "common/mixin";
@@ -11,11 +12,10 @@
 @import "components/cl-prices";
 @import "components/cl-buttons";
 
-//@include font-face-to('OpenSans-Regular', 'fonts/OpenSans-Regular.ttf', 'truetype');
-//@include font-face-to('OpenSans-Italic', 'fonts/OpenSans-Italic.ttf', 'truetype');
-//@include font-face-to('OpenSans-Bold', 'fonts/OpenSans-Bold.ttf', 'truetype');
-//@include font-face-to('OpenSans-SemiBold', 'fonts/OpenSans-Semibold.ttf', 'truetype');
-//@include font-face-to('OpenSans-ExtraBold', 'fonts/OpenSans-ExtraBold.ttf', 'truetype');
-//@include font-face-to('Lato-Bold', 'fonts/Lato-Bold.ttf', 'truetype');
+@include font-face-to('OpenSans-Regular', './calc-large/fonts/OpenSans-Regular.ttf', 'truetype');
+@include font-face-to('OpenSans-Italic', './calc-large/fonts/OpenSans-Italic.ttf', 'truetype');
+@include font-face-to('OpenSans-Bold', './calc-large/fonts/OpenSans-Bold.ttf', 'truetype');
+@include font-face-to('OpenSans-SemiBold', './calc-large/fonts/OpenSans-Semibold.ttf', 'truetype');
+@include font-face-to('OpenSans-ExtraBold', './calc-large/fonts/OpenSans-ExtraBold.ttf', 'truetype');
 
 
