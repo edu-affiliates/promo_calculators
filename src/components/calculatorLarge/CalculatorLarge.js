@@ -4,7 +4,8 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {initCalc} from '../../store/actions'
 import CLTitle from './presentation/CLTitle';
-import CLSelectGroups from './presentation/CLSelectGroups';
+import CLSelectService from './presentation/CLSelectService';
+import CLSelectLevel from './presentation/CLSelectLevel';
 import CLRange from './presentation/CLRange';
 import CLCounter from './presentation/CLCounter';
 import CLPrices from './presentation/CLPrices';
@@ -27,7 +28,8 @@ class CalculatorLarge extends React.Component {
             <div className={containerClass}>
                 <div className="calc-lg-container">
                     <CLTitle calcTitle={calcTitle} calcTitleDiscount={calcTitleDiscount}/>
-                    <CLSelectGroups calcId={calcId}/>
+                    <CLSelectService calcId={calcId}/>
+                    <CLSelectLevel calcId={calcId}/>
                     <CLRange calcId={calcId}/>
                     <CLCounter calcId={calcId}/>
                     <CLPrices calcId={calcId}/>

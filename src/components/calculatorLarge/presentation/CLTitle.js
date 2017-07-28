@@ -61,8 +61,7 @@ class CLTitle extends React.Component {
 }
 
 
-CLTitle
-    .PropTypes = {
+CLTitle.PropTypes = {
     discount: PropTypes.number.isRequired,
 };
 
