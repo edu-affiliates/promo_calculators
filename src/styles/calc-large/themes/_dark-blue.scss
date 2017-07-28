@@ -3,8 +3,13 @@ $theme-dark-blue: (
         title: (
                 font-family: 'OpenSans-ExtraBold',
                 font-size: 18px,
-                color: #ffffff
+                color: #d0021b
         ),
+        subtitle : (
+                font-family: 'OpenSans-ExtraBold',
+                font-size: 16px,
+                color: #273952
+        )
 );
 
 $theme-green: (
@@ -14,4 +19,6 @@ $theme-green: (
                 font-size: 18px,
                 color: #ffffff
         ),
+        subtitle : (
+        )
 );

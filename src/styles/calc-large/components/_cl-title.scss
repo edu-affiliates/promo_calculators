@@ -35,4 +35,9 @@
   .#{map_get($theme, name)} .calc-lg-title--dsc {
     background-color: map_get(map_get($theme, title), color);
   }
+  .#{map_get($theme, name)} .calc-lg-title--sm {
+    font-family: map_get(map_get($theme, subtitle), font-family);
+    font-size: map_get(map_get($theme, subtitle), font-size);
+    color: map_get(map_get($theme, subtitle), color);
+  }
 }

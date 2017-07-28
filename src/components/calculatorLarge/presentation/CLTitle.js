@@ -12,38 +12,50 @@ class CLTitle extends React.Component {
 
     render() {
         const {discount, calcTitleDiscount: ctd, calcTitle: ct} = this.props;
-        let title;
+        //heve to chance this variables depends on conditions
+        let calcTitle;
+        //case when discount exist
         if (discount !== 0) {
             if (!!ctd) {
+                let title, subtitle;
                 //set custom title with discount
-                title =
+                title = (ctd.substr(0, ctd.indexOf('%')) + discount * 100 + ctd.substr(ctd.indexOf('%')));
+                //check if subtitle exist
+                if (title.indexOf('.') !== -1) {
+                    title = title.substr(0, title.indexOf('.') + 1);
+                    subtitle = ctd.substr(ctd.indexOf('.') + 1);
+                }
+                calcTitle =
                     <div className="calc-lg-title">
-                        {ctd.substr(0, ctd.indexOf('%')) + discount * 100 + ctd.substr(ctd.indexOf('%'))}
+                        {title}<br/>
+                        <span className="calc-lg-title--sm">{subtitle}</span>
                     </div>
             } else {
                 //set default title with discount
-                title =
+                calcTitle =
                     <div className="calc-lg-title">
                         Your first order
                         <span className="calc-lg-title--dsc">{discount * 100}% off</span>
                         <span className="calc-lg-title--sm">Limited time!</span>
                     </div>
             }
-        } else {
+        }
+        //case when there is no any discount
+        else {
             if (!!ct) {
                 //set custom title without discount
-                title =
+                calcTitle =
                     <div className="calc-lg-title">
                         {ct}
                     </div>
             } else {
                 //set default title without discount
-                title =
+                calcTitle =
                     <div className="calc-lg-title">Get a quick estimate</div>
             }
         }
         return (
-            <div>{title}</div>
+            <div>{calcTitle}</div>
         )
     }
 }

@@ -8,4 +8,7 @@
   justify-content: center;
   padding: 50px;
   background: #30505a;
+  &.theme-dark-blue{
+    background: linear-gradient(180deg,#ffc600,#ffa300);
+  }
 }
