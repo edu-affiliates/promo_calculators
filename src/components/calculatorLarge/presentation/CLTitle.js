@@ -81,9 +81,4 @@ const
 export
 default
 
-connect(mapStateToProps, mapDispatchToProps)
-
-(
-    CLTitle
-)
-;
+connect(mapStateToProps, mapDispatchToProps)(CLTitle);

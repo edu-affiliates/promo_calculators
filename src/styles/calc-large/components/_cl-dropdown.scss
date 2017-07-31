@@ -1,13 +1,13 @@
 ////default styles for dropdown
-//$calc-lg-dropdown-background: #fff;
-//$calc-lg-dropdown-border-radius: 24px
+//$cl-dropdown-background: #fff;
+//$cl-dropdown-border-radius: 24px
 //
-//%calc-lg-dropdown-wrap-default{
-//  background-color: $calc-lg-dropdown-background;
-//  border-radius: $calc-lg-dropdown-border-radius;
+//%cl-dropdown-wrap-default{
+//  background-color: $cl-dropdown-background;
+//  border-radius: $cl-dropdown-border-radius;
 //}
 
-.calc-lg-dropdown-wrap {
+.cl-dropdown-wrap {
   display: none;
   position: relative;
   padding: 44px 10px 10px;
@@ -41,7 +41,7 @@
   }
 }
 
-.calc-lg-dropdown {
+.cl-dropdown {
   background: transparent;
   padding: 0;
   width: 100%;
@@ -71,12 +71,12 @@
 }
 //
 //@each $theme in $themes {
-//  .#{map_get($theme, name)} .calc-lg-dropdown-wrap {
+//  .#{map_get($theme, name)} .cl-dropdown-wrap {
 //    border-radius: map_get(map_get($theme, dropdown), border-radius);
 //    background-color: map_get(map_get($theme, dropdown), background-color);
 //    border: map_get(map_get($theme, dropdown), border);
 //  }
-//  .#{map_get($theme, name)} .calc-lg-dropdown::-webkit-scrollbar {
+//  .#{map_get($theme, name)} .cl-dropdown::-webkit-scrollbar {
 //    background-color: map_get(map_get($theme, dropdown), background-color);
 //  }
 //}

@@ -35,7 +35,7 @@ class CLSelectService extends React.Component {
         services = allServices.slice(0, 4).map(
             (item) => {
                 return <li key={item.id}
-                           className={`${(service === item.name && !this.state.openDropdown ? 'active' : '')} calc-lg-select-item`}
+                           className={`${(service === item.name && !this.state.openDropdown ? 'active' : '')} cl-select-item`}
                            onClick={() => {
                                if (this.state.openDropdown) {
                                    this.toggleDropdown();
@@ -45,12 +45,12 @@ class CLSelectService extends React.Component {
             });
 
         chooseOther =
-            <li className={`${(this.state.openDropdown) ? 'active' : ''} calc-lg-select-item`}
+            <li className={`${(this.state.openDropdown) ? 'active' : ''} cl-select-item`}
                 onClick={() => this.toggleDropdown()}>Choose Other</li>;
 
         currentDropdownList = serviceList.map(
             (item) => {
-                return <li key={item.id} className="calc-lg-dropdown__item"
+                return <li key={item.id} className="cl-dropdown__item"
                            onClick={() => {
                                changeService(item.id);
                                this.toggleDropdown()
@@ -59,27 +59,27 @@ class CLSelectService extends React.Component {
         );
         selectedService = <div
             className={`${(service !== 'Essay' && service !== 'Research Paper' && service !== 'Term Paper' && service !== 'Case Study'
-            && !this.state.openDropdown) ? 'open' : ''} calc-lg-select-single`}>
-            <div className="calc-lg-select-single__text">{service}</div>
+            && !this.state.openDropdown) ? 'open' : ''} cl-select-single`}>
+            <div className="cl-select-single__text">{service}</div>
             <div onClick={() => this.toggleDropdown()}
-                 className="calc-lg-select-single__close">✕
+                 className="cl-select-single__close">✕
             </div>
         </div>;
 
 
         return (
-            <div className="calc-lg-select-group">
-                <div className="calc-lg-select-wrap">
-                    <div className="calc-lg-select-title">Type of Service:</div>
-                    <ul className="calc-lg-select-list">
+            <div className="cl-select-group">
+                <div className="cl-select-wrap">
+                    <div className="cl-select-title">Type of Service:</div>
+                    <ul className="cl-select-list">
                         {services}
                         {chooseOther}
                     </ul>
                     {selectedService}
                     <div className={(this.state.openDropdown) ? 'open' : ''}>
-                        <div className={`calc-lg-dropdown-wrap calc-lg-dropdown-wrap--service`}>
+                        <div className={`cl-dropdown-wrap cl-dropdown-wrap--service`}>
                             <Search calcId={this.props.calcId}/>
-                            <ul className="calc-lg-dropdown">
+                            <ul className="cl-dropdown">
                                 {currentDropdownList}
                             </ul>
                         </div>

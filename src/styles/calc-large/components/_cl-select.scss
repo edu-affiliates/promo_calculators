@@ -1,13 +1,26 @@
-.calc-lg-select-wrap {
+
+%cl-select-title-default {
+  color: $cl-select-title-color;
+  font-size: $cl-select-title-font-size;
+  font-family: $cl-select-title-font-family;
+}
+
+%cl-select-item-default {
+  border: $cl-select-item-border 1px solid;
+  color: $cl-select-item-color;
+  font-size: $cl-select-item-font-size;
+  font-family: $cl-select-item-font-family;
+}
+
+.cl-select-wrap {
   position: relative;
 }
 
-.calc-lg-select-title {
-  color: #ffed7b;
-  font-size: 18px;
+.cl-select-title {
+  @extend %cl-select-title-default;
 }
 
-.calc-lg-select-list {
+.cl-select-list {
   position: relative;
   padding-left: 0;
   list-style: none;
@@ -15,15 +28,16 @@
   z-index: 50;
 }
 
-.calc-lg-select-item {
+.cl-select-item {
   @extend %center-flex;
+  @extend %cl-select-item-default;
   height: 60px;
   flex: 1;
   text-align: center;
-  padding: 5px;
   cursor: pointer;
-  border: 1px solid #23dbe1;
-  color: #ffffff;
+  padding-left: 8px;
+  padding-right: 8px;
+
   &:first-child {
     border-top-left-radius: 70px;
     border-bottom-left-radius: 70px;
@@ -33,36 +47,54 @@
     border-bottom-right-radius: 70px;
   }
   &.active {
-    background-color: #23dbe1;
-    color: #30505a
+    background-color: $cl-select-item-active-background-color;
+    color: $cl-select-item-active-color;
   }
 }
 
-.calc-lg-select-single {
+.cl-select-single {
   display: none;
   align-items: center;
   justify-content: space-between;
   padding-left: 27px;
   height: 60px;
   border-radius: 70px;
-  border: 1px solid #23dbe1;
-  background-color: #23dbe1;
+  border: 1px solid $cl-select-single-active-background-color;
+  background-color: $cl-select-single-active-background-color;
   &__text {
-    color: #30505a;
+    color: $cl-select-single-active-color;
   }
   &__close {
     font-size: 18px;
     height: 56px;
     width: 56px;
     border-radius: 50%;
-    background-color: #23dbe1;
-    border: solid 2px #30505a;
+    background-color: $cl-select-single-active-background-color;
+    border: solid 2px $cl-select-single-active-color;
     text-align: center;
     line-height: 56px;
     cursor: pointer;
-    color: #30505a;
+    color: $cl-select-single-active-color;
   }
   &.open {
     display: flex;
+  }
+}
+
+@each $theme in $themes {
+  .#{map_get($theme, name)} .cl-select-title {
+    color: map_get(map_get($theme, select-title), title-color);
+    font-size: map_get(map_get($theme, select-title), title-font-size);
+    font-family: map_get(map_get($theme, select-title), title-font-family);
+  }
+  .#{map_get($theme, name)} .cl-select-item {
+    border-color: map_get(map_get($theme, select-item), background-color);
+    color: map_get(map_get($theme, select-item), color);
+    font-size: map_get(map_get($theme, select-item), font-size);
+    font-family: map_get(map_get($theme, select-item), font-family);
+    &.active {
+      background-color: map_get(map_get($theme, select-item), background-color);
+      color: map_get(map_get($theme, select-item), color-active);
+    }
   }
 }

@@ -12,6 +12,16 @@ class CLSelectLevel extends React.Component {
         super(props);
     }
 
+    cutLevelName(levelName) {
+        if (levelName === 'Undergraduate (1st and 2nd year)') {
+            return 'Undergrad. (yrs 1-2)'
+        } else if (levelName === 'Undergraduate (3rd and 4th year)') {
+            return 'Undergrad. (yrs 3-4)'
+        }
+        else {
+            return levelName
+        }
+    }
 
     render() {
         let levels;
@@ -20,17 +30,17 @@ class CLSelectLevel extends React.Component {
         levels = levelList.map(
             (item) => {
                 return <li key={item.id}
-                           className={`${(level === item.name ? 'active' : '')} calc-lg-select-item`}
+                           className={`${(level === item.name ? 'active' : '')} cl-select-item`}
                            onClick={() => {
                                changeLevel(item.id)
-                           }}>{item.name}</li>
+                           }}>{this.cutLevelName(item.name)}</li>
             });
 
         return (
-            <div className="calc-lg-select-group">
-                <div className="calc-lg-select-wrap">
-                    <div className="calc-lg-select-title">Academic level:</div>
-                    <ul className="calc-lg-select-list">
+            <div className="cl-select-group">
+                <div className="cl-select-wrap">
+                    <div className="cl-select-title">Academic level:</div>
+                    <ul className="cl-select-list">
                         {levels}
                     </ul>
                 </div>

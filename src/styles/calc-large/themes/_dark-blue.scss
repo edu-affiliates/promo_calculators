@@ -9,16 +9,25 @@ $theme-dark-blue: (
                 font-family: 'OpenSans-ExtraBold',
                 font-size: 16px,
                 color: #273952
+        ),
+        select-title: (
+                title-color: #000000,
+                title-font-size: 14px,
+                title-font-family: 'OpenSans-Regular',
+        ),
+        select-item :(
+                font-size: 14px,
+                font-family: 'OpenSans-Regular',
+                color: #273952,
+                color-active: #ffffff,
+                background-color: #273952,
         )
 );
 
 $theme-green: (
         name: theme-green,
-        title: (
-                font-family: 'OpenSans-ExtraBold',
-                font-size: 18px,
-                color: #ffffff
-        ),
-        subtitle : (
-        )
+        title: (),
+        subtitle : (),
+        select-title: (),
+        select-item :()
 );
