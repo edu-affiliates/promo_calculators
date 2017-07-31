@@ -50,6 +50,17 @@ $theme-dark-blue: (
                 font-size: 12px,
                 color: #ffffff,
         ),
+        counter: (
+                background: #273952,
+                background-plus: #ffc600,
+                background-minus: #ffc600,
+
+        ),
+        single-price:(
+                font-family: OpenSans-Regular,
+                font-size: 14px,
+                color: #273952,
+        ),
 );
 
 $theme-green: (
@@ -62,4 +73,6 @@ $theme-green: (
         dropdown :(),
         search : (),
         range: (),
+        counter: (),
+        single-price:(),
 );
