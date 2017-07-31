@@ -13,6 +13,8 @@ $cl-select-title-color: #fbe23f !default;
 $cl-select-title-font-size: 18px !default;
 $cl-select-title-font-family: 'OpenSans-Regular', serif !default;
 
+$cl-select-border-radius: 70px !default;
+
 $cl-select-item-font-size: 15px !default;
 $cl-select-item-color: #ffffff !default;
 $cl-select-item-border: #3ddfff !default;
@@ -40,6 +42,16 @@ $cl-search-background: transparent !default;
 $cl-search-font-family: OpenSans-Regular !default;
 $cl-search-font-size: 16px !default;
 $cl-search-color: #ffffff !default;
+
+//default styles for range
+
+$cl-range-color: #3ddfff;
+$cl-range-checked-color: #fce23f;
+$cl-range-popup-min-width: 80px;
+$cl-range-popup-background: #3ddfff;
+$cl-range-popup-font-family: OpenSans-Regular;
+$cl-range-popup-font-size: 12px;
+$cl-range-popup-color: #30505a;
 
 /**  end of the default variables **/
 
