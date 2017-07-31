@@ -31,7 +31,15 @@ $theme-dark-blue: (
                 color: #273952,
                 scroll-background: #273952,
                 thumb-background: #fce23f,
-        ));
+        ),
+        search : (
+                border-color:#273952,
+                background: transparent,
+                font-family: OpenSans-Regular,
+                font-size: 16px,
+                color: #273952,
+        )
+);
 
 $theme-green: (
         name: theme-green,
@@ -39,5 +47,6 @@ $theme-green: (
         subtitle : (),
         select-title: (),
         select-item :(),
-        dropdown :()
+        dropdown :(),
+        search : ()
 );
