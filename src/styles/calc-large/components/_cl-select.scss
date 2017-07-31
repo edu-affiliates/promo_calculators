@@ -1,4 +1,4 @@
-
+$cl-select-border-radius: 70px;
 %cl-select-title-default {
   color: $cl-select-title-color;
   font-size: $cl-select-title-font-size;
@@ -12,8 +12,18 @@
   font-family: $cl-select-item-font-family;
 }
 
+%cl-select-single-default {
+  font-size: $cl-select-item-font-size;
+  font-family: $cl-select-item-font-family;
+  border-radius: $cl-select-border-radius;
+  color: $cl-select-single-active-color;
+  border: 1px solid $cl-select-single-active-background-color;
+  background-color: $cl-select-single-active-background-color;
+}
+
 .cl-select-wrap {
   position: relative;
+  margin-bottom: 15px;
 }
 
 .cl-select-title {
@@ -39,12 +49,12 @@
   padding-right: 8px;
 
   &:first-child {
-    border-top-left-radius: 70px;
-    border-bottom-left-radius: 70px;
+    border-top-left-radius: $cl-select-border-radius;
+    border-bottom-left-radius: $cl-select-border-radius;
   }
   &:last-child {
-    border-top-right-radius: 70px;
-    border-bottom-right-radius: 70px;
+    border-top-right-radius: $cl-select-border-radius;
+    border-bottom-right-radius: $cl-select-border-radius;
   }
   &.active {
     background-color: $cl-select-item-active-background-color;
@@ -53,28 +63,23 @@
 }
 
 .cl-select-single {
+  @extend %cl-select-single-default;
   display: none;
   align-items: center;
   justify-content: space-between;
   padding-left: 27px;
   height: 60px;
-  border-radius: 70px;
-  border: 1px solid $cl-select-single-active-background-color;
-  background-color: $cl-select-single-active-background-color;
-  &__text {
-    color: $cl-select-single-active-color;
-  }
   &__close {
     font-size: 18px;
     height: 56px;
     width: 56px;
     border-radius: 50%;
-    background-color: $cl-select-single-active-background-color;
-    border: solid 2px $cl-select-single-active-color;
     text-align: center;
     line-height: 56px;
     cursor: pointer;
-    color: $cl-select-single-active-color;
+    border: solid 1px $cl-select-single-active-color;
+    margin: 1px;
+    color: inherit;
   }
   &.open {
     display: flex;
@@ -92,9 +97,28 @@
     color: map_get(map_get($theme, select-item), color);
     font-size: map_get(map_get($theme, select-item), font-size);
     font-family: map_get(map_get($theme, select-item), font-family);
+    &:first-child {
+      border-top-left-radius: map_get(map_get($theme, select-item), border-radius);
+      border-bottom-left-radius: map_get(map_get($theme, select-item), border-radius);
+    }
+    &:last-child {
+      border-top-right-radius: map_get(map_get($theme, select-item), border-radius);
+      border-bottom-right-radius: map_get(map_get($theme, select-item), border-radius);
+    }
     &.active {
       background-color: map_get(map_get($theme, select-item), background-color);
       color: map_get(map_get($theme, select-item), color-active);
+    }
+  }
+  .#{map_get($theme, name)} .cl-select-single {
+    font-family: map_get(map_get($theme, select-item), font-family);
+    font-size: map_get(map_get($theme, select-item), font-size);
+    color: map_get(map_get($theme, select-item), color);
+    border-radius: map_get(map_get($theme, select-item), border-radius);
+    border-color: map_get(map_get($theme, select-item), background-color);
+    background-color: map_get(map_get($theme, select-single), background-color);
+    &__close{
+      border-color: map_get(map_get($theme, select-single), border-color);
     }
   }
 }

@@ -21,6 +21,10 @@ $theme-dark-blue: (
                 color: #273952,
                 color-active: #ffffff,
                 background-color: #273952,
+                border-radius: 100px,
+        ),
+        select-single:(
+                background-color: transparent,
         ),
         dropdown :(
                 border-color: #273952,
@@ -47,6 +51,7 @@ $theme-green: (
         subtitle : (),
         select-title: (),
         select-item :(),
+        select-single:(),
         dropdown :(),
         search : ()
 );
