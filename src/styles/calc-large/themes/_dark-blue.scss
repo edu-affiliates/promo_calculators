@@ -21,13 +21,23 @@ $theme-dark-blue: (
                 color: #273952,
                 color-active: #ffffff,
                 background-color: #273952,
-        )
-);
+        ),
+        dropdown :(
+                border-color: #273952,
+                border-radius: 24px,
+                background: transparent,
+                font-family: OpenSans-Regular,
+                font-size: 14px,
+                color: #273952,
+                scroll-background: #273952,
+                thumb-background: #fce23f,
+        ));
 
 $theme-green: (
         name: theme-green,
         title: (),
         subtitle : (),
         select-title: (),
-        select-item :()
+        select-item :(),
+        dropdown :()
 );

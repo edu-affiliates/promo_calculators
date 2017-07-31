@@ -1,0 +1,17 @@
+.cl-search-wrap {
+  position: relative;
+  width: 100%;
+  margin-top: 15px;
+  border-bottom: 1px solid #273952;
+}
+
+.cl-search {
+  position: relative;
+  width: calc(100% - 10px);
+  height: 34px;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  padding-left: 10px;
+  font-size: 16px;
+}
