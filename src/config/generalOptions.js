@@ -2,14 +2,12 @@ let hostname = '99papers.com';
 
 let generalOptions = {
     'hostname': hostname,
-    'rangeColorChecked': "#ffed7b",
-    'rangeColor': "#23e1ca",
     'website_id': 432,
     'service_ids': '1674, 1675, 1673, 1690',
-    'apiMode': 'S',
+    'apiMode': 'M',
     'discount_amount': '0',
-    'dev_mode': false,
-    'rid': 1228
+    'dev_mode': true,
+    // 'rid': 1228
 };
 let eduOptions = {
     // 'hostname': 'buzzessay.com', // домен сайта, на котором будет размещена сборка

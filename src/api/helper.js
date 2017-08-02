@@ -3,19 +3,6 @@ import  generalOptions  from '../config/generalOptions';
 class Helper{
     constructor(){}
 
-    sortList($inputElement, $services) {
-        let filter = $inputElement.value.toUpperCase();
-        for (let service of $services){
-            let serviceText = service.innerHTML.toUpperCase();
-            if (serviceText.indexOf(filter) > -1) {
-                service.style.display = "";
-            } else service.style.display = "none";
-        }
-    }
-    inputLengthFilter(string, max=20, sliceTo=15){
-        let filteredString = (string.length > max) ? string.slice(0, sliceTo)+"..." : string;
-        return filteredString
-    }
     getApiURL(mainDomain) {
         let URL = (this.isDev()) ? `https://devapi.${mainDomain}` : `https://api.${mainDomain}`;
         return URL;
