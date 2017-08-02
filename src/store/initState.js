@@ -1,7 +1,7 @@
 const initialState = {
   inited: false,
   tree: {},
-  discount: 0.15,
+  discount: 0,
   allServices: [],
   calculatorSmall: []
 };

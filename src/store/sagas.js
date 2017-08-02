@@ -6,12 +6,13 @@ import {
     FETCH_COUPON,
     fetchSuccess,
     fetchSuccessSingle,
+    fetchSuccessDsc,
     changeService,
     setInitService
 } from './actions'
 import generalOptions from '../config/generalOptions';
 import {normalize, schema} from 'normalizr';
-import Api from '../api/api';
+import {fetchXsrf, fetchStats, fetchData, fetchCoupon} from '../api/api';
 import {helper} from '../api/helper';
 
 
@@ -34,10 +35,58 @@ const treeSchema = new schema.Entity('tree', {
     services_tree: [serviceSchema]
 });
 
-const api = new Api();
+
+function getStats() {
+    const urlParams = window.location.search.replace('?', '').split('&').reduce(function (p, e) {
+            let pair = e.split('=');
+            let key = decodeURIComponent(pair[0]);
+            let value = decodeURIComponent(pair[1]);
+            p[key] = (pair.length > 1) ? value : '';
+            return p;
+        }, {}
+    );
+    const clientParams = {
+        segment_id: generalOptions.segment_id,
+        rid: generalOptions.rid,
+        referrer_url: document.referrer,
+        origin_url: window.location.protocol + "//" +
+        window.location.host +
+        window.location.pathname +
+        window.location.search +
+        window.location.hash
+    };
+    return Object.assign({}, clientParams, urlParams);
+
+};
+
+const stats = getStats();
+
+function сookieCoupon() {
+    //set to cookie discount from generalOptions
+    if (!generalOptions.dev_mode && !helper.getCookie('dsc') && !!generalOptions.dsc) {
+        helper.setCookie('dsc', generalOptions.dsc, 90);
+        generalOptions.dsc = '';
+    }
+    //set to cookie discount from URL params
+    if (stats['dsc']) {
+        helper.setCookie('dsc', params['dsc'], 90);
+    }
+    return helper.getCookie('dsc');
+}
+function checkCoupon(coupon) {
+    fetchCoupon(coupon)
+        .then(
+            (response) => {
+                return JSON.parse(response).info.discount_amount;
+            },
+            (fail) => {
+            }
+        )
+
+}
 
 function getXsrf() {
-    return api.getXsrf()
+    return fetchXsrf()
         .then(
             (response) => {
                 return JSON.parse(response).info.token;
@@ -47,21 +96,10 @@ function getXsrf() {
             }
         );
 }
-function sendStats(xsrf) {
-    return api.sendStats(xsrf)
-        .then(
-            (response) => {
-                console.log(response);
-            },
-            (fail) => {
-                console.log(fail);
-            }
-        );
-}
 
 
 function getTree(services_id = generalOptions.service_ids) {
-    return api.getData(services_id)
+    return fetchData(services_id)
         .then(
             (response) => {
                 const treeJson = JSON.parse(response);
@@ -74,14 +112,7 @@ function getTree(services_id = generalOptions.service_ids) {
             }
         );
 }
-function putToLocalStorage(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-}
 
-function getFromLocalStorage(key) {
-    const item = localStorage.getItem(key);
-    if (item) return JSON.parse(item);
-}
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 /**process api call for the statistic **/
@@ -92,11 +123,10 @@ function* sendStatictic() {
             const xsrf = helper.getCookie("_xsrf");
             if (!xsrf) {
                 const xsrf = yield call(getXsrf);
-                console.log(xsrf);
-                yield call(sendStats, xsrf);
+                yield call(fetchStats, stats, xsrf);
                 helper.setCookie('_xsrf', xsrf, 13);
             } else {
-                yield call(sendStats, xsrf);
+                yield call(fetchStats, stats, xsrf);
             }
         }
     } catch (e) {
@@ -106,21 +136,30 @@ function* sendStatictic() {
 /**process api call for the coupon **/
 
 function* checkCoupon() {
+    try {
+        const coupon = сookieCoupon();
+        if (coupon) {
+            const dsc = yield call(checkCoupon, coupon);
+            yield put(fetchSuccess(dsc));
 
+        }
+    }
+    catch (e) {
+    }
 }
 
 /**process api call for the initial state **/
 function* fetchServiceTree(action) {
     try {
-        const treeLocalStorage = yield call(getFromLocalStorage, 'tree');
+        const treeLocalStorage = yield call(helper.getFromLocalStorage, 'tree');
         const defaultId = generalOptions.service_ids.split(',')[0].trim();
         if (treeLocalStorage) {
-            yield put(fetchSuccess(treeLocalStorage));
+            yield put(fetchSuccessDsc(treeLocalStorage));
             yield put(setInitService(defaultId));
         } else {
             const tree = yield call(getTree);
 
-            yield call(putToLocalStorage, 'tree', tree);
+            yield call(helper.putToLocalStorage, 'tree', tree);
             yield put(fetchSuccess(tree));
             yield put(setInitService(defaultId));
         }
@@ -161,34 +200,3 @@ function* mysaga() {
 
 export default mysaga;
 
-//
-// //set to cookie discount from generalOptions
-// if (!generalOptions.dev_mode && !helper.getCookie('dsc') && !!generalOptions.dsc) {
-//     helper.setCookie('dsc', generalOptions.dsc, 90);
-//     generalOptions.dsc = '';
-// }
-//
-// //set to cookie discount from URL params
-// if (this.params['dsc']) {
-//     helper.setCookie('dsc', this.params['dsc'], 90);
-// }
-//
-// //set to myDefault segment_id from generalOptions
-// if (!!generalOptions.segment_id) {
-//     this.myDefault.segment_id = generalOptions.segment_id;
-// }
-//
-// if (generalOptions.apiMode === 'M') {
-//     if (!helper.getCookie("_xsrf")) {
-//         this.getXsrf().done(response => {
-//             helper.setCookie('_xsrf', JSON.parse(response).info.token, 13);
-//             this.myDefault._xsrf = JSON.parse(response).info.token;
-//             this.sendStats();
-//         });
-//     } else {
-//         this.myDefault._xsrf = helper.getCookie("_xsrf");
-//         this.sendStats();
-//
-//     }
-//
-// }

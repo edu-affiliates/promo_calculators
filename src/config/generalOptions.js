@@ -7,7 +7,8 @@ let generalOptions = {
     'apiMode': 'M',
     'discount_amount': '0',
     'dev_mode': true,
-    // 'rid': 1228
+    'dsc': '',
+    'rid': 1228,
 };
 let eduOptions = {
     // 'hostname': 'buzzessay.com', // домен сайта, на котором будет размещена сборка

@@ -4,6 +4,7 @@ export const FETCH_COUPON = 'FETCH_COUPON';
 
 export const FETCH_SERVICE = 'FETCH_SERVICE';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_SUCCESS_DSC = 'FETCH_SUCCESS_DSC';
 export const FETCH_SUCCESS_SINGLE = 'FETCH_SUCCESS_SINGLE';
 
 export const PLUS_PAGE = 'PLUS_PAGE';
@@ -61,6 +62,9 @@ export function fetchCoupon() {
 //reducer dispatch actions
 export function fetchSuccess(tree) {
     return {type: FETCH_SUCCESS, tree: tree}
+}
+export function fetchSuccessDsc(dsc) {
+    return {type: FETCH_SUCCESS_DSC, dsc: dsc}
 }
 export function fetchSuccessSingle(tree, id) {
     return {type: FETCH_SUCCESS_SINGLE, tree: tree, id: id}
