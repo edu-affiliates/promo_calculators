@@ -21,22 +21,22 @@ class CLCounter extends React.Component {
         const {currentDeadline, deadlineList} = this.props;
         let deadList = deadlineList.map((d) => {
             return <li
-                className={`${(currentDeadline.name === d.name) ? 'active' : '' } ${(currentDeadline.id < d.id) ? 'checked' : '' } calc-lg-range-item`}
+                className={`${(currentDeadline.name === d.name) ? 'active' : '' } ${(currentDeadline.id < d.id) ? 'checked' : '' } cl-range-item`}
                 onClick={() => {
                     this.props.changeDeadline(d.id)
                 }}>
-                <div className="calc-lg-range-item__circle">
-                    <div className="calc-lg-range-popup">
-                        <span className="calc-lg-range-popup__text">{d.name}</span>
+                <div className="cl-range-item__circle">
+                    <div className="cl-range-popup">
+                        <span className="cl-range-popup__text">{d.name}</span>
                     </div>
                 </div>
             </li>
         });
         return (
             <div>
-                <div className="calc-lg-select-title">Deadline:</div>
-                <div className="calc-lg-range-wrap">
-                    <ul className="calc-lg-range">
+                <div className="cl-select-title">Deadline:</div>
+                <div className="cl-range-wrap">
+                    <ul className="cl-range">
                         {deadList}
                     </ul>
                 </div>

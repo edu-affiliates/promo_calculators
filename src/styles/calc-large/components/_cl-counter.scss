@@ -1,44 +1,46 @@
-.calc-lg-counter-group {
+$cl-counter-background: #3ddfff;
+
+.cl-counter-group {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.calc-lg-counter-wrap {
+.cl-counter-wrap {
   display: flex;
   justify-content: space-between;
   height: 55px;
   width: 190px;
-  background-color: #23dbe1;
+  background-color: #3ddfff;
   border-radius: 100px;
   padding: 1px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.44);
 }
 
-.calc-lg-counter {
+.cl-counter {
   @extend %center-flex;
   text-align: center;
   font-size: 40px;
   cursor: pointer;
-  width: 56px;
-  height: 100%;
+  width: 55px;
+  height: auto;
   border-radius: 50%;
   &--plus {
-    color: #30505a;
-    border: 2px solid #30505a;
-    background-color: #23dbe1;
+    color: #21414a;
+    border: 2px solid #21414a;
+    background-color: transparent;
   }
   &--minus {
-    background-color: #30505a;
-    color: #23dbe1;
-    border: 1px solid #23dbe1;
+    background-color: #21414a;
+    color: #3ddfff;
+    border: 2px solid #21414a;
   }
 }
 
-.calc-lg-page-value {
+.cl-page-value {
   height: 100%;
+  font-family: OpenSans-Regular, serif;
   font-size: 14px;
-  letter-spacing: normal;
   cursor: text;
   &__input {
     height: 100%;
@@ -48,28 +50,59 @@
     width: 30px;
     background-color: transparent;
     color: inherit;
+    font-family: inherit;
+    font-size: inherit;
   }
 }
 
-.calc-lg-single-price {
+$cl-single-price-font-family: OpenSans-Regular;
+$cl-single-price-color: #3ddfff;
+$cl-single-price-font-size: 14px;
+$cl-single-price-font-size-value: 18px;
+
+.cl-single-price {
   &__title {
-    font-family: OpenSans;
-    font-size: 14px;
-    line-height: 1.21;
+    font-family: $cl-single-price-font-family, serif;
+    font-size: $cl-single-price-font-size;
+    color: $cl-single-price-color;
     text-align: right;
-    color: #23dbe1;
 
   }
   &__value {
-    font-family: OpenSans;
+    font-family: $cl-single-price-font-family, serif;
+    color: $cl-single-price-color;
+    border: solid 1px $cl-single-price-color;
+    font-size: 18px;
     height: 40px;
     border-radius: 100px;
-    border: solid 1px #23dbe1;
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #23dbe1;
     padding: 8px 17px;
     margin-left: 10px;
+  }
+}
+
+@each $theme in $themes {
+  .#{map_get($theme, name)} .cl-counter-wrap {
+    background-color: map_get(map_get($theme, counter), background);
+
+  }
+  .#{map_get($theme, name)} .cl-counter {
+    &--plus {
+      background-color: map_get(map_get($theme, counter), background-plus);
+    }
+    &--minus {
+      background-color: map_get(map_get($theme, counter), background-minus);
+    }
+  }
+  .#{map_get($theme, name)} .cl-single-price__title {
+    color: map_get(map_get($theme, single-price), color);
+    font-family: map_get(map_get($theme, single-price), font-family);
+    font-size: map_get(map_get($theme, single-price), font-size);
+
+  }
+  .#{map_get($theme, name)} .cl-single-price__value {
+    color: map_get(map_get($theme, single-price), color);
+    border-color: map_get(map_get($theme, single-price), color);
+    font-family: map_get(map_get($theme, single-price), font-family);
+
   }
 }

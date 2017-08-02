@@ -1,7 +1,57 @@
 /** to customize the look and feel the calc override this variables  in your own variable scss file
 * !!IMPORTANT Be sure that you include your own variables earlier than default ones**/
 
+//default styles for title
+$cl-title-font-family: 'OpenSans-SemiBold' !default;
+$cl-title-color: #fce23f !default;
+$cl-title-font-size: 18px !default;
+$cl-title-text-transform: uppercase !default;
 
+//default select for title
+
+$cl-select-title-color: #fbe23f !default;
+$cl-select-title-font-size: 18px !default;
+$cl-select-title-font-family: 'OpenSans-Regular', serif !default;
+
+$cl-select-border-radius: 70px !default;
+
+$cl-select-item-font-size: 15px !default;
+$cl-select-item-color: #ffffff !default;
+$cl-select-item-border: #3ddfff !default;
+$cl-select-item-font-family: 'OpenSans-Regular', serif !default;
+
+$cl-select-item-active-color: #21414a !default;
+$cl-select-item-active-background-color: #3ddfff !default;
+
+$cl-select-single-active-color: #21414a !default;
+$cl-select-single-active-background-color: #3ddfff !default;
+
+//default styles for dropdown
+$cl-dropdown-border-color: #3ddfff !default;
+$cl-dropdown-border-radius: 24px !default;
+$cl-dropdown-background: transparent !default;
+$cl-dropdown-font-family: OpenSans-Regular, serif !default;
+$cl-dropdown-font-size: 14px !default;
+$cl-dropdown-color: #ffffff !default;
+$cl-dropdown-scroll-background: transparent !default;
+$cl-dropdown-thumb-background: #fce23f !default;
+
+//default styles for search
+$cl-search-border-color: #3ddfff !default;
+$cl-search-background: transparent !default;
+$cl-search-font-family: OpenSans-Regular !default;
+$cl-search-font-size: 16px !default;
+$cl-search-color: #ffffff !default;
+
+//default styles for range
+
+$cl-range-color: #3ddfff;
+$cl-range-checked-color: #fce23f;
+$cl-range-popup-min-width: 80px;
+$cl-range-popup-background: #3ddfff;
+$cl-range-popup-font-family: OpenSans-Regular;
+$cl-range-popup-font-size: 12px;
+$cl-range-popup-color: #30505a;
 
 /**  end of the default variables **/
 
@@ -61,8 +111,8 @@ $section-yellow-bottom-min-height: 796px;
 //
 // Define the maximum width of `.container` for different screen sizes.
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1170px
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1170px
 )

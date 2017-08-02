@@ -1,13 +1,14 @@
-.calc-lg-range-wrap {
+
+.cl-range-wrap {
   margin: 10px 0 30px;
   padding-top: 30px;
   //overflow: hidden;
 }
 
-.calc-lg-range {
+.cl-range {
   position: relative;
-  width: calc(100% + 100% / 9 - 14px);
-  margin-left: calc(-100% / 9 / 2 + 7px);
+  //width: calc(100% + 100% / 9 - 14px);
+  //margin-left: calc(-100% / 9 / 2 + 7px);
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -17,7 +18,7 @@
   list-style: none;
 }
 
-.calc-lg-range-item {
+.cl-range-item {
   position: relative;
   flex: 1;
   height: 50px;
@@ -28,7 +29,7 @@
     content: '';
     width: calc(50% - 5px - 2px);
     height: 2px;
-    background-color: #23dbe1;
+    background-color: $cl-range-color;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -47,11 +48,11 @@
   }
   &.active {
     &::after {
-      background-color: #23dbe1;
+      background-color: $cl-range-color;
       width: calc(50% - 10px - 2px);
     }
     &::before {
-      background-color: #fce23f;
+      background-color: $cl-range-checked-color;
       width: calc(50% - 10px - 2px);
       height: 4px;
     }
@@ -59,11 +60,11 @@
 
   &.checked {
     &::after {
-      background-color: #fce23f;
+      background-color: $cl-range-checked-color;
       height: 4px;
     }
     &::before {
-      background-color: #fce23f;
+      background-color: $cl-range-checked-color;
       height: 4px;
     }
   }
@@ -71,32 +72,35 @@
   &__circle {
     width: 10px;
     height: 10px;
-    background: #23dbe1;
+    background: $cl-range-color;
     border-radius: 50%;
     .checked & {
-      background-color: #fce23f;
+      background-color: $cl-range-checked-color;
     }
     .active & {
-      background-color: #fce23f;
+      background-color: $cl-range-checked-color;
       width: 20px;
       height: 20px;
     }
   }
 }
 
-.calc-lg-range-popup {
+
+
+.cl-range-popup {
   position: absolute;
   display: none;
   top: -30px;
-  left: -10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   bottom: 35px;
   height: 30px;
-  width: 70px;
+  min-width: $cl-range-popup-min-width;
   text-align: center;
-  background-color: #23dbe1;
+  background-color: $cl-range-popup-background;
   box-shadow: inset 0 1px 2px 0 rgba(64, 62, 62, 0.15);
   border-radius: 14px;
-  margin-bottom: 10px;
   @extend %center-flex;
   &::after {
     content: '';
@@ -106,33 +110,84 @@
     bottom: -10px;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 10px solid #23dbe1;
+    border-top: 10px solid $cl-range-popup-background;
     left: 0;
     right: 0;
     margin: 0 auto;
   }
   &__text {
-    color: #30505a;
-    letter-spacing: 1px;
-    font-size: 12px;
+    font-family: $cl-range-popup-font-family, serif;
+    color: $cl-range-popup-color;
+    font-size: $cl-range-popup-font-size;
   }
   .active & {
-    display: block;
+    display: flex;
   }
-  .calc-lg-range-item:first-child & {
+  .cl-range-item:first-child & {
     left: 0;
     &::after {
-      border: 12px solid transparent!important;
-      border-left: 12px solid #23dbe1 !important;
+      left: 15px;
+      right: auto;
+      border-right: 12px solid transparent;
+      border-top: 12px solid $cl-range-popup-background;
+      border-left: 3px solid transparent;
     }
   }
 
-  .calc-lg-range-item:last-child & {
+  .cl-range-item:last-child & {
     right: 0;
     left: auto;
     &::after {
-      border: 12px solid transparent!important;
-      border-right: 12px solid #23dbe1 !important;
+      right: 15px;
+      left: auto;
+      border-left: 12px solid transparent;
+      border-top: 12px solid $cl-range-popup-background;
+      border-right: 3px solid transparent;
+
     }
+  }
+}
+
+@each $theme in $themes {
+  .#{map_get($theme, name)} .cl-range-item {
+    &::after, &::before {
+      background-color: map_get(map_get($theme, range), background-color);
+    }
+    &.active::after {
+      background-color: map_get(map_get($theme, range), background-color);
+    }
+    &.active::before, &.checked::before, &.checked::after {
+      background-color: map_get(map_get($theme, range), background-color-cheked);
+    }
+
+  }
+  .#{map_get($theme, name)} .cl-range-item__circle {
+    background-color: map_get(map_get($theme, range), background-color);
+  }
+  .#{map_get($theme, name)} .active .cl-range-item__circle {
+    background-color: map_get(map_get($theme, range), background-color-cheked);
+  }
+  .#{map_get($theme, name)} .checked .cl-range-item__circle {
+    background-color: map_get(map_get($theme, range), background-color-cheked);
+  }
+
+  .#{map_get($theme, name)} .cl-range-popup {
+    background-color: map_get(map_get($theme, range), background-color);
+    &::after {
+      border-top-color: map_get(map_get($theme, range), background-color);
+    }
+    &__text {
+      font-family: map_get(map_get($theme, range), font-family);
+      color: map_get(map_get($theme, range), color);
+      font-size: map_get(map_get($theme, range), font-size);
+    }
+  }
+  .#{map_get($theme, name)} .cl-range-item:first-child .cl-range-popup::after {
+    border-top-color: map_get(map_get($theme, range), background-color);
+
+  }
+  .#{map_get($theme, name)} .cl-range-item:last-child .cl-range-popup::after {
+    border-top-color: map_get(map_get($theme, range), background-color);
+
   }
 }

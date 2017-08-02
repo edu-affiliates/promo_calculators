@@ -1,0 +1,78 @@
+$theme-dark-blue: (
+        name: theme-dark-blue,
+        title: (
+                font-family: 'OpenSans-ExtraBold',
+                font-size: 18px,
+                color: #d0021b
+        ),
+        subtitle : (
+                font-family: 'OpenSans-ExtraBold',
+                font-size: 16px,
+                color: #273952
+        ),
+        select-title: (
+                title-color: #000000,
+                title-font-size: 14px,
+                title-font-family: 'OpenSans-Regular',
+        ),
+        select-item :(
+                font-size: 14px,
+                font-family: 'OpenSans-Regular',
+                color: #273952,
+                color-active: #ffffff,
+                background-color: #273952,
+                border-radius: 100px,
+        ),
+        select-single:(
+                background-color: transparent,
+        ),
+        dropdown :(
+                border-color: #273952,
+                border-radius: 24px,
+                background: transparent,
+                font-family: OpenSans-Regular,
+                font-size: 14px,
+                color: #273952,
+                scroll-background: #273952,
+                thumb-background: #fce23f,
+        ),
+        search : (
+                border-color:#273952,
+                background: transparent,
+                font-family: OpenSans-Regular,
+                font-size: 16px,
+                color: #273952,
+        ),
+        range: (
+                background-color: #273952,
+                background-color-cheked: #273952,
+                font-family: OpenSans-Regular,
+                font-size: 12px,
+                color: #ffffff,
+        ),
+        counter: (
+                background: #273952,
+                background-plus: #ffc600,
+                background-minus: #ffc600,
+
+        ),
+        single-price:(
+                font-family: OpenSans-Regular,
+                font-size: 14px,
+                color: #273952,
+        ),
+);
+
+$theme-green: (
+        name: theme-green,
+        title: (),
+        subtitle : (),
+        select-title: (),
+        select-item :(),
+        select-single:(),
+        dropdown :(),
+        search : (),
+        range: (),
+        counter: (),
+        single-price:(),
+);

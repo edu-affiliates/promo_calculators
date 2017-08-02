@@ -53,10 +53,10 @@ class TPTableCounter extends React.Component {
                             <span className="tp-modal-dsc__title">Estimate day:</span>
                             <span className="tp-modal-dsc__value">{this.estimateDay()}</span>
                         </div>
-                        {/*<div className="tp-modal-dsc">*/}
-                            {/*<span className="tp-modal-dsc__title">Type of service: </span>*/}
-                            {/*<span className="tp-modal-dsc__value">{service.name}</span>*/}
-                        {/*</div>*/}
+                        <div className="tp-modal-dsc">
+                            <span className="tp-modal-dsc__title">Type of service: </span>
+                            <span className="tp-modal-dsc__value">{service.name}</span>
+                        </div>
                         {/*<div className="tp-modal-dsc">*/}
                             {/*<span className="tp-modal-dsc__title">Academic level:</span>*/}
                             {/*<span className="tp-modal-dsc__value">{level.name}</span>*/}

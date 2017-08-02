@@ -1,11 +1,43 @@
-.calc-lg-title {
-  font-family: OpenSans-ExtraBold,serif;
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.3;
-  color: #fce23f;
-  text-align: center;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+%calc-lg-title-default {
+  font-family: $cl-title-font-family, serif;
+  font-size: $cl-title-font-size;
+  color: $cl-title-color;
+  text-transform: $cl-title-text-transform;
 }
 
+.calc-lg-title {
+  @extend %calc-lg-title-default;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  text-align: center;
+  &--dsc {
+    background-color: $cl-title-color;
+    color: #193239;
+    padding: 5px 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  &--sm {
+    text-transform: none;
+    font-family: 'OpenSans-Regular', serif;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+}
+
+
+@each $theme in $themes {
+  .#{map_get($theme, name)} .calc-lg-title {
+    font-family: map_get(map_get($theme, title), font-family);
+    font-size: map_get(map_get($theme, title), font-size);
+    color: map_get(map_get($theme, title), color);
+  }
+  .#{map_get($theme, name)} .calc-lg-title--dsc {
+    background-color: map_get(map_get($theme, title), color);
+  }
+  .#{map_get($theme, name)} .calc-lg-title--sm {
+    font-family: map_get(map_get($theme, subtitle), font-family);
+    font-size: map_get(map_get($theme, subtitle), font-size);
+    color: map_get(map_get($theme, subtitle), color);
+  }
+}

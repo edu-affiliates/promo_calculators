@@ -3,21 +3,12 @@
 @import 'calc-large/main';
 //@import '~bootstrap/scss/bootstrap.scss';
 
-// Some best-practice CSS that's useful for most apps
-// Just remove them if they're not what you want
-html {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+.calc-lg{
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  background: #30505a;
+  &.theme-dark-blue{
+    background: linear-gradient(180deg,#ffc600,#ffa300);
+  }
 }

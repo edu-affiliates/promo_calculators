@@ -21,8 +21,8 @@ class CLSearch extends React.Component {
 
     render() {
         return (
-            <div className="calc-sm-search-wrap">
-                <input className="calc-sm-search" value={this.state.searchString}
+            <div className="cl-search-wrap">
+                <input className="cl-search" value={this.state.searchString}
                        onChange={(e) => this.handleChange(e)}
                        placeholder="Type the name of service"
                 />

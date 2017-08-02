@@ -21,25 +21,25 @@ class CLCounter extends React.Component {
     render() {
         const {onClickPlus, onClickMinus, pageNumber, fullPrice, discount} = this.props;
         return (
-            <div className="calc-lg-counter-group">
-                <div className="calc-lg-counter-wrap">
-                    <div onClick={onClickMinus} className="calc-lg-counter calc-lg-counter--minus">
+            <div className="cl-counter-group">
+                <div className="cl-counter-wrap">
+                    <div onClick={onClickMinus} className="cl-counter cl-counter--minus">
                         <span>-</span>
                     </div>
-                    <div className="calc-lg-page-value">
+                    <div className="cl-page-value">
                         <input type="text"
                                value={pageNumber}
                                onChange={(e) => this.handleChange(e)}
-                               className="calc-lg-page-value__input"/>
+                               className="cl-page-value__input"/>
                         <span>{(pageNumber === 1) ? 'page' : 'pages'}</span>
                     </div>
-                    <div onClick={onClickPlus} className="calc-lg-counter calc-lg-counter--plus">
+                    <div onClick={onClickPlus} className="cl-counter cl-counter--plus">
                         <span>+</span>
                     </div>
                 </div>
-                <div className="calc-lg-single-price">
-                    <span className="calc-lg-single-price__title">Price per page</span>
-                    <span className="calc-lg-single-price__value">$ {(fullPrice * (1 - discount)).toFixed(2)}</span></div>
+                <div className="cl-single-price">
+                    <span className="cl-single-price__title">Price per page</span>
+                    <span className="cl-single-price__value">$ {(fullPrice * (1 - discount)).toFixed(2)}</span></div>
             </div>
         )
     }
