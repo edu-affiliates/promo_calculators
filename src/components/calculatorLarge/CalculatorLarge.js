@@ -24,19 +24,23 @@ class CalculatorLarge extends React.Component {
 
     render() {
         const {calcId, calcTitle, containerClass, calcTitleDiscount} = this.props;
-        return (
-            <div className={containerClass}>
-                <div className="calc-lg-container">
-                    <CLTitle calcTitle={calcTitle} calcTitleDiscount={calcTitleDiscount}/>
-                    <CLSelectService calcId={calcId}/>
-                    <CLSelectLevel calcId={calcId}/>
-                    <CLRange calcId={calcId}/>
-                    <CLCounter calcId={calcId}/>
-                    <CLPrices calcId={calcId}/>
-                    <CLButtons calcId={calcId}/>
+        if (this.props.inited) {
+            return (
+                <div className={containerClass}>
+                    <div className="calc-lg-container">
+                        <CLTitle calcTitle={calcTitle} calcTitleDiscount={calcTitleDiscount}/>
+                        <CLSelectService calcId={calcId}/>
+                        <CLSelectLevel calcId={calcId}/>
+                        <CLRange calcId={calcId}/>
+                        <CLCounter calcId={calcId}/>
+                        <CLPrices calcId={calcId}/>
+                        <CLButtons calcId={calcId}/>
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (<div></div>)
+        }
     }
 }
 

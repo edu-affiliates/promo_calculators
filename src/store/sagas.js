@@ -12,7 +12,7 @@ import {
 } from './actions'
 import generalOptions from '../config/generalOptions';
 import {normalize, schema} from 'normalizr';
-import {fetchXsrf, fetchStats, fetchData, fetchCoupon} from '../api/api';
+import {fetchXsrf, fetchStats, getData, checkCoupon} from '../api/api';
 import {helper} from '../api/helper';
 
 
@@ -61,30 +61,6 @@ function getStats() {
 
 const stats = getStats();
 
-function сookieCoupon() {
-    //set to cookie discount from generalOptions
-    if (!generalOptions.dev_mode && !helper.getCookie('dsc') && !!generalOptions.dsc) {
-        helper.setCookie('dsc', generalOptions.dsc, 90);
-        generalOptions.dsc = '';
-    }
-    //set to cookie discount from URL params
-    if (stats['dsc']) {
-        helper.setCookie('dsc', params['dsc'], 90);
-    }
-    return helper.getCookie('dsc');
-}
-function checkCoupon(coupon) {
-    fetchCoupon(coupon)
-        .then(
-            (response) => {
-                return JSON.parse(response).info.discount_amount;
-            },
-            (fail) => {
-            }
-        )
-
-}
-
 function getXsrf() {
     return fetchXsrf()
         .then(
@@ -99,7 +75,7 @@ function getXsrf() {
 
 
 function getTree(services_id = generalOptions.service_ids) {
-    return fetchData(services_id)
+    return getData(services_id)
         .then(
             (response) => {
                 const treeJson = JSON.parse(response);
@@ -113,9 +89,23 @@ function getTree(services_id = generalOptions.service_ids) {
         );
 }
 
+function getDiscount(coupon) {
+    return checkCoupon(coupon)
+        .then(
+            (response) => {
+                const dsc = JSON.parse(response).info.discount_amount;
+                return dsc / 100;
+            },
+            (fail) => {
+            }
+        )
+}
+
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 /**process api call for the statistic **/
+
+
 
 function* sendStatictic() {
     try {
@@ -135,13 +125,14 @@ function* sendStatictic() {
 }
 /**process api call for the coupon **/
 
-function* checkCoupon() {
-    try {
-        const coupon = сookieCoupon();
-        if (coupon) {
-            const dsc = yield call(checkCoupon, coupon);
-            yield put(fetchSuccess(dsc));
 
+function* fetchCoupon() {
+    try {
+        // const coupon = сookieCoupon();
+        const coupon = 'ESSAYFIRST15';
+        if (coupon) {
+            const dsc = yield call(getDiscount, coupon);
+            yield put(fetchSuccessDsc(dsc));
         }
     }
     catch (e) {
@@ -154,7 +145,7 @@ function* fetchServiceTree(action) {
         const treeLocalStorage = yield call(helper.getFromLocalStorage, 'tree');
         const defaultId = generalOptions.service_ids.split(',')[0].trim();
         if (treeLocalStorage) {
-            yield put(fetchSuccessDsc(treeLocalStorage));
+            yield put(fetchSuccess(treeLocalStorage));
             yield put(setInitService(defaultId));
         } else {
             const tree = yield call(getTree);
@@ -193,7 +184,7 @@ function* fetchServiceSingle(action) {
  */
 function* mysaga() {
     yield takeEvery(FETCH_STATISTIC, sendStatictic);
-    yield takeEvery(FETCH_COUPON, checkCoupon);
+    yield takeEvery(FETCH_COUPON, fetchCoupon);
     yield takeEvery(FETCH_INIT_TREE, fetchServiceTree);
     yield takeEvery(FETCH_SERVICE, fetchServiceSingle);
 }

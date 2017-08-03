@@ -48,7 +48,7 @@ export const fetchStats = (stats, xsrf) => {
     });
 };
 
-export const fetchData = (services_ids = '') => {
+export const getData = (services_ids = '') => {
     let apiRequestBody = {
         'is_disciplines': false,
         'is_paper_formats': false,
@@ -73,8 +73,8 @@ export const fetchData = (services_ids = '') => {
     })
 };
 
-export const fetchCoupon = (coupon_code) => {
-    $.ajax({
+export const checkCoupon = (coupon_code) => {
+    return $.ajax({
         url: generalOptions.siteApiUrl + '/api/v2/order/check_coupon',
         type: 'GET',
         data: {

@@ -20,19 +20,19 @@ class TablePrices extends React.Component {
 
     render() {
         if (this.props.inited) {
-        } else return (<div></div>)
-        return (
-            <div className={this.props.containerClass}>
-                <div className="tp-container">
-                    <Select calcId={this.props.calcId}/>
-                    <Top calcId={this.props.calcId}/>
-                    <div className="tp-body">
-                        <Deadlines calcId={this.props.calcId}/>
-                        <Table calcId={this.props.calcId}/>
+            return (
+                <div className={this.props.containerClass}>
+                    <div className="tp-container">
+                        <Select calcId={this.props.calcId}/>
+                        <Top calcId={this.props.calcId}/>
+                        <div className="tp-body">
+                            <Deadlines calcId={this.props.calcId}/>
+                            <Table calcId={this.props.calcId}/>
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        } else return (<div></div>)
     }
 }
 
