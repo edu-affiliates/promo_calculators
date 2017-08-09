@@ -1,20 +1,19 @@
 class Helper {
+  putToLocalStorage (key, value) {
+    localStorage.setItem(key, JSON.stringify(value))
+  }
 
-    putToLocalStorage(key, value) {
-        localStorage.setItem(key, JSON.stringify(value));
-    }
+  getFromLocalStorage (key) {
+    const item = localStorage.getItem(key)
+    if (item) return JSON.parse(item)
+  }
 
-    getFromLocalStorage(key) {
-        const item = localStorage.getItem(key);
-        if (item) return JSON.parse(item);
-    }
-
-    getCookie(name) {
-        var matches = document.cookie.match(new RegExp(
-            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-        ));
-        return matches ? decodeURIComponent(matches[1]) : '';
-    }
+  getCookie (name) {
+    var matches = document.cookie.match(new RegExp(
+            '(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
+        ))
+    return matches ? decodeURIComponent(matches[1]) : ''
+  }
 
     // setCookie(cname, cvalue, exdays) {
     //     var expires;
@@ -31,4 +30,4 @@ class Helper {
     //
     // };
 }
-export let helper = new Helper();
+export let helper = new Helper()
