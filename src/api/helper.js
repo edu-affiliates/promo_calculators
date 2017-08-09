@@ -16,19 +16,19 @@ class Helper {
         return matches ? decodeURIComponent(matches[1]) : '';
     }
 
-    setCookie(cname, cvalue, exdays) {
-        var expires;
-        if (exdays > 0) {
-            var d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            expires = "expires=" + d.toUTCString();
-        } else {
-            expires = 0;
-        }
-        // does not work on localhost
-        let newCookie = `${cname}=${cvalue}; ${expires}; path=/; domain=.${generalOptions.hostname}`;
-        document.cookie = newCookie;
-
-    };
+    // setCookie(cname, cvalue, exdays) {
+    //     var expires;
+    //     if (exdays > 0) {
+    //         var d = new Date();
+    //         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    //         expires = "expires=" + d.toUTCString();
+    //     } else {
+    //         expires = 0;
+    //     }
+    //     // does not work on localhost
+    //     let newCookie = `${cname}=${cvalue}; ${expires}; path=/; domain=.${generalOptions.hostname}`;
+    //     document.cookie = newCookie;
+    //
+    // };
 }
 export let helper = new Helper();
