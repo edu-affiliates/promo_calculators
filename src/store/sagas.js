@@ -11,19 +11,25 @@ import {getStats, sendStats, getUser, getUserDiscount, getTree, getDiscount} fro
 /** process api call for the user info, discount and statistics **/
 function * fetchUser() {
     try {
-        if (generalOptions.apiMode === 'M') {
-            const user = yield call(getUser);
-            const xsrf = (helper.getCookie('_xsrf')) ? helper.getCookie('_xsrf') : user.token;
+        let xsrf = helper.getCookie('_xsrf');
+        let user;
+        if (!xsrf) {
+            user = yield call(getUser);
+            xsrf = user.token;
+        }
+        if (!!xsrf) {
             const stats = getStats();
             yield call(sendStats, stats, xsrf);
-            if (user.discount !== 0) {
-                const dsc = yield call(getUserDiscount);
-                yield put(fetchSuccessDsc(dsc))
-            } else {
-                const coupon = (!!helper.getCookie('dsc')) ? helper.getCookie('dsc') : generalOptions.dsc;
-                if (coupon) {
-                    const dsc = yield call(getDiscount, coupon);
+            if (!!user) {
+                if (user.discount !== 0) {
+                    const dsc = yield call(getUserDiscount);
                     yield put(fetchSuccessDsc(dsc))
+                } else {
+                    const coupon = (!!helper.getCookie('dsc')) ? helper.getCookie('dsc') : generalOptions.dsc;
+                    if (coupon) {
+                        const dsc = yield call(getDiscount, coupon);
+                        yield put(fetchSuccessDsc(dsc))
+                    }
                 }
             }
         }

@@ -18,13 +18,11 @@ class CLCounter extends React.Component {
     }
 
     render() {
-        const {currentDeadline, deadlineList} = this.props;
+        const {currentDeadline: cd, deadlineList, changeDeadline} = this.props;
         let deadList = deadlineList.map((d) => {
             return <li
-                className={`${(currentDeadline.name === d.name) ? 'active' : '' } ${(currentDeadline.id < d.id) ? 'checked' : '' } cl-range-item`}
-                onClick={() => {
-                    this.props.changeDeadline(d.id)
-                }}>
+                className={`${(cd.name === d.name) ? 'active' : '' } ${(cd.id < d.id) ? 'checked' : '' } cl-range-item`}
+                onClick={() => changeDeadline(d.id)}>
                 <div className="cl-range-item__circle">
                     <div className="cl-range-popup">
                         <span className="cl-range-popup__text">{d.name}</span>
@@ -45,6 +43,10 @@ class CLCounter extends React.Component {
     }
 }
 
+CLCounter.PropTypes = {
+    currentDeadline: PropTypes.object.isRequired,
+    deadlineList: PropTypes.object.isRequired,
+};
 //container to match redux state to component props and dispatch redux actions to callback props
 const mapStateToProps = (reduxState, ownProps) => {
     const state = reduxState.calculatorSmall[ownProps.calcId];

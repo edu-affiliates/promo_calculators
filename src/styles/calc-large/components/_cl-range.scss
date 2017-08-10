@@ -91,7 +91,7 @@
   position: absolute;
   display: none;
   top: -30px;
-  left: 0;
+  left: -$cl-range-popup-min-width/2 + 23px;
   right: 0;
   margin: 0 auto;
   bottom: 35px;

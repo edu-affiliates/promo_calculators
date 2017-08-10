@@ -1,3 +1,5 @@
+"use strict";
+
 class Helper {
     putToLocalStorage(key, value) {
         localStorage.setItem(key, JSON.stringify(value))
