@@ -1,6 +1,5 @@
 export const FETCH_INIT_TREE = 'FETCH_INIT_TREE';
-export const FETCH_STATISTIC = 'FETCH_STATISTIC';
-export const FETCH_COUPON = 'FETCH_COUPON';
+export const FETCH_USER = 'FETCH_USER';
 
 export const FETCH_SERVICE = 'FETCH_SERVICE';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
@@ -52,11 +51,9 @@ export function fetchInitTree() {
 export function fetchService(serviceId, calcId) {
     return {type: FETCH_SERVICE, id: serviceId, calcId: calcId}
 }
-export function fetchStatistic() {
-    return {type: FETCH_STATISTIC}
-}
-export function fetchCoupon() {
-    return {type: FETCH_COUPON}
+
+export function fetchUser() {
+    return {type: FETCH_USER}
 }
 
 //reducer dispatch actions

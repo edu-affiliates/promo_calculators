@@ -6,7 +6,7 @@ let generalOptions = {
   'service_ids': '1674, 1675, 1673, 1690',
   'apiMode': 'M',
   'dev_mode': true,
-  'dsc': '',
+  'dsc': 'ESSAYFIRST15',
   'rid': 1228,
 }
 

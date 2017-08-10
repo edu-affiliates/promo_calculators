@@ -9,14 +9,13 @@ import TablePrices from './components/tablePrices/TablePrices'
 import createStore from './store/createStore'
 import initialState from './store/initState';
 import {Provider} from 'react-redux';
-import {fetchInitTree, fetchStatistic, fetchCoupon} from './store/actions';
+import {fetchInitTree, fetchStatistic, fetchCoupon, fetchUser} from './store/actions';
 
 
 // Store Initialization
 // ------------------------------------
 const store = createStore(initialState);
-store.dispatch(fetchStatistic());
-store.dispatch(fetchCoupon());
+store.dispatch(fetchUser());
 store.dispatch(fetchInitTree());
 
 // Render Setup
