@@ -2,7 +2,7 @@
 
 import {normalize, schema} from 'normalizr'
 import generalOptions from '../config/generalOptions'
-import {checkAccess, fetchStats, getData, checkCoupon, discountValue} from '../api/api'
+import {checkAccess, fetchStats, getData, checkCoupon, discountValue, discountInfo} from '../api/api'
 
 
 // taking JSON with a schema definition
@@ -50,7 +50,7 @@ export function sendStats(stats, xsrf) {
     return fetchStats(stats, xsrf)
         .then(
             (response) => {
-                console.log(response.message)
+                console.log(response)
             },
             (fail) => {
                 console.log(fail)
@@ -58,7 +58,7 @@ export function sendStats(stats, xsrf) {
         )
 }
 
-export function getUser() {
+export function getUserCheckAccess() {
     return checkAccess()
         .then(
             (response) => {
@@ -78,6 +78,17 @@ export function getUserDiscount() {
                     return item.amount;
                 });
                 return Math.max(...dscArray);
+            },
+            (fail) => {
+                console.log(fail)
+            }
+        )
+}
+export function getUserDiscountInfo() {
+    return discountInfo()
+        .then(
+            (response) => {
+                return response.info.discount;
             },
             (fail) => {
                 console.log(fail)
@@ -105,6 +116,7 @@ export function getDiscount(coupon) {
                 return dsc / 100
             },
             (fail) => {
+                console.log(fail)
             }
         )
 }

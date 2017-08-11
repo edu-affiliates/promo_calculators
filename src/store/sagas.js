@@ -3,37 +3,61 @@
 import generalOptions from '../config/generalOptions'
 import helper from '../api/helper'
 import {call, put, select, takeEvery} from 'redux-saga/effects'
-import {FETCH_SERVICE, FETCH_INIT_TREE, FETCH_USER} from './actions'
-import {fetchSuccess, fetchSuccessSingle, fetchSuccessDsc, changeService, setInitService} from './actions'
-import {getStats, sendStats, getUser, getUserDiscount, getTree, getDiscount} from '../api/service'
+import {FETCH_SERVICE, FETCH_INIT_TREE, FETCH_USER, FETCH_DISCOUNT} from './actions'
+import {
+    fetchSuccess,
+    fetchSuccessSingle,
+    fetchSuccessDsc,
+    changeService,
+    setInitService,
+    fetchDiscount
+} from './actions'
+import {
+    getStats,
+    sendStats,
+    getUserCheckAccess,
+    getUserDiscountInfo,
+    getUserDiscount,
+    getTree,
+    getDiscount
+} from '../api/service'
 
+/** process api call for the discount **/
 
-/** process api call for the user info, discount and statistics **/
-function * fetchUser() {
+function * setDiscount(action) {
     try {
-        let xsrf = helper.getCookie('_xsrf');
-        let user;
-        if (!xsrf) {
-            user = yield call(getUser);
-            xsrf = user.token;
-        }
-        if (!!xsrf) {
-            const stats = getStats();
-            yield call(sendStats, stats, xsrf);
-            if (!!user) {
-                if (user.discount !== 0) {
-                    const dsc = yield call(getUserDiscount);
-                    yield put(fetchSuccessDsc(dsc))
-                } else {
-                    const coupon = (!!helper.getCookie('dsc')) ? helper.getCookie('dsc') : generalOptions.dsc;
-                    if (coupon) {
-                        const dsc = yield call(getDiscount, coupon);
-                        yield put(fetchSuccessDsc(dsc))
-                    }
-                }
+        if (action.discount !== 0) {
+            const dsc = yield call(getUserDiscount);
+            yield put(fetchSuccessDsc(dsc))
+        } else {
+            const couponCookie = helper.getCookie('dsc');
+            const coupon = (!!couponCookie) ? couponCookie : generalOptions.dsc;
+            if (coupon) {
+                const dsc = yield call(getDiscount, coupon);
+                yield put(fetchSuccessDsc(dsc))
             }
         }
     } catch (e) {
+        console.log(e);
+    }
+}
+
+/** process api calls for the user info and statistics **/
+function * fetchUser() {
+    try {
+        const stats = getStats();
+        const xsrf = helper.getCookie('_xsrf');
+        if (xsrf) {
+            yield call(sendStats, stats, xsrf);
+            const discount = yield call(getUserDiscountInfo);
+            yield put(fetchDiscount(discount));
+        } else {
+            const user = yield call(getUserCheckAccess);
+            yield call(sendStats, stats, user.token);
+            yield put(fetchDiscount(user.discount));
+        }
+    } catch (e) {
+        console.log(e);
     }
 }
 
@@ -79,6 +103,7 @@ function * fetchServiceSingle(action) {
  */
 function * mysaga() {
     yield takeEvery(FETCH_USER, fetchUser);
+    yield takeEvery(FETCH_DISCOUNT, setDiscount);
     yield takeEvery(FETCH_INIT_TREE, fetchServiceTree);
     yield takeEvery(FETCH_SERVICE, fetchServiceSingle);
 }

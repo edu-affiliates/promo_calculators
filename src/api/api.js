@@ -17,7 +17,7 @@ export const checkAccess = () => {
 };
 
 export const fetchStatsOld = (stats, xsrf) => {
-    $.ajax({
+    return $.ajax({
         url: generalOptions.siteApiUrl + '/api/v2/auth/log_ref_stats',
         type: 'POST',
         data: {
@@ -35,7 +35,7 @@ export const fetchStatsOld = (stats, xsrf) => {
 };
 
 export const fetchStats = (stats, xsrf) => {
-    $.ajax({
+    return $.ajax({
         url: generalOptions.siteApiUrl + '/api/v2/statistic/hit',
         type: 'POST',
         data: Object.assign({}, stats, {_xsrf: xsrf}),

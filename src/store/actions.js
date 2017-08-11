@@ -1,5 +1,6 @@
 export const FETCH_INIT_TREE = 'FETCH_INIT_TREE';
 export const FETCH_USER = 'FETCH_USER';
+export const FETCH_DISCOUNT = 'FETCH_DISCOUNT';
 
 export const FETCH_SERVICE = 'FETCH_SERVICE';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
@@ -54,6 +55,10 @@ export function fetchService(serviceId, calcId) {
 
 export function fetchUser() {
     return {type: FETCH_USER}
+
+}
+export function fetchDiscount(discount) {
+    return {type: FETCH_DISCOUNT, discount: discount}
 }
 
 //reducer dispatch actions
