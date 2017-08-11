@@ -53,8 +53,11 @@ function * fetchUser() {
             yield put(fetchDiscount(discount));
         } else {
             const user = yield call(getUserCheckAccess);
-            yield call(sendStats, stats, user.token);
-            yield put(fetchDiscount(user.discount));
+            console.log(user.success);
+            if(user.success === 1) {
+                yield call(sendStats, stats, user.info.token);
+            }
+            yield put(fetchDiscount(user.info.discount));
         }
     } catch (e) {
         console.log(e);

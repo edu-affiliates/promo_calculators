@@ -62,7 +62,7 @@ export function getUserCheckAccess() {
     return checkAccess()
         .then(
             (response) => {
-                return JSON.parse(response).info
+                return JSON.parse(response)
             },
             (fail) => {
                 console.log(fail)
