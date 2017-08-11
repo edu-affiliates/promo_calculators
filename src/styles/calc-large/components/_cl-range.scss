@@ -1,6 +1,6 @@
 
 .cl-range-wrap {
-  margin: 10px 0 30px;
+  margin: 1em 0;
   padding-top: 30px;
   //overflow: hidden;
 }
@@ -27,7 +27,7 @@
   &::after, &::before {
     position: absolute;
     content: '';
-    width: calc(50% - 5px - 2px);
+    width: calc(50% - 5px - 0px);
     height: 2px;
     background-color: $cl-range-color;
     top: 50%;
@@ -49,11 +49,11 @@
   &.active {
     &::after {
       background-color: $cl-range-color;
-      width: calc(50% - 10px - 2px);
+      width: calc(50% - 10px - 0px);
     }
     &::before {
       background-color: $cl-range-checked-color;
-      width: calc(50% - 10px - 2px);
+      width: calc(50% - 10px - 0px);
       height: 4px;
     }
   }
@@ -70,8 +70,8 @@
   }
 
   &__circle {
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
     background: $cl-range-color;
     border-radius: 50%;
     .checked & {

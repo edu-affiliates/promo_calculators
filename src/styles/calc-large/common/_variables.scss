@@ -55,6 +55,44 @@ $cl-range-popup-font-family: OpenSans-Regular;
 $cl-range-popup-font-size: 12px;
 $cl-range-popup-color: #30505a;
 
+//default styles for counter
+
+$cl-counter-background: #3ddfff;
+$cl-counter-color: #21414a;
+$cl-counter-border-radius: 100px;
+$cl-counter-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.44);
+
+$cl-single-price-font-family: OpenSans-Regular;
+$cl-single-price-color: #fbe23f;
+$cl-single-price-font-size: 14px;
+$cl-single-price-font-size-value: 18px;
+
+//default styles for prices
+
+$cl-price-font-family: OpenSans-Regular, serif;
+$cl-price-color: #fff;
+$cl-price-full-font-size: 24px;
+$cl-price-dsc-font-size: 40px;
+$cl-price-line-throw-color:#ea6e0d;
+
+$cl-price-title-font-family: OpenSans-Semibold, serif;
+$cl-price-title-font-size: 24px;
+$cl-price-title-color: #fff;
+
+//default styles for buttons
+$calc-lg-btn-color: #ffffff!default;
+$calc-lg-btn-font-family: 'OpenSans-Bold'!default;
+$calc-lg-btn-font-size: 23px!default;
+$calc-lg-btn-border-radius: 100px!default;
+$calc-lg-btn-height: 70px!default;
+//quote btn
+$calc-lg-quote-background-color: #21414a!default;
+$calc-lg-quote-border-quote: 3px solid #fff!default;
+
+//order btn
+$calc-lg-order-background-color: #ea6e0d!default;
+$calc-lg-order-border-quote: 0!default;
+
 /**  end of the default variables **/
 
 //theme lists
@@ -67,7 +105,7 @@ $slick-loader-path: "~slick-carousel/slick/";
 
 // Colors
 $primary-color-dark-blue: #273952;
-$primary-color-yellow: #febc09;
+$primary-color-yellow: #fbe23f;
 
 //Fonts
 $font-stack-regular: 'OpenSans-Regular', serif;

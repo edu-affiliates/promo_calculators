@@ -1,39 +1,55 @@
-.calc-lg-prices-group {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px 0;
+.cl-prices-group {
+  position: relative;
+  margin-bottom: 1em;
 }
 
-.calc-lg-prices-wrap {
-  flex: 0 0 50%;
+.cl-prices-wrap {
+  flex: 0 0 100%;
   height: 44px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
-.calc-lg-price {
+%cl-price-title-default {
+  font-family: $cl-price-title-font-family;
+  font-size: $cl-price-title-font-size;
+  color: $cl-price-title-color;
+}
+
+.cl-price-title {
+  @extend %cl-price-title-default;
+  letter-spacing: 1.3px;
+  text-align: center;
+}
+
+.cl-price {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  flex: 0 0 50%;
   height: 100%;
-  color: #fff;
+  font-family: $cl-price-font-family;
+  color: $cl-price-color;
   &--currency {
-    color: #72dcfb;
+    color: $cl-price-color;
   }
   &--full {
-    font-size: 22px;
-    text-decoration: line-through;
-    padding-right: 10px;
+    position: relative;
+    font-size: $cl-price-full-font-size;
+    margin: 0 10px;
+    padding: 0 5px;
+  }
+  &--line-throw {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $cl-price-line-throw-color;
   }
   &--dsc {
-    font-size: 40px;
+    font-size: $cl-price-dsc-font-size;
   }
 }
 
-.calc-lg-price-payment {
-  flex: 0 0 50%;
-  background: url("../images/icons/payments.svg") no-repeat left center;
-  background-size: contain;
-}

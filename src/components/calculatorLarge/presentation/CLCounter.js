@@ -22,24 +22,27 @@ class CLCounter extends React.Component {
         const {onClickPlus, onClickMinus, pageNumber, fullPrice, discount} = this.props;
         return (
             <div className="cl-counter-group">
+                <div className="cl-select-title">Number of Pages:</div>
                 <div className="cl-counter-wrap">
-                    <div onClick={onClickMinus} className="cl-counter cl-counter--minus">
-                        <span>-</span>
+                    <div className="cl-counter">
+                        <div onClick={onClickMinus} className="cl-counter-btn cl-counter-btn--minus">
+                            <span></span>
+                        </div>
+                        <div className="cl-page-value">
+                            <input type="text"
+                                   value={pageNumber}
+                                   onChange={(e) => this.handleChange(e)}
+                                   className="cl-page-value__input"/>
+                        </div>
+                        <div onClick={onClickPlus} className="cl-counter-btn cl-counter-btn--plus">
+                            <span></span>
+                        </div>
                     </div>
-                    <div className="cl-page-value">
-                        <input type="text"
-                               value={pageNumber}
-                               onChange={(e) => this.handleChange(e)}
-                               className="cl-page-value__input"/>
-                        <span>{(pageNumber === 1) ? 'page' : 'pages'}</span>
-                    </div>
-                    <div onClick={onClickPlus} className="cl-counter cl-counter--plus">
-                        <span>+</span>
+                    <div className="cl-single-price">
+                        <span className="cl-single-price__title">Price per page</span>
+                        <span className="cl-single-price__value">$ {(fullPrice * (1 - discount)).toFixed(2)}</span>
                     </div>
                 </div>
-                <div className="cl-single-price">
-                    <span className="cl-single-price__title">Price per page</span>
-                    <span className="cl-single-price__value">$ {(fullPrice * (1 - discount)).toFixed(2)}</span></div>
             </div>
         )
     }

@@ -23,11 +23,12 @@
 
 .cl-select-wrap {
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 1em;
 }
 
 .cl-select-title {
   @extend %cl-select-title-default;
+  margin-bottom: 5px;
 }
 
 .cl-select-list {

@@ -26,11 +26,17 @@ class CLButtons extends React.Component {
 
     render() {
         return (
-            <div className="calc-lg-btn-group">
-                <div onClick={() => this.redirectTo('inquiry')} className="calc-lg-btn calc-lg-btn--qoute">free quote
+            <div>
+                <div className="calc-lg-btn-group">
+                    <div onClick={() => this.redirectTo('inquiry')} className="calc-lg-btn calc-lg-btn--qoute">free
+                        quote
+                    </div>
+                    <div onClick={() => this.redirectTo('order')} className="calc-lg-btn calc-lg-btn--order">order now
+                    </div>
                 </div>
-                <div onClick={() => this.redirectTo('order')} className="calc-lg-btn calc-lg-btn--order">order now</div>
+                <div className="cl-price-payment"></div>
             </div>
+
         )
     }
 }

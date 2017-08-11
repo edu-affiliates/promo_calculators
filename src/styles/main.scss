@@ -7,8 +7,6 @@
   display: flex;
   justify-content: center;
   padding: 50px;
-  background: #30505a;
-  &.theme-dark-blue{
-    background: linear-gradient(180deg,#ffc600,#ffa300);
-  }
+  background: #21414a;
+  border: solid 2px #34616e;
 }

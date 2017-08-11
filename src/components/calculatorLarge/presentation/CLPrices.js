@@ -13,13 +13,14 @@ class CLPrices extends React.Component {
     render() {
         const {fullPrice, discount, pageNumber} = this.props;
         return (
-            <div className="calc-lg-prices-group">
-                <div className="calc-lg-price-payment"></div>
-                <div className="calc-lg-prices-wrap">
-                    <div className="calc-lg-price calc-lg-price--full">
-                        <span className="calc-lg-price--currency">$</span>{(fullPrice * pageNumber).toFixed(2)}</div>
-                    <div className="calc-lg-price calc-lg-price--dsc">
-                        <span className="calc-lg-price--currency">$</span>{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}</div>
+            <div className="cl-prices-group">
+                <div className="cl-price-title">ESTIMATE PRICE:</div>
+                <div className="cl-prices-wrap">
+                    <div className="cl-price cl-price--full">
+                        <span className="cl-price--line-throw"></span>
+                        <span className="cl-price--currency">$</span>{(fullPrice * pageNumber).toFixed(2)}</div>
+                    <div className="cl-price cl-price--dsc">
+                        <span className="cl-price--currency">$</span>{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}</div>
                 </div>
             </div>
         )

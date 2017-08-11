@@ -1,20 +1,9 @@
-//default styles for buttons
-$calc-lg-btn-color: #ffffff!default;
-$calc-lg-btn-font-family: 'OpenSans-Bold'!default;
-$calc-lg-btn-font-size: 23px!default;
-$calc-lg-btn-border-radius: 100px!default;
-$calc-lg-btn-height: 70px!default;
-//quote btn
-$calc-lg-quote-background-color: #34616e!default;
-$calc-lg-quote-border-quote: 1px solid #fff!default;
 
-//order btn
-$calc-lg-order-background-color: #ea6e0d!default;
-$calc-lg-order-border-quote: 0!default;
 .calc-lg-btn-group {
   flex: 0 0 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1em;
 }
 
 %calc-lg-btn-default {
@@ -28,6 +17,7 @@ $calc-lg-order-border-quote: 0!default;
 .calc-lg-btn {
   @extend %center-flex;
   @extend %calc-lg-btn-default;
+  box-sizing: border-box;
   flex: 0 0 calc(48% - 0px);
   text-transform: uppercase;
   cursor: pointer;
@@ -50,6 +40,12 @@ $calc-lg-order-border-quote: 0!default;
   }
 }
 
+.cl-price-payment {
+  height: 22px;
+  width: 100%;
+  background: url("../images/icons/payments.svg") no-repeat center center;
+  background-size: contain;
+}
 //@each $theme in $themes {
 //  .#{map_get($theme, name)} .calc-lg-btn {
 //    background-color: map_get(map_get($theme, btn), background-color);
