@@ -23,6 +23,7 @@
 .calc-sm-wrap {
   @extend %calc-sm-wrap-default;
   position: relative;
+  box-sizing: border-box;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;

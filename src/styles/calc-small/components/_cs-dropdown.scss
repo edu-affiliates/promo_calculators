@@ -7,12 +7,13 @@
 
 .calc-sm-dropdown-wrap {
   @extend %calc-sm-dropdown-wrap-default;
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
   padding: 44px 10px 10px;
   width: 100%;
-  overflow-y: hidden;
+  overflow: hidden;
   opacity: 0;
   visibility: hidden;
   transition: opacity .2s ease-in-out 0s, visibility 0s linear .3s, z-index 0s linear .01s;

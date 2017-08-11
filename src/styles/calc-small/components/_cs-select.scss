@@ -25,6 +25,7 @@
 .calc-sm-select {
   @extend %calc-sm-wrap;
   @extend %calc-sm-select;
+  box-sizing: border-box;
   position: relative;
   width: auto;
   padding: 5px 25px 5px 15px;
