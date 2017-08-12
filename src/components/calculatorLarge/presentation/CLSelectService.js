@@ -68,7 +68,7 @@ class CLSelectService extends React.Component {
 
 
         return (
-                <div className="cl-select-wrap">
+                <div className="service cl-select-wrap">
                     <div className="cl-select-title">Type of Service:</div>
                     <ul className="cl-select-list">
                         {services}

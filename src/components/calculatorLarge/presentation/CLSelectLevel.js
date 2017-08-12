@@ -37,13 +37,11 @@ class CLSelectLevel extends React.Component {
             });
 
         return (
-            <div className="cl-select-group">
-                <div className="cl-select-wrap">
-                    <div className="cl-select-title">Academic level:</div>
-                    <ul className="cl-select-list">
-                        {levels}
-                    </ul>
-                </div>
+            <div className="level cl-select-wrap">
+                <div className="cl-select-title">Academic level:</div>
+                <ul className="cl-select-list">
+                    {levels}
+                </ul>
             </div>
         )
     }

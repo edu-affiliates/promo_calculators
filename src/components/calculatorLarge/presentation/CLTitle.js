@@ -27,7 +27,7 @@ class CLTitle extends React.Component {
                 }
                 calcTitle =
                     <div className="calc-lg-title">
-                        {title}<br/>
+                        {title}
                         <span className="calc-lg-title--sm">{subtitle}</span>
                     </div>
             } else {

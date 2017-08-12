@@ -1,4 +1,7 @@
 .calc-lg-container {
+  box-sizing: border-box;
   width: 460px;
   background: transparent;
+  max-width: 100%;
+  padding: 15px;
 }

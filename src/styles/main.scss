@@ -3,10 +3,16 @@
 @import 'calc-large/main';
 //@import '~bootstrap/scss/bootstrap.scss';
 
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
 .calc-lg{
   display: flex;
   justify-content: center;
-  padding: 50px;
   background: #21414a;
-  border: solid 2px #34616e;
+  //border: solid 2px #34616e;
+  box-sizing: border-box;
 }

@@ -3,6 +3,10 @@
   font-size: $cl-title-font-size;
   color: $cl-title-color;
   text-transform: $cl-title-text-transform;
+  @include respond-to($xs-bt) {
+    font-size: $cl-title-font-size*0.9;
+
+  }
 }
 
 .calc-lg-title {
@@ -24,7 +28,6 @@
     letter-spacing: 0.5px;
   }
 }
-
 
 @each $theme in $themes {
   .#{map_get($theme, name)} .calc-lg-title {
