@@ -7,11 +7,15 @@
 }
 
 %calc-lg-btn-default {
-  font-family: $calc-lg-btn-font-family, serif;
   font-size: $calc-lg-btn-font-size;
+  font-family: $calc-lg-btn-font-family, serif;
   color: $calc-lg-btn-color;
   border-radius: $calc-lg-btn-border-radius;
   height: $calc-lg-btn-height;
+  @include respond-to($xx-bt) {
+    font-size: $calc-lg-btn-font-size*0.8;
+    height: $calc-lg-btn-height*0.8;
+  }
 }
 
 .calc-lg-btn {
@@ -46,6 +50,7 @@
   background: url("../images/icons/payments.svg") no-repeat center center;
   background-size: contain;
 }
+
 //@each $theme in $themes {
 //  .#{map_get($theme, name)} .calc-lg-btn {
 //    background-color: map_get(map_get($theme, btn), background-color);

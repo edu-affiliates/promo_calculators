@@ -15,6 +15,10 @@
   font-family: $cl-price-title-font-family;
   font-size: $cl-price-title-font-size;
   color: $cl-price-title-color;
+  @include respond-to($xx-bt) {
+    font-size: $cl-price-title-font-size*0.8;
+
+  }
 }
 
 .cl-price-title {
@@ -36,6 +40,10 @@
   &--full {
     position: relative;
     font-size: $cl-price-full-font-size;
+    @include respond-to($xx-bt) {
+      font-size: $cl-price-full-font-size*0.8;
+
+    }
     margin: 0 10px;
     padding: 0 5px;
   }
@@ -50,6 +58,9 @@
   }
   &--dsc {
     font-size: $cl-price-dsc-font-size;
+    @include respond-to($xx-bt) {
+      font-size: $cl-price-dsc-font-size*0.8;
+    }
   }
 }
 

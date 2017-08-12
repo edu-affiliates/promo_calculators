@@ -120,6 +120,10 @@
     padding: 7px 17px;
     margin-left: 10px;
     box-sizing: border-box;
+    @include respond-to($xx-bt){
+      font-size: 14px;
+
+    }
   }
 }
 
