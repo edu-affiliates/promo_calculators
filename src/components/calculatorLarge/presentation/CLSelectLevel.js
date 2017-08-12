@@ -26,7 +26,7 @@ class CLSelectLevel extends React.Component {
     render() {
         let levels;
         const {level, levelList, changeLevel} = this.props;
-
+        const levelLength = levelList.length;
         levels = levelList.map(
             (item) => {
                 return <li key={item.id}
@@ -37,7 +37,7 @@ class CLSelectLevel extends React.Component {
             });
 
         return (
-            <div className="level cl-select-wrap">
+            <div className={`level${levelLength} cl-select-wrap`}>
                 <div className="cl-select-title">Academic level:</div>
                 <ul className="cl-select-list">
                     {levels}
