@@ -27,9 +27,7 @@
 .cl-select-wrap {
   position: relative;
   margin: 1em auto;
-  @include respond-to($xx-bt) {
-    max-width: 290px;
-  }
+
 }
 
 .cl-select-title {

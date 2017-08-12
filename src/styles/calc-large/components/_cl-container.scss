@@ -2,6 +2,8 @@
   box-sizing: border-box;
   width: 460px;
   background: transparent;
-  max-width: 100%;
   padding: 15px;
+  @include respond-to($xx-bt) {
+    max-width: 320px;
+  }
 }
