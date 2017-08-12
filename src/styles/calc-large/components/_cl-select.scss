@@ -70,30 +70,6 @@
   @include respond-to($xx-bt) {
     width: 96px;
     flex: none;
-    //.service & {
-    //  &:first-child {
-    //    width: 92px;
-    //    border-top-left-radius: 0;
-    //    border-bottom-left-radius: 0;
-    //  }
-    //  &:last-child {
-    //    border-top-right-radius: 0;
-    //    border-bottom-right-radius: 0;
-    //  }
-    //
-    //}
-    //.level & {
-    //  &:first-child {
-    //    border-top-left-radius: 0;
-    //    border-bottom-left-radius: 0;
-    //  }
-    //  &:last-child {
-    //    border-top-right-radius: 0;
-    //    border-bottom-right-radius: 0;
-    //
-    //  }
-    //}
-
     .service & {
       &:nth-child(1) {
         width: 98px;

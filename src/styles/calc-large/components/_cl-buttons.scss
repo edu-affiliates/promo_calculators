@@ -13,7 +13,7 @@
   border-radius: $calc-lg-btn-border-radius;
   height: $calc-lg-btn-height;
   @include respond-to($xx-bt) {
-    font-size: $calc-lg-btn-font-size*0.8;
+    font-size: $calc-lg-btn-font-size*0.7;
     height: $calc-lg-btn-height*0.8;
   }
 }

@@ -68,22 +68,20 @@ class CLSelectService extends React.Component {
 
 
         return (
-                <div className="service cl-select-wrap">
-                    <div className="cl-select-title">Type of Service:</div>
-                    <ul className="cl-select-list">
-                        {services}
-                        {chooseOther}
+            <div className="service cl-select-wrap">
+                <div className="cl-select-title">Type of Service:</div>
+                <ul className="cl-select-list">
+                    {services}
+                    {chooseOther}
+                </ul>
+                {selectedService}
+                <div className={`${(this.state.openDropdown) ? 'open' : ''} cl-dropdown-wrap`}>
+                    <Search calcId={this.props.calcId}/>
+                    <ul className="cl-dropdown">
+                        {currentDropdownList}
                     </ul>
-                    {selectedService}
-                    <div className={(this.state.openDropdown) ? 'open' : ''}>
-                        <div className={`cl-dropdown-wrap cl-dropdown-wrap--service`}>
-                            <Search calcId={this.props.calcId}/>
-                            <ul className="cl-dropdown">
-                                {currentDropdownList}
-                            </ul>
-                        </div>
-                    </div>
                 </div>
+            </div>
         )
     }
 }

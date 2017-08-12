@@ -10,6 +10,8 @@
   display: none;
   position: relative;
   padding: 44px 10px 10px;
+  width: 100%;
+  box-sizing: border-box;
   top: -44px;
   left: 0;
   border-top: 0;
@@ -18,7 +20,11 @@
   max-height: 0;
   transition: all 0.5s cubic-bezier(0, 1, .5, 1);
   z-index: 20;
-  .open & {
+  @include respond-to($xx-bt){
+    width: calc(100% - 2px);
+    margin: 0 auto;
+  }
+  &.open {
     display: block;
     opacity: 1;
     visibility: visible;

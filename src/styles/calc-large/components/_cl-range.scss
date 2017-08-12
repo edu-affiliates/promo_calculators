@@ -102,6 +102,10 @@
   box-shadow: inset 0 1px 2px 0 rgba(64, 62, 62, 0.15);
   border-radius: 14px;
   @extend %center-flex;
+  @include respond-to($xx-bt){
+    left: -$cl-range-popup-min-width/2 + 15px;
+
+  }
   &::after {
     content: '';
     position: absolute;
@@ -114,6 +118,7 @@
     left: 0;
     right: 0;
     margin: 0 auto;
+
   }
   &__text {
     font-family: $cl-range-popup-font-family, serif;
