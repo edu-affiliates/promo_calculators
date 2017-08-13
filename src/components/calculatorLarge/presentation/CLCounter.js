@@ -9,11 +9,21 @@ class CLCounter extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            emptyInput: false
+        };
         this.handleChange = this.handleChange.bind(this);
     }
 
 
     handleChange(e) {
+        console.log(e.target.value === '');
+        if (e.target.value === '') {
+            this.setState({emptyInput: true})
+        } else {
+            if (this.state.emptyInput)
+                this.setState({emptyInput: false})
+        }
         const number = parseInt(e.target.value);
         this.props.handleInputPageNumber(number);
     }
@@ -31,7 +41,8 @@ class CLCounter extends React.Component {
                             </div>
                             <div className="cl-page-value">
                                 <input type="text"
-                                       value={pageNumber}
+                                       onBlur={console.log('lost focus')}
+                                       value={(this.state.emptyInput) ? '' : pageNumber}
                                        onChange={(e) => this.handleChange(e)}
                                        className="cl-page-value__input"/>
                             </div>
