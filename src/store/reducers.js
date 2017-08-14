@@ -57,7 +57,7 @@ export const reducers = (state = initialState, action) => {
             });
         case FETCH_SUCCESS_DSC:
             return Object.assign({}, state, {
-                discount: action.dsc,
+                discount: !!action.dsc ? action.dsc : 0,
             });
         case INIT_CALC:
             const calcState = state.inited ? calcSmallReducers(defaultCalcState, changeService(defaultId, action.calcId), state.tree, state.allServices) : defaultCalcState;
