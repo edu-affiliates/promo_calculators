@@ -9,7 +9,7 @@ $cs-border: solid 2px #34616e !default;
 $cs-background-color: #21414a !default;
 $cs-background-url: url("../images/icons/payments.svg") no-repeat center calc(100% - 10px)/80% auto !default;
 $cs-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42) !default;
-$cs-box-padding: 28px 30px 50px !default;
+$cs-box-padding: 28px 30px 47px !default;
 
 //default styles for calc title
 $cs-title-font-family: 'OpenSans-SemiBold' !default;
@@ -44,6 +44,18 @@ $cs-counter-minus-background-color: #21414a;
 
 $cs-page-value-font-family: OpenSans-Regular;
 $cs-page-value-font-size: 14px;
+
+//default styles for prices
+
+$cs-price-font-family: OpenSans-Regular, serif;
+$cs-price-color: #fff;
+$cs-price-full-font-size: 20px;
+$cs-price-dsc-font-size: 24px;
+$cs-price-line-throw-color:#ea6e0d;
+
+$cs-price-title-font-family: OpenSans-Semibold, serif;
+$cs-price-title-font-size: 14px;
+$cs-price-title-color: #fff;
 
 //default styles for buttons
 $cs-btn-color: #ffffff !default;

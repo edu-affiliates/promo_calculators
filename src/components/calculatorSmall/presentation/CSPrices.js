@@ -5,15 +5,40 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 //presentation of the price in calc small
+class CSPrices extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-const CalculatorSmallPrices = ({fullPrice, discount, pageNumber}) => (
-    <div className="cs-prices-wrap">
-        <div className="cs-price cs-price--full">${(fullPrice * pageNumber).toFixed(2)}</div>
-        <div className="cs-price cs-price--dsc">${(fullPrice * (1 - discount) * pageNumber).toFixed(2)}</div>
-    </div>
-);
+    render() {
+        const {fullPrice, discount, pageNumber} = this.props;
+        const cs = (discount === 0 ) ? <div/> :
+            <div className="cs-price ">
+                <div className="cs-price--full">
+                    <span className="cs-price--line-throw"/>
+                    ${(fullPrice * pageNumber).toFixed(2)}
+                </div>
+            </div>;
 
-CalculatorSmallPrices.propTypes = {
+        return (
+            <div className="cs-prices-group">
+                <div className="cs-price-title">Estimate price:</div>
+                <div className="cs-prices-wrap">
+                    {cs}
+                    <div className="cs-price ">
+                        <div className="cs-price--dsc">
+                            ${(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+
+    }
+}
+
+
+CSPrices.propTypes = {
     fullPrice: PropTypes.number.isRequired,
     discount: PropTypes.number.isRequired,
     pageNumber: PropTypes.number.isRequired
@@ -22,8 +47,8 @@ CalculatorSmallPrices.propTypes = {
 //container to match redux state to component props and dispatch redux actions to callback props
 
 const mapStateToProps = (reduxState, ownProps) => {
-  const state = reduxState.calculatorSmall[ownProps.calcId];
-  return {
+    const state = reduxState.calculatorSmall[ownProps.calcId];
+    return {
         fullPrice: state.deadline.price,
         discount: reduxState.discount,
         pageNumber: state.pageNumber
@@ -34,4 +59,4 @@ const mapDispatchToProps = dispatch => {
     return {}
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CalculatorSmallPrices);
+export default connect(mapStateToProps, mapDispatchToProps)(CSPrices);
