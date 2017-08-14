@@ -27,16 +27,18 @@ class CLTitle extends React.Component {
                 }
                 calcTitle =
                     <div className="cl-title">
-                        {title}
+                        <div>{title}</div>
                         <span className="cl-title--sm">{subtitle}</span>
                     </div>
             } else {
                 //set default title with discount
                 calcTitle =
                     <div className="cl-title">
-                        Your first order
-                        <span className="cl-title--dsc">{discount * 100}% off</span>
-                        <span className="cl-title--sm">Limited time!</span>
+                        <div className="cl-title__first-line">Your first order</div>
+                        <div className="cl-title__second-line">
+                            <span className="cl-title--dsc">{discount * 100}% off</span>
+                            <span className="cl-title--sm">Limited time!</span>
+                        </div>
                     </div>
             }
         }

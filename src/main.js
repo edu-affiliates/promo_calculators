@@ -58,7 +58,10 @@ let render = () => {
             ReactDOM.render(
                 <Provider store={store}>
                     <div>
-                        <CalculatorSmall calcId={i} containerClass={MOUNT_CLASSES[i]}/>
+                        <CalculatorSmall calcId={i}
+                                         calcTitle={MOUNT_NODE.dataset.title}
+                                         calcTitleDiscount={MOUNT_NODE.dataset.titleDiscount}
+                                         containerClass={MOUNT_CLASSES[i]}/>
                     </div>
                 </Provider>,
                 MOUNT_NODE
