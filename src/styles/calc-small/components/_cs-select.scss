@@ -1,6 +1,7 @@
 .cs-select-group {
   position: relative;
   flex: 0 0 100%;
+  max-width: 100%;
 }
 
 %cs-wrap {
@@ -27,6 +28,7 @@
 .cs-select {
   @extend %cs-wrap;
   @extend %cs-select;
+  word-break: break-all;
   box-sizing: border-box;
   position: relative;
   width: auto;
@@ -51,7 +53,7 @@
     width: 10px;
     display: block;
     right: 10px;
-    top: calc(50% - 16px / 2);
+    top: calc(50% - 16.200000000000003px / 2);
     border-bottom: 2px solid;
     border-left: 2px solid;
     border-color:  $cs-select-color;
