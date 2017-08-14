@@ -1,4 +1,4 @@
-.calc-sm-prices-wrap {
+.cs-prices-wrap {
   flex: 0 0 100%;
   height: 44px;
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.calc-sm-price {
+.cs-price {
   @extend %center-flex;
   flex: 0 0 50%;
   height: 100%;

@@ -26,10 +26,10 @@ class CalculatorSmallButtons extends React.Component {
 
     render() {
         return (
-            <div className="calc-sm-btn-group">
-                <div onClick={() => this.redirectTo('inquiry')} className="calc-sm-btn calc-sm-btn--qoute">free quote
+            <div className="cs-btn-group">
+                <div onClick={() => this.redirectTo('inquiry')} className="cs-btn cs-btn--qoute">free quote
                 </div>
-                <div onClick={() => this.redirectTo('order')} className="calc-sm-btn calc-sm-btn--order">order now</div>
+                <div onClick={() => this.redirectTo('order')} className="cs-btn cs-btn--order">order now</div>
             </div>
         )
     }

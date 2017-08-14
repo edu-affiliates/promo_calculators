@@ -1,9 +1,9 @@
-.calc-sm-select-group {
+.cs-select-group {
   position: relative;
   flex: 0 0 100%;
 }
 
-%calc-sm-wrap {
+%cs-wrap {
   border-radius: $select-border-radius;
   background-color: $select-background-color;
   box-shadow: $select-box-shadow;
@@ -11,20 +11,20 @@
   margin: $select-margin;
 }
 
-.calc-sm-select-wrap {
+.cs-select-wrap {
 
   position: relative;
   flex: 0 0 100%;
 }
 
-%calc-sm-select {
+%cs-select {
   height: $select-height;
   color: $select-color;
 }
 
-.calc-sm-select {
-  @extend %calc-sm-wrap;
-  @extend %calc-sm-select;
+.cs-select {
+  @extend %cs-wrap;
+  @extend %cs-select;
   box-sizing: border-box;
   position: relative;
   width: auto;
@@ -59,7 +59,7 @@
 }
 
 @each $theme in $themes {
-  .#{map_get($theme, name)} .calc-sm-select {
+  .#{map_get($theme, name)} .cs-select {
     height: map_get(map_get($theme, select), height);
     color: map_get(map_get($theme, select), color);
     border-radius: map_get(map_get($theme, select), border-radius);
@@ -68,7 +68,7 @@
     border: map_get(map_get($theme, select), border);
     margin: map_get(map_get($theme, select), margin);
   }
-  .#{map_get($theme, name)} .calc-sm-select:after {
+  .#{map_get($theme, name)} .cs-select:after {
     border-color: map_get(map_get($theme, select), color);
   }
 }

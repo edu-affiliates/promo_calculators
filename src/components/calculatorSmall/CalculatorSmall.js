@@ -24,7 +24,7 @@ class CalculatorSmall extends React.Component {
     if (this.props.inited) {
       return (
         <div className={this.props.containerClass}>
-          <div className="calc-sm-wrap">
+          <div className="cs-wrap">
             <Title />
             <SelectGroup calcId={this.props.calcId}/>
             <Counter calcId={this.props.calcId}/>
@@ -33,7 +33,7 @@ class CalculatorSmall extends React.Component {
           </div>
         </div>
       )
-    } else return (<div></div>)
+    } else return (<div/>)
   }
 }
 

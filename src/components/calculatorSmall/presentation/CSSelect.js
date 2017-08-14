@@ -17,7 +17,7 @@ class CalculatorSmallSelect extends React.Component {
                            onClick={() => {
                                this.props.toggleDropdown(this.props.type);
                                this.props.onChange(item.id);
-                           }} className="calc-sm-dropdown__item">{item.name}</li>
+                           }} className="cs-dropdown__item">{item.name}</li>
             }
         );
         let searchService;
@@ -26,15 +26,15 @@ class CalculatorSmallSelect extends React.Component {
         }
         return (
 
-            <div className="calc-sm-select-wrap ">
+            <div className="cs-select-wrap ">
                 <div onClick={() => this.props.toggleDropdown(this.props.type)}
-                     className={`calc-sm-select calc-sm-select--${this.props.type}`}>
+                     className={`cs-select cs-select--${this.props.type}`}>
                     {this.props.current}
                 </div>
                 <div className={(this.props.openDropdown[this.props.type]) ? 'open' : ''}>
-                    <div className={`calc-sm-dropdown-wrap calc-sm-dropdown-wrap--${this.props.type}`}>
+                    <div className={`cs-dropdown-wrap cs-dropdown-wrap--${this.props.type}`}>
                         {searchService}
-                        <ul className="calc-sm-dropdown">
+                        <ul className="cs-dropdown">
                             {currentList}
                         </ul>
                     </div>

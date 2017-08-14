@@ -21,17 +21,17 @@ class CalculatorSmallCounter extends React.Component {
     render() {
         const {onClickPlus, onClickMinus, pageNumber} = this.props;
         return (
-            <div className="calc-sm-counter-wrap">
-                <div onClick={onClickMinus} className="calc-sm-counter calc-sm-counter--minus">
+            <div className="cs-counter-wrap">
+                <div onClick={onClickMinus} className="cs-counter cs-counter--minus">
                     <span>&#65293;</span>
                 </div>
-                <div className="calc-sm-page-value">
+                <div className="cs-page-value">
                     <input value={pageNumber}
                            onChange={(e) => this.handleChange(e)}
-                           type="text" className="calc-sm-page-value__input"/>
+                           type="text" className="cs-page-value__input"/>
                     <span>{(pageNumber == 1) ? 'page' : 'pages'}</span>
                 </div>
-                <div onClick={onClickPlus} className="calc-sm-counter calc-sm-counter--plus">
+                <div onClick={onClickPlus} className="cs-counter cs-counter--plus">
                     <span>+</span>
                 </div>
             </div>

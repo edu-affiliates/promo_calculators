@@ -1,12 +1,12 @@
-%calc-sm-wrap-default {
+%cs-wrap-default {
   z-index: 100;
-  height: $calc-sm-height;
-  width: $calc-sm-width;
-  border-radius: $calc-sm-border-radius;
-  padding: $calc-sm-box-padding;
-  box-shadow: $calc-sm-box-shadow;
-  border: $calc-sm-border;
-  background: $calc-sm-background-color $calc-sm-background-url ;
+  height: $cs-height;
+  width: $cs-width;
+  border-radius: $cs-border-radius;
+  padding: $cs-box-padding;
+  box-shadow: $cs-box-shadow;
+  border: $cs-border;
+  background: $cs-background-color $cs-background-url ;
   @include respond-to($xs-bt) {
     margin-left: 0;
     margin-right: auto;
@@ -16,12 +16,8 @@
   }
 }
 
-.calc-sm {
-  margin: 15px;
-}
-
-.calc-sm-wrap {
-  @extend %calc-sm-wrap-default;
+.cs-wrap {
+  @extend %cs-wrap-default;
   position: relative;
   box-sizing: border-box;
   margin: 0 auto;
@@ -33,7 +29,7 @@
 }
 
 @each $theme in $themes {
-  .#{map_get($theme, name)} .calc-sm-wrap {
+  .#{map_get($theme, name)} .cs-wrap {
     border-radius: map_get(map_get($theme, container), border-radius);
     background-color: map_get(map_get($theme, container), background-color);
     box-shadow: map_get(map_get($theme, container), box-shadow);

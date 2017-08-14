@@ -2,19 +2,19 @@
 * !!IMPORTANT Be sure that you include your own variables earlier than default ones**/
 
 //default styles for calc container
-$calc-sm-width: 260px !default;
-$calc-sm-height: auto !default;
-$calc-sm-border-radius: 24px !default;
-$calc-sm-border: solid 2px #34616e !default;
-$calc-sm-background-color: #21414a !default;
-$calc-sm-background-url: url("../images/icons/payments.svg") no-repeat center calc(100% - 10px)/80% auto !default;
-$calc-sm-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42) !default;
-$calc-sm-box-padding: 36px 30px 50px !default;
+$cs-width: 260px !default;
+$cs-height: auto !default;
+$cs-border-radius: 24px !default;
+$cs-border: solid 2px #34616e !default;
+$cs-background-color: #21414a !default;
+$cs-background-url: url("../images/icons/payments.svg") no-repeat center calc(100% - 10px)/80% auto !default;
+$cs-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42) !default;
+$cs-box-padding: 28px 30px 50px !default;
 
 //default styles for calc title
-$calc-sm-title-font-family: 'OpenSans-SemiBold' !default;
-$calc-sm-title-font-size: 18px !default;
-$calc-sm-title-color: #fce23f !default;
+$cs-title-font-family: 'OpenSans-SemiBold' !default;
+$cs-title-font-size: 16px !default;
+$cs-title-color: #fce23f !default;
 
 //default styles for select
 $select-height: 34px !default;
@@ -26,22 +26,22 @@ $select-margin: 0 0 12px !default;
 $select-color: #ffffff !default;
 
 //default styles for dropdown
-$calc-sm-dropdown-background: #fff;
-$calc-sm-dropdown-border-radius: 24px;
+$cs-dropdown-background: #fff;
+$cs-dropdown-border-radius: 24px;
 
 //default styles for buttons
-$calc-sm-btn-color: #ffffff!default;
-$calc-sm-btn-font-family: 'OpenSans-Bold'!default;
-$calc-sm-btn-font-size: 13px!default;
-$calc-sm-btn-border-radius: 24px!default;
-$calc-sm-btn-height: 34px!default;
+$cs-btn-color: #ffffff!default;
+$cs-btn-font-family: 'OpenSans-Bold'!default;
+$cs-btn-font-size: 13px!default;
+$cs-btn-border-radius: 24px!default;
+$cs-btn-height: 34px!default;
 //quote btn
-$calc-sm-quote-background-color: #34616e!default;
-$calc-sm-quote-border-quote: 1px solid #fff!default;
+$cs-quote-background-color: #34616e!default;
+$cs-quote-border-quote: 1px solid #fff!default;
 
 //order btn
-$calc-sm-order-background-color: #ea6e0d!default;
-$calc-sm-order-border-quote: 0!default;
+$cs-order-background-color: #ea6e0d!default;
+$cs-order-border-quote: 0!default;
 
 /**  end of the default variables **/
 

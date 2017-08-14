@@ -1,12 +1,12 @@
-.calc-sm-counter-wrap {
-  @extend %calc-sm-wrap;
+.cs-counter-wrap {
+  @extend %cs-wrap;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.calc-sm-counter {
-  @extend %calc-sm-select;
+.cs-counter {
+  @extend %cs-select;
   @extend %center-flex;
   width: 50px;
   text-align: center;
@@ -19,7 +19,7 @@
   }
 }
 
-.calc-sm-page-value {
+.cs-page-value {
   color: $select-color;
   height: $select-height;
   font-size: 14px;
@@ -36,18 +36,18 @@
 }
 
 @each $theme in $themes {
-  .#{map_get($theme, name)} .calc-sm-counter-wrap {
+  .#{map_get($theme, name)} .cs-counter-wrap {
     border-radius: map_get(map_get($theme, select), border-radius);
     background-color: map_get(map_get($theme, select), background-color);
     box-shadow: map_get(map_get($theme, select), box-shadow);
     border: map_get(map_get($theme, select), border);
     margin: map_get(map_get($theme, select), margin);
   }
-  .#{map_get($theme, name)} .calc-sm-counter {
+  .#{map_get($theme, name)} .cs-counter {
     height: map_get(map_get($theme, select), height);
     color: map_get(map_get($theme, select), color);
   }
-  .#{map_get($theme, name)} .calc-sm-page-value {
+  .#{map_get($theme, name)} .cs-page-value {
     height: map_get(map_get($theme, select), height);
     color: map_get(map_get($theme, select), color);
   }

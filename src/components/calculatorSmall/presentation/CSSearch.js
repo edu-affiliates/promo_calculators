@@ -21,8 +21,8 @@ class CalculatorSmallSearch extends React.Component {
 
     render() {
         return (
-            <div className="calc-sm-search-wrap">
-                <input className="calc-sm-search" value={this.state.searchString}
+            <div className="cs-search-wrap">
+                <input className="cs-search" value={this.state.searchString}
                        onChange={(e) => this.handleChange(e)}
                        placeholder="Type the name of service"
                 />

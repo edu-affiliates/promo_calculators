@@ -1,12 +1,12 @@
 
 
-%calc-sm-dropdown-wrap-default {
-  background-color: $calc-sm-dropdown-background;
-  border-radius: $calc-sm-dropdown-border-radius;
+%cs-dropdown-wrap-default {
+  background-color: $cs-dropdown-background;
+  border-radius: $cs-dropdown-border-radius;
 }
 
-.calc-sm-dropdown-wrap {
-  @extend %calc-sm-dropdown-wrap-default;
+.cs-dropdown-wrap {
+  @extend %cs-dropdown-wrap-default;
   box-sizing: border-box;
   position: absolute;
   top: 0;
@@ -32,7 +32,7 @@
   }
 }
 
-.calc-sm-dropdown {
+.cs-dropdown {
   background: transparent;
   padding: 0;
   width: 100%;
@@ -62,12 +62,12 @@
 }
 
 @each $theme in $themes {
-  .#{map_get($theme, name)} .calc-sm-dropdown-wrap {
+  .#{map_get($theme, name)} .cs-dropdown-wrap {
     border-radius: map_get(map_get($theme, dropdown), border-radius);
     background-color: map_get(map_get($theme, dropdown), background-color);
     border: map_get(map_get($theme, dropdown), border);
   }
-  .#{map_get($theme, name)} .calc-sm-dropdown::-webkit-scrollbar {
+  .#{map_get($theme, name)} .cs-dropdown::-webkit-scrollbar {
     background-color: map_get(map_get($theme, dropdown), background-color);
   }
 }

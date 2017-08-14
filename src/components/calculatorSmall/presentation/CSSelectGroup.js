@@ -35,7 +35,7 @@ class CalculatorSmallSelectGroup extends React.Component {
     render() {
 
         return (
-            <div className="calc-sm-select-group">
+            <div className="cs-select-group">
                 <Select type={'service'}
                         current={this.props.service}
                         currentList={this.props.serviceList}

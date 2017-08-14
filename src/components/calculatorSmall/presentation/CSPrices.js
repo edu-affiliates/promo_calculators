@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 //presentation of the price in calc small
 
 const CalculatorSmallPrices = ({fullPrice, discount, pageNumber}) => (
-    <div className="calc-sm-prices-wrap">
-        <div className="calc-sm-price calc-sm-price--full">${(fullPrice * pageNumber).toFixed(2)}</div>
-        <div className="calc-sm-price calc-sm-price--dsc">${(fullPrice * (1 - discount) * pageNumber).toFixed(2)}</div>
+    <div className="cs-prices-wrap">
+        <div className="cs-price cs-price--full">${(fullPrice * pageNumber).toFixed(2)}</div>
+        <div className="cs-price cs-price--dsc">${(fullPrice * (1 - discount) * pageNumber).toFixed(2)}</div>
     </div>
 );
 

@@ -1,20 +1,20 @@
-.calc-sm-btn-group {
+.cs-btn-group {
   flex: 0 0 100%;
   display: flex;
   justify-content: space-between;
 }
 
-%calc-sm-btn-default {
-  font-family: $calc-sm-btn-font-family, serif;
-  font-size: $calc-sm-btn-font-size;
-  color: $calc-sm-btn-color;
-  border-radius: $calc-sm-btn-border-radius;
-  height: $calc-sm-btn-height;
+%cs-btn-default {
+  font-family: $cs-btn-font-family, serif;
+  font-size: $cs-btn-font-size;
+  color: $cs-btn-color;
+  border-radius: $cs-btn-border-radius;
+  height: $cs-btn-height;
 }
 
-.calc-sm-btn {
+.cs-btn {
   @extend %center-flex;
-  @extend %calc-sm-btn-default;
+  @extend %cs-btn-default;
   min-width: 110px;
   flex: 0 0 calc(50% - 4px);
   text-transform: uppercase;
@@ -22,27 +22,27 @@
   cursor: pointer;
 
   &--qoute {
-    background-color: $calc-sm-quote-background-color;
+    background-color: $cs-quote-background-color;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .5);
-    border: $calc-sm-quote-border-quote;
+    border: $cs-quote-border-quote;
     margin-right: 4px;
     &:hover {
-      background-color: darken($calc-sm-quote-background-color, 10%);
+      background-color: darken($cs-quote-background-color, 10%);
     }
   }
   &--order {
-    background-color: $calc-sm-order-background-color;
+    background-color: $cs-order-background-color;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .35);
-    border: $calc-sm-order-border-quote;
+    border: $cs-order-border-quote;
     margin-left: 4px;
     &:hover {
-      background-color: darken($calc-sm-order-background-color, 10%);
+      background-color: darken($cs-order-background-color, 10%);
     }
   }
 }
 
 @each $theme in $themes {
-  .#{map_get($theme, name)} .calc-sm-btn {
+  .#{map_get($theme, name)} .cs-btn {
     background-color: map_get(map_get($theme, btn), background-color);
     border-radius: map_get(map_get($theme, btn), border-radius);
     height: map_get(map_get($theme, btn), height);
@@ -50,13 +50,13 @@
     font-size: map_get(map_get($theme, btn), font-size);
     font-family: map_get(map_get($theme, btn), font-family);
   }
-  .#{map_get($theme, name)} .calc-sm-btn--qoute {
+  .#{map_get($theme, name)} .cs-btn--qoute {
     background-color: map_get(map_get($theme, qoute), background-color);
     box-shadow: map_get(map_get($theme, qoute), box-shadow);
     border: map_get(map_get($theme, qoute), border);
 
   }
-  .#{map_get($theme, name)} .calc-sm-btn--order {
+  .#{map_get($theme, name)} .cs-btn--order {
     background-color: map_get(map_get($theme, order), background-color);
     box-shadow: map_get(map_get($theme, order), box-shadow);
     border: map_get(map_get($theme, order), border);
