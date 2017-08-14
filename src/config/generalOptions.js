@@ -4,10 +4,10 @@ let generalOptions = {
   'hostname': hostname,
   'website_id': 432,
   'service_ids': '1674, 1675, 1673, 1690',
-  'apiMode': 'M',
   'dev_mode': true,
   'dsc': 'ESSAYFIRST15',
-  'rid': 1228,
+  // 'dsc': '',
+  // 'rid': 1228,
 }
 
 if (window.eduOptions) {

@@ -27,7 +27,7 @@ class TPTableCounter extends React.Component {
             + '&cli=' + level.id
             + '&cdi=' + deadline.id
             + '&ccu=' + pageNumber;
-        if (generalOptions.apiMode !== 'M') {
+        if (generalOptions.rid) {
             redirectTo += `&rid=${generalOptions.rid}`
         }
         location.href = redirectTo;

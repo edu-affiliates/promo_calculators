@@ -18,7 +18,7 @@ class CalculatorSmallButtons extends React.Component {
             + '&cli=' + levelId
             + '&cdi=' + deadlineId
             + '&ccu=' + countPages;
-        if (generalOptions.apiMode !== 'M') {
+        if (generalOptions.rid) {
             redirectTo += `&rid=${generalOptions.rid}`
         }
         location.href = redirectTo;
