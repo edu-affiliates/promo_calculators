@@ -4,22 +4,24 @@
 }
 
 %cs-wrap {
-  border-radius: $select-border-radius;
-  background-color: $select-background-color;
-  box-shadow: $select-box-shadow;
-  border: $select-border;
-  margin: $select-margin;
+  border-radius: $cs-select-border-radius;
+  background-color: $cs-select-background-color;
+  box-shadow: $cs-select-box-shadow;
+  border: $cs-select-border;
+  margin: $cs-select-margin;
+  height: $cs-select-height;
 }
 
 .cs-select-wrap {
-
   position: relative;
   flex: 0 0 100%;
 }
 
 %cs-select {
-  height: $select-height;
-  color: $select-color;
+  font-family: $cs-select-font-family;
+  font-size: $cs-select-font-size;
+  color: $cs-select-color;
+  letter-spacing: 1.2px;
 }
 
 .cs-select {
@@ -49,10 +51,10 @@
     width: 10px;
     display: block;
     right: 10px;
-    top: calc(50% - 16.200000000000003px / 2);
+    top: calc(50% - 16px / 2);
     border-bottom: 2px solid;
     border-left: 2px solid;
-    border-color:  $select-color;
+    border-color:  $cs-select-color;
     transform: rotate(-45deg);
     pointer-events: none;
   }

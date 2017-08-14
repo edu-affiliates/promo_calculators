@@ -5,32 +5,47 @@
   justify-content: space-between;
 }
 
+
+
 .cs-counter {
+
   @extend %cs-select;
   @extend %center-flex;
-  width: 50px;
   text-align: center;
-  color: $select-color;
-  font-size: 27px;
+  color: $cs-select-color;
+  width: $cs-counter-width;
+  height: $cs-counter-height;
   cursor: pointer;
+  border-radius: 100px;
+  margin: -1px;
   &--plus {
+    background-color: $cs-counter-plus-background-color;
+    border: solid 1px $cs-counter-color;
+    margin-right: -2px;
   }
   &--minus {
+    background-color: $cs-counter-minus-background-color;
+    border: solid 1px $cs-counter-color;
   }
 }
 
 .cs-page-value {
-  color: $select-color;
-  height: $select-height;
-  font-size: 14px;
-  letter-spacing: normal;
+  height: $cs-counter-height;
+  font-family: $cs-page-value-font-family, serif;
+  font-size: $cs-page-value-font-size;
+  color: $cs-counter-color;
+  line-height: 1;
   cursor: text;
+  @extend %center-flex;
   &__input {
+    font-family: inherit;
+    font-size: $cs-page-value-font-size*1.2;
     height: 100%;
     outline: none;
     border: none;
     text-align: center;
-    width: 30px;  background-color: transparent;
+    width: 40px;
+    background-color: transparent;
     color: inherit;
   }
 }

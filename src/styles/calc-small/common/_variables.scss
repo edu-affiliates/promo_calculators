@@ -17,31 +17,47 @@ $cs-title-font-size: 16px !default;
 $cs-title-color: #fce23f !default;
 
 //default styles for select
-$select-height: 34px !default;
-$select-border-radius: 24px !default;
-$select-background-color: #34616e !default;
-$select-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42) !default;
-$select-border: solid 1px #fff !default;
-$select-margin: 0 0 12px !default;
-$select-color: #ffffff !default;
+$cs-select-height: 34px !default;
+$cs-select-border-radius: 100px !default;
+$cs-select-background-color: #34616e !default;
+$cs-select-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42) !default;
+$cs-select-border: solid 1px #fff !default;
+$cs-select-margin: 0 0 12px !default;
+$cs-select-font-family: ' OpenSans-Regular' !default;
+$cs-select-font-size: 14px !default;
+$cs-select-color: #ffffff !default;
 
 //default styles for dropdown
+$cs-dropdown-font-family: ' OpenSans-Regular' !default;
+$cs-dropdown-font-size: 13px !default;
+$cs-dropdown-background-color: #34616e !default;
 $cs-dropdown-background: #fff;
 $cs-dropdown-border-radius: 24px;
 
+//default styles for counter
+
+$cs-counter-width: 34px;
+$cs-counter-height: 34px;
+$cs-counter-color: #ffffff;
+$cs-counter-plus-background-color: #34616e;
+$cs-counter-minus-background-color: #21414a;
+
+$cs-page-value-font-family: OpenSans-Regular;
+$cs-page-value-font-size: 14px;
+
 //default styles for buttons
-$cs-btn-color: #ffffff!default;
-$cs-btn-font-family: 'OpenSans-Bold'!default;
-$cs-btn-font-size: 13px!default;
-$cs-btn-border-radius: 24px!default;
-$cs-btn-height: 34px!default;
+$cs-btn-color: #ffffff !default;
+$cs-btn-font-family: 'OpenSans-Bold' !default;
+$cs-btn-font-size: 13px !default;
+$cs-btn-border-radius: 24px !default;
+$cs-btn-height: 34px !default;
 //quote btn
-$cs-quote-background-color: #34616e!default;
-$cs-quote-border-quote: 1px solid #fff!default;
+$cs-quote-background-color: #34616e !default;
+$cs-quote-border-quote: 1px solid #fff !default;
 
 //order btn
-$cs-order-background-color: #ea6e0d!default;
-$cs-order-border-quote: 0!default;
+$cs-order-background-color: #ea6e0d !default;
+$cs-order-border-quote: 0 !default;
 
 /**  end of the default variables **/
 
@@ -101,8 +117,8 @@ $section-yellow-bottom-min-height: 796px;
 //
 // Define the maximum width of `.container` for different screen sizes.
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1170px
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1170px
 )
