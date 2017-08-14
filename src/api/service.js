@@ -52,7 +52,7 @@ export function sendStats(stats, xsrf) {
     return fetchStats(stats, xsrf)
         .then(
             (response) => {
-                console.log(response)
+                // console.log(response)
             },
             (fail) => {
                 console.log(fail)
