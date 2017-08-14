@@ -23,18 +23,24 @@
       margin-bottom: 10px;
     }
   }
+  &__second-line {
+    display: flex;
+  }
   &--dsc {
     background-color: $cl-title-color;
     color: #193239;
     padding: 5px 10px;
     margin-left: 10px;
     margin-right: 10px;
+    @extend %center-flex;
+
   }
   &--sm {
     text-transform: none;
     font-family: 'OpenSans-Regular', serif;
     font-size: 16px;
     letter-spacing: 0.5px;
+    text-align: left;
   }
 }
 

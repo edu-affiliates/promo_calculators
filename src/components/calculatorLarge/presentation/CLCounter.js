@@ -58,7 +58,8 @@ class CLCounter extends React.Component {
                                        onChange={(e) => this.handleChange(e)}
                                        className="cl-page-value__input"/>
                             </div>
-                            <div onClick={onClickPlus} className="cl-counter-btn cl-counter-btn--plus">
+                            <div onClick={(pageNumber < maxPageNumber) ? onClickPlus : () => this.setState({alert: true})}
+                                 className="cl-counter-btn cl-counter-btn--plus">
                                 <span/>
                             </div>
                         </div>

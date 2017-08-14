@@ -37,7 +37,7 @@ class CLTitle extends React.Component {
                         <div className="cl-title__first-line">Your first order</div>
                         <div className="cl-title__second-line">
                             <span className="cl-title--dsc">{discount * 100}% off</span>
-                            <span className="cl-title--sm">Limited time!</span>
+                            <span className="cl-title--sm">Limited <br/>time!</span>
                         </div>
                     </div>
             }
