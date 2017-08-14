@@ -10,14 +10,14 @@ class CLCounter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            emptyInput: false
+            emptyInput: false,
+            alert: false
         };
         this.handleChange = this.handleChange.bind(this);
     }
 
 
     handleChange(e) {
-        console.log(e.target.value === '');
         if (e.target.value === '') {
             this.setState({emptyInput: true})
         } else {
@@ -25,11 +25,23 @@ class CLCounter extends React.Component {
                 this.setState({emptyInput: false})
         }
         const number = parseInt(e.target.value);
+
+        if (number > this.props.maxPageNumber) {
+            this.setState({alert: true})
+        }
         this.props.handleInputPageNumber(number);
     }
 
+    handleBlur() {
+        this.setState({emptyInput: false});
+    }
+
     render() {
-        const {onClickPlus, onClickMinus, pageNumber, fullPrice, discount} = this.props;
+        const {onClickPlus, onClickMinus, pageNumber, maxPageNumber, fullPrice, discount} = this.props;
+        const alert = (this.state.alert) ? <div className="cl-page-value__alert">
+            <span>Warning! Max number of the pages are {maxPageNumber}.</span>
+            <span onClick={() => { this.setState({alert: false})}} className="cl-page-value__alert--cross">&times;</span>
+        </div> : <div/>
         return (
             <div className="cl-counter-group">
                 <div className="cl-counter-wrap">
@@ -37,17 +49,17 @@ class CLCounter extends React.Component {
                         <div className="cl-select-title">Number of Pages:</div>
                         <div className="cl-counter">
                             <div onClick={onClickMinus} className="cl-counter-btn cl-counter-btn--minus">
-                                <span></span>
+                                <span/>
                             </div>
                             <div className="cl-page-value">
                                 <input type="text"
-                                       onBlur={console.log('lost focus')}
+                                       onBlur={() => this.handleBlur()}
                                        value={(this.state.emptyInput) ? '' : pageNumber}
                                        onChange={(e) => this.handleChange(e)}
                                        className="cl-page-value__input"/>
                             </div>
                             <div onClick={onClickPlus} className="cl-counter-btn cl-counter-btn--plus">
-                                <span></span>
+                                <span/>
                             </div>
                         </div>
                     </div>
@@ -56,15 +68,18 @@ class CLCounter extends React.Component {
                         <span className="cl-single-price__value">$ {(fullPrice * (1 - discount)).toFixed(2)}</span>
                     </div>
                 </div>
+                {alert}
             </div>
+
         )
     }
 }
 
-CLCounter.propTypes = {
+CLCounter.PropTypes = {
     onClickPlus: PropTypes.func.isRequired,
     onClickMinus: PropTypes.func.isRequired,
     pageNumber: PropTypes.number.isRequired,
+    maxPageNumber: PropTypes.number.isRequired,
     fullPrice: PropTypes.number.isRequired,
     discount: PropTypes.number.isRequired,
 };
@@ -73,9 +88,10 @@ CLCounter.propTypes = {
 const mapStateToProps = (reduxState, ownProps) => {
     const state = reduxState.calculatorSmall[ownProps.calcId];
     return {
-        fullPrice: state.deadline.price,
         discount: reduxState.discount,
-        pageNumber: state.pageNumber
+        fullPrice: state.deadline.price,
+        maxPageNumber: state.deadline.max_pages,
+        pageNumber: state.pageNumber,
     }
 };
 
