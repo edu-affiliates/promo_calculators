@@ -12,22 +12,28 @@ class CLPrices extends React.Component {
 
     render() {
         const {fullPrice, discount, pageNumber} = this.props;
+        //show if discount more than zero
+        const fullPriceElement = (discount === 0) ? <div/> : <div className="cl-price cl-price--full">
+            <span className="cl-price--line-throw"/>
+            <span className="cl-price--currency">$</span>{(fullPrice * pageNumber).toFixed(2)}
+        </div>;
+        const dscPriceElement = <div className="cl-price cl-price--dsc">
+                        <span
+                            className="cl-price--currency">$</span>{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+        </div>;
         return (
             <div className="cl-prices-group">
                 <div className="cl-price-title">ESTIMATE PRICE:</div>
                 <div className="cl-prices-wrap">
-                    <div className="cl-price cl-price--full">
-                        <span className="cl-price--line-throw"></span>
-                        <span className="cl-price--currency">$</span>{(fullPrice * pageNumber).toFixed(2)}</div>
-                    <div className="cl-price cl-price--dsc">
-                        <span className="cl-price--currency">$</span>{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}</div>
+                    {fullPriceElement}
+                    {dscPriceElement}
                 </div>
             </div>
         )
     }
 }
 
-CLPrices.propTypes = {
+CLPrices.PropTypes = {
     fullPrice: PropTypes.number.isRequired,
     discount: PropTypes.number.isRequired,
     pageNumber: PropTypes.number.isRequired
