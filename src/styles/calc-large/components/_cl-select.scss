@@ -131,13 +131,16 @@
   justify-content: space-between;
   padding-left: 27px;
   height: 60px;
+  &__text{
+    word-break: break-all;
+    width: calc(100% - 70px);
+  }
   &__close {
+    @extend %center-flex;
     font-size: 18px;
     height: 56px;
     width: 56px;
     border-radius: 50%;
-    text-align: center;
-    line-height: 56px;
     cursor: pointer;
     border: solid 1px $cl-select-single-active-color;
     margin: 1px;

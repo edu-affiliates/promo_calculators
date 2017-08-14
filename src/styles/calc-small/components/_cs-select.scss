@@ -28,7 +28,7 @@
 .cs-select {
   @extend %cs-wrap;
   @extend %cs-select;
-  word-break: break-all;
+  word-break: keep-all;
   box-sizing: border-box;
   position: relative;
   width: auto;
