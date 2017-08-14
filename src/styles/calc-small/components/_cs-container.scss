@@ -7,20 +7,12 @@
   box-shadow: $cs-box-shadow;
   border: $cs-border;
   background: $cs-background-color $cs-background-url ;
-  @include respond-to($xs-bt) {
-    margin-left: 0;
-    margin-right: auto;
-  }
-  @include respond-to($xx-bt) {
-    padding: 20px 15px;
-  }
 }
 
 .cs-wrap {
   @extend %cs-wrap-default;
   position: relative;
   box-sizing: border-box;
-  margin: 0 auto;
   display: flex;
   justify-content: space-around;
   align-items: baseline;

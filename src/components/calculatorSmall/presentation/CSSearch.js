@@ -22,7 +22,7 @@ class CalculatorSmallSearch extends React.Component {
     render() {
         return (
             <div className="cs-search-wrap">
-                <input className="cs-search" value={this.state.searchString}
+                <input type="text" className="cs-search" value={this.state.searchString}
                        onChange={(e) => this.handleChange(e)}
                        placeholder="Type the name of service"
                 />

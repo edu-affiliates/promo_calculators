@@ -34,28 +34,35 @@ $cs-dropdown-background-color: #34616e !default;
 $cs-dropdown-background: #fff;
 $cs-dropdown-border-radius: 24px;
 
+//default styles for search
+$cs-search-border-color: #273952 !default;
+$cs-search-background: transparent !default;
+$cs-search-font-family: OpenSans-Regular !default;
+$cs-search-font-size: 14px !default;
+$cs-search-color: #273952 !default;
+
 //default styles for counter
 
-$cs-counter-width: 34px;
-$cs-counter-height: 34px;
-$cs-counter-color: #ffffff;
-$cs-counter-plus-background-color: #34616e;
-$cs-counter-minus-background-color: #21414a;
+$cs-counter-width: 34px !default;
+$cs-counter-height: 34px !default;
+$cs-counter-color: #ffffff !default;
+$cs-counter-plus-background-color: #34616e !default;
+$cs-counter-minus-background-color: #21414a !default;
 
-$cs-page-value-font-family: OpenSans-Regular;
-$cs-page-value-font-size: 14px;
+$cs-page-value-font-family: OpenSans-Regular !default;
+$cs-page-value-font-size: 14px !default;
 
 //default styles for prices
 
-$cs-price-font-family: OpenSans-Regular, serif;
-$cs-price-color: #fff;
-$cs-price-full-font-size: 20px;
-$cs-price-dsc-font-size: 24px;
-$cs-price-line-throw-color:#ea6e0d;
+$cs-price-font-family: OpenSans-Regular, serif !default;
+$cs-price-color: #fff !default;
+$cs-price-full-font-size: 20px !default;
+$cs-price-dsc-font-size: 24px !default;
+$cs-price-line-throw-color: #ea6e0d !default;
 
-$cs-price-title-font-family: OpenSans-Semibold, serif;
-$cs-price-title-font-size: 14px;
-$cs-price-title-color: #fff;
+$cs-price-title-font-family: OpenSans-Semibold, serif !default;
+$cs-price-title-font-size: 14px !default;
+$cs-price-title-color: #fff !default;
 
 //default styles for buttons
 $cs-btn-color: #ffffff !default;
