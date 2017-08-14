@@ -34,7 +34,7 @@ class CLButtons extends React.Component {
                     <div onClick={() => this.redirectTo('order')} className="calc-lg-btn calc-lg-btn--order">order now
                     </div>
                 </div>
-                <div className="cl-price-payment"></div>
+                <div className="cl-price-payment"/>
             </div>
 
         )

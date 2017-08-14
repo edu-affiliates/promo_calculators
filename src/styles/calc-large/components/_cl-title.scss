@@ -1,4 +1,4 @@
-%calc-lg-title-default {
+%cl-title-default {
   font-family: $cl-title-font-family, serif;
   font-size: $cl-title-font-size;
   color: $cl-title-color;
@@ -9,8 +9,8 @@
   }
 }
 
-.calc-lg-title {
-  @extend %calc-lg-title-default;
+.cl-title {
+  @extend %cl-title-default;
   margin-bottom: 20px;
   line-height: 1.3;
   text-align: center;
@@ -30,15 +30,15 @@
 }
 
 @each $theme in $themes {
-  .#{map_get($theme, name)} .calc-lg-title {
+  .#{map_get($theme, name)} .cl-title {
     font-family: map_get(map_get($theme, title), font-family);
     font-size: map_get(map_get($theme, title), font-size);
     color: map_get(map_get($theme, title), color);
   }
-  .#{map_get($theme, name)} .calc-lg-title--dsc {
+  .#{map_get($theme, name)} .cl-title--dsc {
     background-color: map_get(map_get($theme, title), color);
   }
-  .#{map_get($theme, name)} .calc-lg-title--sm {
+  .#{map_get($theme, name)} .cl-title--sm {
     font-family: map_get(map_get($theme, subtitle), font-family);
     font-size: map_get(map_get($theme, subtitle), font-size);
     color: map_get(map_get($theme, subtitle), color);

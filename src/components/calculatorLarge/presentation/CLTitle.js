@@ -26,17 +26,17 @@ class CLTitle extends React.Component {
                     subtitle = ctd.substr(ctd.indexOf('.') + 1);
                 }
                 calcTitle =
-                    <div className="calc-lg-title">
+                    <div className="cl-title">
                         {title}
-                        <span className="calc-lg-title--sm">{subtitle}</span>
+                        <span className="cl-title--sm">{subtitle}</span>
                     </div>
             } else {
                 //set default title with discount
                 calcTitle =
-                    <div className="calc-lg-title">
+                    <div className="cl-title">
                         Your first order
-                        <span className="calc-lg-title--dsc">{discount * 100}% off</span>
-                        <span className="calc-lg-title--sm">Limited time!</span>
+                        <span className="cl-title--dsc">{discount * 100}% off</span>
+                        <span className="cl-title--sm">Limited time!</span>
                     </div>
             }
         }
@@ -45,13 +45,13 @@ class CLTitle extends React.Component {
             if (!!ct) {
                 //set custom title without discount
                 calcTitle =
-                    <div className="calc-lg-title">
+                    <div className="cl-title">
                         {ct}
                     </div>
             } else {
                 //set default title without discount
                 calcTitle =
-                    <div className="calc-lg-title">Get a quick estimate</div>
+                    <div className="cl-title">Get a quick estimate</div>
             }
         }
         return (
