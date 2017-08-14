@@ -7,7 +7,7 @@ import {changeDeadline} from  '../../../store/actions'
 import PropTypes from 'prop-types';
 
 
-class CLCounter extends React.Component {
+class CLRange extends React.Component {
 
     constructor(props) {
         super(props);
@@ -21,6 +21,7 @@ class CLCounter extends React.Component {
         const {currentDeadline: cd, deadlineList, changeDeadline} = this.props;
         let deadList = deadlineList.map((d) => {
             return <li
+                key={d.id}
                 className={`${(cd.name === d.name) ? 'active' : '' } ${(cd.id < d.id) ? 'checked' : '' } cl-range-item`}
                 onClick={() => changeDeadline(d.id)}>
                 <div className="cl-range-item__circle">
@@ -43,7 +44,7 @@ class CLCounter extends React.Component {
     }
 }
 
-CLCounter.PropTypes = {
+CLRange.PropTypes = {
     currentDeadline: PropTypes.object.isRequired,
     deadlineList: PropTypes.object.isRequired,
 };
@@ -65,4 +66,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CLCounter);
+export default connect(mapStateToProps, mapDispatchToProps)(CLRange);

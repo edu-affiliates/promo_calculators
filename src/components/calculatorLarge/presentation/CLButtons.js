@@ -41,7 +41,7 @@ class CLButtons extends React.Component {
     }
 }
 
-CLButtons.propTypes = {
+CLButtons.PropTypes = {
     serviceId: PropTypes.number.isRequired,
     levelId: PropTypes.number.isRequired,
     deadlineId: PropTypes.number.isRequired,

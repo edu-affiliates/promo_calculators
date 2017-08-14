@@ -12,7 +12,7 @@ class CLTitle extends React.Component {
 
     render() {
         const {discount, calcTitleDiscount: ctd, calcTitle: ct} = this.props;
-        //heve to chance this variables depends on conditions
+        //have to chance this variables depends on conditions
         let calcTitle;
         //case when discount exist
         if (discount !== 0) {
