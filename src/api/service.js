@@ -27,6 +27,8 @@ const treeSchema = new schema.Entity('tree', {
 export function getStats() {
     const urlParams = window.location.search.replace('?', '').split('&').reduce(function (p, e) {
             let pair = e.split('=');
+            if(pair.length === 1 && pair[0] === "")
+              return p;
             let key = decodeURIComponent(pair[0]);
             let value = decodeURIComponent(pair[1]);
             p[key] = (pair.length > 1) ? value : '';
