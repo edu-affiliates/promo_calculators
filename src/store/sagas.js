@@ -45,18 +45,20 @@ function * setDiscount(action) {
 /** process api calls for the user info and statistics **/
 function * fetchUser() {
     try {
-        const stats = getStats();
-        const xsrf = helper.getCookie('_xsrf');
-        if (xsrf) {
-            yield call(sendStats, stats, xsrf);
-            const discount = yield call(getUserDiscountInfo);
-            yield put(fetchDiscount(discount));
-        } else {
-            const user = yield call(getUserCheckAccess);
-            if(user.success === 1) {
+        if (generalOptions.apiMode === 'M') {
+            const stats = getStats();
+            const xsrf = helper.getCookie('_xsrf');
+            if (xsrf) {
+                yield call(sendStats, stats, xsrf);
+                const discount = yield call(getUserDiscountInfo);
+                yield put(fetchDiscount(discount));
+            } else {
+                const user = yield call(getUserCheckAccess);
                 yield call(sendStats, stats, user.info.token);
+                yield put(fetchDiscount(user.info.discount));
             }
-            yield put(fetchDiscount(user.info.discount));
+        } else {
+            yield put(fetchDiscount(0));
         }
     } catch (e) {
         console.log(e);
