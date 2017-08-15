@@ -1,6 +1,16 @@
 .cs-prices-group {
+  box-sizing: border-box;
   position: relative;
   flex: 0 0 100%;
+  .horizontal & {
+    @include respond-to('(min-width: 992px)') {
+      flex: 0 0 70%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 10px;
+    }
+  }
 }
 
 .cs-prices-wrap {
@@ -32,6 +42,11 @@
   &--dsc {
     font-size: $cs-price-dsc-font-size;
   }
+  .horizontal & {
+    @include respond-to('(min-width: 992px)') {
+      padding: 0 5px;
+    }
+  }
 }
 
 .cs-price-title {
@@ -40,4 +55,7 @@
   font-size: $cs-price-title-font-size;
   letter-spacing: 0.4px;
   color: $cs-price-title-color;
+  .horizontal & {
+    margin-right: 15px;
+  }
 }

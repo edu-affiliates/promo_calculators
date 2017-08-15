@@ -2,6 +2,12 @@
   flex: 0 0 100%;
   display: flex;
   justify-content: space-between;
+  .horizontal &{
+    @include respond-to('(min-width: 992px)') {
+      flex: 0 0 30%;
+    }
+
+  }
 }
 
 %cs-btn-default {

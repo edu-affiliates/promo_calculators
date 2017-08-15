@@ -24,10 +24,10 @@ store.dispatch(fetchInitTree());
 const MOUNT_NODE_CL_1 = document.getElementById('cl-1');
 // const MOUNT_NODE_CL_2 = document.getElementById('cl-2');
 const MOUNT_NODE_1 = document.getElementById('cs-1');
-// const MOUNT_NODE_2 = document.getElementById('cs-2');
+const MOUNT_NODE_2 = document.getElementById('cs-2');
 // const MOUNT_NODE_3 = document.getElementById('cs-3');
-const MOUNT_NODES = [MOUNT_NODE_CL_1, MOUNT_NODE_1];
-const MOUNT_CLASSES = ['calc-lg', 'calc-sm'];
+const MOUNT_NODES = [MOUNT_NODE_CL_1, MOUNT_NODE_1, MOUNT_NODE_2];
+const MOUNT_CLASSES = ['calc-lg', 'calc-sm', 'calc-sm'];
 
 let render = () => {
 
@@ -61,6 +61,7 @@ let render = () => {
                         <CalculatorSmall calcId={i}
                                          calcTitle={MOUNT_NODE.dataset.title}
                                          calcTitleDiscount={MOUNT_NODE.dataset.titleDiscount}
+                                         calcType={MOUNT_NODE.dataset.type}
                                          containerClass={MOUNT_CLASSES[i]}/>
                     </div>
                 </Provider>,

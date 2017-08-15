@@ -4,6 +4,8 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {changeLevel, changeDeadline, fetchService} from  '../../../store/actions'
 import Select from './CSSelect';
+import Counter from "./CSCounter";
+
 
 
 class CalculatorSmallSelectGroup extends React.Component {
@@ -62,6 +64,7 @@ class CalculatorSmallSelectGroup extends React.Component {
                         calcId={this.props.calcId}
 
                 />
+                <Counter calcId={this.props.calcId}/>
             </div>
         )
     }
