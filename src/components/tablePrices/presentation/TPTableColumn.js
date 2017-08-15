@@ -4,6 +4,8 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {changeLevel, changeDeadline, fetchService} from '../../../store/actions'
 import {currentDeadlineList} from '../../../store/reducerLogic'
+import Modal from './TPTableModal'
+
 
 class TPTableColumn extends React.Component {
 
@@ -24,6 +26,7 @@ class TPTableColumn extends React.Component {
                             }
                         }
                         } className={`${(currentDeadline.id === deadline.id) ? 'active': ''} tp-table__price`}>
+                <Modal calcId={this.props.calcId}/>
                 <span className="tp-table__price--full">${deadline.price}</span>
                 <span className="tp-table__price--dsc">${(deadline.price * (1 - discount)).toFixed(2)}</span>
 

@@ -3,66 +3,49 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {changeLevel, fetchService} from '../../../store/actions'
-import Search from './TPSearch'
 
 
 class TPTop extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            openDropdown: false
-        };
-        this.toggleDropdown = this.toggleDropdown.bind(this);
     }
 
-    toggleDropdown() {
-        let openDropdown = this.state.openDropdown;
-        this.setState({openDropdown: !openDropdown});
+    cutLevelName(levelName) {
+        if (levelName === 'Undergraduate (1st and 2nd year)') {
+            return 'Undergrad. (yrs 1-2)'
+        } else if (levelName === 'Undergraduate (3rd and 4th year)') {
+            return 'Undergrad. (yrs 3-4)'
+        }
+        else {
+            return levelName
+        }
     }
-
 
     render() {
-        const {discount, level, levelList, service, serviceList, changeService, changeLevel} = this.props;
+        const {discount, level, levelList} = this.props;
         let levels = levelList.map((l) => {
-            return <div key={l.id} className={`${(level === l.name) ? 'active' : ''} tp-level__title`}>{l.name}</div>
+            return <div key={l.id} className={`${(level === l.name) ? 'active' : ''} tp-level__title`}>
+                {this.cutLevelName(l.name)}</div>
         });
-        let services = serviceList.map((service) => {
-            return <li key={service.id}
-                       onClick={() => {
-                           this.toggleDropdown();
-                           changeService(service.id);
-                       }}
-                       className="tp-dropdown__item">{service.name}</li>
-        });
+        const dsc = (discount === 0) ? <div/> : <div className="tp-header__dsc">
+            <span className="tp-header__dsc--title">Your first order</span>
+            <span className="tp-header__dsc--value">{discount * 100}% OFF</span>
+            <span className="tp-header__dsc-text">Limited time!</span>
+        </div>;
+
         return (
             <div className="tp-header">
-                <div className="tp-header__dsc">
-                    <span className="tp-header__dsc--title">Your first order</span>
-                    <span className="tp-header__dsc--value">{discount * 100}% OFF</span>
-                    <span className="tp-header__dsc-text">Limited time!</span>
-                </div>
                 <div className="tp-header__deadline">
-                    <div className="tp-header__deadline-top">
+                    <div className="tp-header__deadline__top">DEADLINE</div>
+                    <div className="tp-header__deadline__bottom">
                         <img src={require("../../../images/icons/tp.svg")}/>
                     </div>
-                    {/*<div className="tp-header__deadline-bottom">*/}
-                        {/*<span></span>*/}
-                    {/*</div>*/}
                 </div>
                 <div className="tp-header__body">
-                    <div className="tp-service">
-                        <div className="tp-service__group">
-                            <div onClick={() => this.toggleDropdown()} className="tp-service__select">{service}</div>
-                            <div className={(this.state.openDropdown) ? 'open' : ''}>
-                                <div className="tp-service__dropdown-wrap">
-                                    <Search calcId={this.props.calcId}/>
-                                    <ul className="tp-service-dropdown">
-                                        {services}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="tp-header__level">
+                        <div className="tp-header__level__text">ACADEMIC LEVEL</div>
+                        {dsc}
                     </div>
                     <div className="tp-level">
                         {levels}

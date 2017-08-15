@@ -3,7 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {changeDeadline} from '../../../store/actions'
-class TPService extends React.Component {
+class TPDeadlines extends React.Component {
 
     constructor(props) {
         super(props);
@@ -39,4 +39,4 @@ const mapDispatchToProps = (reduxState, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TPService);
+export default connect(mapStateToProps, mapDispatchToProps)(TPDeadlines);

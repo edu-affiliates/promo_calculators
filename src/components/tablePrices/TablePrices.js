@@ -6,7 +6,6 @@ import {initCalc} from '../../store/actions'
 import Deadlines from './presentation/TPDeadlines'
 import Top from './presentation/TPTop'
 import Table from './presentation/TPTable'
-import Select from './presentation/TPSelect'
 
 class TablePrices extends React.Component {
 
@@ -23,7 +22,6 @@ class TablePrices extends React.Component {
             return (
                 <div className={this.props.containerClass}>
                     <div className="tp-container">
-                        <Select calcId={this.props.calcId}/>
                         <Top calcId={this.props.calcId}/>
                         <div className="tp-body">
                             <Deadlines calcId={this.props.calcId}/>
@@ -32,7 +30,7 @@ class TablePrices extends React.Component {
                     </div>
                 </div>
             )
-        } else return (<div></div>)
+        } else return (<div/>)
     }
 }
 

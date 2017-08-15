@@ -8,7 +8,7 @@ import {plusPage, minusPage, handleInputPageNumber} from '../../../store/actions
 
 
 //presentation of the counter in calc small
-class TPTableCounter extends React.Component {
+class TPTableModal extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -50,17 +50,10 @@ class TPTableCounter extends React.Component {
                 <div className="tp-modal">
                     <div className="tp-modal-dsc-wrap">
                         <div className="tp-modal-dsc">
-                            <span className="tp-modal-dsc__title">Estimate day:</span>
+                            <span className="tp-modal-dsc__title">Estimate date:</span>
                             <span className="tp-modal-dsc__value">{this.estimateDay()}</span>
                         </div>
-                        <div className="tp-modal-dsc">
-                            <span className="tp-modal-dsc__title">Type of service: </span>
-                            <span className="tp-modal-dsc__value">{service.name}</span>
-                        </div>
-                        {/*<div className="tp-modal-dsc">*/}
-                            {/*<span className="tp-modal-dsc__title">Academic level:</span>*/}
-                            {/*<span className="tp-modal-dsc__value">{level.name}</span>*/}
-                        {/*</div>*/}
+
                     </div>
                     <div className="tp-counter-wrap">
                         <div onClick={onClickMinus} className="tp-counter tp-counter--minus">
@@ -95,7 +88,7 @@ class TPTableCounter extends React.Component {
     }
 }
 
-TPTableCounter.propTypes = {
+TPTableModal.propTypes = {
     onClickPlus: PropTypes.func.isRequired,
     onClickMinus: PropTypes.func.isRequired,
     pageNumber: PropTypes.number.isRequired,
@@ -135,4 +128,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TPTableCounter);
+export default connect(mapStateToProps, mapDispatchToProps)(TPTableModal);

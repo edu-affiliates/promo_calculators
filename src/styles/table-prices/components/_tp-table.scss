@@ -10,8 +10,9 @@
     }
   }
   &__price {
+    position: relative;
     @extend %center-flex;
-    //font-family: OpenSans;
+    font-family: OpenSans-Regular, serif;
     text-align: left;
     height: 40px;
     border: 1px solid #fff;

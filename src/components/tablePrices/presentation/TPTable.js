@@ -3,7 +3,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import Column from './TPTableColumn'
-import Counter from './TPTableModal'
 
 import {changeLevel, changeDeadline, fetchService} from '../../../store/actions'
 
@@ -20,7 +19,6 @@ class TPTable extends React.Component {
         });
         return (
             <div className="tp-table">
-                <Counter calcId={this.props.calcId}/>
                 {list}
             </div>
         )
