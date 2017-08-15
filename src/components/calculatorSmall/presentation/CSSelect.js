@@ -9,6 +9,17 @@ class CalculatorSmallSelect extends React.Component {
         super(props);
     }
 
+    cutLevelName(levelName) {
+        if (levelName === 'Undergraduate (1st and 2nd year)') {
+            return 'Undergrad. (yrs 1-2)'
+        } else if (levelName === 'Undergraduate (3rd and 4th year)') {
+            return 'Undergrad. (yrs 3-4)'
+        }
+        else {
+            return levelName
+        }
+    }
+
 
     render() {
         let service;
@@ -18,7 +29,7 @@ class CalculatorSmallSelect extends React.Component {
                            onClick={() => {
                                this.props.toggleDropdown(this.props.type);
                                this.props.onChange(item.id);
-                           }} className="cs-dropdown__item">{item.name}</li>
+                           }} className="cs-dropdown__item">{this.cutLevelName(item.name)}</li>
             }
         );
         let searchService;
@@ -33,7 +44,7 @@ class CalculatorSmallSelect extends React.Component {
             <div className="cs-select-wrap ">
                 <div onClick={() => this.props.toggleDropdown(this.props.type)}
                      className={`cs-select cs-select--${this.props.type}`}>
-                    {(!!service) ? service : this.props.current}
+                    {(!!service) ? service : this.cutLevelName(this.props.current)}
                 </div>
                 <div className={(this.props.openDropdown[this.props.type]) ? 'open' : ''}>
                     <div className={`cs-dropdown-wrap cs-dropdown-wrap--${this.props.type}`}>

@@ -23,7 +23,7 @@
   align-content: flex-start;
   .horizontal & {
     @include respond-to('(min-width: 992px)') {
-      width: 1005px;
+      width: 970px;
       background-position: 30px calc(100% - 30px);
       padding: 20px 30px;
     }
