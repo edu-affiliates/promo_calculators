@@ -58,11 +58,11 @@ export const getData = (servicesIds = '') => {
         'website_id': generalOptions.website_id,
         'service_ids': servicesIds
     };
-    if (!generalOptions.website_id) {
+    if (generalOptions.apiMode !== 'M') {
         apiRequestBody.rid = generalOptions.rid;
-        apiRequestBody.website_id = 432;
+        apiRequestBody.website_id = 432
     }
-    const apiCall = ((generalOptions.website_id) ? '/api/v2/sites/order_form_data' : '/api/v2/public/calculator');
+    const apiCall = ((generalOptions.apiMode === 'M') ? '/api/v2/sites/order_form_data' : '/api/v2/public/calculator')
 
     return $.ajax({
         url: generalOptions.siteApiUrl + apiCall,
