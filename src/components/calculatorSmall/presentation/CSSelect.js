@@ -35,7 +35,7 @@ class CalculatorSmallSelect extends React.Component {
         let searchService;
         if (this.props.type === 'service') {
             searchService = <Search calcId={this.props.calcId}/>;
-            if (this.props.current.length > 15) {
+            if (!!this.props.current && this.props.current.length > 15) {
                 service = this.props.current.substr(0, 15) + '...'
             }
         }
