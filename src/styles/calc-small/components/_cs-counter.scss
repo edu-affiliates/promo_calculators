@@ -19,13 +19,14 @@
 
   @extend %cs-select;
   @extend %center-flex;
+  box-sizing: border-box;
   text-align: center;
   color: $cs-select-color;
   width: $cs-counter-width;
   height: $cs-counter-height;
   cursor: pointer;
   border-radius: 100px;
-  margin: -1px;
+  margin-top: -1px;
   &--plus {
     background-color: $cs-counter-plus-background-color;
     border: solid 1px $cs-counter-color;
@@ -34,6 +35,7 @@
   &--minus {
     background-color: $cs-counter-minus-background-color;
     border: solid 1px $cs-counter-color;
+    margin-left: -1px;
   }
 
 }
