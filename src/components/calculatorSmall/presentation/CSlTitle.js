@@ -53,7 +53,7 @@ class CalculatorSmallTitle extends React.Component {
             } else {
                 //set default title without discount
                 calcTitle =
-                    <div className="cs-title">Get a quick <br/>estimate</div>
+                    <div className="cs-title">Get a quick estimate</div>
             }
         }
         return (

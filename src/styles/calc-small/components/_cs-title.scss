@@ -15,6 +15,7 @@
   line-height: 1.3;
   text-align: center;
   text-transform: uppercase;
+  max-width: 100px;
   &__first-line {
     margin-bottom: 6px;
     @extend %center-flex;
@@ -41,6 +42,7 @@
   }
   .horizontal & {
     @include respond-to('(min-width: 992px)') {
+      max-width: 100%;
       display: flex;
     }
   }
