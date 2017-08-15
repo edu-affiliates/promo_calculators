@@ -11,6 +11,9 @@ class TPTableColumn extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            selected: false
+        }
     }
 
     render() {
@@ -18,14 +21,16 @@ class TPTableColumn extends React.Component {
         let prices = currentDeadlineList(tree, lev.id).map((deadline) => {
             return <div key={deadline.id}
                         onClick={() => {
-                            if(currentLevel.id !== lev.id) {
+                            this.setState({selected: true});
+                            if (currentLevel.id !== lev.id) {
                                 changeLevel(lev.id);
                             }
-                            if(currentDeadline.id !== deadline.id) {
+                            if (currentDeadline.id !== deadline.id) {
                                 changeDeadline(deadline.id);
                             }
                         }
-                        } className={`${(currentDeadline.id === deadline.id) ? 'active': ''} tp-table__price`}>
+                        }
+                        className={`${(currentDeadline.id === deadline.id) ? 'active' : ''} ${(currentDeadline.id === deadline.id && this.state.selected) ? 'selected' : ''}  tp-table__price`}>
                 <Modal calcId={this.props.calcId}/>
                 <span className="tp-table__price--full">${deadline.price}</span>
                 <span className="tp-table__price--dsc">${(deadline.price * (1 - discount)).toFixed(2)}</span>
@@ -46,8 +51,8 @@ const mapStateToProps = (reduxState, ownProps) => {
     return {
         tree: reduxState.tree,
         discount: reduxState.discount,
-        currentDeadline : state.deadline,
-        currentLevel : state.level
+        currentDeadline: state.deadline,
+        currentLevel: state.level
     }
 };
 
