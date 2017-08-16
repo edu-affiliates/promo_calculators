@@ -11,14 +11,31 @@ import {plusPage, minusPage, handleInputPageNumber} from '../../../store/actions
 class TPTableModal extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            emptyInput: false,
+            alert: false
+        };
         this.handleChange = this.handleChange.bind(this);
     };
 
     handleChange(e) {
+        if (e.target.value === '') {
+            this.setState({emptyInput: true})
+        } else {
+            if (this.state.emptyInput)
+                this.setState({emptyInput: false})
+        }
         const number = parseInt(e.target.value);
+
+        if (number > this.props.maxPageNumber) {
+            this.setState({alert: true})
+        }
         this.props.handleInputPageNumber(number);
     }
 
+    handleBlur() {
+        this.setState({emptyInput: false});
+    }
 
     redirectTo(type) {
         const {service, level, deadline, pageNumber} = this.props;
@@ -57,10 +74,12 @@ class TPTableModal extends React.Component {
                             <span>-</span>
                         </div>
                         <div className="tp-modal__page-value">
-                            <input className="tp-modal__page-input"
-                                   value={pageNumber}
+                            <input type="text"
+                                   className="tp-modal__page-input"
+                                   onBlur={() => this.handleBlur()}
+                                   value={(this.state.emptyInput) ? '' : pageNumber}
                                    onChange={(e) => this.handleChange(e)}
-                                   type="text"/>
+                            />
                             <span>{(pageNumber === 1) ? 'page' : 'pages'}</span>
                         </div>
                         <div onClick={onClickPlus} className="tp-modal__counter-btn tp-modal__counter-btn--plus">
@@ -82,9 +101,12 @@ class TPTableModal extends React.Component {
                         </div>
                     </div>
                     <div className="tp-modal__btn-group">
-                        <div onClick={() => this.redirectTo('inquiry')} className="tp-modal__btn tp-modal__btn--qoute">free quote
+                        <div onClick={() => this.redirectTo('inquiry')} className="tp-modal__btn tp-modal__btn--qoute">
+                            free quote
                         </div>
-                        <div onClick={() => this.redirectTo('order')} className="tp-modal__btn tp-modal__btn--order">order now</div>
+                        <div onClick={() => this.redirectTo('order')} className="tp-modal__btn tp-modal__btn--order">
+                            order now
+                        </div>
                     </div>
                 </div>
             </div>
