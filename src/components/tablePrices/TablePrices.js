@@ -20,9 +20,12 @@ class TablePrices extends React.Component {
         if (this.props.inited) {
             return (
                 <div className={this.props.containerClass}>
-                    <div className="tp-container">
-                        <Deadlines calcId={this.props.calcId}/>
-                        <Table calcId={this.props.calcId}/>
+                    <div className="tp-wrap">
+                        <div className="tp-title">Type of Service - Essay</div>
+                        <div className="tp-container">
+                            <Deadlines calcId={this.props.calcId}/>
+                            <Table calcId={this.props.calcId}/>
+                        </div>
                     </div>
                 </div>
             )
