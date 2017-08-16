@@ -28,7 +28,7 @@ class TPTop extends React.Component {
             return <div key={l.id} className={`${(level === l.name) ? 'active' : ''} tp-header__level-item`}>
                 {this.cutLevelName(l.name)}</div>
         });
-        const dsc = (discount === 0) ? <div/> : <div className="tp-header__dsc">
+        const dsc = (discount === 0) ? <div className="tp-header__dsc">GET A QUICK ESTIMATE</div> : <div className="tp-header__dsc">
             <span className="tp-header__dsc--title">Your first order</span>
             <span className="tp-header__dsc--value">{discount * 100}% OFF</span>
             <span className="tp-header__dsc-text">Limited time!</span>
@@ -38,7 +38,7 @@ class TPTop extends React.Component {
             <div className="tp-header">
 
                 <div className="tp-header__top">
-                    <div className="tp-header__title">ACADEMIC LEVEL</div>
+                    <div className="tp-header__title"> ACADEMIC LEVEL</div>
                     {dsc}
                 </div>
                 <div className="tp-header__level">
