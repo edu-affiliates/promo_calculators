@@ -31,17 +31,37 @@ $tp-order-border-quote: 0 !default;
   left: -65px;
   transform: translateY(-50%);
   z-index: 100;
+  @include respond-to($xs-bt) {
+    left: auto;
+    right: auto;
+  }
   .tp-table__column:first-child & {
-    @include respond-to($sm-bt) {
-      //left: 0;
-
+    @include respond-to($xs-bt) {
+      left: -30px;
+      &::after, &::before {
+        right: auto;
+        left: 40px;
+      }
+    }
+  }
+  .tp-table__column:nth-child(4) & {
+    @include respond-to($xx-bt) {
+      left: auto;
+      right: -30px;
+      &::after, &::before {
+        left: auto;
+        right: 40px;
+      }
     }
   }
   .tp-table__column:last-child & {
     @include respond-to($sm-bt) {
       left: auto;
       right: 0;
-
+      &::after, &::before {
+        left: auto;
+        right: 40px;
+      }
     }
   }
   &::after {
@@ -56,6 +76,9 @@ $tp-order-border-quote: 0 !default;
     left: 0;
     right: 0;
     margin: 0 auto;
+    @include respond-to($xx-bt) {
+      display: none;
+    }
   }
   &::before {
     content: "";
@@ -69,6 +92,9 @@ $tp-order-border-quote: 0 !default;
     left: 0;
     right: 0;
     margin: 0 auto;
+    @include respond-to($xx-bt) {
+      display: none;
+    }
   }
   .selected & {
     display: block;
