@@ -1,0 +1,69 @@
+.tp-deadline {
+  width: 135px;
+
+  @include respond-to($sm-bt) {
+    width: 90px;
+
+  }
+  @include respond-to($phonePortrait) {
+    width: 50px;
+
+  }
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+  }
+  &__top {
+    height: 120px;
+    background: #21414a;
+    border-top-left-radius: 24px;
+    @extend %center-flex;
+    flex-wrap: wrap;
+
+  }
+  &__title {
+    @extend %center-flex;
+    height: 50%;
+    flex: 0 0 100%;
+    font-family: OpenSans-SemiBold, serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+    color: #ffffff;
+    text-transform: uppercase;
+    @include respond-to($sm-bt) {
+      display: none !important;
+    }
+  }
+  &__icon {
+    height: 50%;
+    flex: 0 0 100%;
+    @extend %center-flex;
+  }
+  &__item {
+    width: 100%;
+    height: 40px;
+    background-color: #34616e;
+    font-family: OpenSans-Regular, serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    @extend %center-flex;
+    @include respond-to($xx-bt) {
+      font-size: 12px;
+    }
+    @include respond-to($phonePortrait) {
+      font-size: 10px;
+    }
+    &:last-child {
+      border-bottom-left-radius: 24px;
+    }
+    &.active {
+      background-color: #21414a;
+    }
+  }
+}

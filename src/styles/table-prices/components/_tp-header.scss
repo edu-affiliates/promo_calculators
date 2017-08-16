@@ -1,0 +1,113 @@
+.tp-header {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  flex: 0 0 100%;
+  border-top-right-radius: 24px;
+  background-color: #21414a;
+  border-left: 1px solid #ffffff;
+  height: 120px;
+  &__top {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    flex: 0 0 100%;
+    border-bottom: 1px solid #fff;
+  }
+  &__title {
+    font-family: OpenSans-SemiBold, serif;
+    font-size: 18px;
+    letter-spacing: 0.7px;
+    text-align: left;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 0 40px;
+    @extend %center-flex;
+    @include respond-to($xs-bt) {
+      display: none !important;
+    }
+  }
+  &__dsc {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 12px;
+    font-family: OpenSans-Semibold, serif;
+    text-align: left;
+    color: #fbe23f;
+    @include respond-to($xx-bt) {
+      padding: 5px;
+    }
+    &--title {
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      font-size: 18px;
+      @include respond-to($xx-bt) {
+        font-size: 16px;
+
+      }
+    }
+    &--value {
+      color: #21414a;
+      letter-spacing: 0.7px;
+      background-color: #fbe23f;
+      margin: 0 9px;
+      padding: 5px;
+      @include respond-to($xx-bt) {
+        padding: 3px;
+
+      }
+
+    }
+    &--text {
+      font-family: OpenSans-Regular, serif;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+  }
+
+  &__level {
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 100%;
+
+  }
+  &__level-item {
+    @extend %center-flex;
+    box-sizing: border-box;
+    flex: 1;
+    height: 100%;
+    background-color: #34616e;
+    font-family: OpenSans-Regular, serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    padding: 5px 25px;
+    border-bottom: none;
+    @include respond-to($xs-bt) {
+      padding: 5px 7px;
+    }
+    @include respond-to($xx-bt) {
+      padding: 3px;
+    }
+    @include respond-to($xx-bt) {
+      font-size: 12px;
+      word-break: break-all
+    }
+    @include respond-to($phonePortrait) {
+      font-size: 10px;
+    }
+    &.active {
+      background-color: #21414a;
+    }
+    &:not(:last-child) {
+      border-right: 1px solid #fff;
+    }
+  }
+
+}

@@ -9,6 +9,19 @@
   left: -65px;
   transform: translateY(-50%);
   z-index: 100;
+  .tp-table__column:first-child & {
+    @include respond-to($sm-bt) {
+      //left: 0;
+
+    }
+  }
+  .tp-table__column:last-child & {
+    @include respond-to($sm-bt) {
+      left: auto;
+      right: 0;
+
+    }
+  }
   &::after {
     content: "";
     position: absolute;

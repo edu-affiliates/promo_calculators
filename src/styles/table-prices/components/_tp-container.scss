@@ -1,12 +1,13 @@
 .tp-container {
   width: 790px;
-  margin: 15px auto;
+  max-width: 100%;
   display: flex;
-  flex-wrap: wrap;
 }
 
 
 .tp-body {
-  flex: 0 0 100%;
+  flex: 1;
   display: flex;
+  flex-wrap: wrap;
+
 }

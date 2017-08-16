@@ -1,8 +1,10 @@
 .tp-table {
   position: relative;
-  width: calc(100% - 135px);
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
+  flex: 0 0 100%;
+  border-left: 1px solid #fff;
   &__column {
     flex: 1;
     &:last-child .tp-table__price:last-child {
@@ -16,9 +18,10 @@
     text-align: left;
     height: 40px;
     border: 1px solid #fff;
-    &.active {
+    border-left: 0;
+    &.active, &:hover {
       border-radius: 3px;
-      background-color: #21414a!important;
+      background-color: #21414a !important;
     }
     &:nth-child(even) {
       background-color: #f7f7f7;
@@ -28,6 +31,12 @@
       text-align: left;
       color: #797d81;
       text-decoration: line-through;
+      @include respond-to($xs-bt) {
+        font-size: 12px;
+      }
+      @include respond-to($xx-bt) {
+        font-size: 10px;
+      }
     }
     &--dsc {
       font-weight: bold;
@@ -35,9 +44,24 @@
       font-size: 18px;
       color: #21414a;
       margin-left: 10px;
-      .active &{
+      @include respond-to($xs-bt) {
+        font-size: 16px;
+        margin-left: 5px;
+      }
+      @include respond-to($xx-bt) {
+        margin-left: 0;
+        font-size: 13px;
+      }
+      .active & {
         color: #ffffff;
       }
+      .tp-table__price:hover & {
+        color: #ffffff;
+
+      }
+    }
+    @include respond-to($xx-bt) {
+      flex-direction: column;
     }
   }
 }

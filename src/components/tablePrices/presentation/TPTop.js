@@ -25,7 +25,7 @@ class TPTop extends React.Component {
     render() {
         const {discount, level, levelList} = this.props;
         let levels = levelList.map((l) => {
-            return <div key={l.id} className={`${(level === l.name) ? 'active' : ''} tp-level__title`}>
+            return <div key={l.id} className={`${(level === l.name) ? 'active' : ''} tp-header__level-item`}>
                 {this.cutLevelName(l.name)}</div>
         });
         const dsc = (discount === 0) ? <div/> : <div className="tp-header__dsc">
@@ -36,20 +36,13 @@ class TPTop extends React.Component {
 
         return (
             <div className="tp-header">
-                <div className="tp-header__deadline">
-                    <div className="tp-header__deadline__top">DEADLINE</div>
-                    <div className="tp-header__deadline__bottom">
-                        <img src={require("../../../images/icons/tp.svg")}/>
-                    </div>
+
+                <div className="tp-header__top">
+                    <div className="tp-header__title">ACADEMIC LEVEL</div>
+                    {dsc}
                 </div>
-                <div className="tp-header__body">
-                    <div className="tp-header__level">
-                        <div className="tp-header__level__text">ACADEMIC LEVEL</div>
-                        {dsc}
-                    </div>
-                    <div className="tp-level">
-                        {levels}
-                    </div>
+                <div className="tp-header__level">
+                    {levels}
                 </div>
             </div>
 

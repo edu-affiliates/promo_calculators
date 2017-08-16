@@ -3,6 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import Column from './TPTableColumn'
+import Top from './TPTop'
 
 import {changeLevel, changeDeadline, fetchService} from '../../../store/actions'
 
@@ -13,13 +14,16 @@ class TPTable extends React.Component {
     }
 
     render() {
-        const {level, levelList} = this.props;
+        const {levelList} = this.props;
         let list = levelList.map((lev) => {
             return <Column key={lev.id} lev={lev} calcId={this.props.calcId}/>
         });
         return (
-            <div className="tp-table">
-                {list}
+            <div className="tp-body">
+                <Top calcId={this.props.calcId}/>
+                <div className="tp-table">
+                    {list}
+                </div>
             </div>
         )
     }
@@ -29,7 +33,6 @@ class TPTable extends React.Component {
 const mapStateToProps = (reduxState, ownProps) => {
     const state = reduxState.calculatorSmall[ownProps.calcId];
     return {
-        level: state.level.name,
         levelList: state.currentLevels,
     }
 };
