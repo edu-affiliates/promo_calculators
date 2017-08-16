@@ -48,39 +48,43 @@ class TPTableModal extends React.Component {
         return (
             <div className="tp-modal-wrap">
                 <div className="tp-modal">
-                    <div className="tp-modal-dsc-wrap">
-                        <div className="tp-modal-dsc">
-                            <span className="tp-modal-dsc__title">Estimate date:</span>
-                            <span className="tp-modal-dsc__value">{this.estimateDay()}</span>
-                        </div>
-
+                    <div className="tp-modal__date">
+                        <span className="tp-modal__date--title">Estimate date:</span>
+                        <span className="tp-modal__date--value">{this.estimateDay()}</span>
                     </div>
-                    <div className="tp-counter-wrap">
-                        <div onClick={onClickMinus} className="tp-counter tp-counter--minus">
+                    <div className="tp-modal__counter">
+                        <div onClick={onClickMinus} className="tp-modal__counter-btn tp-modal__counter-btn--minus">
                             <span>-</span>
                         </div>
-                        <div className="tp-page-value">
-                            <input value={pageNumber}
+                        <div className="tp-modal__page-value">
+                            <input className="tp-modal__page-input"
+                                   value={pageNumber}
                                    onChange={(e) => this.handleChange(e)}
-                                   type="text" className="tp-page-value__input"/>
+                                   type="text"/>
                             <span>{(pageNumber === 1) ? 'page' : 'pages'}</span>
                         </div>
-                        <div onClick={onClickPlus} className="tp-counter tp-counter--plus">
+                        <div onClick={onClickPlus} className="tp-modal__counter-btn tp-modal__counter-btn--plus">
                             <span>+</span>
                         </div>
                     </div>
-                    <div className="tp-prices-wrap">
-                        <div className="tp-price-dsc">
-                            <span className="tp-price-dsc__title">Estimate price</span>
+                    <div className="tp-modal__price">
+                        <span className="tp-modal__price-title">Estimate price</span>
+                        <div className="tp-modal__price-container">
+                            <span className="tp-modal__price-full">
+                                <span className="tp-modal__price-line-throw"/>
+                                 ${(fullPrice * pageNumber).toFixed(2)}
+                            </span>
                         </div>
-                        <div className="tp-price tp-price--full">${(fullPrice * pageNumber).toFixed(2)}</div>
-                        <div className="tp-price tp-price--dsc">
-                            ${(fullPrice * (1 - discount) * pageNumber).toFixed(2)}</div>
+                        <div className="tp-modal__price-container">
+                            <span className="tp-modal__price-dsc">
+                                ${(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                            </span>
+                        </div>
                     </div>
-                    <div className="tp-btn-group">
-                        <div onClick={() => this.redirectTo('inquiry')} className="tp-btn tp-btn--qoute">free quote
+                    <div className="tp-modal__btn-group">
+                        <div onClick={() => this.redirectTo('inquiry')} className="tp-modal__btn tp-modal__btn--qoute">free quote
                         </div>
-                        <div onClick={() => this.redirectTo('order')} className="tp-btn tp-btn--order">order now</div>
+                        <div onClick={() => this.redirectTo('order')} className="tp-modal__btn tp-modal__btn--order">order now</div>
                     </div>
                 </div>
             </div>
