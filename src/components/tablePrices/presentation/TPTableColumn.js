@@ -13,7 +13,14 @@ class TPTableColumn extends React.Component {
         super(props);
         this.state = {
             selected: false
-        }
+        };
+        this.closeModal = this.closeModal.bind(this);
+    }
+
+    closeModal() {
+        console.log('close modal');
+        this.setState({selected: false, you: 'are fool'});
+        console.log(this);
     }
 
     render() {
@@ -31,7 +38,7 @@ class TPTableColumn extends React.Component {
                         }
                         }
                         className={`${(currentDeadline.id === deadline.id) ? 'active' : ''} ${(currentDeadline.id === deadline.id && this.state.selected) ? 'selected' : ''}  tp-table__price`}>
-                <Modal calcId={this.props.calcId}/>
+                <Modal calcId={this.props.calcId} closeModal={this.closeModal}/>
                 <span className="tp-table__price--full">${deadline.price}</span>
                 <span className="tp-table__price--dsc">${(deadline.price * (1 - discount)).toFixed(2)}</span>
 

@@ -116,6 +116,19 @@ $tp-order-border-quote: 0 !default;
   flex-flow: row wrap;
   align-content: flex-start;
   padding: 25px 32px;
+  &__cross {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    width: 34px;
+    height: 34px;
+    border-radius: 100px;
+    background-color: #34616e;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42);
+    color: #ffffff;
+    @extend %center-flex;
+  }
   &__date {
     display: flex;
     flex-wrap: wrap;

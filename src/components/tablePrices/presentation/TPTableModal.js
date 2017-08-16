@@ -64,6 +64,10 @@ class TPTableModal extends React.Component {
         const {onClickPlus, onClickMinus, fullPrice, discount, pageNumber, service, level} = this.props;
         return (
             <div className="tp-modal-wrap">
+                <div onClick={(e) => {
+                    e.stopPropagation();
+                    this.props.closeModal();
+                }} className="tp-modal__cross">&times;</div>
                 <div className="tp-modal">
                     <div className="tp-modal__date">
                         <span className="tp-modal__date--title">Estimate date:</span>
