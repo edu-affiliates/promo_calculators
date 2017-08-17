@@ -42,7 +42,8 @@
 
 .cs-page-value {
   height: $cs-counter-height;
-  font-family: $cs-page-value-font-family, serif;
+  font-family: $cs-page-value-font-family;
+  font-weight: $cs-page-value-font-weight;
   font-size: $cs-page-value-font-size;
   color: $cs-counter-color;
   line-height: 1;
@@ -64,7 +65,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: OpenSans-Regular, serif;
+    font-family: $cs-page-value-font-family;
+    font-weight: $cs-page-value-font-weight;
     font-size: 12px;
     line-height: 1.2;
     background: #ea6e0d;
@@ -80,20 +82,20 @@
   }
 }
 
-@each $theme in $themes {
-  .#{map_get($theme, name)} .cs-counter-wrap {
-    border-radius: map_get(map_get($theme, select), border-radius);
-    background-color: map_get(map_get($theme, select), background-color);
-    box-shadow: map_get(map_get($theme, select), box-shadow);
-    border: map_get(map_get($theme, select), border);
-    margin: map_get(map_get($theme, select), margin);
-  }
-  .#{map_get($theme, name)} .cs-counter {
-    height: map_get(map_get($theme, select), height);
-    color: map_get(map_get($theme, select), color);
-  }
-  .#{map_get($theme, name)} .cs-page-value {
-    height: map_get(map_get($theme, select), height);
-    color: map_get(map_get($theme, select), color);
-  }
-}
+//@each $theme in $themes {
+//  .#{map_get($theme, name)} .cs-counter-wrap {
+//    border-radius: map_get(map_get($theme, select), border-radius);
+//    background-color: map_get(map_get($theme, select), background-color);
+//    box-shadow: map_get(map_get($theme, select), box-shadow);
+//    border: map_get(map_get($theme, select), border);
+//    margin: map_get(map_get($theme, select), margin);
+//  }
+//  .#{map_get($theme, name)} .cs-counter {
+//    height: map_get(map_get($theme, select), height);
+//    color: map_get(map_get($theme, select), color);
+//  }
+//  .#{map_get($theme, name)} .cs-page-value {
+//    height: map_get(map_get($theme, select), height);
+//    color: map_get(map_get($theme, select), color);
+//  }
+//}

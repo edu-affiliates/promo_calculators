@@ -7,12 +7,13 @@ $cs-height: auto !default;
 $cs-border-radius: 24px !default;
 $cs-border: solid 2px #34616e !default;
 $cs-background-color: #21414a !default;
-$cs-background-url: url("../images/icons/payments.svg") !default;
+$cs-background-url: url("https://s3.amazonaws.com/genericapps/resources/calculators/fonts/payments.svg") !default;
 $cs-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42) !default;
 $cs-box-padding: 28px 30px 47px !default;
 
 //default styles for calc title
-$cs-title-font-family: 'OpenSans-SemiBold' !default;
+$cs-title-font-family: 'Open Sans', sans-serif !default;
+$cs-title-font-weight: 600 !default;
 $cs-title-font-size: 16px !default;
 $cs-title-color: #fce23f !default;
 
@@ -23,12 +24,14 @@ $cs-select-background-color: #34616e !default;
 $cs-select-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42) !default;
 $cs-select-border: solid 1px #fff !default;
 $cs-select-margin: 0 0 12px !default;
-$cs-select-font-family: ' OpenSans-Regular' !default;
+$cs-select-font-family: 'Open Sans', sans-serif !default;
+$cs-select-font-weight: 400 !default;
 $cs-select-font-size: 14px !default;
 $cs-select-color: #ffffff !default;
 
 //default styles for dropdown
-$cs-dropdown-font-family: ' OpenSans-Regular' !default;
+$cs-dropdown-font-family: 'Open Sans', sans-serif !default;
+$cs-dropdown-font-weight: 400 !default;
 $cs-dropdown-font-size: 13px !default;
 $cs-dropdown-background-color: #34616e !default;
 $cs-dropdown-background: #fff;
@@ -37,7 +40,8 @@ $cs-dropdown-border-radius: 24px;
 //default styles for search
 $cs-search-border-color: #273952 !default;
 $cs-search-background: transparent !default;
-$cs-search-font-family: OpenSans-Regular !default;
+$cs-search-font-family:'Open Sans', sans-serif !default;
+$cs-search-font-weight:400 !default;
 $cs-search-font-size: 14px !default;
 $cs-search-color: #273952 !default;
 
@@ -49,24 +53,28 @@ $cs-counter-color: #ffffff !default;
 $cs-counter-plus-background-color: #34616e !default;
 $cs-counter-minus-background-color: #21414a !default;
 
-$cs-page-value-font-family: OpenSans-Regular !default;
+$cs-page-value-font-family: 'Open Sans', sans-serif !default;
+$cs-page-value-font-weight: 400 !default;
 $cs-page-value-font-size: 14px !default;
 
 //default styles for prices
 
-$cs-price-font-family: OpenSans-Regular, serif !default;
+$cs-price-font-family: 'Open Sans', sans-serif !default;
+$cs-price-font-weight: 400, serif !default;
 $cs-price-color: #fff !default;
 $cs-price-full-font-size: 20px !default;
 $cs-price-dsc-font-size: 24px !default;
 $cs-price-line-throw-color: #ea6e0d !default;
 
-$cs-price-title-font-family: OpenSans-Semibold, serif !default;
+$cs-price-title-font-family: 'Open Sans', sans-serif !default;
+$cs-price-title-font-weight: 600 !default;
 $cs-price-title-font-size: 14px !default;
 $cs-price-title-color: #fff !default;
 
 //default styles for buttons
 $cs-btn-color: #ffffff !default;
-$cs-btn-font-family: 'OpenSans-Bold' !default;
+$cs-btn-font-family: 'Open Sans', sans-serif !default;
+$cs-btn-font-weight: 700 !default;
 $cs-btn-font-size: 13px !default;
 $cs-btn-border-radius: 24px !default;
 $cs-btn-height: 34px !default;
@@ -92,11 +100,7 @@ $slick-loader-path: "~slick-carousel/slick/";
 $primary-color-dark-blue: #273952;
 $primary-color-yellow: #febc09;
 
-//Fonts
-$font-stack-regular: 'OpenSans-Regular', serif;
-$font-stack-bold: 'OpenSans-Bold', serif;
-$font-stack-extrabold: 'OpenSans-ExtraBold', serif;
-$font-stack-semibold: 'OpenSans-Semibold', serif;
+
 
 //bootstrap breakpoint
 

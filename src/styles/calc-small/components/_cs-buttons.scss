@@ -11,7 +11,8 @@
 }
 
 %cs-btn-default {
-  font-family: $cs-btn-font-family, serif;
+  font-family: $cs-btn-font-family;
+  font-weight: $cs-btn-font-weight;
   font-size: $cs-btn-font-size;
   color: $cs-btn-color;
   border-radius: $cs-btn-border-radius;
@@ -47,24 +48,24 @@
   }
 }
 
-@each $theme in $themes {
-  .#{map_get($theme, name)} .cs-btn {
-    background-color: map_get(map_get($theme, btn), background-color);
-    border-radius: map_get(map_get($theme, btn), border-radius);
-    height: map_get(map_get($theme, btn), height);
-    color: map_get(map_get($theme, btn), color);
-    font-size: map_get(map_get($theme, btn), font-size);
-    font-family: map_get(map_get($theme, btn), font-family);
-  }
-  .#{map_get($theme, name)} .cs-btn--qoute {
-    background-color: map_get(map_get($theme, qoute), background-color);
-    box-shadow: map_get(map_get($theme, qoute), box-shadow);
-    border: map_get(map_get($theme, qoute), border);
-
-  }
-  .#{map_get($theme, name)} .cs-btn--order {
-    background-color: map_get(map_get($theme, order), background-color);
-    box-shadow: map_get(map_get($theme, order), box-shadow);
-    border: map_get(map_get($theme, order), border);
-  }
-}
+//@each $theme in $themes {
+//  .#{map_get($theme, name)} .cs-btn {
+//    background-color: map_get(map_get($theme, btn), background-color);
+//    border-radius: map_get(map_get($theme, btn), border-radius);
+//    height: map_get(map_get($theme, btn), height);
+//    color: map_get(map_get($theme, btn), color);
+//    font-size: map_get(map_get($theme, btn), font-size);
+//    font-family: map_get(map_get($theme, btn), font-family);
+//  }
+//  .#{map_get($theme, name)} .cs-btn--qoute {
+//    background-color: map_get(map_get($theme, qoute), background-color);
+//    box-shadow: map_get(map_get($theme, qoute), box-shadow);
+//    border: map_get(map_get($theme, qoute), border);
+//
+//  }
+//  .#{map_get($theme, name)} .cs-btn--order {
+//    background-color: map_get(map_get($theme, order), background-color);
+//    box-shadow: map_get(map_get($theme, order), box-shadow);
+//    border: map_get(map_get($theme, order), border);
+//  }
+//}

@@ -1,6 +1,7 @@
 
 %cs-title-default {
-  font-family: $cs-title-font-family, serif;
+  font-family: $cs-title-font-family;
+  font-weight:  $cs-title-font-weight;
   font-size: $cs-title-font-size;
   color: $cs-title-color;
 }
@@ -35,7 +36,8 @@
   &--sm {
     flex: 1;
     text-transform: none;
-    font-family: 'OpenSans-Regular', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     font-size: 16px;
     letter-spacing: 0.5px;
     text-align: left;
@@ -48,10 +50,10 @@
   }
 }
 
-@each $theme in $themes {
-  .#{map_get($theme, name)} .cs-title {
-    font-family: map_get(map_get($theme, title), font-family);
-    font-size: map_get(map_get($theme, title), font-size);
-    color: map_get(map_get($theme, title), color);
-  }
-}
+//@each $theme in $themes {
+//  .#{map_get($theme, name)} .cs-title {
+//    font-family: map_get(map_get($theme, title), font-family);
+//    font-size: map_get(map_get($theme, title), font-size);
+//    color: map_get(map_get($theme, title), color);
+//  }
+//}
