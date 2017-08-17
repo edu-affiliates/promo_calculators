@@ -13,7 +13,8 @@ $tp-order-background-color: #ea6e0d !default;
 $tp-order-border-quote: 0 !default;
 
 %tp-btn-default {
-  font-family: $tp-btn-font-family, serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   font-size: $tp-btn-font-size;
   color: $tp-btn-color;
   border-radius: $tp-btn-border-radius;
@@ -139,7 +140,8 @@ $tp-order-border-quote: 0 !default;
     align-items: center;
 
     &--title {
-      font-family: OpenSans-Regular, serif;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
       flex: 1;
       font-size: 14px;
       text-align: left;
@@ -148,9 +150,9 @@ $tp-order-border-quote: 0 !default;
     }
     &--value {
       flex: 1;
-      font-family: OpenSans-SemiBold, serif;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
       font-size: 17px;
-      font-weight: bold;
       text-align: right;
       color: #ffffff;
     }
@@ -189,7 +191,8 @@ $tp-order-border-quote: 0 !default;
   }
   &__page-value {
     height: 100%;
-    font-family: OpenSans-SemiBold, serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     font-size: 16px;
     color: #ffffff;
     cursor: text;
@@ -202,7 +205,8 @@ $tp-order-border-quote: 0 !default;
     text-align: center;
     width: 40px;
     background-color: transparent;
-    font-family: OpenSans-Regular, serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     color: inherit;
     font-size: 20px;
   }
@@ -227,7 +231,8 @@ $tp-order-border-quote: 0 !default;
   }
   &__price-full {
     position: relative;
-    font-family: OpenSans-Regular, serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     color: #fff;
     font-size: 16px;
     padding: 0 2px;
@@ -244,7 +249,8 @@ $tp-order-border-quote: 0 !default;
 
   }
   &__price-dsc {
-    font-family: OpenSans-Regular, serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     color: #fff;
     font-size: 22px;
   }

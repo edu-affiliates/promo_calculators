@@ -8,8 +8,3 @@
 @import "components/tp-table";
 @import "components/tp-modal";
 
-@include font-face-to('OpenSans-Regular', './table-prices/fonts/OpenSans-Regular.ttf', 'truetype');
-@include font-face-to('OpenSans-Italic', './table-prices/fonts/OpenSans-Italic.ttf', 'truetype');
-@include font-face-to('OpenSans-Bold', './table-prices/fonts/OpenSans-Bold.ttf', 'truetype');
-@include font-face-to('OpenSans-SemiBold', './table-prices/fonts/OpenSans-Semibold.ttf', 'truetype');
-@include font-face-to('OpenSans-ExtraBold', './table-prices/fonts/OpenSans-ExtraBold.ttf', 'truetype');

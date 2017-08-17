@@ -15,7 +15,8 @@
     border-bottom: 1px solid #fff;
   }
   &__title {
-    font-family: OpenSans-SemiBold, serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     font-size: 18px;
     letter-spacing: 0.7px;
     text-align: left;
@@ -34,7 +35,8 @@
     flex-wrap: wrap;
     align-items: center;
     padding: 12px;
-    font-family: OpenSans-Semibold, serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     text-align: left;
     color: #fbe23f;
     @include respond-to($xx-bt) {
@@ -62,7 +64,8 @@
 
     }
     &--text {
-      font-family: OpenSans-Regular, serif;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
       font-size: 14px;
       letter-spacing: 0.5px;
     }
@@ -82,9 +85,9 @@
     flex: 1;
     height: 100%;
     background-color: #34616e;
-    font-family: OpenSans-Regular, serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     font-size: 14px;
-    font-weight: 600;
     text-align: center;
     color: #ffffff;
     padding: 5px 25px;
