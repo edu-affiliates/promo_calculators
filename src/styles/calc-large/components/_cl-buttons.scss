@@ -48,7 +48,7 @@
 .cl-price-payment {
   height: 22px;
   width: 100%;
-  background: url("../images/icons/payments.svg") no-repeat center center;
+  background: url($calc-lg-payment) no-repeat center center;
   background-size: contain;
 }
 

@@ -1,6 +1,9 @@
 /** to customize the look and feel the calc override this variables  in your own variable scss file
 * !!IMPORTANT Be sure that you include your own variables earlier than default ones**/
 
+//
+$calc-lg-payment: "https://s3.amazonaws.com/genericapps/resources/calculators/fonts/payments.svg" !default;
+
 //default styles for title
 $cl-title-font-family: 'Open Sans', sans-serif !default;
 $cl-title-font-weight: 600 !default;
@@ -49,43 +52,43 @@ $cl-search-color: #ffffff !default;
 
 //default styles for range
 
-$cl-range-color: #3ddfff!default;
-$cl-range-checked-color: #fce23f!default;
+$cl-range-color: #3ddfff !default;
+$cl-range-checked-color: #fce23f !default;
 
 //default styles for range popup
-$cl-range-popup-min-width: 80px!default;
-$cl-range-popup-background: #3ddfff!default;
+$cl-range-popup-min-width: 80px !default;
+$cl-range-popup-background: #3ddfff !default;
 $cl-range-popup-font-family: 'Open Sans', sans-serif !default;
-$cl-range-popup-font-weight: 400!default;
-$cl-range-popup-font-size: 12px!default;
-$cl-range-popup-color: #30505a!default;
+$cl-range-popup-font-weight: 400 !default;
+$cl-range-popup-font-size: 12px !default;
+$cl-range-popup-color: #30505a !default;
 
 //default styles for counter
 
-$cl-counter-background: #3ddfff!default;
-$cl-counter-color: #21414a!default;
-$cl-counter-border-radius: 100px!default;
-$cl-counter-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.44)!default;
+$cl-counter-background: #3ddfff !default;
+$cl-counter-color: #21414a !default;
+$cl-counter-border-radius: 100px !default;
+$cl-counter-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.44) !default;
 
 $cl-single-price-font-family: 'Open Sans', sans-serif !default;
-$cl-single-price-font-weight: 400!default;
-$cl-single-price-color: #fbe23f!default;
-$cl-single-price-font-size: 14px!default;
-$cl-single-price-font-size-value: 18px!default;
+$cl-single-price-font-weight: 400 !default;
+$cl-single-price-color: #fbe23f !default;
+$cl-single-price-font-size: 14px !default;
+$cl-single-price-font-size-value: 18px !default;
 
 //default styles for prices
 
 $cl-price-font-family: 'Open Sans', sans-serif !default;
-$cl-price-font-weight: 400!default;
-$cl-price-color: #fff!default;
-$cl-price-full-font-size: 24px!default;
-$cl-price-dsc-font-size: 40px!default;
-$cl-price-line-throw-color: #ea6e0d!default;
+$cl-price-font-weight: 400 !default;
+$cl-price-color: #fff !default;
+$cl-price-full-font-size: 24px !default;
+$cl-price-dsc-font-size: 40px !default;
+$cl-price-line-throw-color: #ea6e0d !default;
 
 $cl-price-title-font-family: 'Open Sans', sans-serif !default;
-$cl-price-title-font-weight: 600!default;
-$cl-price-title-font-size: 24px!default;
-$cl-price-title-color: #fff!default;
+$cl-price-title-font-weight: 600 !default;
+$cl-price-title-font-size: 24px !default;
+$cl-price-title-color: #fff !default;
 
 //default styles for buttons
 $calc-lg-btn-color: #ffffff !default;
