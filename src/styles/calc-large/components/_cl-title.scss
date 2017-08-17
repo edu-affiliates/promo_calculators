@@ -1,5 +1,6 @@
 %cl-title-default {
-  font-family: $cl-title-font-family, serif;
+  font-family: $cl-title-font-family;
+  font-weight: $cl-title-font-weight;
   font-size: $cl-title-font-size;
   color: $cl-title-color;
   text-transform: $cl-title-text-transform;
@@ -37,25 +38,26 @@
   }
   &--sm {
     text-transform: none;
-    font-family: 'OpenSans-Regular', serif;
+    font-family: $cl-title-font-family;
+    font-weight: 400;
     font-size: 16px;
     letter-spacing: 0.5px;
     text-align: left;
   }
 }
 
-@each $theme in $themes {
-  .#{map_get($theme, name)} .cl-title {
-    font-family: map_get(map_get($theme, title), font-family);
-    font-size: map_get(map_get($theme, title), font-size);
-    color: map_get(map_get($theme, title), color);
-  }
-  .#{map_get($theme, name)} .cl-title--dsc {
-    background-color: map_get(map_get($theme, title), color);
-  }
-  .#{map_get($theme, name)} .cl-title--sm {
-    font-family: map_get(map_get($theme, subtitle), font-family);
-    font-size: map_get(map_get($theme, subtitle), font-size);
-    color: map_get(map_get($theme, subtitle), color);
-  }
-}
+//@each $theme in $themes {
+//  .#{map_get($theme, name)} .cl-title {
+//    font-family: map_get(map_get($theme, title), font-family);
+//    font-size: map_get(map_get($theme, title), font-size);
+//    color: map_get(map_get($theme, title), color);
+//  }
+//  .#{map_get($theme, name)} .cl-title--dsc {
+//    background-color: map_get(map_get($theme, title), color);
+//  }
+//  .#{map_get($theme, name)} .cl-title--sm {
+//    font-family: map_get(map_get($theme, subtitle), font-family);
+//    font-size: map_get(map_get($theme, subtitle), font-size);
+//    color: map_get(map_get($theme, subtitle), color);
+//  }
+//}

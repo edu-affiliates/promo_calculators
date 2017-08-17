@@ -1,7 +1,8 @@
 %cl-select-title-default {
+  font-family: $cl-select-title-font-family;
+  font-weight: $cl-select-title-font-weight;
   color: $cl-select-title-color;
   font-size: $cl-select-title-font-size;
-  font-family: $cl-select-title-font-family;
   @include respond-to($xs-bt) {
     font-size: $cl-select-title-font-size*0.8;
     text-align: center;
@@ -9,15 +10,17 @@
 }
 
 %cl-select-item-default {
+  font-family: $cl-select-item-font-family;
+  font-weight: $cl-select-item-font-weight;
+  font-size: $cl-select-item-font-size;
   border: $cl-select-item-border 1px solid;
   color: $cl-select-item-color;
-  font-size: $cl-select-item-font-size;
-  font-family: $cl-select-item-font-family;
 }
 
 %cl-select-single-default {
-  font-size: $cl-select-item-font-size;
   font-family: $cl-select-item-font-family;
+  font-weight: $cl-select-item-font-weight;
+  font-size: $cl-select-item-font-size;
   border-radius: $cl-select-border-radius;
   color: $cl-select-single-active-color;
   border: 1px solid $cl-select-single-active-background-color;
@@ -151,39 +154,39 @@
   }
 }
 
-@each $theme in $themes {
-  .#{map_get($theme, name)} .cl-select-title {
-    color: map_get(map_get($theme, select-title), title-color);
-    font-size: map_get(map_get($theme, select-title), title-font-size);
-    font-family: map_get(map_get($theme, select-title), title-font-family);
-  }
-  .#{map_get($theme, name)} .cl-select-item {
-    border-color: map_get(map_get($theme, select-item), background-color);
-    color: map_get(map_get($theme, select-item), color);
-    font-size: map_get(map_get($theme, select-item), font-size);
-    font-family: map_get(map_get($theme, select-item), font-family);
-    &:first-child {
-      border-top-left-radius: map_get(map_get($theme, select-item), border-radius);
-      border-bottom-left-radius: map_get(map_get($theme, select-item), border-radius);
-    }
-    &:last-child {
-      border-top-right-radius: map_get(map_get($theme, select-item), border-radius);
-      border-bottom-right-radius: map_get(map_get($theme, select-item), border-radius);
-    }
-    &.active {
-      background-color: map_get(map_get($theme, select-item), background-color);
-      color: map_get(map_get($theme, select-item), color-active);
-    }
-  }
-  .#{map_get($theme, name)} .cl-select-single {
-    font-family: map_get(map_get($theme, select-item), font-family);
-    font-size: map_get(map_get($theme, select-item), font-size);
-    color: map_get(map_get($theme, select-item), color);
-    border-radius: map_get(map_get($theme, select-item), border-radius);
-    border-color: map_get(map_get($theme, select-item), background-color);
-    background-color: map_get(map_get($theme, select-single), background-color);
-    &__close {
-      border-color: map_get(map_get($theme, select-single), border-color);
-    }
-  }
-}
+//@each $theme in $themes {
+//  .#{map_get($theme, name)} .cl-select-title {
+//    color: map_get(map_get($theme, select-title), title-color);
+//    font-size: map_get(map_get($theme, select-title), title-font-size);
+//    font-family: map_get(map_get($theme, select-title), title-font-family);
+//  }
+//  .#{map_get($theme, name)} .cl-select-item {
+//    border-color: map_get(map_get($theme, select-item), background-color);
+//    color: map_get(map_get($theme, select-item), color);
+//    font-size: map_get(map_get($theme, select-item), font-size);
+//    font-family: map_get(map_get($theme, select-item), font-family);
+//    &:first-child {
+//      border-top-left-radius: map_get(map_get($theme, select-item), border-radius);
+//      border-bottom-left-radius: map_get(map_get($theme, select-item), border-radius);
+//    }
+//    &:last-child {
+//      border-top-right-radius: map_get(map_get($theme, select-item), border-radius);
+//      border-bottom-right-radius: map_get(map_get($theme, select-item), border-radius);
+//    }
+//    &.active {
+//      background-color: map_get(map_get($theme, select-item), background-color);
+//      color: map_get(map_get($theme, select-item), color-active);
+//    }
+//  }
+//  .#{map_get($theme, name)} .cl-select-single {
+//    font-family: map_get(map_get($theme, select-item), font-family);
+//    font-size: map_get(map_get($theme, select-item), font-size);
+//    color: map_get(map_get($theme, select-item), color);
+//    border-radius: map_get(map_get($theme, select-item), border-radius);
+//    border-color: map_get(map_get($theme, select-item), background-color);
+//    background-color: map_get(map_get($theme, select-single), background-color);
+//    &__close {
+//      border-color: map_get(map_get($theme, select-single), border-color);
+//    }
+//  }
+//}

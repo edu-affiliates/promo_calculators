@@ -3,7 +3,8 @@
 %cl-search-default {
   background: $cl-search-background;
   color: $cl-search-color;
-  font-family: $cl-search-font-family, serif;
+  font-family: $cl-search-font-family;
+  font-weight: $cl-search-font-weight;
   font-size: $cl-search-font-size;
 }
 
@@ -26,24 +27,28 @@
   line-height: 1.3;
   &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     font-family: inherit;
+    font-weight: inherit;
     font-size: inherit;
     line-height: inherit;
     color: inherit;
   }
   &::-moz-placeholder { /* Firefox 19+ */
     font-family: inherit;
+    font-weight: inherit;
     font-size: inherit;
     line-height: inherit;
     color: inherit;
   }
   &:-ms-input-placeholder { /* IE 10+ */
     font-family: inherit;
+    font-weight: inherit;
     font-size: inherit;
     line-height: inherit;
     color: inherit;
   }
   &:-moz-placeholder { /* Firefox 18- */
     font-family: inherit;
+    font-weight: inherit;
     font-size: inherit;
     line-height: inherit;
     color: inherit;
@@ -51,14 +56,14 @@
 
 }
 
-@each $theme in $themes {
-  .#{map_get($theme, name)} .cl-search-wrap {
-    border-color: map_get(map_get($theme, search), border-color);
-  }
-  .#{map_get($theme, name)} .cl-search {
-    background: map_get(map_get($theme, search), background);
-    color: map_get(map_get($theme, search), color);
-    font-family: map_get(map_get($theme, search), font-family);
-    font-size: map_get(map_get($theme, search), font-size);
-  }
-}
+//@each $theme in $themes {
+//  .#{map_get($theme, name)} .cl-search-wrap {
+//    border-color: map_get(map_get($theme, search), border-color);
+//  }
+//  .#{map_get($theme, name)} .cl-search {
+//    background: map_get(map_get($theme, search), background);
+//    color: map_get(map_get($theme, search), color);
+//    font-family: map_get(map_get($theme, search), font-family);
+//    font-size: map_get(map_get($theme, search), font-size);
+//  }
+//}

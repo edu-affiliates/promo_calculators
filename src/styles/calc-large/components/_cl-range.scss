@@ -121,7 +121,8 @@
 
   }
   &__text {
-    font-family: $cl-range-popup-font-family, serif;
+    font-family: $cl-range-popup-font-family;
+    font-weight: $cl-range-popup-font-weight;
     color: $cl-range-popup-color;
     font-size: $cl-range-popup-font-size;
   }
@@ -152,47 +153,47 @@
     }
   }
 }
-
-@each $theme in $themes {
-  .#{map_get($theme, name)} .cl-range-item {
-    &::after, &::before {
-      background-color: map_get(map_get($theme, range), background-color);
-    }
-    &.active::after {
-      background-color: map_get(map_get($theme, range), background-color);
-    }
-    &.active::before, &.checked::before, &.checked::after {
-      background-color: map_get(map_get($theme, range), background-color-cheked);
-    }
-
-  }
-  .#{map_get($theme, name)} .cl-range-item__circle {
-    background-color: map_get(map_get($theme, range), background-color);
-  }
-  .#{map_get($theme, name)} .active .cl-range-item__circle {
-    background-color: map_get(map_get($theme, range), background-color-cheked);
-  }
-  .#{map_get($theme, name)} .checked .cl-range-item__circle {
-    background-color: map_get(map_get($theme, range), background-color-cheked);
-  }
-
-  .#{map_get($theme, name)} .cl-range-popup {
-    background-color: map_get(map_get($theme, range), background-color);
-    &::after {
-      border-top-color: map_get(map_get($theme, range), background-color);
-    }
-    &__text {
-      font-family: map_get(map_get($theme, range), font-family);
-      color: map_get(map_get($theme, range), color);
-      font-size: map_get(map_get($theme, range), font-size);
-    }
-  }
-  .#{map_get($theme, name)} .cl-range-item:first-child .cl-range-popup::after {
-    border-top-color: map_get(map_get($theme, range), background-color);
-
-  }
-  .#{map_get($theme, name)} .cl-range-item:last-child .cl-range-popup::after {
-    border-top-color: map_get(map_get($theme, range), background-color);
-
-  }
-}
+//
+//@each $theme in $themes {
+//  .#{map_get($theme, name)} .cl-range-item {
+//    &::after, &::before {
+//      background-color: map_get(map_get($theme, range), background-color);
+//    }
+//    &.active::after {
+//      background-color: map_get(map_get($theme, range), background-color);
+//    }
+//    &.active::before, &.checked::before, &.checked::after {
+//      background-color: map_get(map_get($theme, range), background-color-cheked);
+//    }
+//
+//  }
+//  .#{map_get($theme, name)} .cl-range-item__circle {
+//    background-color: map_get(map_get($theme, range), background-color);
+//  }
+//  .#{map_get($theme, name)} .active .cl-range-item__circle {
+//    background-color: map_get(map_get($theme, range), background-color-cheked);
+//  }
+//  .#{map_get($theme, name)} .checked .cl-range-item__circle {
+//    background-color: map_get(map_get($theme, range), background-color-cheked);
+//  }
+//
+//  .#{map_get($theme, name)} .cl-range-popup {
+//    background-color: map_get(map_get($theme, range), background-color);
+//    &::after {
+//      border-top-color: map_get(map_get($theme, range), background-color);
+//    }
+//    &__text {
+//      font-family: map_get(map_get($theme, range), font-family);
+//      color: map_get(map_get($theme, range), color);
+//      font-size: map_get(map_get($theme, range), font-size);
+//    }
+//  }
+//  .#{map_get($theme, name)} .cl-range-item:first-child .cl-range-popup::after {
+//    border-top-color: map_get(map_get($theme, range), background-color);
+//
+//  }
+//  .#{map_get($theme, name)} .cl-range-item:last-child .cl-range-popup::after {
+//    border-top-color: map_get(map_get($theme, range), background-color);
+//
+//  }
+//}
