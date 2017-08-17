@@ -11,6 +11,26 @@ import initialState from './store/initState';
 import {Provider} from 'react-redux';
 import {fetchInitTree, fetchStatistic, fetchCoupon, fetchUser} from './store/actions';
 
+const css = 'https://s3.amazonaws.com/genericapps/resources/calculators/main.259b2e5f8db7f0ca0ae3a05093744601.css';
+const font = 'https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet';
+function loadCSS(filename) {
+
+    const file = document.createElement("link");
+    file.setAttribute("rel", "stylesheet");
+    file.setAttribute("type", "text/css");
+    file.setAttribute("href", filename);
+    document.head.appendChild(file);
+
+}
+function loadFont(filename) {
+    const file = document.createElement("link");
+    file.setAttribute("rel", "stylesheet");
+    file.setAttribute("href", filename);
+    document.head.appendChild(file);
+}
+
+// loadCSS(css);
+// loadFont(font);
 
 // Store Initialization
 // ------------------------------------
@@ -27,7 +47,7 @@ const MOUNT_NODE_1 = document.getElementById('cs-1');
 const MOUNT_NODE_2 = document.getElementById('cs-2');
 // const MOUNT_NODE_3 = document.getElementById('cs-3');
 const MOUNT_NODES = [MOUNT_NODE_TP, MOUNT_NODE_CL_1, MOUNT_NODE_1, MOUNT_NODE_2];
-const MOUNT_CLASSES = ['tp','calc-lg', 'calc-sm', 'calc-sm'];
+const MOUNT_CLASSES = ['tp', 'calc-lg', 'calc-sm', 'calc-sm'];
 
 let render = () => {
 
