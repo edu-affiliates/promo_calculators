@@ -13,10 +13,5 @@
 @import "components/cl-prices";
 @import "components/cl-buttons";
 
-@include font-face-to('OpenSans-Regular', './calc-large/fonts/OpenSans-Regular.ttf', 'truetype');
-@include font-face-to('OpenSans-Italic', './calc-large/fonts/OpenSans-Italic.ttf', 'truetype');
-@include font-face-to('OpenSans-Bold', './calc-large/fonts/OpenSans-Bold.ttf', 'truetype');
-@include font-face-to('OpenSans-SemiBold', './calc-large/fonts/OpenSans-Semibold.ttf', 'truetype');
-@include font-face-to('OpenSans-ExtraBold', './calc-large/fonts/OpenSans-ExtraBold.ttf', 'truetype');
 
 

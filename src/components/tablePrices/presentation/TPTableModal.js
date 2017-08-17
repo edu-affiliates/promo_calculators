@@ -8,17 +8,34 @@ import {plusPage, minusPage, handleInputPageNumber} from '../../../store/actions
 
 
 //presentation of the counter in calc small
-class TPTableCounter extends React.Component {
+class TPTableModal extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            emptyInput: false,
+            alert: false
+        };
         this.handleChange = this.handleChange.bind(this);
     };
 
     handleChange(e) {
+        if (e.target.value === '') {
+            this.setState({emptyInput: true})
+        } else {
+            if (this.state.emptyInput)
+                this.setState({emptyInput: false})
+        }
         const number = parseInt(e.target.value);
+
+        if (number > this.props.maxPageNumber) {
+            this.setState({alert: true})
+        }
         this.props.handleInputPageNumber(number);
     }
 
+    handleBlur() {
+        this.setState({emptyInput: false});
+    }
 
     redirectTo(type) {
         const {service, level, deadline, pageNumber} = this.props;
@@ -47,47 +64,53 @@ class TPTableCounter extends React.Component {
         const {onClickPlus, onClickMinus, fullPrice, discount, pageNumber, service, level} = this.props;
         return (
             <div className="tp-modal-wrap">
+                <div onClick={(e) => {
+                    e.stopPropagation();
+                    this.props.closeModal();
+                }} className="tp-modal__cross">&times;</div>
                 <div className="tp-modal">
-                    <div className="tp-modal-dsc-wrap">
-                        <div className="tp-modal-dsc">
-                            <span className="tp-modal-dsc__title">Estimate day:</span>
-                            <span className="tp-modal-dsc__value">{this.estimateDay()}</span>
-                        </div>
-                        <div className="tp-modal-dsc">
-                            <span className="tp-modal-dsc__title">Type of service: </span>
-                            <span className="tp-modal-dsc__value">{service.name}</span>
-                        </div>
-                        {/*<div className="tp-modal-dsc">*/}
-                            {/*<span className="tp-modal-dsc__title">Academic level:</span>*/}
-                            {/*<span className="tp-modal-dsc__value">{level.name}</span>*/}
-                        {/*</div>*/}
+                    <div className="tp-modal__date">
+                        <span className="tp-modal__date--title">Estimate date:</span>
+                        <span className="tp-modal__date--value">{this.estimateDay()}</span>
                     </div>
-                    <div className="tp-counter-wrap">
-                        <div onClick={onClickMinus} className="tp-counter tp-counter--minus">
+                    <div className="tp-modal__counter">
+                        <div onClick={onClickMinus} className="tp-modal__counter-btn tp-modal__counter-btn--minus">
                             <span>-</span>
                         </div>
-                        <div className="tp-page-value">
-                            <input value={pageNumber}
+                        <div className="tp-modal__page-value">
+                            <input type="text"
+                                   className="tp-modal__page-input"
+                                   onBlur={() => this.handleBlur()}
+                                   value={(this.state.emptyInput) ? '' : pageNumber}
                                    onChange={(e) => this.handleChange(e)}
-                                   type="text" className="tp-page-value__input"/>
+                            />
                             <span>{(pageNumber === 1) ? 'page' : 'pages'}</span>
                         </div>
-                        <div onClick={onClickPlus} className="tp-counter tp-counter--plus">
+                        <div onClick={onClickPlus} className="tp-modal__counter-btn tp-modal__counter-btn--plus">
                             <span>+</span>
                         </div>
                     </div>
-                    <div className="tp-prices-wrap">
-                        <div className="tp-price-dsc">
-                            <span className="tp-price-dsc__title">Estimate price</span>
+                    <div className="tp-modal__price">
+                        <span className="tp-modal__price-title">Estimate price</span>
+                        <div className="tp-modal__price-container">
+                            <span className="tp-modal__price-full">
+                                <span className="tp-modal__price-line-throw"/>
+                                 ${(fullPrice * pageNumber).toFixed(2)}
+                            </span>
                         </div>
-                        <div className="tp-price tp-price--full">${(fullPrice * pageNumber).toFixed(2)}</div>
-                        <div className="tp-price tp-price--dsc">
-                            ${(fullPrice * (1 - discount) * pageNumber).toFixed(2)}</div>
+                        <div className="tp-modal__price-container">
+                            <span className="tp-modal__price-dsc">
+                                ${(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                            </span>
+                        </div>
                     </div>
-                    <div className="tp-btn-group">
-                        <div onClick={() => this.redirectTo('inquiry')} className="tp-btn tp-btn--qoute">free quote
+                    <div className="tp-modal__btn-group">
+                        <div onClick={() => this.redirectTo('inquiry')} className="tp-modal__btn tp-modal__btn--qoute">
+                            free quote
                         </div>
-                        <div onClick={() => this.redirectTo('order')} className="tp-btn tp-btn--order">order now</div>
+                        <div onClick={() => this.redirectTo('order')} className="tp-modal__btn tp-modal__btn--order">
+                            order now
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,7 +118,7 @@ class TPTableCounter extends React.Component {
     }
 }
 
-TPTableCounter.propTypes = {
+TPTableModal.propTypes = {
     onClickPlus: PropTypes.func.isRequired,
     onClickMinus: PropTypes.func.isRequired,
     pageNumber: PropTypes.number.isRequired,
@@ -135,4 +158,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TPTableCounter);
+export default connect(mapStateToProps, mapDispatchToProps)(TPTableModal);

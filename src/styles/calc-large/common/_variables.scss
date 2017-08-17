@@ -1,24 +1,29 @@
 /** to customize the look and feel the calc override this variables  in your own variable scss file
 * !!IMPORTANT Be sure that you include your own variables earlier than default ones**/
 
+//
+$calc-lg-payment: "https://s3.amazonaws.com/genericapps/resources/calculators/fonts/payments.svg" !default;
+
 //default styles for title
-$cl-title-font-family: 'OpenSans-SemiBold' !default;
+$cl-title-font-family: 'Open Sans', sans-serif !default;
+$cl-title-font-weight: 600 !default;
 $cl-title-color: #fce23f !default;
 $cl-title-font-size: 20px !default;
 $cl-title-text-transform: uppercase !default;
 
-//default select for title
+//default style for select
 
 $cl-select-title-color: #fbe23f !default;
 $cl-select-title-font-size: 16px !default;
-$cl-select-title-font-family: 'OpenSans-Regular', serif !default;
-
+$cl-select-title-font-weight: 400 !default;
+$cl-select-title-font-family: 'Open Sans', sans-serif !default;
 $cl-select-border-radius: 70px !default;
 
 $cl-select-item-font-size: 15px !default;
 $cl-select-item-color: #ffffff !default;
 $cl-select-item-border: #3ddfff !default;
-$cl-select-item-font-family: 'OpenSans-Regular', serif !default;
+$cl-select-item-font-weight: 400 !default;
+$cl-select-item-font-family: 'Open Sans', sans-serif !default;
 
 $cl-select-item-active-color: #21414a !default;
 $cl-select-item-active-background-color: #3ddfff !default;
@@ -30,7 +35,8 @@ $cl-select-single-active-background-color: #3ddfff !default;
 $cl-dropdown-border-color: #3ddfff !default;
 $cl-dropdown-border-radius: 24px !default;
 $cl-dropdown-background: transparent !default;
-$cl-dropdown-font-family: OpenSans-Regular, serif !default;
+$cl-dropdown-font-family: 'Open Sans', sans-serif !default;
+$cl-dropdown-font-weight: 400 !default;
 $cl-dropdown-font-size: 14px !default;
 $cl-dropdown-color: #ffffff !default;
 $cl-dropdown-scroll-background: transparent !default;
@@ -39,59 +45,65 @@ $cl-dropdown-thumb-background: #fce23f !default;
 //default styles for search
 $cl-search-border-color: #3ddfff !default;
 $cl-search-background: transparent !default;
-$cl-search-font-family: OpenSans-Regular !default;
+$cl-search-font-family: 'Open Sans', sans-serif !default;
+$cl-search-font-weight: 400 !default;
 $cl-search-font-size: 16px !default;
 $cl-search-color: #ffffff !default;
 
 //default styles for range
 
-$cl-range-color: #3ddfff;
-$cl-range-checked-color: #fce23f;
+$cl-range-color: #3ddfff !default;
+$cl-range-checked-color: #fce23f !default;
 
 //default styles for range popup
-$cl-range-popup-min-width: 80px;
-$cl-range-popup-background: #3ddfff;
-$cl-range-popup-font-family: OpenSans-Regular;
-$cl-range-popup-font-size: 12px;
-$cl-range-popup-color: #30505a;
+$cl-range-popup-min-width: 80px !default;
+$cl-range-popup-background: #3ddfff !default;
+$cl-range-popup-font-family: 'Open Sans', sans-serif !default;
+$cl-range-popup-font-weight: 400 !default;
+$cl-range-popup-font-size: 12px !default;
+$cl-range-popup-color: #30505a !default;
 
 //default styles for counter
 
-$cl-counter-background: #3ddfff;
-$cl-counter-color: #21414a;
-$cl-counter-border-radius: 100px;
-$cl-counter-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.44);
+$cl-counter-background: #3ddfff !default;
+$cl-counter-color: #21414a !default;
+$cl-counter-border-radius: 100px !default;
+$cl-counter-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.44) !default;
 
-$cl-single-price-font-family: OpenSans-Regular;
-$cl-single-price-color: #fbe23f;
-$cl-single-price-font-size: 14px;
-$cl-single-price-font-size-value: 18px;
+$cl-single-price-font-family: 'Open Sans', sans-serif !default;
+$cl-single-price-font-weight: 400 !default;
+$cl-single-price-color: #fbe23f !default;
+$cl-single-price-font-size: 14px !default;
+$cl-single-price-font-size-value: 18px !default;
 
 //default styles for prices
 
-$cl-price-font-family: OpenSans-Regular, serif;
-$cl-price-color: #fff;
-$cl-price-full-font-size: 24px;
-$cl-price-dsc-font-size: 40px;
-$cl-price-line-throw-color:#ea6e0d;
+$cl-price-font-family: 'Open Sans', sans-serif !default;
+$cl-price-font-weight: 400 !default;
+$cl-price-color: #fff !default;
+$cl-price-full-font-size: 24px !default;
+$cl-price-dsc-font-size: 40px !default;
+$cl-price-line-throw-color: #ea6e0d !default;
 
-$cl-price-title-font-family: OpenSans-Semibold, serif;
-$cl-price-title-font-size: 24px;
-$cl-price-title-color: #fff;
+$cl-price-title-font-family: 'Open Sans', sans-serif !default;
+$cl-price-title-font-weight: 600 !default;
+$cl-price-title-font-size: 24px !default;
+$cl-price-title-color: #fff !default;
 
 //default styles for buttons
-$calc-lg-btn-color: #ffffff!default;
-$calc-lg-btn-font-family: 'OpenSans-Bold'!default;
-$calc-lg-btn-font-size: 23px!default;
-$calc-lg-btn-border-radius: 100px!default;
-$calc-lg-btn-height: 70px!default;
+$calc-lg-btn-color: #ffffff !default;
+$calc-lg-btn-font-family: 'Open Sans', sans-serif !default;
+$calc-lg-btn-font-weight: 700 !default;
+$calc-lg-btn-font-size: 23px !default;
+$calc-lg-btn-border-radius: 100px !default;
+$calc-lg-btn-height: 70px !default;
 //quote btn
-$calc-lg-quote-background-color: #21414a!default;
-$calc-lg-quote-border-quote: 3px solid #fff!default;
+$calc-lg-quote-background-color: #21414a !default;
+$calc-lg-quote-border-quote: 3px solid #fff !default;
 
 //order btn
-$calc-lg-order-background-color: #ea6e0d!default;
-$calc-lg-order-border-quote: 0!default;
+$calc-lg-order-background-color: #ea6e0d !default;
+$calc-lg-order-border-quote: 0 !default;
 
 /**  end of the default variables **/
 
@@ -108,10 +120,10 @@ $primary-color-dark-blue: #273952;
 $primary-color-yellow: #fbe23f;
 
 //Fonts
-$font-stack-regular: 'OpenSans-Regular', serif;
-$font-stack-bold: 'OpenSans-Bold', serif;
-$font-stack-extrabold: 'OpenSans-ExtraBold', serif;
-$font-stack-semibold: 'OpenSans-Semibold', serif;
+//$font-stack-regular: 'OpenSans-Regular', serif;
+//$font-stack-bold: 'OpenSans-Bold', serif;
+//$font-stack-extrabold: 'OpenSans-ExtraBold', serif;
+//$font-stack-semibold: 'OpenSans-Semibold', serif;
 
 //bootstrap breakpoint
 

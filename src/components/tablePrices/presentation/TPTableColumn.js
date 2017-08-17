@@ -4,11 +4,23 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {changeLevel, changeDeadline, fetchService} from '../../../store/actions'
 import {currentDeadlineList} from '../../../store/reducerLogic'
+import Modal from './TPTableModal'
+
 
 class TPTableColumn extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            selected: false
+        };
+        this.closeModal = this.closeModal.bind(this);
+    }
+
+    closeModal() {
+        console.log('close modal');
+        this.setState({selected: false, you: 'are fool'});
+        console.log(this);
     }
 
     render() {
@@ -16,14 +28,17 @@ class TPTableColumn extends React.Component {
         let prices = currentDeadlineList(tree, lev.id).map((deadline) => {
             return <div key={deadline.id}
                         onClick={() => {
-                            if(currentLevel.id !== lev.id) {
+                            this.setState({selected: true});
+                            if (currentLevel.id !== lev.id) {
                                 changeLevel(lev.id);
                             }
-                            if(currentDeadline.id !== deadline.id) {
+                            if (currentDeadline.id !== deadline.id) {
                                 changeDeadline(deadline.id);
                             }
                         }
-                        } className={`${(currentDeadline.id === deadline.id) ? 'active': ''} tp-table__price`}>
+                        }
+                        className={`${(currentDeadline.id === deadline.id) ? 'active' : ''} ${(currentDeadline.id === deadline.id && this.state.selected) ? 'selected' : ''}  tp-table__price`}>
+                <Modal calcId={this.props.calcId} closeModal={this.closeModal}/>
                 <span className="tp-table__price--full">${deadline.price}</span>
                 <span className="tp-table__price--dsc">${(deadline.price * (1 - discount)).toFixed(2)}</span>
 
@@ -43,8 +58,8 @@ const mapStateToProps = (reduxState, ownProps) => {
     return {
         tree: reduxState.tree,
         discount: reduxState.discount,
-        currentDeadline : state.deadline,
-        currentLevel : state.level
+        currentDeadline: state.deadline,
+        currentLevel: state.level
     }
 };
 

@@ -75,7 +75,8 @@
 .cl-page-value {
   height: 100%;
   flex: 1.3;
-  font-family: OpenSans-Regular, serif;
+  font-family: $cl-single-price-font-family;
+  font-weight: $cl-single-price-font-weight;
   cursor: text;
   font-size: 30px;
   letter-spacing: 2.2px;
@@ -89,7 +90,7 @@
     width: 100%;
     background-color: transparent;
     color: inherit;
-    font-family: inherit;
+    font-weight: inherit;
     font-size: inherit;
   }
   &__alert {
@@ -97,7 +98,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: $cl-single-price-font-family, serif;
+    font-weight: $cl-single-price-font-weight;
+    font-family: $cl-single-price-font-family;
     font-size: $cl-single-price-font-size;
     background: #ea6e0d;
     color: #ffffff;
@@ -122,14 +124,16 @@
 
   }
   &__title {
-    font-family: $cl-single-price-font-family, serif;
+    font-family: $cl-single-price-font-family;
+    font-weight: $cl-single-price-font-weight;
     font-size: $cl-single-price-font-size;
     color: $cl-single-price-color;
     text-align: right;
 
   }
   &__value {
-    font-family: $cl-single-price-font-family, serif;
+    font-family: $cl-single-price-font-family;
+    font-weight: $cl-single-price-font-weight;
     color: $cl-single-price-color;
     border: solid 1px $cl-counter-background;
     font-size: 18px;
@@ -145,29 +149,29 @@
   }
 }
 
-@each $theme in $themes {
-  .#{map_get($theme, name)} .cl-counter-wrap {
-    background-color: map_get(map_get($theme, counter), background);
-
-  }
-  .#{map_get($theme, name)} .cl-counter {
-    &--plus {
-      background-color: map_get(map_get($theme, counter), background-plus);
-    }
-    &--minus {
-      background-color: map_get(map_get($theme, counter), background-minus);
-    }
-  }
-  .#{map_get($theme, name)} .cl-single-price__title {
-    color: map_get(map_get($theme, single-price), color);
-    font-family: map_get(map_get($theme, single-price), font-family);
-    font-size: map_get(map_get($theme, single-price), font-size);
-
-  }
-  .#{map_get($theme, name)} .cl-single-price__value {
-    color: map_get(map_get($theme, single-price), color);
-    border-color: map_get(map_get($theme, single-price), color);
-    font-family: map_get(map_get($theme, single-price), font-family);
-
-  }
-}
+//@each $theme in $themes {
+//  .#{map_get($theme, name)} .cl-counter-wrap {
+//    background-color: map_get(map_get($theme, counter), background);
+//
+//  }
+//  .#{map_get($theme, name)} .cl-counter {
+//    &--plus {
+//      background-color: map_get(map_get($theme, counter), background-plus);
+//    }
+//    &--minus {
+//      background-color: map_get(map_get($theme, counter), background-minus);
+//    }
+//  }
+//  .#{map_get($theme, name)} .cl-single-price__title {
+//    color: map_get(map_get($theme, single-price), color);
+//    font-family: map_get(map_get($theme, single-price), font-family);
+//    font-size: map_get(map_get($theme, single-price), font-size);
+//
+//  }
+//  .#{map_get($theme, name)} .cl-single-price__value {
+//    color: map_get(map_get($theme, single-price), color);
+//    border-color: map_get(map_get($theme, single-price), color);
+//    font-family: map_get(map_get($theme, single-price), font-family);
+//
+//  }
+//}

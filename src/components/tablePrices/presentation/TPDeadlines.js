@@ -3,7 +3,8 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {changeDeadline} from '../../../store/actions'
-class TPService extends React.Component {
+
+class TPDeadlines extends React.Component {
 
     constructor(props) {
         super(props);
@@ -12,12 +13,20 @@ class TPService extends React.Component {
     render() {
         const {deadlineList, deadline} = this.props;
         let list = deadlineList.map((d) => {
-            return <li className={`${(deadline === d.name) ? 'active' : ''} tp-deadline__item`}>{d.name}</li>
+            return <li key={d.id} className={`${(deadline === d.name) ? 'active' : ''} tp-deadline__item`}>{d.name}</li>
         });
         return (
-            <ul className="tp-deadline">
-                {list}
-            </ul>
+            <div className="tp-deadline">
+                <div className="tp-deadline__top">
+                    <div className="tp-deadline__title">DEADLINE</div>
+                    <div className="tp-deadline__icon">
+                        <img src={require("../../../images/icons/tp.svg")}/>
+                    </div>
+                </div>
+                <ul className="tp-deadline__list">
+                    {list}
+                </ul>
+            </div>
         )
     }
 }
@@ -39,4 +48,4 @@ const mapDispatchToProps = (reduxState, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TPService);
+export default connect(mapStateToProps, mapDispatchToProps)(TPDeadlines);

@@ -13,7 +13,8 @@
   box-shadow: none;
   border: none;
   padding-left: 5px;
-  font-family: $cs-search-font-family, serif;
+  font-family: $cs-search-font-family;
+  font-weight: $cs-search-font-weight;
   font-size: $cs-search-font-size;
   color: $cs-search-color;
   &::-webkit-input-placeholder { /* Chrome/Opera/Safari */

@@ -8,7 +8,8 @@
 
 %calc-lg-btn-default {
   font-size: $calc-lg-btn-font-size;
-  font-family: $calc-lg-btn-font-family, serif;
+  font-family: $calc-lg-btn-font-family;
+  font-weight: $calc-lg-btn-font-weight;
   color: $calc-lg-btn-color;
   border-radius: $calc-lg-btn-border-radius;
   height: $calc-lg-btn-height;
@@ -47,7 +48,7 @@
 .cl-price-payment {
   height: 22px;
   width: 100%;
-  background: url("../images/icons/payments.svg") no-repeat center center;
+  background: url($calc-lg-payment) no-repeat center center;
   background-size: contain;
 }
 

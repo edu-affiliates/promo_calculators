@@ -4,9 +4,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {initCalc} from '../../store/actions'
 import Deadlines from './presentation/TPDeadlines'
-import Top from './presentation/TPTop'
 import Table from './presentation/TPTable'
-import Select from './presentation/TPSelect'
 
 class TablePrices extends React.Component {
 
@@ -22,17 +20,16 @@ class TablePrices extends React.Component {
         if (this.props.inited) {
             return (
                 <div className={this.props.containerClass}>
-                    <div className="tp-container">
-                        <Select calcId={this.props.calcId}/>
-                        <Top calcId={this.props.calcId}/>
-                        <div className="tp-body">
+                    <div className="tp-wrap">
+                        <div className="tp-title">Type of Service - Essay</div>
+                        <div className="tp-container">
                             <Deadlines calcId={this.props.calcId}/>
                             <Table calcId={this.props.calcId}/>
                         </div>
                     </div>
                 </div>
             )
-        } else return (<div></div>)
+        } else return (<div/>)
     }
 }
 
