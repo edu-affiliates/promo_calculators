@@ -32,6 +32,7 @@ $tp-order-border-quote: 0 !default;
   left: -65px;
   transform: translateY(-50%);
   z-index: 100;
+  cursor: default;
   @include respond-to($xs-bt) {
     left: auto;
     right: auto;
@@ -128,6 +129,7 @@ $tp-order-border-quote: 0 !default;
     background-color: #34616e;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42);
     color: #ffffff;
+    cursor: pointer;
     @extend %center-flex;
   }
   &__date {
