@@ -18,9 +18,7 @@ class TPTableColumn extends React.Component {
     }
 
     closeModal() {
-        console.log('close modal');
-        this.setState({selected: false, you: 'are fool'});
-        console.log(this);
+        this.setState({selected: false});
     }
 
     render() {

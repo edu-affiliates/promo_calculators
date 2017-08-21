@@ -224,10 +224,15 @@ $tp-order-border-quote: 0 !default;
     text-align: center;
     color: #fbe23f;
     font-size: 14px;
+    line-height: 1.6;
   }
   &__price-container {
     @extend %center-flex;
+    flex: 0 0 100%;
+  }
+  &__price-full-container{
     flex: 0 0 50%;
+    @extend %center-flex;
   }
   &__price-full {
     position: relative;
@@ -235,7 +240,7 @@ $tp-order-border-quote: 0 !default;
     font-weight: 400;
     color: #fff;
     font-size: 16px;
-    padding: 0 2px;
+    padding: 0 5px;
   }
   &__price-line-throw {
     content: '';
@@ -249,6 +254,8 @@ $tp-order-border-quote: 0 !default;
 
   }
   &__price-dsc {
+    @extend %center-flex;
+    flex: 0 0 50%;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     color: #fff;
