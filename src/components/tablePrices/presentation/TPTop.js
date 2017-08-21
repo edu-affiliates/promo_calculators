@@ -12,14 +12,14 @@ class TPTop extends React.Component {
     }
 
     cutLevelName(levelName) {
-        if (levelName === 'Undergraduate (1st and 2nd year)') {
-            return 'Undergrad. (yrs 1-2)'
-        } else if (levelName === 'Undergraduate (3rd and 4th year)') {
-            return 'Undergrad. (yrs 3-4)'
-        }
-        else {
+        // if (levelName === 'Undergraduate (1st and 2nd year)') {
+        //     return 'Undergrad. (yrs 1-2)'
+        // } else if (levelName === 'Undergraduate (3rd and 4th year)') {
+        //     return 'Undergrad. (yrs 3-4)'
+        // }
+        // else {
             return levelName
-        }
+        // }
     }
 
     render() {
