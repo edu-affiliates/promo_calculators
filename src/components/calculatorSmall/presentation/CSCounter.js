@@ -68,7 +68,7 @@ class CSCounter extends React.Component {
                                className="cs-page-value__input"/>
                         <span>{(pageNumber === 1) ? 'page' : 'pages'}</span>
                     </div>
-                    <div onClick={(pageNumber < maxPageNumber) ? onClickPlus : this.handleAlert()}
+                    <div onClick={(pageNumber < maxPageNumber) ? onClickPlus : () => this.handleAlert()}
                          className="cs-counter cs-counter--plus">
                         <span>+</span>
                     </div>

@@ -22,7 +22,7 @@ class CSPrices extends React.Component {
 
         return (
             <div className="cs-prices-group">
-                <div className="cs-price-title">Estimate price:</div>
+                <div className="cs-price-title">Estimated price:</div>
                 <div className="cs-prices-wrap">
                     {cs}
                     <div className="cs-price ">
