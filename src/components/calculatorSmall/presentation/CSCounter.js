@@ -23,24 +23,33 @@ class CSCounter extends React.Component {
 
 
     handleChange(e) {
-        if (e.target.value === '') {
+        const value = e.target.value;
+        this.handleEmptyInput(value);
+        const number = parseInt(e.target.value);
+        if (number > this.props.maxPageNumber) {
+            this.handleAlert(number);
+        }
+        this.props.handleInputPageNumber(number);
+    }
+
+    handleEmptyInput(value) {
+        if (value === '') {
             this.setState({emptyInput: true})
         } else {
             if (this.state.emptyInput)
                 this.setState({emptyInput: false})
         }
-        const number = parseInt(e.target.value);
+    }
 
-        if (number > this.props.maxPageNumber) {
-            this.setState({alert: true})
-        }
-        this.props.handleInputPageNumber(number);
+    handleAlert() {
+        this.setState({alert: true});
+        setTimeout(() => this.setState({alert: false}), 3000);
     }
 
     render() {
         const {onClickPlus, onClickMinus, pageNumber, maxPageNumber} = this.props;
         const alert = (this.state.alert) ? <div className="cs-page-value__alert">
-            <span>Warning! Max number of the pages are {maxPageNumber}.</span>
+            <span>This is maximum number of pages for current deadline.</span>
             <span onClick={() => {
                 this.setState({alert: false})
             }} className="cs-page-value__alert--cross">&times;</span>
@@ -59,7 +68,7 @@ class CSCounter extends React.Component {
                                className="cs-page-value__input"/>
                         <span>{(pageNumber === 1) ? 'page' : 'pages'}</span>
                     </div>
-                    <div onClick={(pageNumber < maxPageNumber) ? onClickPlus : () => this.setState({alert: true})}
+                    <div onClick={(pageNumber < maxPageNumber) ? onClickPlus : this.handleAlert()}
                          className="cs-counter cs-counter--plus">
                         <span>+</span>
                     </div>
