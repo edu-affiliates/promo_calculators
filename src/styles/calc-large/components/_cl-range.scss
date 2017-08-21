@@ -23,7 +23,9 @@
   flex: 1;
   height: 50px;
   @extend %center-flex;
-
+  &:hover{
+    cursor: pointer;
+  }
   &::after, &::before {
     position: absolute;
     content: '';

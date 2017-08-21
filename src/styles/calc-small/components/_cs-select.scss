@@ -46,6 +46,9 @@
   align-items: center;
   justify-content: flex-start;
   line-height: 1;
+  &:hover{
+    cursor: pointer;
+  }
   &--service {
     z-index: 30;
   }
