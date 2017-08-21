@@ -11,7 +11,7 @@ import initialState from './store/initState';
 import {Provider} from 'react-redux';
 import {fetchInitTree, fetchStatistic, fetchCoupon, fetchUser} from './store/actions';
 
-const css = 'https://s3.amazonaws.com/genericapps/resources/calculators/main.259b2e5f8db7f0ca0ae3a05093744601.css';
+const css = 'https://s3.amazonaws.com/genericapps/resources/calculators/main.f425b57b195fd3c43119b2364263695a.css';
 const font = 'https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet';
 function loadCSS(filename) {
 
@@ -30,7 +30,7 @@ function loadFont(filename) {
 }
 
 // loadCSS(css);
-// loadFont(font);
+loadFont(font);
 
 // Store Initialization
 // ------------------------------------
@@ -40,54 +40,49 @@ store.dispatch(fetchInitTree());
 
 // Render Setup
 // ------------------------------------
-const MOUNT_NODE_TP = document.getElementById('tp');
-const MOUNT_NODE_CL_1 = document.getElementById('cl-1');
-// const MOUNT_NODE_CL_2 = document.getElementById('cl-2');
-const MOUNT_NODE_1 = document.getElementById('cs-1');
-const MOUNT_NODE_2 = document.getElementById('cs-2');
-// const MOUNT_NODE_3 = document.getElementById('cs-3');
-const MOUNT_NODES = [MOUNT_NODE_TP, MOUNT_NODE_CL_1, MOUNT_NODE_1, MOUNT_NODE_2];
-const MOUNT_CLASSES = ['tp', 'calc-lg', 'calc-sm', 'calc-sm'];
 
+const MOUNT_NODES_CALC_SM = document.getElementsByClassName("calc-sm");
+const MOUNT_NODES_CALC_LG = document.getElementsByClassName("calc-lg");
+const MOUNT_NODES_TP = document.getElementsByClassName("table-price");
 let render = () => {
+    Array.prototype.forEach.call(MOUNT_NODES_TP, (MOUNT_NODE, i) => {
+        ReactDOM.render(
+            <Provider store={store}>
+                <div>
+                    <TablePrices calcId={i}/>
+                </div>
+            </Provider>,
+            MOUNT_NODE
+        );
+    });
 
-    MOUNT_NODES.forEach((MOUNT_NODE, i) => {
-        if (MOUNT_CLASSES[i].indexOf('calc-lg') !== -1) {
-            ReactDOM.render(
-                <Provider store={store}>
-                    <div>
-                        <CalculatorLarge calcId={i}
-                                         calcTitle={MOUNT_NODE.dataset.title}
-                                         calcTitleDiscount={MOUNT_NODE.dataset.titleDiscount}
-                                         containerClass={MOUNT_CLASSES[i]}/>
-                    </div>
-                </Provider>,
-                MOUNT_NODE
-            );
-        } else if (MOUNT_CLASSES[i] === 'tp') {
-            ReactDOM.render(
-                <Provider store={store}>
-                    <div>
-                        <TablePrices calcId={i} containerClass={MOUNT_CLASSES[i]}/>
-                    </div>
-                </Provider>,
-                MOUNT_NODE
-            );
-        }
-        else {
-            ReactDOM.render(
-                <Provider store={store}>
-                    <div>
-                        <CalculatorSmall calcId={i}
-                                         calcTitle={MOUNT_NODE.dataset.title}
-                                         calcTitleDiscount={MOUNT_NODE.dataset.titleDiscount}
-                                         calcType={MOUNT_NODE.dataset.type}
-                                         containerClass={MOUNT_CLASSES[i]}/>
-                    </div>
-                </Provider>,
-                MOUNT_NODE
-            );
-        }
+    Array.prototype.forEach.call(MOUNT_NODES_CALC_SM, (MOUNT_NODE, i) => {
+        ReactDOM.render(
+            <Provider store={store}>
+                <div>
+                    <CalculatorSmall calcId={i}
+                                     calcTitle={MOUNT_NODE.dataset.title}
+                                     calcTitleDiscount={MOUNT_NODE.dataset.titleDiscount}
+                                     calcType={MOUNT_NODE.dataset.type}
+                    />
+                </div>
+            </Provider>,
+            MOUNT_NODE
+        );
+    });
+
+    Array.prototype.forEach.call(MOUNT_NODES_CALC_LG, (MOUNT_NODE, i) => {
+        ReactDOM.render(
+            <Provider store={store}>
+                <div>
+                    <CalculatorLarge calcId={i}
+                                     calcTitle={MOUNT_NODE.dataset.title}
+                                     calcTitleDiscount={MOUNT_NODE.dataset.titleDiscount}
+                    />
+                </div>
+            </Provider>,
+            MOUNT_NODE
+        );
     });
 };
 
