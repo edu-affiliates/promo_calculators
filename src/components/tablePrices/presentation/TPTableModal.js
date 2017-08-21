@@ -97,7 +97,7 @@ class TPTableModal extends React.Component {
                         </div>
                     </div>
                     <div className="tp-modal__price">
-                        <span className="tp-modal__price-title">Estimated price</span>
+                        <span className="tp-modal__price-title">Estimated price:</span>
                         <div className="tp-modal__price-container">
                             {fullPriceDiv}
                             <div className="tp-modal__price-dsc">
