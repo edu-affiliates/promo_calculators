@@ -13,6 +13,7 @@
 .cl-title {
   @extend %cl-title-default;
   @extend %center-flex;
+  flex-direction: column;
   margin-bottom: 20px;
   line-height: 1.3;
   text-align: center;

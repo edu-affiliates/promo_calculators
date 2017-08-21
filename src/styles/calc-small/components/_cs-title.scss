@@ -40,7 +40,7 @@
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 0.5px;
-    text-align: left;
+    text-align: center;
   }
   .horizontal & {
     @include respond-to('(min-width: 992px)') {
