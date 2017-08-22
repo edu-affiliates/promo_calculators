@@ -37,8 +37,10 @@ class TPTableColumn extends React.Component {
                         }
                         className={`${(currentDeadline.id === deadline.id) ? 'active' : ''} ${(currentDeadline.id === deadline.id && this.state.selected) ? 'selected' : ''}  tp-table__price`}>
                 <Modal calcId={this.props.calcId} closeModal={this.closeModal}/>
-                <span className="tp-table__price--full">${deadline.price}</span>
-                <span className="tp-table__price--dsc">${(deadline.price * (1 - discount)).toFixed(2)}</span>
+                <div>
+                    <span className="tp-table__price--full">${deadline.price}</span>
+                    <span className="tp-table__price--dsc">${(deadline.price * (1 - discount)).toFixed(2)}</span>
+                </div>
 
             </div>
         });

@@ -90,13 +90,13 @@
     font-size: 14px;
     text-align: center;
     color: #ffffff;
-    padding: 5px 25px;
+    //padding: 5px 25px;
     border-bottom: none;
     @include respond-to($xs-bt) {
-      padding: 5px 7px;
+      //padding: 5px 7px;
     }
     @include respond-to($xx-bt) {
-      padding: 3px;
+      //padding: 3px;
     }
     @include respond-to($xx-bt) {
       font-size: 12px;
