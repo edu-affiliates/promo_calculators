@@ -45,11 +45,12 @@ const MOUNT_NODES_CALC_SM = document.getElementsByClassName("calc-sm");
 const MOUNT_NODES_CALC_LG = document.getElementsByClassName("calc-lg");
 const MOUNT_NODES_TP = document.getElementsByClassName("table-price");
 let render = () => {
+    let calcId = 0;
     Array.prototype.forEach.call(MOUNT_NODES_TP, (MOUNT_NODE, i) => {
         ReactDOM.render(
             <Provider store={store}>
                 <div>
-                    <TablePrices calcId={i}/>
+                    <TablePrices calcId={calcId++}/>
                 </div>
             </Provider>,
             MOUNT_NODE
@@ -60,7 +61,7 @@ let render = () => {
         ReactDOM.render(
             <Provider store={store}>
                 <div>
-                    <CalculatorSmall calcId={i}
+                    <CalculatorSmall calcId={calcId++}
                                      calcTitle={MOUNT_NODE.dataset.title}
                                      calcTitleDiscount={MOUNT_NODE.dataset.titleDiscount}
                                      calcType={MOUNT_NODE.dataset.type}
@@ -75,7 +76,7 @@ let render = () => {
         ReactDOM.render(
             <Provider store={store}>
                 <div>
-                    <CalculatorLarge calcId={i}
+                    <CalculatorLarge calcId={calcId++}
                                      calcTitle={MOUNT_NODE.dataset.title}
                                      calcTitleDiscount={MOUNT_NODE.dataset.titleDiscount}
                     />
