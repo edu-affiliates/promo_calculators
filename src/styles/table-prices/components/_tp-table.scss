@@ -1,3 +1,5 @@
+
+
 .tp-table {
   position: relative;
   box-sizing: border-box;
@@ -14,7 +16,7 @@
   &__price {
     position: relative;
     @extend %center-flex;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $tp-table-price-font-family;
     font-weight: 400;
     text-align: left;
     height: 40px;
@@ -23,19 +25,19 @@
     &.active {
       cursor: pointer;
       border-radius: 3px;
-      background-color: #21414a !important;
+      background-color: $tp-table-price-active-background-color !important;
       &:hover{
-        background-color: #21414a !important;
+        background-color:$tp-table-price-active-background-color !important;
       }
     }
     &:hover {
       cursor: pointer;
       border-radius: 3px;
-      background-color: #34616e !important;
+      background-color: $tp-table-price-hover-background-color !important;
     }
 
     &:nth-child(even) {
-      background-color: #f7f7f7;
+      background-color:$tp-table-row-background-color;
     }
     &--full {
       font-size: 14px;

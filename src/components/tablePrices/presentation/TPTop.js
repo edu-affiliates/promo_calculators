@@ -31,7 +31,7 @@ class TPTop extends React.Component {
         const dsc = (discount === 0) ? <div className="tp-header__dsc">GET A QUICK ESTIMATE</div> : <div className="tp-header__dsc">
             <span className="tp-header__dsc--title">Your first order</span>
             <span className="tp-header__dsc--value">{discount * 100}% OFF</span>
-            <span className="tp-header__dsc-text">Limited time!</span>
+            <span className="tp-header__dsc--text">Limited time!</span>
         </div>;
 
         return (

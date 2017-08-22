@@ -1,24 +1,12 @@
-//default styles for buttons
-$tp-btn-color: #ffffff !default;
-$tp-btn-font-family: 'OpenSans-Bold' !default;
-$tp-btn-font-size: 13px !default;
-$tp-btn-border-radius: 24px !default;
-$tp-btn-height: 34px !default;
-//quote btn
-$tp-quote-background-color: #34616e !default;
-$tp-quote-border-quote: 1px solid #fff !default;
-
-//order btn
-$tp-order-background-color: #ea6e0d !default;
-$tp-order-border-quote: 0 !default;
 
 %tp-btn-default {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $tp-btn-font-family;
   font-weight: 700;
   font-size: $tp-btn-font-size;
   color: $tp-btn-color;
   border-radius: $tp-btn-border-radius;
   height: $tp-btn-height;
+  box-shadow: $tp-btn-box-shadow;
 }
 
 .tp-modal-wrap {
@@ -104,15 +92,16 @@ $tp-order-border-quote: 0 !default;
 
 }
 
+
 .tp-modal {
   display: flex;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  border-radius: 24px;
-  background-color: #21414a;
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42);
-  border: solid 2px #34616e;
+  border-radius: $tp-modal-border-radius;
+  background-color: $tp-modal-background-color;
+  box-shadow: $tp-modal-box-shadow;
+  border: $tp-modal-border;
   justify-content: space-around;
   align-items: center;
   flex-flow: row wrap;
@@ -126,7 +115,7 @@ $tp-order-border-quote: 0 !default;
     width: 34px;
     height: 34px;
     border-radius: 100px;
-    background-color: #34616e;
+    background-color: $tp-modal-cross-background-color;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42);
     color: #ffffff;
     cursor: pointer;
@@ -141,22 +130,21 @@ $tp-order-border-quote: 0 !default;
     justify-content: space-between;
     align-items: center;
 
+    font-family: $tp-modal-date-font-family;
     &--title {
-      font-family: 'Open Sans', sans-serif;
+      color: $tp-modal-date-color;
+      font-size: $tp-modal-date-font-size;
       font-weight: 400;
       flex: 1;
-      font-size: 14px;
       text-align: left;
-      color: #fbe23f;
 
     }
     &--value {
       flex: 1;
-      font-family: 'Open Sans', sans-serif;
       font-weight: 600;
-      font-size: 17px;
+      font-size: $tp-modal-date-value-font-size;
+      color: $tp-modal-date-value-color;
       text-align: right;
-      color: #ffffff;
     }
   }
   &__counter {
@@ -165,8 +153,9 @@ $tp-order-border-quote: 0 !default;
     justify-content: space-between;
     height: 34px;
     width: 190px;
-    border-radius: 100px;
-    background-color: #34616e;
+    border-radius: $tp-modal-counter-border-radius;
+    background-color: $tp-modal-counter-background-color;
+    color: $tp-modal-counter-color;
     border: solid 1px #ffffff;
   }
   &__counter-btn {
@@ -180,14 +169,14 @@ $tp-order-border-quote: 0 !default;
     border-radius: 50%;
     &--plus {
       color: #ffffff;
-      background-color: #34616e;
-      border: solid 1px #ffffff;
+      background-color: $tp-modal-counter-plus-background-color;
+      border: $tp-modal-counter-plus-border;
       margin-right: -1px;
     }
     &--minus {
-      background-color: #21414a;
+      background-color: $tp-modal-counter-minus-background-color;
       color: #ffffff;
-      border: 1px solid #ffffff;
+      border: 1px solid $tp-modal-counter-minus-border;
       margin-left: -1px;
     }
   }
@@ -224,15 +213,16 @@ $tp-order-border-quote: 0 !default;
   &__price-title {
     flex: 0 0 100%;
     text-align: center;
-    color: #fbe23f;
-    font-size: 14px;
+    color: $tp-modal-price-title-color;
+    font-size: $tp-modal-price-title-font-size;
+    font-family: $tp-modal-price-title-font-family;
     line-height: 1.6;
   }
   &__price-container {
     @extend %center-flex;
     flex: 0 0 100%;
   }
-  &__price-full-container{
+  &__price-full-container {
     flex: 0 0 50%;
     @extend %center-flex;
   }
@@ -240,8 +230,8 @@ $tp-order-border-quote: 0 !default;
     position: relative;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    color: #fff;
-    font-size: 16px;
+    color: $tp-modal-price-full-color;
+    font-size: $tp-modal-price-full-font-size;
     padding: 0 5px;
   }
   &__price-line-throw {
@@ -260,8 +250,8 @@ $tp-order-border-quote: 0 !default;
     flex: 0 0 50%;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    color: #fff;
-    font-size: 22px;
+    color: $tp-modal-price-dsc-color;
+    font-size: $tp-modal-price-dsc-font-size;
   }
   &__btn-group {
     flex: 0 0 100%;

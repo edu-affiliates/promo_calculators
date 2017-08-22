@@ -4,6 +4,86 @@
 
 
 /**  end of the default variables **/
+$tp-container-width: 790px!default;
+$tp-container-font-family:  'Open Sans', sans-serif!default;
+$tp-title-font-family:  'Open Sans', sans-serif!default;
+$tp-title-font-size:  24px!default;
+$tp-title-color:   #1d1e1f!default;
+
+$tp-header-background-color: #21414a!default;
+$tp-header-title-font-family: 'Open Sans', sans-serif!default;
+$tp-header-title-color: #ffffff!default;
+$tp-header-title-font-size: 18px!default;
+$tp-header-dsc-color: #fbe23f!default;
+$tp-header-dsc-font-size: 18px!default;
+
+$tp-level-background-color: #34616e!default;
+$tp-level-font-family: 'Open Sans', sans-serif!default;
+$tp-level-font-size: 14px!default;
+$tp-level-color: #ffffff!default;
+
+$tp-deadline-title-background: #21414a!default;
+$tp-deadline-title-font-family: 'Open Sans', sans-serif!default;
+$tp-deadline-title-font-size: 18px!default;
+$tp-deadline-title-color:#ffffff!default;
+
+$tp-deadline-background: #34616e!default;
+$tp-deadline-font-family: 'Open Sans', sans-serif!default;
+$tp-deadline-font-size: 14px!default;
+$tp-deadline-color:#ffffff!default;
+
+$tp-table-row-background-color: #f7f7f7!default;
+$tp-table-price-font-family: 'Open Sans', sans-serif!default;
+$tp-table-price-active-background-color: #21414a!default;
+$tp-table-price-hover-background-color: #34616e!default;
+
+$tp-modal-border-radius: 24px!default;
+$tp-modal-background-color: #21414a!default;
+$tp-modal-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.42)!default;
+$tp-modal-border: solid 2px #34616e!default;
+
+$tp-modal-cross-background-color: #34616e!default;
+
+$tp-modal-date-font-family: 'Open Sans', sans-serif!default;
+$tp-modal-date-font-size: 14px!default;
+$tp-modal-date-color: #fbe23f!default;
+$tp-modal-date-value-font-size: 17px!default;
+$tp-modal-date-value-color: #ffffff!default;
+
+
+$tp-modal-counter-background-color: #34616e!default;
+$tp-modal-counter-color: #ffffff!default;
+$tp-modal-counter-border-radius: 100px!default;
+
+$tp-modal-counter-plus-background-color: #34616e!default;
+$tp-modal-counter-plus-border: solid 1px #ffffff!default;
+
+$tp-modal-counter-minus-background-color: #21414a!default;
+$tp-modal-counter-minus-border: solid 1px #ffffff!default;
+
+$tp-modal-price-title-font-family: 'Open Sans', sans-serif!default;
+$tp-modal-price-title-font-size: 14px!default;
+$tp-modal-price-title-color: #fbe23f!default;
+
+$tp-modal-price-full-color: #ffffff!default;
+$tp-modal-price-full-font-size: 16px!default;
+$tp-modal-price-dsc-color: #ffffff!default;
+$tp-modal-price-dsc-font-size: 22px!default;
+
+//default styles for buttons
+$tp-btn-color: #ffffff !default;
+$tp-btn-font-family: 'Open Sans', sans-serif!default;
+$tp-btn-font-size: 13px !default;
+$tp-btn-border-radius: 24px !default;
+$tp-btn-height: 34px !default;
+$tp-btn-box-shadow: none !default;
+//quote btn
+$tp-quote-background-color: #34616e !default;
+$tp-quote-border-quote: 1px solid #fff !default;
+
+//order btn
+$tp-order-background-color: #ea6e0d !default;
+$tp-order-border-quote: 0 !default;
 
 
 
