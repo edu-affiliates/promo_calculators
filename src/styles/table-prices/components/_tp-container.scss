@@ -1,11 +1,13 @@
 .tp-container {
-
   display: flex;
 }
 
 .tp-wrap {
+  position: relative;
   width: 790px;
   max-width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
 }
 
 .tp-title {
