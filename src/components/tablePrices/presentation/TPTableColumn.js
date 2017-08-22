@@ -23,6 +23,7 @@ class TPTableColumn extends React.Component {
 
     render() {
         const {tree, discount, currentDeadline, currentLevel, lev, changeDeadline, changeLevel} = this.props;
+        const priceFull = (discount === 0) ? <div/> : <span className="tp-table__price--full">${deadline.price}</span>;
         let prices = currentDeadlineList(tree, lev.id).map((deadline) => {
             return <div key={deadline.id}
                         onClick={() => {
@@ -38,7 +39,7 @@ class TPTableColumn extends React.Component {
                         className={`${(currentDeadline.id === deadline.id) ? 'active' : ''} ${(currentDeadline.id === deadline.id && this.state.selected) ? 'selected' : ''}  tp-table__price`}>
                 <Modal calcId={this.props.calcId} closeModal={this.closeModal}/>
                 <div className="tp-table__price-wrap">
-                    <span className="tp-table__price--full">${deadline.price}</span>
+                    {priceFull}
                     <span className="tp-table__price--dsc">${(deadline.price * (1 - discount)).toFixed(2)}</span>
                 </div>
 
