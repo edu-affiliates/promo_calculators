@@ -3,7 +3,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {initCalc} from '../../store/actions'
-
 import Title from './presentation/CSlTitle';
 import SelectGroup from './presentation/CSSelectGroup';
 import Prices from "./presentation/CSPrices";
@@ -20,16 +19,15 @@ class CalculatorSmall extends React.Component {
     }
 
     render() {
-
-        if (this.props.inited) {
+        const {inited, calcId, calcType, calcTitle, calcTitleDiscount} = this.props;
+        if (inited) {
             return (
-                <div className={`${this.props.containerClass} ${(this.props.calcType) ? this.props.calcType : ''}`}>
+                <div className={(calcType) ? calcType : ''}>
                     <div className="cs-wrap">
-                        <Title />
-                        <SelectGroup calcId={this.props.calcId}/>
-
-                        <Prices calcId={this.props.calcId}/>
-                        <Buttons calcId={this.props.calcId}/>
+                        <Title calcTitle={calcTitle} calcTitleDiscount={calcTitleDiscount}/>
+                        <SelectGroup calcId={calcId}/>
+                        <Prices calcId={calcId}/>
+                        <Buttons calcId={calcId}/>
                     </div>
                 </div>
             )

@@ -3,6 +3,8 @@
   width: 460px;
   background: transparent;
   padding: 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   @include respond-to($xx-bt) {
     max-width: 320px;
   }

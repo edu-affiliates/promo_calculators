@@ -23,7 +23,7 @@ class CLPrices extends React.Component {
         </div>;
         return (
             <div className="cl-prices-group">
-                <div className="cl-price-title">ESTIMATE PRICE:</div>
+                <div className="cl-price-title">Estimated price:</div>
                 <div className="cl-prices-wrap">
                     {fullPriceElement}
                     {dscPriceElement}

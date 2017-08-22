@@ -12,6 +12,8 @@
 }
 
 .cs-wrap {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   @extend %cs-wrap-default;
   position: relative;
   max-width: 100%;

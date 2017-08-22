@@ -12,14 +12,14 @@ class TPTop extends React.Component {
     }
 
     cutLevelName(levelName) {
-        if (levelName === 'Undergraduate (1st and 2nd year)') {
-            return 'Undergrad. (yrs 1-2)'
-        } else if (levelName === 'Undergraduate (3rd and 4th year)') {
-            return 'Undergrad. (yrs 3-4)'
-        }
-        else {
+        // if (levelName === 'Undergraduate (1st and 2nd year)') {
+        //     return 'Undergrad. (yrs 1-2)'
+        // } else if (levelName === 'Undergraduate (3rd and 4th year)') {
+        //     return 'Undergrad. (yrs 3-4)'
+        // }
+        // else {
             return levelName
-        }
+        // }
     }
 
     render() {
@@ -31,7 +31,7 @@ class TPTop extends React.Component {
         const dsc = (discount === 0) ? <div className="tp-header__dsc">GET A QUICK ESTIMATE</div> : <div className="tp-header__dsc">
             <span className="tp-header__dsc--title">Your first order</span>
             <span className="tp-header__dsc--value">{discount * 100}% OFF</span>
-            <span className="tp-header__dsc-text">Limited time!</span>
+            <span className="tp-header__dsc--text">Limited time!</span>
         </div>;
 
         return (

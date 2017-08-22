@@ -62,6 +62,12 @@ class TPTableModal extends React.Component {
 
     render() {
         const {onClickPlus, onClickMinus, fullPrice, discount, pageNumber, service, level} = this.props;
+        const fullPriceDiv = (discount === 0) ? <div/> : <div className="tp-modal__price-full-container">
+            <div className="tp-modal__price-full">
+                <span className="tp-modal__price-line-throw"/>
+                ${(fullPrice * pageNumber).toFixed(2)}
+            </div>
+        </div>;
         return (
             <div className="tp-modal-wrap">
                 <div onClick={(e) => {
@@ -91,17 +97,12 @@ class TPTableModal extends React.Component {
                         </div>
                     </div>
                     <div className="tp-modal__price">
-                        <span className="tp-modal__price-title">Estimate price</span>
+                        <span className="tp-modal__price-title">Estimated price:</span>
                         <div className="tp-modal__price-container">
-                            <span className="tp-modal__price-full">
-                                <span className="tp-modal__price-line-throw"/>
-                                 ${(fullPrice * pageNumber).toFixed(2)}
-                            </span>
-                        </div>
-                        <div className="tp-modal__price-container">
-                            <span className="tp-modal__price-dsc">
+                            {fullPriceDiv}
+                            <div className="tp-modal__price-dsc">
                                 ${(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
-                            </span>
+                            </div>
                         </div>
                     </div>
                     <div className="tp-modal__btn-group">

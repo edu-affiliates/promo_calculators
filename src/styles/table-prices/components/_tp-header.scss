@@ -1,10 +1,11 @@
+
 .tp-header {
   display: flex;
   box-sizing: border-box;
   flex-wrap: wrap;
   flex: 0 0 100%;
   border-top-right-radius: 24px;
-  background-color: #21414a;
+  background-color: $tp-header-background-color;
   border-left: 1px solid #ffffff;
   height: 120px;
   &__top {
@@ -15,12 +16,12 @@
     border-bottom: 1px solid #fff;
   }
   &__title {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $tp-header-title-font-family;
+    font-size: $tp-header-title-font-size;
+    color: $tp-header-title-color;
     font-weight: 600;
-    font-size: 18px;
     letter-spacing: 0.7px;
     text-align: left;
-    color: #ffffff;
     text-transform: uppercase;
     padding: 0 40px;
     @extend %center-flex;
@@ -29,34 +30,33 @@
     }
   }
   &__dsc {
+    font-family: $tp-header-title-font-family;
+    font-size: $tp-header-dsc-font-size;
+    color: $tp-header-dsc-color;
     flex: 1;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    padding: 12px;
-    font-family: 'Open Sans', sans-serif;
+    //padding: 12px;
     font-weight: 600;
     text-align: left;
-    color: #fbe23f;
+    @include respond-to($xs-bt) {
+      font-size: $tp-header-dsc-font-size*0.8;
+    }
     @include respond-to($xx-bt) {
       padding: 5px;
     }
     &--title {
       text-transform: uppercase;
       letter-spacing: 0.7px;
-      font-size: 18px;
-      @include respond-to($xx-bt) {
-        font-size: 16px;
-
-      }
     }
     &--value {
       color: #21414a;
       letter-spacing: 0.7px;
       background-color: #fbe23f;
       margin: 0 9px;
-      padding: 5px;
+      padding: 1px 5px;
       @include respond-to($xx-bt) {
         padding: 3px;
 
@@ -66,8 +66,8 @@
     &--text {
       font-family: 'Open Sans', sans-serif;
       font-weight: 400;
-      font-size: 14px;
       letter-spacing: 0.5px;
+      font-size: $tp-header-dsc-font-size*0.8;
     }
 
   }
@@ -84,19 +84,19 @@
     box-sizing: border-box;
     flex: 1;
     height: 100%;
-    background-color: #34616e;
-    font-family: 'Open Sans', sans-serif;
+    background-color: $tp-level-background-color;
+    font-size: $tp-level-font-size;
+    color: $tp-level-color;
+    font-family: $tp-level-font-family;
     font-weight: 400;
-    font-size: 14px;
     text-align: center;
-    color: #ffffff;
-    padding: 5px 25px;
+    //padding: 5px 25px;
     border-bottom: none;
     @include respond-to($xs-bt) {
-      padding: 5px 7px;
+      //padding: 5px 7px;
     }
     @include respond-to($xx-bt) {
-      padding: 3px;
+      //padding: 3px;
     }
     @include respond-to($xx-bt) {
       font-size: 12px;

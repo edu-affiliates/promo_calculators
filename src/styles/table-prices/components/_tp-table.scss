@@ -1,3 +1,5 @@
+
+
 .tp-table {
   position: relative;
   box-sizing: border-box;
@@ -11,21 +13,36 @@
       border-bottom-right-radius: 24px;
     }
   }
+  &__price-wrap{
+    @include respond-to($xx-bt) {
+      flex-direction: column;
+    }
+  }
   &__price {
     position: relative;
     @extend %center-flex;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $tp-table-price-font-family;
     font-weight: 400;
     text-align: left;
     height: 40px;
     border: 1px solid #fff;
     border-left: 0;
-    &.active, &:hover {
+    &.active {
+      cursor: pointer;
       border-radius: 3px;
-      background-color: #21414a !important;
+      background-color: $tp-table-price-active-background-color !important;
+      &:hover{
+        background-color:$tp-table-price-active-background-color !important;
+      }
     }
+    &:hover {
+      cursor: pointer;
+      border-radius: 3px;
+      background-color: $tp-table-price-hover-background-color !important;
+    }
+
     &:nth-child(even) {
-      background-color: #f7f7f7;
+      background-color:$tp-table-row-background-color;
     }
     &--full {
       font-size: 14px;

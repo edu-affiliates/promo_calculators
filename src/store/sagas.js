@@ -26,7 +26,7 @@ import {
 
 function * setDiscount(action) {
     try {
-        if (action.discount !== 0) {
+        if (!!action.discount && action.discount !== 0) {
             const dsc = yield call(getUserDiscount);
             yield put(fetchSuccessDsc(dsc))
         } else {

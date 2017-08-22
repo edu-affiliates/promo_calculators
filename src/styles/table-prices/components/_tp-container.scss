@@ -1,18 +1,24 @@
-.tp-container {
 
+
+.tp-container {
   display: flex;
+  width: 100%;
 }
 
 .tp-wrap {
-  width: 790px;
+  position: relative;
+  width: $tp-container-width;
   max-width: 100%;
+  font-family:  $tp-container-font-family;
+  font-weight: 400;
+  margin: 0 auto;
 }
 
 .tp-title {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $tp-container-font-family;
+  font-size: $tp-title-font-size;
+  color:$tp-title-color;
   font-weight: 600;
-  font-size: 24px;
-  color: #1d1e1f;
   margin: 20px 0;
   @include respond-to($xx-bt) {
     font-size: 18px;
