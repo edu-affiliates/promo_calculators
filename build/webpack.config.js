@@ -13,9 +13,9 @@ const __PROD__ = project.env === 'production'
 
 const config = {
   entry: {
-    normalize: [
-      inProjectSrc('normalize'),
-    ],
+    // normalize: [
+    //   inProjectSrc('normalize'),
+    // ],
     main: [
       inProjectSrc(project.main),
     ],
@@ -195,7 +195,7 @@ if (__DEV__) {
 // Bundle Splitting
 // ------------------------------------
 if (!__TEST__) {
-  const bundles = ['normalize', 'manifest']
+  const bundles = []
 
   if (project.vendors && project.vendors.length) {
     bundles.unshift('vendor')

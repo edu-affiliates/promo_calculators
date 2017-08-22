@@ -13,6 +13,11 @@
       border-bottom-right-radius: 24px;
     }
   }
+  &__price-wrap{
+    @include respond-to($xx-bt) {
+      flex-direction: column;
+    }
+  }
   &__price {
     position: relative;
     @extend %center-flex;

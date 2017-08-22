@@ -38,9 +38,12 @@
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    padding: 12px;
+    //padding: 12px;
     font-weight: 600;
     text-align: left;
+    @include respond-to($xs-bt) {
+      font-size: $tp-header-dsc-font-size*0.8;
+    }
     @include respond-to($xx-bt) {
       padding: 5px;
     }
