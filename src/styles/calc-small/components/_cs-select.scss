@@ -19,7 +19,7 @@
 .cs-select-wrap {
   position: relative;
   flex: 0 0 100%;
-  .horizontal &{
+  .horizontal & {
     @include respond-to('(min-width: 992px)') {
       flex: 0 0 calc(25% - 20px);
     }
@@ -46,8 +46,13 @@
   align-items: center;
   justify-content: flex-start;
   line-height: 1;
-  &:hover{
+  &:hover {
     cursor: pointer;
+
+  }
+  &:focus {
+    outline: none;
+    background-color: darken($cs-select-background-color, 10%);
   }
   &--service {
     z-index: 30;
@@ -68,7 +73,7 @@
     top: calc(50% - 16.200000000000003px / 2);
     border-bottom: 2px solid;
     border-left: 2px solid;
-    border-color:  $cs-select-color;
+    border-color: $cs-select-color;
     transform: rotate(-45deg);
     pointer-events: none;
   }

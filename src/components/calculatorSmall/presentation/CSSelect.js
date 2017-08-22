@@ -43,6 +43,8 @@ class CalculatorSmallSelect extends React.Component {
 
             <div className="cs-select-wrap ">
                 <div onClick={() => this.props.toggleDropdown(this.props.type)}
+                     onBlur={() => {}}
+                     tabIndex="0"
                      className={`cs-select cs-select--${this.props.type}`}>
                     {(!!service) ? service : this.cutLevelName(this.props.current)}
                 </div>
