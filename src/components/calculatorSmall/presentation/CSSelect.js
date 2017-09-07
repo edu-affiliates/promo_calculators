@@ -25,11 +25,12 @@ class CalculatorSmallSelect extends React.Component {
         let service;
         let currentList = this.props.currentList.map(
             (item) => {
-                return <li key={item.id}
+                return (item.id !== 1725) ? <li key={item.id}
                            onClick={() => {
                                this.props.toggleDropdown(this.props.type);
                                this.props.onChange(item.id);
                            }} className="cs-dropdown__item">{this.cutLevelName(item.name)}</li>
+                    : <li className="cs-dropdown__item-separator"/>
             }
         );
         let searchService;
