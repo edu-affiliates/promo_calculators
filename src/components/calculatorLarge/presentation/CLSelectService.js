@@ -50,11 +50,12 @@ class CLSelectService extends React.Component {
 
         currentDropdownList = serviceList.map(
             (item) => {
-                return <li key={item.id} className="cl-dropdown__item"
+                return (item.id !== 1725) ?  <li key={item.id} className="cl-dropdown__item"
                            onClick={() => {
                                changeService(item.id);
                                this.toggleDropdown()
                            }}>{item.name}</li>
+                : <li className="cs-dropdown__item-separator"/>
             }
         );
         selectedService = <div
