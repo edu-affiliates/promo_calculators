@@ -29,7 +29,7 @@
 
   &--qoute {
     background-color: $calc-lg-quote-background-color;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.83), inset 0 1px 0 0 rgba(255, 255, 255, 0.44);
+    box-shadow: $calc-lg-quote-box-shadow;
     border: $calc-lg-quote-border-quote;
     &:hover {
       background-color: darken($calc-lg-quote-background-color, 10%);
@@ -37,7 +37,7 @@
   }
   &--order {
     background-color: $calc-lg-order-background-color;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.83), inset 0 1px 0 0 rgba(255, 255, 255, 0.44);
+    box-shadow: $calc-lg-order-box-shadow;
     border: $calc-lg-order-border-quote;
     &:hover {
       background-color: darken($calc-lg-order-background-color, 10%);
@@ -46,10 +46,12 @@
 }
 
 .cl-price-payment {
-  height: 22px;
-  width: 100%;
-  background: url($calc-lg-payment) no-repeat center center;
-  background-size: contain;
+  @if variable-exists($calc-lg-payment) {
+    height: 22px;
+    width: 100%;
+    background: url($calc-lg-payment) no-repeat center center;
+    background-size: contain;
+  }
 }
 
 //@each $theme in $themes {

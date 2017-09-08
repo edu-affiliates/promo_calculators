@@ -8,6 +8,7 @@ $calc-lg-payment: "https://s3.amazonaws.com/genericapps/resources/calculators/fo
 $cl-title-font-family: 'Open Sans', sans-serif !default;
 $cl-title-font-weight: 600 !default;
 $cl-title-color: #fce23f !default;
+$cl-title-dsc-color: #193239 !default;
 $cl-title-font-size: 20px !default;
 $cl-title-text-transform: uppercase !default;
 
@@ -66,10 +67,18 @@ $cl-range-popup-color: #30505a !default;
 //default styles for counter
 
 $cl-counter-background: #3ddfff !default;
-$cl-counter-color: #21414a !default;
+$cl-counter-color-minus: #3ddfff !default;
+$cl-counter-color-plus: #21414a !default;
+$cl-counter-background-plus: #3ddfff !default;
+$cl-counter-background-minus: #21414a !default;
 $cl-counter-border-radius: 100px !default;
 $cl-counter-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.44) !default;
 
+//default styles for
+$cl-counter-input-font-size: 30px!default;
+$cl-counter-input-color: #21414a!default;
+
+//default styles for
 $cl-single-price-font-family: 'Open Sans', sans-serif !default;
 $cl-single-price-font-weight: 400 !default;
 $cl-single-price-color: #fbe23f !default;
@@ -99,10 +108,12 @@ $calc-lg-btn-border-radius: 100px !default;
 $calc-lg-btn-height: 70px !default;
 //quote btn
 $calc-lg-quote-background-color: #34616e !default;
+$calc-lg-quote-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.83), inset 0 1px 0 0 rgba(255, 255, 255, 0.44) !default;
 $calc-lg-quote-border-quote: 3px solid #fff !default;
 
 //order btn
 $calc-lg-order-background-color: #ea6e0d !default;
+$calc-lg-order-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.83), inset 0 1px 0 0 rgba(255, 255, 255, 0.44) !default;
 $calc-lg-order-border-quote: 0 !default;
 
 /**  end of the default variables **/
