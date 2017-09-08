@@ -16,6 +16,7 @@ $cs-title-font-family: 'Open Sans', sans-serif !default;
 $cs-title-font-weight: 600 !default;
 $cs-title-font-size: 16px !default;
 $cs-title-color: #fce23f !default;
+$cs-title-second-color: #fce23f !default;
 
 //default styles for select
 $cs-select-height: 34px !default;
@@ -34,8 +35,8 @@ $cs-dropdown-font-family: 'Open Sans', sans-serif !default;
 $cs-dropdown-font-weight: 400 !default;
 $cs-dropdown-font-size: 13px !default;
 $cs-dropdown-background-color: #34616e !default;
-$cs-dropdown-background: #fff;
-$cs-dropdown-border-radius: 24px;
+$cs-dropdown-background: #fff!default;
+$cs-dropdown-border-radius: 24px!default;
 
 //default styles for search
 $cs-search-border-color: #273952 !default;
@@ -50,8 +51,13 @@ $cs-search-color: #273952 !default;
 $cs-counter-width: 34px !default;
 $cs-counter-height: 34px !default;
 $cs-counter-color: #ffffff !default;
+$cs-counter-border-color: #ffffff !default;
 $cs-counter-plus-background-color: #34616e !default;
 $cs-counter-minus-background-color: #21414a !default;
+
+$cs-counter-margin:  -1px!default;
+$cs-counter-plus-margin: -2px!default;
+$cs-counter-minus-margin: -1px!default;
 
 $cs-page-value-font-family: 'Open Sans', sans-serif !default;
 $cs-page-value-font-weight: 400 !default;

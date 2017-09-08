@@ -50,7 +50,7 @@
     padding: 9px 5px;
     cursor: pointer;
     &:hover{
-      background-color: #34616e;
+      background-color: $cs-dropdown-background-color;
       color: #ffffff;
     }
   }
