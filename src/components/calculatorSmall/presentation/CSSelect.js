@@ -25,7 +25,7 @@ class CalculatorSmallSelect extends React.Component {
         let service;
         let currentList = this.props.currentList.map(
             (item) => {
-                return (item.id !== 1725) ? <li key={item.id}
+                return item.name !== '---------------' ? <li key={item.id}
                            onClick={() => {
                                this.props.toggleDropdown(this.props.type);
                                this.props.onChange(item.id);
