@@ -21,14 +21,16 @@ class CalculatorSmallButtons extends React.Component {
         if (generalOptions.rid) {
             redirectTo += `&rid=${generalOptions.rid}`
         }
+        if (generalOptions.dsc) {
+            redirectTo += `&dsc=${generalOptions.dsc}`
+        }
         location.href = redirectTo;
     }
 
     render() {
         return (
             <div className="cs-btn-group">
-                <div onClick={() => this.redirectTo('inquiry')} className="cs-btn cs-btn--qoute">free quote
-                </div>
+                <div onClick={() => this.redirectTo('inquiry')} className="cs-btn cs-btn--qoute">free quote</div>
                 <div onClick={() => this.redirectTo('order')} className="cs-btn cs-btn--order">order now</div>
             </div>
         )
@@ -44,7 +46,7 @@ CalculatorSmallButtons.propTypes = {
 
 //container to match redux state to component props and dispatch redux actions to callback props
 const mapStateToProps = (reduxState, ownProps) => {
-  const state = reduxState.calculatorSmall[ownProps.calcId];
+    const state = reduxState.calculatorSmall[ownProps.calcId];
     return {
         serviceId: state.service.id,
         levelId: state.level.id,

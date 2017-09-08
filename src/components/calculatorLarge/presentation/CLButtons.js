@@ -21,6 +21,9 @@ class CLButtons extends React.Component {
         if (generalOptions.rid) {
             redirectTo += `&rid=${generalOptions.rid}`
         }
+        if (generalOptions.dsc) {
+            redirectTo += `&dsc=${generalOptions.dsc}`
+        }
         location.href = redirectTo;
     }
 
