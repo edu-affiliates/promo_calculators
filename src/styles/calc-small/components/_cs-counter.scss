@@ -26,16 +26,16 @@
   height: $cs-counter-height;
   cursor: pointer;
   border-radius: 100px;
-  margin-top: -1px;
+  margin-top: $cs-counter-margin;
   &--plus {
     background-color: $cs-counter-plus-background-color;
-    border: solid 1px $cs-counter-color;
-    margin-right: -2px;
+    border: solid 1px $cs-counter-border-color;
+    margin-right: $cs-counter-plus-margin;
   }
   &--minus {
     background-color: $cs-counter-minus-background-color;
-    border: solid 1px $cs-counter-color;
-    margin-left: -1px;
+    border: solid 1px $cs-counter-border-color;
+    margin-left: $cs-counter-minus-margin;
   }
 
 }

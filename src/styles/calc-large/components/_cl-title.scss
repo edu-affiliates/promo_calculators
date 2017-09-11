@@ -30,7 +30,7 @@
   }
   &--dsc {
     background-color: $cl-title-color;
-    color: #193239;
+    color: $cl-title-dsc-color;
     padding: 5px 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -38,10 +38,11 @@
 
   }
   &--sm {
+    color:$cl-title-second-color;
+    font-size: $cl-title-second-font-size;
     text-transform: none;
     font-family: $cl-title-font-family;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: $cl-title-second-font-weight;
     letter-spacing: 0.5px;
     text-align: left;
   }

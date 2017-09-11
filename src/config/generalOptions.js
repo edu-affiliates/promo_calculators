@@ -6,14 +6,6 @@ let generalOptions = {
     'service_ids': '1674, 1675, 1673, 1690',
 };
 
-window.eduOptions = {
-    // 'apiMode': 'M',
-    'dev_mode': true,
-    'dsc': 'ESSAYFIRST15',
-    // 'dsc': '',
-    'rid': 1228,
-};
-
 if (window.eduOptions) {
     Object.assign(generalOptions, window.eduOptions)
 }

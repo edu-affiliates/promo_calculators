@@ -13,7 +13,6 @@ class CLSelectService extends React.Component {
         super(props);
         this.state = {openDropdown: false};
         this.toggleDropdown = this.toggleDropdown.bind(this);
-        this.openSingle = this.openSingle.bind(this);
     }
 
     toggleDropdown() {
@@ -22,24 +21,18 @@ class CLSelectService extends React.Component {
     }
 
 
-    openSingle(current) {
-        this.props.allServices.slice(0, 4).forEach((s) => {
-            return s !== current;
-        });
-    }
-
     render() {
         let chooseOther, services, currentDropdownList, selectedService;
         const {allServices, service, serviceList, changeService} = this.props;
-
-        services = allServices.slice(0, 4).map(
+        //take first 4 services from the list
+        const defaultServices = allServices.slice(0, 4);
+        const defaultServiceNames = defaultServices.map(service => service.name);
+        services = defaultServices.map(
             (item) => {
                 return <li key={item.id}
                            className={`${(service === item.name && !this.state.openDropdown ? 'active' : '')} cl-select-item`}
                            onClick={() => {
-                               if (this.state.openDropdown) {
-                                   this.toggleDropdown();
-                               }
+                               if(this.state.openDropdown) this.toggleDropdown();
                                changeService(item.id);
                            }}>{item.name}</li>
             });
@@ -48,18 +41,19 @@ class CLSelectService extends React.Component {
             <li className={`${(this.state.openDropdown) ? 'active' : ''} cl-select-item`}
                 onClick={() => this.toggleDropdown()}>Choose Other</li>;
 
-        currentDropdownList = serviceList.map(
+        currentDropdownList = serviceList
+            .filter(item => !defaultServiceNames.includes(item.name))
+            .map(
             (item) => {
-                return <li key={item.id} className="cl-dropdown__item"
-                           onClick={() => {
-                               changeService(item.id);
-                               this.toggleDropdown()
-                           }}>{item.name}</li>
+                return (item.name !== '---------------') ? <li key={item.id} itemID={item.id} className="cl-dropdown__item"
+                                                onClick={() => {
+                                                    changeService(item.id);
+                                                    this.toggleDropdown()
+                                                }}>{item.name}</li>
+                    : <li className="cl-dropdown__item-separator"/>
             }
         );
-        selectedService = <div
-            className={`${(service !== 'Essay' && service !== 'Research Paper' && service !== 'Term Paper' && service !== 'Case Study'
-            && !this.state.openDropdown) ? 'open' : ''} cl-select-single`}>
+        selectedService = <div className={`${!defaultServiceNames.includes(service) && !this.state.openDropdown ? 'open' : ''} cl-select-single`}>
             <div className="cl-select-single__text">{service}</div>
             <div onClick={() => this.toggleDropdown()}
                  className="cl-select-single__close">✕

@@ -34,9 +34,9 @@
   height: auto;
   border-radius: 50%;
   &--plus {
-    color: $cl-counter-color;
-    border: 2px solid $cl-counter-color;
-    background-color: transparent;
+    background-color: $cl-counter-background-plus;
+    color: $cl-counter-color-plus;
+    border: 2px solid $cl-counter-color-plus;
     span {
       position: relative;
       width: 20.4px;
@@ -46,7 +46,7 @@
         position: absolute;
         width: inherit;
         height: inherit;
-        background-color: $cl-counter-color;
+        background-color: $cl-counter-color-plus;
       }
       &:before {
         transform: rotate(90deg);
@@ -54,9 +54,9 @@
     }
   }
   &--minus {
-    background-color: $cl-counter-color;
-    color: $cl-counter-background;
-    border: 2px solid $cl-counter-color;
+    background-color: $cl-counter-background-minus;
+    color: $cl-counter-color-minus;
+    border: 2px solid $cl-counter-color-plus;
     span {
       position: relative;
       width: 20.4px;
@@ -78,10 +78,10 @@
   font-family: $cl-single-price-font-family;
   font-weight: $cl-single-price-font-weight;
   cursor: text;
-  font-size: 30px;
+  font-size: $cl-counter-input-font-size;
   letter-spacing: 2.2px;
   text-align: center;
-  color: #21414a;
+  color: $cl-counter-input-color;
   &__input {
     height: 100%;
     outline: none;
