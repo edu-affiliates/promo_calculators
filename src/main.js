@@ -6,6 +6,7 @@ import './styles/main.scss'
 import CalculatorSmall from './components/calculatorSmall/CalculatorSmall'
 import CalculatorLarge from './components/calculatorLarge/CalculatorLarge'
 import TablePrices from './components/tablePrices/TablePrices'
+import Button from './components/buttons/Button'
 import createStore from './store/createStore'
 import initialState from './store/initState';
 import {Provider} from 'react-redux';
@@ -43,6 +44,8 @@ store.dispatch(fetchInitTree());
 
 const MOUNT_NODES_CALC_SM = document.getElementsByClassName("calc-sm");
 const MOUNT_NODES_CALC_LG = document.getElementsByClassName("calc-lg");
+const MOUNT_NODES_INQUIRY = document.getElementsByClassName("inquiry");
+const MOUNT_NODES_ORDER = document.getElementsByClassName("order");
 const MOUNT_NODES_TP = document.getElementsByClassName("table-price");
 let render = () => {
     let calcId = 0;
@@ -85,6 +88,35 @@ let render = () => {
             MOUNT_NODE
         );
     });
+
+    Array.prototype.forEach.call(MOUNT_NODES_INQUIRY, (MOUNT_NODE, i) => {
+        ReactDOM.render(
+            <Provider store={store}>
+                <div>
+                    <Button type={MOUNT_NODE.dataset.type}
+                            name={MOUNT_NODE.dataset.name}
+                            class={MOUNT_NODE.dataset.class}
+                    />
+                </div>
+            </Provider>,
+            MOUNT_NODE
+        );
+    });
+    Array.prototype.forEach.call(MOUNT_NODES_ORDER, (MOUNT_NODE, i) => {
+        ReactDOM.render(
+            <Provider store={store}>
+                <div>
+                    <Button type={MOUNT_NODE.dataset.type}
+                            name={MOUNT_NODE.dataset.name}
+                            class={MOUNT_NODE.dataset.class}
+
+                    />
+                </div>
+            </Provider>,
+            MOUNT_NODE
+        );
+    });
+
 };
 
 // Development Tools
@@ -95,7 +127,7 @@ if (__DEV__) {
         const renderError = (error) => {
             const RedBox = require('redbox-react').default
 
-            ReactDOM.render(<RedBox error={error}/>, MOUNT_NODE_1)
+            ReactDOM.render(<RedBox error={error}/>, MOUNT_NODES_TP)
         }
 
         render = () => {
@@ -112,7 +144,7 @@ if (__DEV__) {
                 './main',
             ], () =>
                 setImmediate(() => {
-                    ReactDOM.unmountComponentAtNode(MOUNT_NODE_1)
+                    ReactDOM.unmountComponentAtNode(MOUNT_NODES_TP)
                     render()
                 })
         )
