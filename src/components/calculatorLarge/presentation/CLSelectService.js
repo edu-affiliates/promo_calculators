@@ -50,7 +50,7 @@ class CLSelectService extends React.Component {
                                                     changeService(item.id);
                                                     this.toggleDropdown()
                                                 }}>{item.name}</li>
-                    : <li className="cl-dropdown__item-separator"/>
+                    : <li key={item.id} className="cl-dropdown__item-separator"/>
             }
         );
         selectedService = <div className={`${!defaultServiceNames.includes(service) && !this.state.openDropdown ? 'open' : ''} cl-select-single`}>

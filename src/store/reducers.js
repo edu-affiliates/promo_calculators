@@ -65,8 +65,15 @@ export const reducers = (state = initialState, action) => {
                 ...state,
                 calculatorSmall: [...state.calculatorSmall, calcState]
             };
+
         case SET_INIT_SERVICE:
+            const defaultService = state.tree.service[action.initServiceId];
+            const defaultLevel = state.tree.level[defaultService.level[0]];
+            const defaultDeadline = state.tree.deadline[defaultLevel.deadline[0]];
             return Object.assign({}, state, {
+                serviceId: defaultService.id,
+                levelId: defaultLevel.id,
+                deadlineId: defaultDeadline.id,
                 calculatorSmall: state.calculatorSmall.map(
                     (calcState) => {
                         return calcSmallReducers(calcState, changeService(action.initServiceId), state.tree, state.allServices)

@@ -5,11 +5,63 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<style>
+    .nav-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        width: 128px;
+        height: 34px;
+        border-radius: 100px;
+        padding: 7px 15px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        margin: 15px;
+    }
+
+    .nav-btn--inquiry {
+        background-color: #4a90e2;
+        transition: all .3s;
+    }
+
+    .nav-btn--sidenav {
+        font-size: 18px;
+        width: 220px;
+        height: 54px;
+        border-radius: 5px;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,.5);
+        margin-bottom: 10px;
+    }
+
+    .nav-btn--inquiry:hover {
+        background-color: #2275d7;
+    }
+
+    .nav-btn--order {
+        background-color: #d0021b;
+        transition: all .3s;
+    }
+
+    .nav-btn--order:hover {
+        background-color: #9d0214;
+    }
+
+</style>
 <body>
 <div id="root">
+    <div class="inquiry" data-type="inquiry" data-name="free quote" data-class="nav-btn nav-btn--inquiry"></div>
+    <div class="inquiry" data-type="inquiry" data-name="free quote" data-class="nav-btn nav-btn--inquiry nav-btn--sidenav"></div>
+    <div class="order" data-type="order" data-name="order now" data-class="nav-btn nav-btn--order"></div>
+    <div class="order" data-type="order" data-name="order now" data-class="nav-btn nav-btn--order nav-btn--sidenav"></div>
     <div class="table-price"></div>
     <div class="calc-sm" data-title="" data-title-discount="% OFF YOUR FIRST ORDER. Limited Time!"></div>
-    <div class="calc-sm" data-type="horizontal" data-title="" data-title-discount="% DISCOUNT ON YOUR FIRST PURCHASE. Order Now!"></div>
+    <div class="calc-sm" data-type="horizontal" data-title=""
+         data-title-discount="% DISCOUNT ON YOUR FIRST PURCHASE. Order Now!"></div>
     <div class="calc-lg" data-title="" data-title-discount="GET YOUR  % OFF AMAZING DISCOUNT. Right now!"></div>
 </div>
 <script>

@@ -30,7 +30,7 @@ class CalculatorSmallSelect extends React.Component {
                                this.props.toggleDropdown(this.props.type);
                                this.props.onChange(item.id);
                            }} className="cs-dropdown__item">{this.cutLevelName(item.name)}</li>
-                    : <li className="cs-dropdown__item-separator"/>
+                    : <li key={item.id} className="cs-dropdown__item-separator"/>
             }
         );
         let searchService;
