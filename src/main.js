@@ -4,6 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './styles/main.scss'
 import CalculatorSmall from './components/calculatorSmall/CalculatorSmall'
+import CalculatorSmallWB from './components/calculatorSmallWB/CalculatorSmallWB'
 import CalculatorLarge from './components/calculatorLarge/CalculatorLarge'
 import TablePrices from './components/tablePrices/TablePrices'
 import Button from './components/buttons/Button'
@@ -42,6 +43,7 @@ store.dispatch(fetchInitTree());
 // Render Setup
 // ------------------------------------
 
+const MOUNT_NODE_CALC_WB = document.getElementsByClassName("ecs");
 const MOUNT_NODES_CALC_SM = document.getElementsByClassName("calc-sm");
 const MOUNT_NODES_CALC_LG = document.getElementsByClassName("calc-lg");
 const MOUNT_NODES_INQUIRY = document.getElementsByClassName("inquiry");
@@ -49,6 +51,18 @@ const MOUNT_NODES_ORDER = document.getElementsByClassName("order");
 const MOUNT_NODES_TP = document.getElementsByClassName("table-price");
 let render = () => {
     let calcId = 0;
+    Array.prototype.forEach.call(MOUNT_NODE_CALC_WB, (MOUNT_NODE, i) => {
+        ReactDOM.render(
+            <Provider store={store}>
+                <div>
+                    <CalculatorSmallWB calcId={calcId++}
+                                       serviceId={MOUNT_NODE.dataset.id}
+                    />
+                </div>
+            </Provider>,
+            MOUNT_NODE
+        );
+    });
     Array.prototype.forEach.call(MOUNT_NODES_TP, (MOUNT_NODE, i) => {
         ReactDOM.render(
             <Provider store={store}>
