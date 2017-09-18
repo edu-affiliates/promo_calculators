@@ -34,7 +34,7 @@
         width: 220px;
         height: 54px;
         border-radius: 5px;
-        box-shadow: 0 1px 2px 0 rgba(0,0,0,.5);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .5);
         margin-bottom: 10px;
     }
 
@@ -52,8 +52,405 @@
     }
 
 </style>
+<style>
+    .calc-sm-container {
+        background: #eee;
+        padding: 30px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .ecs {
+        margin: 20px 5px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+        align-items: baseline;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        border-radius: 24px;
+        position: relative;
+        max-width: 210px;
+        padding: 10px;
+        border-radius: 2px;
+        background: #ffffff;
+    }
+
+    .ecs > *:last-child {
+        margin-bottom: 0;
+    }
+
+    .ecs__service {
+        z-index: 20;
+    }
+
+    .ecs__list__wrapper--service {
+        top: 57px;
+        z-index: 18;
+        min-height: 100px !important;
+    }
+
+    .ecs__level {
+        z-index: 16;
+    }
+
+    .ecs__list__wrapper--level {
+        top: 114px;
+        z-index: 14;
+    }
+
+    .ecs__deadline {
+        z-index: 12;
+    }
+
+    .ecs__list__wrapper--deadline {
+        top: 173px;
+        z-index: 10;
+    }
+
+    .ecs__service__current,
+    .ecs__level__current,
+    .ecs__deadline__current {
+        display: inline-block;
+        margin: 6px 0 0 0px;
+        font-family: FoundersGrotesk-Light;
+        font-size: 16px;
+        line-height: 34px;
+        letter-spacing: 1.2px;
+        color: #ffffff;
+        width: 100%;
+        cursor: pointer;
+        text-align: left;
+        padding-left: 24px;
+    }
+
+    .ecs__list {
+        position: relative;
+    }
+
+    .ecs__list__wrapper {
+
+        margin: 0 !important;
+        background: #fff;
+        position: absolute;
+        padding: 32px 10px 10px 10px;
+        width: 184px;
+        border-radius: 0px 0px 20px 20px;
+        left: 10px;
+        overflow-y: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    }
+
+    .ecs__list__wrapper--open {
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0s, 0s, 0.3s;
+    }
+
+    .ecs__title {
+        font-family: $ light;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #d8d8d8;
+        width: 100%;
+    }
+
+    .writing_type {
+        padding-left: 10px;
+        font-family: $ regular;
+        color: #474747;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+    .ecs__btn--inquiry {
+        display: none;
+    }
+
+    .ecs__btn--order {
+        font-family: $ light;
+        margin: 5px 0 10px 0;
+        background-color: #ec4163;
+        border-radius: 22px;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 44px;
+        border: 2px solid transparent;
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .ecs__plus-btn {
+        border-right: none !important;
+    }
+
+    .ecs__btn--hover {
+        color: #ec4163;
+        background: #fff;
+        border: 2px solid #ec4163;
+    }
+
+    .ecs__page-count {
+        margin-top: 10px;
+        border: 1px solid #474747;
+        border-radius: 6px;
+    }
+
+    .ecs__page-count, .ecs__price {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border-left: none;
+        position: relative;
+        text-align: right;
+        width: 99%;
+        margin-bottom: 0 !important;
+    }
+
+    /*.ecs__page-count, */
+
+    .ecs__price > * {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    }
+
+    .ecs__page-count {
+        height: 40px;
+    }
+
+    .ecs__plus-btn:hover, .ecs__minus-btn:hover {
+        background-color: #474747;
+        color: white;
+    }
+
+    .ecs__plus-btn, .ecs__minus-btn {
+        font-family: $ regular;
+        display: inline-block;
+        line-height: 39px;
+        text-align: center;
+        color: #474747;
+        font-size: 20px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 6px;
+        border: 1px solid #474747;
+    }
+
+    .ecs__page-input {
+        background: transparent;
+        height: 35px;
+        outline: none;
+        border: none;
+        text-align: center;
+        -moz-appearance: textfield;
+        -webkit-user-select: none;
+        font-family: $ regular;
+        font-size: 21px;
+        /* line-height: 52px; */
+        letter-spacing: 1.2px;
+        color: #474747;
+        /*width: 100%;*/
+        cursor: text;
+        width: 41px;
+        display: inline-block;
+    }
+
+    .ecs__page-input::-webkit-outer-spin-button,
+    .ecs__page-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .ecs__page-input::-moz-placeholder,
+    .ecs__page-input::-webkit-input-placeholder,
+    .ecs__page-input:-ms-input-placeholder {
+        color: #474747;
+        font-size: 30px;
+    }
+
+    .ecs__page--subtitle {
+        font-family: $ regular;
+        background: transparent;
+        height: 35px;
+        outline: none;
+        border: none;
+        text-align: center;
+        -moz-appearance: textfield;
+        -webkit-user-select: none;
+        font-size: 21px;
+        line-height: 52px;
+        letter-spacing: 1.2px;
+        color: #474747;
+        /*width: 100%;*/
+        cursor: pointer;
+    }
+
+    .ecs__price {
+        font-family: $ light;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        margin-bottom: 10px;
+        -ms-flex-pack: distribute;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        /*padding: 0 8%;*/
+        align-items: center;
+        height: 100px !important;
+    }
+
+    .ecs__price__title {
+        font-family: $ regular;
+        font-weight: 100;
+        font-size: 20px;
+        line-height: 1.06;
+        text-align: right;
+        color: #474747;
+    }
+
+    .ecs__prices {
+        white-space: nowrap;
+        position: relative;
+    }
+
+    .ecs__price__value {
+        font-family: $ regular;
+        font-size: 30px;
+        color: #474747;
+        position: relative;
+        padding-left: 5px;
+    }
+
+    .ecs__price__value::before {
+        content: '$';
+    }
+
+    .ecs__price__old {
+        position: relative;
+        font-family: $ light;
+        font-size: 24px;
+        color: #757575;
+    }
+
+    .ecs__price__old::before {
+        content: '$';
+
+    }
+
+    .ecs__price__old::after {
+        content: '';
+        position: absolute;
+        background: red;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+    }
+
+    .ecs__price__old__line {
+        margin-top: 4px;
+        position: absolute;
+        display: block;
+        background: red;
+        width: 30px;
+        height: 2px;
+        top: -5px;
+
+    }
+
+    .ecs__btns {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-around;
+        margin: 5px 0 0 !important;
+        width: 100%;
+    }
+
+    .ecs__btn--order:hover {
+        box-shadow: inset 1.4px 1.4px 3px rgba(0, 0, 0, .23);
+        background-color: #7f7f7f;
+        transition: all .4s;
+        /*border: 3px solid #fff;*/
+    }
+
+    .ecs__btn--inquiry {
+        background-color: #30505a;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.83), inset 0 1px 0 0 rgba(255, 255, 255, 0.44);
+        border: solid 2px #fff;
+        color: #fff;
+        padding-top: 7px;
+    }
+
+    .ecs__btn--inquiry:hover {
+        background-color: #fff;
+        color: #30505a;
+    }
+
+    .ecs__select-option[data-value='---------------'] {
+        display: none;
+    }
+
+    @media only Screen and (max-width: 922px) {
+        .ecs {
+            margin: 20px auto 20px auto;
+        }
+    }
+</style>
 <body>
 <div id="root">
+    <div class="calc-sm-container">
+        <div class="ecs" data-id="1674"></div>
+        <div class="ecs" data-id="1671"></div>
+        <div class="ecs" data-id="1675"></div>
+        <div class="ecs" data-id="1686"></div>
+        <div class="ecs" data-id="1672"></div>
+    </div>
     <div class="inquiry" data-type="inquiry" data-name="free quote" data-class="nav-btn nav-btn--inquiry"></div>
     <div class="inquiry" data-type="inquiry" data-name="free quote" data-class="nav-btn nav-btn--inquiry nav-btn--sidenav"></div>
     <div class="order" data-type="order" data-name="order now" data-class="nav-btn nav-btn--order"></div>
