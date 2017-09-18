@@ -168,14 +168,14 @@
     margin-top: -1px;
     border-radius: 50%;
     &--plus {
-      color: #ffffff;
+      color: inherit;
       background-color: $tp-modal-counter-plus-background-color;
       border: $tp-modal-counter-plus-border;
       margin-right: -1px;
     }
     &--minus {
       background-color: $tp-modal-counter-minus-background-color;
-      color: #ffffff;
+      color: inherit;
       border: 1px solid $tp-modal-counter-minus-border;
       margin-left: -1px;
     }
@@ -185,7 +185,7 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 16px;
-    color: #ffffff;
+    color: inherit;
     cursor: text;
 
   }

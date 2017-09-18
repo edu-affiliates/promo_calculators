@@ -17,15 +17,6 @@
   color: $cl-select-item-color;
 }
 
-%cl-select-single-default {
-  font-family: $cl-select-item-font-family;
-  font-weight: $cl-select-item-font-weight;
-  font-size: $cl-select-item-font-size;
-  border-radius: $cl-select-border-radius;
-  color: $cl-select-single-active-color;
-  border: 1px solid $cl-select-single-active-background-color;
-  background-color: $cl-select-single-active-background-color;
-}
 
 .cl-select-wrap {
   position: relative;
@@ -127,6 +118,16 @@
   }
 }
 
+
+%cl-select-single-default {
+  font-family: $cl-select-item-font-family;
+  font-weight: $cl-select-item-font-weight;
+  font-size: $cl-select-item-font-size;
+  border-radius: $cl-select-border-radius;
+  color: $cl-select-single-color;
+  border: $cl-select-single-border;
+  background-color: $cl-select-single-background-color;
+}
 .cl-select-single {
   @extend %cl-select-single-default;
   display: none;
@@ -145,7 +146,7 @@
     width: 56px;
     border-radius: 50%;
     cursor: pointer;
-    border: solid 1px $cl-select-single-active-color;
+    border: $cl-select-single-border;
     margin: 1px;
     color: inherit;
   }

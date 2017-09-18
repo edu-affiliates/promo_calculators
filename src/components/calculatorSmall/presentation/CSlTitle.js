@@ -57,7 +57,7 @@ class CalculatorSmallTitle extends React.Component {
             }
         }
         return (
-            <div>{calcTitle}</div>
+                calcTitle
         )
     }
 }

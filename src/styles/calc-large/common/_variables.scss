@@ -33,8 +33,9 @@ $cl-select-item-font-family: 'Open Sans', sans-serif !default;
 $cl-select-item-active-color: #21414a !default;
 $cl-select-item-active-background-color: #3ddfff !default;
 
-$cl-select-single-active-color: #21414a !default;
-$cl-select-single-active-background-color: #3ddfff !default;
+$cl-select-single-border: 1px solid #3ddfff !default;
+$cl-select-single-color: #21414a !default;
+$cl-select-single-background-color:  #3ddfff !default;
 
 //default styles for dropdown
 $cl-dropdown-border-color: #3ddfff !default;
@@ -44,8 +45,12 @@ $cl-dropdown-font-family: 'Open Sans', sans-serif !default;
 $cl-dropdown-font-weight: 400 !default;
 $cl-dropdown-font-size: 14px !default;
 $cl-dropdown-color: #ffffff !default;
-$cl-dropdown-scroll-background: transparent !default;
-$cl-dropdown-thumb-background: #fce23f !default;
+$cl-dropdown-active-color: darken($cl-dropdown-color, 20%) !default;
+
+//default styles for scrollbar
+$cl-dropdown-scrollbar-background:  transparent !default;
+$cl-dropdown-scrollbar-thumb-background:  #fce23f !default;
+$cl-dropdown-scrollbar-thumb-border:2px solid #21414a !default;
 
 //default styles for search
 $cl-search-border-color: #3ddfff !default;
