@@ -55,9 +55,9 @@ class CLCounter extends React.Component {
         </div> : <div/>
         return (
             <div className="cl-counter-group">
+                <div className="cl-select-title">Number of Pages:</div>
                 <div className="cl-counter-wrap">
                     <div>
-                        <div className="cl-select-title">Number of Pages:</div>
                         <div className="cl-counter">
                             <div onClick={onClickMinus} className="cl-counter-btn cl-counter-btn--minus">
                                 <span/>
