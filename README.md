@@ -2,7 +2,7 @@
 
 ## Sass way
 
-    1. Add script  <script src='https://s3.amazonaws.com/genericapps/resources/calculators/main.js'></script>
+    1. Add script  <script src='https://s3.amazonaws.com/genericapps/resources/calculators/bundle36.js'></script>
     
     2. Add folders with SASS styles https://github.com/edu-affiliates/promo_calculators/tree/master/src/styles
     
