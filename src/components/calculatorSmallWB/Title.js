@@ -14,7 +14,7 @@ class Title extends React.Component {
         const {service} = this.props;
         return (
             <div className="ecs__title">
-                <img src="wp-content/uploads/calculaters/essay-icon.svg"/>
+                <div className="ecs__icon"/>
                 <span className="writing_type">{service}</span>
             </div>
         )
