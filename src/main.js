@@ -9,6 +9,7 @@ import CalculatorSmallWB from './components/calculatorSmallWB/CalculatorSmallWB'
 import CalculatorLarge from './components/calculatorLarge/CalculatorLarge'
 import TablePrices from './components/tablePrices/TablePrices'
 import Button from './components/buttons/Button'
+import User from './components/user/User'
 import createStore from './store/createStore'
 import initialState from './store/initState';
 import {Provider} from 'react-redux';
@@ -44,6 +45,7 @@ store.dispatch(fetchInitTree());
 // Render Setup
 // ------------------------------------
 
+const MOUNT_NODE_USER_NAME = document.getElementsByClassName("user-name");
 const MOUNT_NODE_CALC_FAST = document.getElementsByClassName("calc-fast");
 const MOUNT_NODE_CALC_WB = document.getElementsByClassName("cswb-wrap");
 const MOUNT_NODES_CALC_SM = document.getElementsByClassName("calc-sm");
@@ -52,7 +54,19 @@ const MOUNT_NODES_INQUIRY = document.getElementsByClassName("inquiry");
 const MOUNT_NODES_ORDER = document.getElementsByClassName("order");
 const MOUNT_NODES_TP = document.getElementsByClassName("table-price");
 let render = () => {
+
     let calcId = 0;
+
+    Array.prototype.forEach.call(MOUNT_NODE_USER_NAME, (MOUNT_NODE, i) => {
+
+        ReactDOM.render(
+            <Provider store={store}>
+                    <User/>
+            </Provider>,
+            MOUNT_NODE
+        );
+    });
+
     Array.prototype.forEach.call(MOUNT_NODE_CALC_FAST, (MOUNT_NODE, i) => {
         ReactDOM.render(
             <Provider store={store}>

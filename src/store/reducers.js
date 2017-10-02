@@ -57,6 +57,7 @@ export const reducers = (state = initialState, action) => {
             });
         case FETCH_SUCCESS_DSC:
             return Object.assign({}, state, {
+                userName: !!action.userName ? action.userName: '',
                 discount: !!action.dsc ? action.dsc : 0,
             });
         case INIT_CALC:

@@ -57,16 +57,16 @@ export function fetchUser() {
     return {type: FETCH_USER}
 
 }
-export function fetchDiscount(discount) {
-    return {type: FETCH_DISCOUNT, discount: discount}
+export function fetchDiscount(discount, userName) {
+    return {type: FETCH_DISCOUNT, discount: discount, userName: userName}
 }
 
 //reducer dispatch actions
 export function fetchSuccess(tree) {
     return {type: FETCH_SUCCESS, tree: tree}
 }
-export function fetchSuccessDsc(dsc) {
-    return {type: FETCH_SUCCESS_DSC, dsc: dsc}
+export function fetchSuccessDsc(dsc, userName) {
+    return {type: FETCH_SUCCESS_DSC, dsc: dsc, userName: userName}
 }
 export function fetchSuccessSingle(tree, id) {
     return {type: FETCH_SUCCESS_SINGLE, tree: tree, id: id}

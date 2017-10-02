@@ -2,6 +2,7 @@ const initialState = {
     inited: false,
     tree: {},
     discount: 0,
+    userName: '',
     coupon: '',
     allServices: [],
     calculatorSmall: [],
