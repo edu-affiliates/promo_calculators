@@ -14,7 +14,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 .cs-counter {
 
   @extend %cs-select;
@@ -39,6 +38,7 @@
   }
 
 }
+
 
 .cs-page-value {
   height: $cs-counter-height;

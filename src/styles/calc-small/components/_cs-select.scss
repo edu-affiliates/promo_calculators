@@ -5,11 +5,6 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  .horizontal & {
-    @include respond-to('(min-width: 992px)') {
-      margin-bottom: 15px;
-    }
-  }
 }
 
 %cs-wrap {
