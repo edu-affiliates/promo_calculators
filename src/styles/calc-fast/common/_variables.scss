@@ -1,0 +1,190 @@
+/** to customize the look and feel the calc override this variables  in your own variable scss file
+* !!IMPORTANT Be sure that you include your own variables earlier than default ones**/
+
+//
+$calc-lg-payment: "https://s3.amazonaws.com/genericapps/resources/calculators/fonts/payments.svg" !default;
+
+//default styles for title
+$cl-title-font-family: 'Open Sans', sans-serif !default;
+$cl-title-font-weight: 600 !default;
+$cl-title-color: #fce23f !default;
+$cl-title-dsc-color: #193239 !default;
+$cl-title-font-size: 20px !default;
+$cl-title-text-transform: uppercase !default;
+
+$cl-title-second-color:#fce23f !default;
+$cl-title-second-font-size: 16px;
+$cl-title-second-font-weight: 400;
+
+//default style for select
+
+$cl-select-title-color: #fbe23f !default;
+$cl-select-title-font-size: 16px !default;
+$cl-select-title-font-weight: 400 !default;
+$cl-select-title-font-family: 'Open Sans', sans-serif !default;
+$cl-select-border-radius: 70px !default;
+
+$cl-select-item-font-size: 15px !default;
+$cl-select-item-color: #ffffff !default;
+$cl-select-item-border: #3ddfff !default;
+$cl-select-item-font-weight: 400 !default;
+$cl-select-item-font-family: 'Open Sans', sans-serif !default;
+
+$cl-select-item-active-color: #21414a !default;
+$cl-select-item-active-background-color: #3ddfff !default;
+
+$cl-select-single-active-color: #21414a !default;
+$cl-select-single-active-background-color: #3ddfff !default;
+
+//default styles for dropdown
+$cl-dropdown-border-color: #3ddfff !default;
+$cl-dropdown-border-radius: 24px !default;
+$cl-dropdown-background: transparent !default;
+$cl-dropdown-font-family: 'Open Sans', sans-serif !default;
+$cl-dropdown-font-weight: 400 !default;
+$cl-dropdown-font-size: 14px !default;
+$cl-dropdown-color: #ffffff !default;
+$cl-dropdown-scroll-background: transparent !default;
+$cl-dropdown-thumb-background: #fce23f !default;
+
+
+//default styles for scrollbar
+$cl-dropdown-scrollbar-background: transparent !default;
+$cl-dropdown-scrollbar-thumb-background: #fce23f !default;
+$cl-dropdown-scrollbar-thumb-border:2px solid #21414a !default;
+//default styles for search
+$cl-search-border-color: #3ddfff !default;
+$cl-search-background: transparent !default;
+$cl-search-font-family: 'Open Sans', sans-serif !default;
+$cl-search-font-weight: 400 !default;
+$cl-search-font-size: 16px !default;
+$cl-search-color: #ffffff !default;
+
+//default styles for range
+
+$cl-range-color: #3ddfff !default;
+$cl-range-checked-color: #fce23f !default;
+
+//default styles for range popup
+$cl-range-popup-min-width: 80px !default;
+$cl-range-popup-background: #3ddfff !default;
+$cl-range-popup-font-family: 'Open Sans', sans-serif !default;
+$cl-range-popup-font-weight: 400 !default;
+$cl-range-popup-font-size: 12px !default;
+$cl-range-popup-color: #30505a !default;
+
+//default styles for counter
+
+$cl-counter-background: #3ddfff !default;
+$cl-counter-border-radius: 100px !default;
+$cl-counter-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.44) !default;
+$cl-counter-color-minus: #3ddfff !default;
+$cl-counter-color-plus:#21414a !default;;
+$cl-counter-background-plus: #3ddfff !default;
+$cl-counter-background-minus: #21414a !default;
+//default styles for counter
+
+$cl-counter-input-font-size: 30px!default;
+$cl-counter-input-color: #21414a!default;
+
+$cl-single-price-font-family: 'Open Sans', sans-serif !default;
+$cl-single-price-font-weight: 400 !default;
+$cl-single-price-color: #fbe23f !default;
+$cl-single-price-font-size: 14px !default;
+$cl-single-price-font-size-value: 18px !default;
+
+//default styles for prices
+
+$cl-price-font-family: 'Open Sans', sans-serif !default;
+$cl-price-font-weight: 400 !default;
+$cl-price-color: #fff !default;
+$cl-price-full-font-size: 24px !default;
+$cl-price-dsc-font-size: 40px !default;
+$cl-price-line-throw-color: #ea6e0d !default;
+
+$cl-price-title-font-family: 'Open Sans', sans-serif !default;
+$cl-price-title-font-weight: 600 !default;
+$cl-price-title-font-size: 24px !default;
+$cl-price-title-color: #fff !default;
+
+//default styles for buttons
+$calc-lg-btn-color: #ffffff !default;
+$calc-lg-btn-font-family: 'Open Sans', sans-serif !default;
+$calc-lg-btn-font-weight: 700 !default;
+$calc-lg-btn-font-size: 23px !default;
+$calc-lg-btn-border-radius: 100px !default;
+$calc-lg-btn-height: 70px !default;
+//quote btn
+$calc-lg-quote-background-color: #34616e !default;
+$calc-lg-quote-box-shadow: 0 1px 2px 0 rgba(0,0,0,.5)!default;
+$calc-lg-quote-border-quote: 3px solid #fff !default;
+
+//order btn
+$calc-lg-order-background-color: #ea6e0d !default;
+$calc-lg-order-box-shadow: 0 1px 2px 0 rgba(0,0,0,.5)!default;
+$calc-lg-order-border-quote: 0 !default;
+
+
+/**  end of the default variables **/
+
+//theme lists
+$themes: $theme-dark-blue, $theme-green;
+
+// Slick Carousel font path
+$slick-font-path: "~slick-carousel/slick/fonts/";
+// Slick Carousel ajax-loader.gif path
+$slick-loader-path: "~slick-carousel/slick/";
+
+// Colors
+$primary-color-dark-blue: #273952;
+$primary-color-yellow: #fbe23f;
+
+//Fonts
+//$font-stack-regular: 'OpenSans-Regular', serif;
+//$font-stack-bold: 'OpenSans-Bold', serif;
+//$font-stack-extrabold: 'OpenSans-ExtraBold', serif;
+//$font-stack-semibold: 'OpenSans-Semibold', serif;
+
+//bootstrap breakpoint
+
+$xx-bt: '(max-width: 576px)';
+$xs-bt: '(max-width: 767px)';
+$sm-bt: '(max-width: 991px)';
+$md-bt: '(max-width: 1199px)';
+$lg-bt: '(max-width: 1439px)';
+
+//breakpoints
+$phone: '(max-width: 667px)';
+$phonePortrait: '(max-width: 414px)';
+$phoneLandscape: '(min-width: 415px) and (max-width: 667px)';
+$tablet: '(min-width: 668px) and (max-width: 1024px)';
+$tabletPortrait: '(min-width: 668px) and (max-width: 768px)';
+$tabletLandscape: '(min-width: 769px) and (max-width: 1024px)';
+$desktop: '(min-width: 1025px) and (max-width: 1366px)';
+$desktopWide: '(min-width: 1367px) and (max-width: 1680px)';
+$desktopHD: '(min-width: 1681px) and (max-width: 1920px)';
+$desktopMega: '(min-width: 1921px)';
+
+$landscape: '(orientation: landscape)';
+//Layouts
+//$page-names: 'home' 'custom-essays' 'research-papers' 'term-papers' 'custom-book-review';
+
+$nav-prefix: ch-nav;
+$navbar-width: 1440px;
+$navbar-height: 70px;
+$navbar-color-bg: #ffffff;
+
+$arc-width: percentage(1743px/1440px);
+$section-yellow-home-min-height: 776px;
+$section-yellow-min-height: 626px;
+$section-yellow-bottom-min-height: 796px;
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1170px
+)
