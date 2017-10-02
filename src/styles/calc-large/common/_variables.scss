@@ -33,9 +33,8 @@ $cl-select-item-font-family: 'Open Sans', sans-serif !default;
 $cl-select-item-active-color: #21414a !default;
 $cl-select-item-active-background-color: #3ddfff !default;
 
-$cl-select-single-border: 1px solid #3ddfff !default;
-$cl-select-single-color: #21414a !default;
-$cl-select-single-background-color:  #3ddfff !default;
+$cl-select-single-active-color: #21414a !default;
+$cl-select-single-active-background-color: #3ddfff !default;
 
 //default styles for dropdown
 $cl-dropdown-border-color: #3ddfff !default;
@@ -45,13 +44,14 @@ $cl-dropdown-font-family: 'Open Sans', sans-serif !default;
 $cl-dropdown-font-weight: 400 !default;
 $cl-dropdown-font-size: 14px !default;
 $cl-dropdown-color: #ffffff !default;
-$cl-dropdown-active-color: darken($cl-dropdown-color, 20%) !default;
+$cl-dropdown-scroll-background: transparent !default;
+$cl-dropdown-thumb-background: #fce23f !default;
+
 
 //default styles for scrollbar
-$cl-dropdown-scrollbar-background:  transparent !default;
-$cl-dropdown-scrollbar-thumb-background:  #fce23f !default;
+$cl-dropdown-scrollbar-background: transparent !default;
+$cl-dropdown-scrollbar-thumb-background: #fce23f !default;
 $cl-dropdown-scrollbar-thumb-border:2px solid #21414a !default;
-
 //default styles for search
 $cl-search-border-color: #3ddfff !default;
 $cl-search-background: transparent !default;
@@ -76,18 +76,17 @@ $cl-range-popup-color: #30505a !default;
 //default styles for counter
 
 $cl-counter-background: #3ddfff !default;
-$cl-counter-color-minus: #3ddfff !default;
-$cl-counter-color-plus: #21414a !default;
-$cl-counter-background-plus: #3ddfff !default;
-$cl-counter-background-minus: #21414a !default;
 $cl-counter-border-radius: 100px !default;
 $cl-counter-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.44) !default;
+$cl-counter-color-minus: #3ddfff !default;
+$cl-counter-color-plus:#21414a !default;;
+$cl-counter-background-plus: #3ddfff !default;
+$cl-counter-background-minus: #21414a !default;
+//default styles for counter
 
-//default styles for
 $cl-counter-input-font-size: 30px!default;
 $cl-counter-input-color: #21414a!default;
 
-//default styles for
 $cl-single-price-font-family: 'Open Sans', sans-serif !default;
 $cl-single-price-font-weight: 400 !default;
 $cl-single-price-color: #fbe23f !default;
@@ -117,13 +116,14 @@ $calc-lg-btn-border-radius: 100px !default;
 $calc-lg-btn-height: 70px !default;
 //quote btn
 $calc-lg-quote-background-color: #34616e !default;
-$calc-lg-quote-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.83), inset 0 1px 0 0 rgba(255, 255, 255, 0.44) !default;
+$calc-lg-quote-box-shadow: 0 1px 2px 0 rgba(0,0,0,.5)!default;
 $calc-lg-quote-border-quote: 3px solid #fff !default;
 
 //order btn
 $calc-lg-order-background-color: #ea6e0d !default;
-$calc-lg-order-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.83), inset 0 1px 0 0 rgba(255, 255, 255, 0.44) !default;
+$calc-lg-order-box-shadow: 0 1px 2px 0 rgba(0,0,0,.5)!default;
 $calc-lg-order-border-quote: 0 !default;
+
 
 /**  end of the default variables **/
 
