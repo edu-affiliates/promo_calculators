@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import {plusPage, minusPage, handleInputPageNumber} from '../../store/actions'
+import {plusPage, minusPage, handleInputPageNumber} from '../../../store/actions'
 
 class Counter extends React.Component {
 
@@ -23,9 +23,10 @@ class Counter extends React.Component {
         this.handleEmptyInput(value);
         const number = parseInt(e.target.value);
         if (number > this.props.maxPageNumber) {
-            this.handleAlert(number);
+            // this.handleAlert(number);
+        } else {
+            this.props.handleInputPageNumber(number);
         }
-        this.props.handleInputPageNumber(number);
     }
 
     handleEmptyInput(value) {
@@ -41,22 +42,19 @@ class Counter extends React.Component {
         const {onClickPlus, onClickMinus, pageNumber, maxPageNumber} = this.props;
 
         return (
-            <div>
-                <div className="ecs__page-count">
-                    <div className="ecs__minus-btn"  onClick={onClickMinus}>-</div>
-                <div>
-                    <input className="ecs__page-input"
-                           type="text"
-                           onBlur={() => this.handleBlur()}
-                           value={(this.state.emptyInput) ? '' : pageNumber}
-                           onChange={(e) => this.handleChange(e)}
-                    />
-                    <span className="ecs__page--subtitle">{(pageNumber === 1) ? 'page' : 'pages'}</span>
+                <div className="cswb__page-count">
+                    <div className="cswb__minus-btn" onClick={onClickMinus}>-</div>
+                    <div>
+                        <input className="cswb__page-input"
+                               type="text"
+                               onBlur={() => this.handleBlur()}
+                               value={(this.state.emptyInput) ? '' : pageNumber}
+                               onChange={(e) => this.handleChange(e)}
+                        />
+                        <span className="cswb__page--subtitle">{(pageNumber === 1) ? 'page' : 'pages'}</span>
+                    </div>
+                    <div className="cswb__plus-btn" onClick={onClickPlus}>+</div>
                 </div>
-                    <div className="ecs__plus-btn"  onClick={onClickPlus}>+</div>
-                </div>
-
-            </div>
         )
     }
 }
