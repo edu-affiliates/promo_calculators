@@ -38,11 +38,10 @@
 
   }
   &--sm {
-    color:$cl-title-second-color;
-    font-size: $cl-title-second-font-size;
     text-transform: none;
     font-family: $cl-title-font-family;
-    font-weight: $cl-title-second-font-weight;
+    font-weight: 400;
+    font-size: 16px;
     letter-spacing: 0.5px;
     text-align: left;
   }

@@ -14,8 +14,11 @@
     }
   }
   &__price-wrap{
+    display: flex;
     @include respond-to($xx-bt) {
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
   &__price {

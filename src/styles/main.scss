@@ -1,6 +1,7 @@
 @import 'table-prices/main';
 @import 'calc-small/main';
 @import 'calc-large/main';
+@import 'calc-fast/main';
 //@import '~bootstrap/scss/bootstrap.scss';
 
 body {
@@ -11,9 +12,8 @@ body {
 }
 
 .table-price {
-  margin: 150px 15px 30px;
-  display: flex;
-  justify-content: center;
+  position: relative;
+  padding: 15px;
 }
 
 .calc-sm {
@@ -28,4 +28,10 @@ body {
   background: #21414a;
   //border: solid 2px #34616e;
   box-sizing: border-box;
+}
+
+.calc-fast-container{
+  width: 350px;
+  max-width: 100%;
+  margin: 15px;
 }

@@ -28,6 +28,10 @@
   height: 60px;
   width: 190px;
   padding: 1px;
+  @include respond-to($xx-bt){
+    margin-bottom: 10px;
+
+  }
 }
 
 .cl-counter-btn {
@@ -66,10 +70,11 @@
       height: 3.4px;
       &::after {
         content: '';
+        color: inherit;
         position: absolute;
         width: inherit;
         height: inherit;
-        background-color: $cl-counter-background;
+        background-color: $cl-counter-color-minus;
       }
     }
   }
@@ -133,7 +138,10 @@
     font-size: $cl-single-price-font-size;
     color: $cl-single-price-color;
     text-align: right;
+    @include respond-to($xx-bt){
+      margin-bottom: 10px;
 
+    }
   }
   &__value {
     font-family: $cl-single-price-font-family;

@@ -13,8 +13,8 @@ class Title extends React.Component {
     render() {
         const {service} = this.props;
         return (
-            <div className="ecs__title">
-                <div className="ecs__icon"/>
+            <div className="cswb__title">
+                <div className="cswb__icon"/>
                 <span className="writing_type">{service}</span>
             </div>
         )

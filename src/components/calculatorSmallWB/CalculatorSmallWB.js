@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
-import Title from './Title';
-import Counter from './Counter';
-import Price from './Price';
+import Title from './presentation/Title';
+import Counter from './presentation/Counter';
+import Price from './presentation/Price';
+import Button from './presentation/Button';
 import {connect} from 'react-redux'
 import {initCalc, fetchService, plusPage, minusPage, handleInputPageNumber} from '../../store/actions'
 
@@ -21,14 +22,15 @@ class CalculatorSmallWB extends React.Component {
     }
 
     render() {
-        const {inited, service, discount, fullPrice, maxPageNumber, pageNumber} = this.props;
+        const {inited} = this.props;
 
         if (inited) {
             return (
-                <div>
+                <div className="cswb">
                     <Title calcId={this.props.calcId}/>
                     <Counter calcId={this.props.calcId}/>
                     <Price calcId={this.props.calcId}/>
+                    <Button calcId={this.props.calcId}/>
                 </div>
             )
         } else return (<div/>)

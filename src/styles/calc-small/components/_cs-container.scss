@@ -6,7 +6,7 @@
   padding: $cs-box-padding;
   box-shadow: $cs-box-shadow;
   border: $cs-border;
-  background: $cs-background-color $cs-background-url ;
+  background: $cs-background-color $cs-background-url  no-repeat center calc(100% - 10px)/80% auto;
   background-size: auto;
 
 }

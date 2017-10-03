@@ -1,10 +1,11 @@
+
 .calc-lg-container {
   box-sizing: border-box;
-  width: 460px;
-  background: transparent;
-  padding: 15px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
+  width: $cl-container-width;
+  background: $cl-container-background;
+  padding: $cl-container-padding;
+  font-family: $cl-container-font-family;
+  font-weight: $cl-container-font-weight;
   @include respond-to($xx-bt) {
     max-width: 320px;
   }
