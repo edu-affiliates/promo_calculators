@@ -3,6 +3,11 @@
 
 //
 $calc-lg-payment: "https://s3.amazonaws.com/genericapps/resources/calculators/fonts/payments.svg" !default;
+$cl-container-width:  460px !default;
+$cl-container-background: transparent !default;
+$cl-container-padding: 15px !default;
+$cl-container-font-family: 'Open Sans', sans-serif!default;
+$cl-container-font-weight: 400!default;
 
 //default styles for title
 $cl-title-font-family: 'Open Sans', sans-serif !default;
