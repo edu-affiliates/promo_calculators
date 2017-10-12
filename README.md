@@ -4,7 +4,19 @@
 
     1. Add script  <script src='https://s3.amazonaws.com/genericapps/resources/calculators/bundle36.js'></script>
     
-    2. Add folders with SASS styles https://github.com/edu-affiliates/promo_calculators/tree/master/src/styles
+    2. Setup global variable eduOptions - 
+        <script>
+          window.eduOptions = {
+          'hostname': 'cheapcustompapers.com',
+          'website_id': 442,
+          'service_ids': '2185, 2186, 2184, 2183',
+          'apiMode': 'M',
+          'dsc': '15Cheap',
+          'dev_mode': false
+          }
+         </script>
+    
+    2. Choose and add needed folder with [SASS styles](https://github.com/edu-affiliates/promo_calculators/tree/master/src/styles)
     
     3. Add container and options for choosen calculators 
     
