@@ -4,14 +4,14 @@
 2. Copy file bundle.js (_promo_calculators-master.zip/docs/bundle.js_) to your website directory.
 3. Copy file style.css (_promo_calculators-master.zip/docs/styles/main.css_) to your website directory.
 4. Add spacial tags to your html markup:
-       1. Main calculator __```<div class="calc-lg" data-title="" data-title-discount=""></div>```__
-       2. Small calculator __```<div class="calc-sm" data-title="" data-title-discount=""></div>```__
-       3. Horizontal small calculator __```<div class="calc-sm" data-type="horizontal" data-title="" data-title-discount=""></div>```__
-       4. Order form with list of services __```<div class="calc-fast"></div>```__
-       5. Table with prices for special services __```<div class="table-price"></div>```__
-       6. Button inquiry __```<div class="inquiry" data-name="inquiry" data-class=""></div>```__
-       7. Button order __```<div class="order" data-name="order" data-class=""></div>```__
-       8. Button dashboard __```<div class="dashboard" data-name="dashboard" data-class=""></div>```__
+   * Main calculator __```<div class="calc-lg" data-title="" data-title-discount=""></div>```__
+   * Small calculator __```<div class="calc-sm" data-title="" data-title-discount=""></div>```__
+   * Horizontal small calculator __```<div class="calc-sm" data-type="horizontal" data-title="" data-title-discount=""></div>```__
+   * Order form with list of services __```<div class="calc-fast"></div>```__
+   * Table with prices for special services __```<div class="table-price"></div>```__
+   * Button inquiry __```<div class="inquiry" data-name="inquiry" data-class=""></div>```__
+   * Button order __```<div class="order" data-name="order" data-class=""></div>```__
+   * Button dashboard __```<div class="dashboard" data-name="dashboard" data-class=""></div>```__
         
 5. Set script tag with calculators options and Plugin this bundle script above the ```</body>```:
 
