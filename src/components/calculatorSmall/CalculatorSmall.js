@@ -7,6 +7,7 @@ import Title from './presentation/CSTitle';
 import SelectGroup from './presentation/CSSelectGroup';
 import Prices from "./presentation/CSPrices";
 import Buttons from "./presentation/CSButtons";
+import Email from './presentation/CSEmail'
 
 class CalculatorSmall extends React.Component {
 

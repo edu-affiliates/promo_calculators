@@ -1,0 +1,38 @@
+%cs-email {
+    background-color: $cs-select-background-color;
+    font-family: $cs-select-font-family;
+    font-weight: $cs-select-font-weight;
+    font-size: $cs-select-font-size;
+    color: $cs-select-color;
+}
+
+.cs-email {
+    @extend %cs-email;
+    background-color: $cs-select-background-color;
+    color: $cs-select-color;
+    border: none;
+    &-wrap {
+        &:after {
+            display: none;
+        }
+    }
+    &:focus {
+        outline: none;
+    }
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color : $cs-email-color-placeholder !important;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+        color : $cs-email-color-placeholder !important;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+        color : $cs-email-color-placeholder !important;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+        color : $cs-email-color-placeholder !important;
+    }
+}
+
+.cs-email-hidden {
+    display: none;
+}

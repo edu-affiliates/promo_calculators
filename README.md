@@ -1,56 +1,52 @@
-# How to use it? 
+## How to use it? (easy way)
 
-## Sass way
-1. Add script  
-```bash 
-<script src='https://s3.amazonaws.com/genericapps/resources/calculators/bundle36.js'></script>
+1. Download package as .zip (File name should be _promo_calculators-master.zip_) file or clone repository.  
+2. Copy file bundle.js (_promo_calculators-master.zip/docs/bundle.js_) to your website directory.
+3. Copy file style.css (_promo_calculators-master.zip/docs/styles/main.css_) to your website directory.
+4. Add spacial tags to your html markup:
+       * Main calculator __```<div class="calc-lg" data-title="" data-title-discount=""></div>```__
+       * Small calculator __```<div class="calc-sm" data-title="" data-title-discount=""></div>```__
+       * Horizontal small calculator __```<div class="calc-sm" data-type="horizontal" data-title="" data-title-discount=""></div>```__
+       * Order form with list of services __```<div class="calc-fast"></div>```__
+       * Table with prices for special services __```<div class="table-price"></div>```__
+       * Button inquiry __```<div class="inquiry" data-name="inquiry" data-class=""></div>```__
+       * Button order __```<div class="order" data-name="order" data-class=""></div>```__
+       * Button dashboard __```<div class="dashboard" data-name="dashboard" data-class=""></div>```__
+        
+5. Set script tag with calculators options and Plugin this bundle script above the ```</body>```:
+
+### if your site (YOURSITE.COM) **doesn't** have own WHITE LABEL APPLICATION on the MY.YOURSITE.COM subdomain.
+
+```
+        <script type="type/script">
+            var eduOptions =  {
+                'rid': YOUR_REFFERAL_ID, // without this parameter, you won't get data from api for calculator
+            }
+        </script>
+        <script type="type/script" src="path/to/bundle.js"></script>
 ```
 
-2. Setup global variable eduOptions - 
-```bash 
-        <script>
-          window.eduOptions = {
-          'hostname': 'hostname.com',
-          'website_id': 442,
-          'service_ids': '2185, 2186, 2184, 2183',
-          'apiMode': 'M',
-          'dsc': 'ESSAYFIRST15',
-          'dev_mode': false
-          }
-         </script>
- ```
-      
-hostname: string - to set site api url for api calls;
-website_id: number - id generated in [ACP](https://acpanel.edu-affiliates.com/client-sites/);
-service_ids: string - to load custom services take the ids from [ACP](https://acpanel.edu- affiliates.com/client-sites/)
-apiMode: string - to determine availability own my.hostname.com
-dsc: string - one-time discount coupon
-dev_mode: boolean - to choose devapi or api
-    
-3. Choose and add needed folders with [SASS styles](https://github.com/edu-affiliates/promo_calculators/tree/master/src/styles)
-    
-4. Add container and options for choosen component 
-    
-        <div class="table-price"></div>
-        <div class="calc-sm" data-title="" data-title-discount=""></div>
-        <div class="calc-sm" data-type="horizontal" data-title="" data-title-discount=""></div>
-        <div class="calc-lg" data-title="" data-title-discount=""></div>
-        
-        <div class="user-name"></div>
-        <div class="calc-fast"></div>
-        
-        <div class="inquiry" data-name="" data-class=""></div>
-        <div class="order" data-name="" data-class=""></div>
 
-    
-5. Posible options: 
-        - data-type="" accept value 'horizontal' to transform small calc to horizontal presentation;
-        - data-title="" accept any string that will show if there is no discount
-        - data-title-discount="" accept any string with sign '%' to show available discount
-        - data-name="" set button name
-        - data-class="" set button class
-        
-6. Override default variables to customize presentaion(do not forget to remove !default).
-        
-    
-        
+### if your site (YOURSITE.COM)  **HAVE** own WHITE LABEL APPLICATION on the MY.YOURSITE.COM subdomain
+
+
+```
+    <script>
+        var eduOptions =  {
+            'hostname': 'yoursite.com',
+            'website_id': YOUR_SITE_ID,
+            'service_ids': '1234, 1235, 1236, 1237', //IDs of the four default parameters (you could find it at the control-admin panel)
+            'apiMode': 'M', 
+        }
+    </script>
+    <script type="type/script" src="path/to/bundle.js"></script>
+```
+
+
+### Where can I find values of parameters?
+
+You may find all parameters in your personal account on our affiliate program. In order to start work, a personal account shall be needed. If you have any questions, not covered in this manual you may always ask our support team, they are always here to help you [support@edu-affiliates.com](mailto:support@edu-affiliates.com)
+
+### Parameter explanation
+
+- **rid** - is your main identifier in the partnership program. You may find it in your profile or in any affiliate link.

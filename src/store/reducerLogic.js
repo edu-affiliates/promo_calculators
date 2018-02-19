@@ -46,6 +46,10 @@ export const checkMaxPageNumber = (numPage, maxNumPage) => {
     return numPage;
 };
 
+export const checkEmail = (email) => {
+    return email;
+};
+
 export const filterServices = (allServices, search) => {
     return allServices.filter((service) => {
         return service.name.toLocaleLowerCase().indexOf(search.toLowerCase()) !== -1;

@@ -52,6 +52,7 @@ const MOUNT_NODES_CALC_SM = document.getElementsByClassName("calc-sm");
 const MOUNT_NODES_CALC_LG = document.getElementsByClassName("calc-lg");
 const MOUNT_NODES_INQUIRY = document.getElementsByClassName("inquiry");
 const MOUNT_NODES_ORDER = document.getElementsByClassName("order");
+const MOUNT_NODES_DASHBOARD = document.getElementsByClassName("dashboard");
 const MOUNT_NODES_TP = document.getElementsByClassName("table-price");
 let render = () => {
 
@@ -143,6 +144,20 @@ let render = () => {
         );
     });
     Array.prototype.forEach.call(MOUNT_NODES_ORDER, (MOUNT_NODE, i) => {
+        ReactDOM.render(
+            <Provider store={store}>
+                <div>
+                    <Button type={MOUNT_NODE.className}
+                            name={MOUNT_NODE.dataset.name}
+                            class={MOUNT_NODE.dataset.class}
+
+                    />
+                </div>
+            </Provider>,
+            MOUNT_NODE
+        );
+    });
+    Array.prototype.forEach.call(MOUNT_NODES_DASHBOARD, (MOUNT_NODE, i) => {
         ReactDOM.render(
             <Provider store={store}>
                 <div>

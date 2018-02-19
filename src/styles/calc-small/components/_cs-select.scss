@@ -21,7 +21,7 @@
   flex: 0 0 100%;
   .horizontal & {
     @include respond-to('(min-width: 992px)') {
-      flex: 0 0 calc(25% - 20px);
+      flex: 0 0 calc(25% - 55px);
     }
   }
 }

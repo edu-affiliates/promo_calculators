@@ -8,6 +8,7 @@ const initialState = {
     calculatorSmall: [],
     serviceId: {},
     levelId: {},
-    deadlineId: {}
+    deadlineId: {},
+    email: ''
 };
 export default initialState

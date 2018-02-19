@@ -17,6 +17,7 @@ import {
     CHANGE_DEADLINE,
     FILTER_SERVICES,
     INPUT_PAGE_NUMBER,
+    INPUT_EMAIL,
     SET_INIT_SERVICE,
     changeService,
 } from './actions';
@@ -29,7 +30,8 @@ const defaultCalcState = {
     currentDeadlines: [],
     service: {},
     level: {},
-    deadline: {}
+    deadline: {},
+    email: ''
 }
 
 const defaultId = generalOptions.service_ids.split(',')[0].trim();
@@ -87,6 +89,7 @@ export const reducers = (state = initialState, action) => {
         case PLUS_PAGE:
         case MINUS_PAGE:
         case FILTER_SERVICES:
+        case INPUT_EMAIL:
         case INPUT_PAGE_NUMBER:
             return {
                 ...state,

@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {changeLevel, changeDeadline, fetchService} from  '../../../store/actions'
 import Select from './CSSelect';
 import Counter from "./CSCounter";
+import Email from './CSEmail';
 
 
 
@@ -35,9 +36,9 @@ class CalculatorSmallSelectGroup extends React.Component {
     }
 
     render() {
-
         return (
             <div className="cs-select-group">
+                <Email calcId={this.props.calcId}/>
                 <Select type={'service'}
                         current={this.props.service}
                         currentList={this.props.serviceList}
@@ -77,10 +78,10 @@ const mapStateToProps = (reduxState, ownProps) => {
         service: state.service.name,
         level: state.level.name,
         deadline: state.deadline.name,
+        email: state.email,
         serviceList: state.currentServices,
         levelList: state.currentLevels,
         deadlineList: state.currentDeadlines
-
     }
 };
 

@@ -98,11 +98,15 @@ export const getData = (servicesIds = '') => {
         'is_paper_formats': false,
         'is_services': true,
         'website_id': generalOptions.website_id,
-        'service_ids': servicesIds
+        'service_ids': servicesIds,
     };
     if (generalOptions.apiMode !== 'M') {
         apiRequestBody.rid = generalOptions.rid;
-        apiRequestBody.website_id = 432
+        apiRequestBody.website_id = 432;
+    } 
+    if (generalOptions.apiMode === 'C') {
+        apiRequestBody.rid = generalOptions.rid;
+        apiRequestBody.website_id = generalOptions.website_id;
     }
     const apiCall = ((generalOptions.apiMode === 'M') ? api.service_tree.url : publicApi.service_tree.url);
 

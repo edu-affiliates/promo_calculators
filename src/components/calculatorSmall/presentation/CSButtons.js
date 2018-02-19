@@ -12,19 +12,28 @@ class CalculatorSmallButtons extends React.Component {
     }
 
     redirectTo(type) {
-        const {serviceId, levelId, deadlineId, countPages} = this.props;
+        const regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const {serviceId, levelId, deadlineId, countPages, email} = this.props;
+        const emailUrl = (generalOptions.email) ? ('&email=' + encodeURIComponent(email)) : ''
         let redirectTo = generalOptions.siteMyUrl
             + `/${type}.html?csi=` + serviceId
-            + '&cli=' + levelId
-            + '&cdi=' + deadlineId
-            + '&ccu=' + countPages;
+            + '&cli='  + levelId
+            + '&cdi='  + deadlineId
+            + '&ccu='  + countPages 
+            + emailUrl;
         if (generalOptions.rid) {
             redirectTo += `&rid=${generalOptions.rid}`
         }
         if (generalOptions.dsc) {
             redirectTo += `&dsc=${generalOptions.dsc}`
         }
-        location.href = redirectTo;
+        if (generalOptions.email) {
+            if (email != '' && regExp.test(String(email).toLowerCase())) {
+                location.href = redirectTo;
+            }
+        } else {
+            location.href = redirectTo;
+        }
     }
 
     render() {
@@ -41,7 +50,8 @@ CalculatorSmallButtons.propTypes = {
     serviceId: PropTypes.number.isRequired,
     levelId: PropTypes.number.isRequired,
     deadlineId: PropTypes.number.isRequired,
-    countPages: PropTypes.number.isRequired
+    countPages: PropTypes.number.isRequired,
+    email: PropTypes.string.isRequired
 };
 
 //container to match redux state to component props and dispatch redux actions to callback props
@@ -51,7 +61,8 @@ const mapStateToProps = (reduxState, ownProps) => {
         serviceId: state.service.id,
         levelId: state.level.id,
         deadlineId: state.deadline.id,
-        countPages: state.pageNumber
+        countPages: state.pageNumber,
+        email: state.email
     }
 };
 

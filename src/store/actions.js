@@ -14,6 +14,7 @@ export const CHANGE_LEVEL = 'CHANGE_LEVEL';
 export const CHANGE_DEADLINE = 'CHANGE_DEADLINE';
 export const FILTER_SERVICES = 'FILTER_SERVICES';
 export const INPUT_PAGE_NUMBER = 'INPUT_PAGE_NUMBER';
+export const INPUT_EMAIL = 'INPUT_EMAIL';
 export const INIT_CALC = 'INIT_CALC';
 export const SET_INIT_SERVICE = 'SET_INIT_SERVICE';
 
@@ -43,6 +44,10 @@ export function filterServices(search, calcId) {
 
 export function handleInputPageNumber(number, calcId) {
     return {type: INPUT_PAGE_NUMBER, number: number, calcId: calcId}
+}
+
+export function handleInputEmail(email, calcId) {
+    return {type: INPUT_EMAIL, email: email, calcId: calcId}
 }
 
 // saga dispatch actions
