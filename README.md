@@ -2,7 +2,7 @@
 
 1. Download package as .zip (File name should be _promo_calculators-master.zip_) file or clone repository.  
 2. Copy file bundle.js (_promo_calculators-master.zip/docs/bundle.js_) to your website directory.
-3. Copy file style.css (_promo_calculators-master.zip/docs/styles/main.css_) to your website directory.
+3. Copy file main.css (_promo_calculators-master.zip/docs/styles/main.css_) to your website directory.
 4. Add spacial tags to your html markup:
    * Main calculator: __```<div class="calc-lg" data-title="" data-title-discount=""></div>```__
    * Small calculator: __```<div class="calc-sm" data-title="" data-title-discount=""></div>```__
