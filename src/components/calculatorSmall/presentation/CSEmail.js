@@ -55,7 +55,7 @@ class CSEmail extends React.Component {
             }} className="cs-page-value__alert--cross">&times;</span>
         </div> : <div/>;
         return(
-            <div className={(generalOptions.email) ? 'cs-email-hidden' : 'cs-select-wrap'}>
+            <div className={(generalOptions.email) ? 'cs-select-wrap' : 'cs-email-hidden'}>
                 <div className="cs-email-wrap cs-select">
                     <input type="text" 
                             className="cs-email" 
