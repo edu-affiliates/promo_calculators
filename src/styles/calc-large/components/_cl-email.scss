@@ -1,0 +1,32 @@
+.cl-email {
+    width: 100%;
+    height: $cl-email-height;
+    border-radius: $cl-select-border-radius;
+    border: $cl-email-border;
+    background: transparent;
+    padding-left: 20px;
+    color: $cl-select-item-color;
+    font-size: $cl-select-item-font-size;
+    &-wrap {
+        display: flex;
+        flex: 0 0 100%;
+    }
+    &-hidden {
+        display: none;
+    }
+    &:focus {
+        outline: none;
+    }
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color : $cl-email-color-placeholder !important;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+        color : $cl-email-color-placeholder !important;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+        color : $cl-email-color-placeholder !important;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+        color : $cl-email-color-placeholder !important;
+    }
+}
