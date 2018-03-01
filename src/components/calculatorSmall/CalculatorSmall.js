@@ -20,7 +20,7 @@ class CalculatorSmall extends React.Component {
     }
 
     render() {
-        const {inited, calcId, calcType, calcTitle, calcTitleDiscount} = this.props;
+        const {inited, calcId, calcType, calcTitle, calcTitleDiscount, calcButtonOrderTitle, calcButtonInquiryTitle} = this.props;
         if (inited) {
             return (
                 <div className={(calcType) ? calcType : ''}>
@@ -28,7 +28,7 @@ class CalculatorSmall extends React.Component {
                         <Title calcTitle={calcTitle} calcTitleDiscount={calcTitleDiscount}/>
                         <SelectGroup calcId={calcId}/>
                         <Prices calcId={calcId}/>
-                        <Buttons calcId={calcId}/>
+                        <Buttons calcId={calcId} calcButtonOrderTitle={calcButtonOrderTitle} calcButtonInquiryTitle={calcButtonInquiryTitle} />
                     </div>
                 </div>
             )

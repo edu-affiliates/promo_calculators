@@ -34,7 +34,7 @@ function loadFont(filename) {
 }
 
 // loadCSS(css);
-loadFont(font);
+// loadFont(font);
 
 // Store Initialization
 // ------------------------------------
@@ -109,6 +109,8 @@ let render = () => {
                                      calcTitle={MOUNT_NODE.dataset.title}
                                      calcTitleDiscount={MOUNT_NODE.dataset.titleDiscount}
                                      calcType={MOUNT_NODE.dataset.type}
+                                     calcButtonOrderTitle={MOUNT_NODE.dataset.buttonOrderName}
+                                     calcButtonInquiryTitle={MOUNT_NODE.dataset.buttonInquiryName}
                     />
                 </div>
             </Provider>,
@@ -123,6 +125,8 @@ let render = () => {
                     <CalculatorLarge calcId={calcId++}
                                      calcTitle={MOUNT_NODE.dataset.title}
                                      calcTitleDiscount={MOUNT_NODE.dataset.titleDiscount}
+                                     calcButtonOrderTitle={MOUNT_NODE.dataset.buttonOrderName}
+                                     calcButtonInquiryTitle={MOUNT_NODE.dataset.buttonInquiryName}
                     />
                 </div>
             </Provider>,

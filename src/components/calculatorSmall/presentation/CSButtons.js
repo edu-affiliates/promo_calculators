@@ -37,11 +37,36 @@ class CalculatorSmallButtons extends React.Component {
     }
 
     render() {
+        const {serviceId, levelId, deadlineId, countPages, email, calcButtonOrderTitle: cbot, calcButtonInquiryTitle: cbit} = this.props;
+        let Buttons;
+        if (!!cbot && !!cbit) {
+            Buttons =
+                <div className="cs-btn-group">
+                    <div onClick={() => this.redirectTo('inquiry')} className="cs-btn cs-btn--qoute">{cbit}</div>
+                    <div onClick={() => this.redirectTo('order')} className="cs-btn cs-btn--order">{cbot}</div>
+                </div>
+        } else if (cbot) {
+            Buttons =
+                <div className="cs-btn-group">
+                    <div onClick={() => this.redirectTo('inquiry')} className="cs-btn cs-btn--qoute">free quote</div>
+                    <div onClick={() => this.redirectTo('order')} className="cs-btn cs-btn--order">{cbot}</div>
+                </div>
+        } else if (cbit) {
+            Buttons =
+                <div className="cs-btn-group">
+                    <div onClick={() => this.redirectTo('inquiry')} className="cs-btn cs-btn--qoute">{cbit}</div>
+                    <div onClick={() => this.redirectTo('order')} className="cs-btn cs-btn--order">order now</div>
+                </div>
+        } 
+        else {
+            Buttons =
+                <div className="cs-btn-group">
+                    <div onClick={() => this.redirectTo('inquiry')} className="cs-btn cs-btn--qoute">free quote</div>
+                    <div onClick={() => this.redirectTo('order')} className="cs-btn cs-btn--order">order now</div>
+                </div>
+        }
         return (
-            <div className="cs-btn-group">
-                <div onClick={() => this.redirectTo('inquiry')} className="cs-btn cs-btn--qoute">free quote</div>
-                <div onClick={() => this.redirectTo('order')} className="cs-btn cs-btn--order">order now</div>
-            </div>
+            Buttons
         )
     }
 }
@@ -50,8 +75,7 @@ CalculatorSmallButtons.propTypes = {
     serviceId: PropTypes.number.isRequired,
     levelId: PropTypes.number.isRequired,
     deadlineId: PropTypes.number.isRequired,
-    countPages: PropTypes.number.isRequired,
-    email: PropTypes.string.isRequired
+    countPages: PropTypes.number.isRequired
 };
 
 //container to match redux state to component props and dispatch redux actions to callback props

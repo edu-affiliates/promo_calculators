@@ -10,6 +10,7 @@ import CLRange from './presentation/CLRange';
 import CLCounter from './presentation/CLCounter';
 import CLPrices from './presentation/CLPrices';
 import CLButtons from './presentation/CLButtons';
+import CLEmail from './presentation/CLEmail';
 
 
 class CalculatorLarge extends React.Component {
@@ -23,17 +24,18 @@ class CalculatorLarge extends React.Component {
     }
 
     render() {
-        const {calcId, calcTitle, calcTitleDiscount} = this.props;
+        const {calcId, calcTitle, calcTitleDiscount, calcButtonOrderTitle, calcButtonInquiryTitle} = this.props;
         if (this.props.inited) {
             return (
                 <div className="calc-lg-container">
                     <CLTitle calcTitle={calcTitle} calcTitleDiscount={calcTitleDiscount}/>
+                    <CLEmail calcId={calcId} />
                     <CLSelectService calcId={calcId}/>
                     <CLSelectLevel calcId={calcId}/>
                     <CLRange calcId={calcId}/>
                     <CLCounter calcId={calcId}/>
                     <CLPrices calcId={calcId}/>
-                    <CLButtons calcId={calcId}/>
+                    <CLButtons calcId={calcId} calcButtonOrderTitle={calcButtonOrderTitle} calcButtonInquiryTitle={calcButtonInquiryTitle}/>
                 </div>
             )
         } else {

@@ -158,7 +158,7 @@
     }
 
     .ecs__title {
-        font-family: $ light;
+        /* font-family: $ light; */
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -179,7 +179,7 @@
 
     .writing_type {
         padding-left: 10px;
-        font-family: $ regular;
+        /* font-family: $ regular; */
         color: #474747;
         font-size: 18px;
         text-transform: uppercase;
@@ -190,7 +190,7 @@
     }
 
     .ecs__btn--order {
-        font-family: $ light;
+        /* font-family: $ light; */
         margin: 5px 0 10px 0;
         background-color: #ec4163;
         border-radius: 22px;
@@ -261,7 +261,7 @@
     }
 
     .ecs__plus-btn, .ecs__minus-btn {
-        font-family: $ regular;
+        /* font-family: $ regular; */
         display: inline-block;
         line-height: 39px;
         text-align: center;
@@ -282,7 +282,7 @@
         text-align: center;
         -moz-appearance: textfield;
         -webkit-user-select: none;
-        font-family: $ regular;
+        /* font-family: $ regular; */
         font-size: 21px;
         /* line-height: 52px; */
         letter-spacing: 1.2px;
@@ -307,7 +307,7 @@
     }
 
     .ecs__page--subtitle {
-        font-family: $ regular;
+        /* font-family: $ regular; */
         background: transparent;
         height: 35px;
         outline: none;
@@ -324,7 +324,7 @@
     }
 
     .ecs__price {
-        font-family: $ light;
+        /* font-family: $ light; */
         -webkit-box-align: center;
         -ms-flex-align: center;
         margin-bottom: 10px;
@@ -337,7 +337,7 @@
     }
 
     .ecs__price__title {
-        font-family: $ regular;
+        /* font-family: $ regular; */
         font-weight: 100;
         font-size: 20px;
         line-height: 1.06;
@@ -351,7 +351,7 @@
     }
 
     .ecs__price__value {
-        font-family: $ regular;
+        /* font-family: $ regular; */
         font-size: 30px;
         color: #474747;
         position: relative;
@@ -359,18 +359,18 @@
     }
 
     .ecs__price__value::before {
-        content: '$';
+        /* content: '$'; */
     }
 
     .ecs__price__old {
         position: relative;
-        font-family: $ light;
+        /* font-family: $light; */
         font-size: 24px;
         color: #757575;
     }
 
     .ecs__price__old::before {
-        content: '$';
+        /* content: '$'; */
 
     }
 
@@ -457,10 +457,10 @@
     <div class="order" data-type="order" data-name="order now" data-class="nav-btn nav-btn--order"></div>
     <div class="order" data-type="order" data-name="order now" data-class="nav-btn nav-btn--order nav-btn--sidenav"></div>
     <div class="table-price"></div>
-    <div class="calc-sm" data-title="" data-title-discount="% OFF YOUR FIRST ORDER. Limited Time!"></div>
-    <div class="calc-sm" data-type="horizontal" data-title=""
-         data-title-discount="% DISCOUNT ON YOUR FIRST PURCHASE. Order Now!"></div>
-    <div class="calc-lg" data-title="" data-title-discount="GET YOUR  % OFF AMAZING DISCOUNT. Right now!"></div>
+    <div class="calc-sm" data-title="" data-button-order-name="test order" data-button-inquiry-name="test inquiry" data-title-discount="sssss"></div>
+    <div class="calc-sm" data-type="horizontal" data-title="" data-button-order-name="test order"  data-button-inquiry-name="test inquiry"
+         data-title-discount="sssss"></div>
+    <div class="calc-lg" data-title="" data-button-order-name="test order" data-button-inquiry-name="test inquiry" data-title-discount="GET YOUR  % OFF AMAZING DISCOUNT. Right now!"></div>
 </div>
 <script>
     
@@ -470,7 +470,8 @@
         'service_ids': '1674, 1675, 1673, 1690', 
         'apiMode': 'M',
         'dsc': 'ESSAYFIRST5', 
-        'dev_mode' : true
+        'dev_mode' : true,
+        'email': true
     }
 </script>
 </body>

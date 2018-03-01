@@ -72,7 +72,7 @@ class CSEmail extends React.Component {
 }
 
 CSEmail.propTypes = {
-    email: PropTypes.string.isRequired,
+    // email: PropTypes.string.isRequired,
 
 };
 
