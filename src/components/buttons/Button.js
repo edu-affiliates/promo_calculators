@@ -12,10 +12,15 @@ class Button extends React.Component {
 
 
     redirectTo() {
-        const {type, serviceId, levelId, deadlineId} = this.props;
+        const {type, service, serviceId, levelId, deadlineId, serviceName} = this.props;
+        let srvcId;
+        for (const i in this.props.serviceName) {
+            if (this.props.serviceName[i].name.toLowerCase() == this.props.service.toLowerCase()) {
+                srvcId = this.props.serviceName[i].id;
+            }
+        }
         let redirectTo = generalOptions.siteMyUrl
-            + `/${type}.html?csi=` + serviceId
-            + '&cli=' + levelId
+            + `/${type}.html?cli=` + levelId
             + '&cdi=' + deadlineId
             + '&ccu=' + 1;
         if (generalOptions.rid) {
@@ -23,6 +28,11 @@ class Button extends React.Component {
         }
         if (generalOptions.dsc) {
             redirectTo += `&dsc=${generalOptions.dsc}`
+        }
+        if (this.props.service === undefined || this.props.service == '') {
+            redirectTo += `&csi=${serviceId}`
+        } else {
+            redirectTo += `&csi=${srvcId}`
         }
         if (type != 'dashboard') {
             location.href = redirectTo;
@@ -46,6 +56,7 @@ const mapStateToProps = state => {
         serviceId: state.serviceId,
         levelId: state.levelId,
         deadlineId: state.deadlineId,
+        serviceName: state.allServices
     }
 };
 

@@ -141,6 +141,7 @@ let render = () => {
                     <Button type={MOUNT_NODE.className}
                             name={MOUNT_NODE.dataset.name}
                             class={MOUNT_NODE.dataset.class}
+                            service={MOUNT_NODE.dataset.service}
                     />
                 </div>
             </Provider>,
@@ -154,6 +155,7 @@ let render = () => {
                     <Button type={MOUNT_NODE.className}
                             name={MOUNT_NODE.dataset.name}
                             class={MOUNT_NODE.dataset.class}
+                            service={MOUNT_NODE.dataset.service}
 
                     />
                 </div>
@@ -168,6 +170,7 @@ let render = () => {
                     <Button type={MOUNT_NODE.className}
                             name={MOUNT_NODE.dataset.name}
                             class={MOUNT_NODE.dataset.class}
+                            service={MOUNT_NODE.dataset.service}
 
                     />
                 </div>
