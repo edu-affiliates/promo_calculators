@@ -6,10 +6,11 @@ import {
   CHANGE_DEADLINE,
   FILTER_SERVICES,
   INPUT_EMAIL,
+  VALID_EMAIL,
   INPUT_PAGE_NUMBER,
 
 } from "./actions";
-import {currentLevelList, currentDeadlineList, checkMaxPageNumber, filterServices, checkEmail} from "./reducerLogic";
+import {currentLevelList, currentDeadlineList, checkMaxPageNumber, filterServices, checkEmail, checkValidEmail} from "./reducerLogic";
 
 export const calcSmallReducers = (singleCalcState, action, tree, allServices) => {
   switch (action.type) {
@@ -57,6 +58,10 @@ export const calcSmallReducers = (singleCalcState, action, tree, allServices) =>
     case INPUT_EMAIL:
       return Object.assign({}, singleCalcState, {
           email: checkEmail(action.email)
+      });
+    case VALID_EMAIL:
+      return Object.assign({}, singleCalcState, {
+        emailValid: checkValidEmail(action.emailValid)
       });
 
     case PLUS_PAGE:

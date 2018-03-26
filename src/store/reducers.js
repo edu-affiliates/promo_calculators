@@ -18,8 +18,11 @@ import {
     FILTER_SERVICES,
     INPUT_PAGE_NUMBER,
     INPUT_EMAIL,
+    VALID_EMAIL,
+    FETCH_MAIL,
     SET_INIT_SERVICE,
     changeService,
+    handleInputEmail,
 } from './actions';
 
 const defaultCalcState = {
@@ -31,7 +34,8 @@ const defaultCalcState = {
     service: {},
     level: {},
     deadline: {},
-    email: ''
+    email: '',
+    emailValid: false
 }
 
 const defaultId = generalOptions.service_ids.split(',')[0].trim();
@@ -62,6 +66,10 @@ export const reducers = (state = initialState, action) => {
                 userName: !!action.userName ? action.userName: '',
                 discount: !!action.dsc ? action.dsc : 0,
             });
+        case FETCH_MAIL:
+            return Object.assign({}, state, {
+                email: !!action.email ? action.email: ''
+            });
         case INIT_CALC:
             const calcState = state.inited ? calcSmallReducers(defaultCalcState, changeService(defaultId, action.calcId), state.tree, state.allServices) : defaultCalcState;
             return {
@@ -90,6 +98,7 @@ export const reducers = (state = initialState, action) => {
         case MINUS_PAGE:
         case FILTER_SERVICES:
         case INPUT_EMAIL:
+        case VALID_EMAIL:
         case INPUT_PAGE_NUMBER:
             return {
                 ...state,

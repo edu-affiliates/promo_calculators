@@ -22,7 +22,6 @@ class TablePrices extends React.Component {
 const mapStateToProps = state => {
     return {
         userName: state.userName
-
     }
 };
 

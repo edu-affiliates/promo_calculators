@@ -9,6 +9,7 @@ const initialState = {
     serviceId: {},
     levelId: {},
     deadlineId: {},
-    email: ''
+    email: '',
+    emailValid: false
 };
 export default initialState

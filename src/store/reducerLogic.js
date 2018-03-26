@@ -50,6 +50,10 @@ export const checkEmail = (email) => {
     return email;
 };
 
+export const checkValidEmail = (emailValid) => {
+    return emailValid;
+}
+
 export const filterServices = (allServices, search) => {
     return allServices.filter((service) => {
         return service.name.toLocaleLowerCase().indexOf(search.toLowerCase()) !== -1;

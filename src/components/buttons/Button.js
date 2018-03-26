@@ -14,9 +14,11 @@ class Button extends React.Component {
     redirectTo() {
         const {type, service, serviceId, levelId, deadlineId, serviceName} = this.props;
         let srvcId;
-        for (const i in this.props.serviceName) {
-            if (this.props.serviceName[i].name.toLowerCase() == this.props.service.toLowerCase()) {
-                srvcId = this.props.serviceName[i].id;
+        if (this.props.service !== undefined) {
+            for (const i in this.props.serviceName) {
+                if (this.props.serviceName[i].name.toLowerCase() == this.props.service.toLowerCase()) {
+                    srvcId = this.props.serviceName[i].id;
+                }
             }
         }
         let redirectTo = generalOptions.siteMyUrl

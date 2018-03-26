@@ -3,14 +3,15 @@
 import generalOptions from '../config/generalOptions'
 import helper from '../api/helper'
 import {call, put, select, takeEvery} from 'redux-saga/effects'
-import {FETCH_SERVICE, FETCH_INIT_TREE, FETCH_USER, FETCH_DISCOUNT} from './actions'
+import {FETCH_SERVICE, FETCH_INIT_TREE, FETCH_USER, FETCH_DISCOUNT, FETCH_MAIL} from './actions'
 import {
     fetchSuccess,
     fetchSuccessSingle,
     fetchSuccessDsc,
     changeService,
     setInitService,
-    fetchDiscount
+    fetchDiscount,
+    fetchMail
 } from './actions'
 import {
     getStats,
@@ -28,7 +29,7 @@ function * setDiscount(action) {
     try {
         if (!!action.discount && action.discount !== 0) {
             const dsc = yield call(getUserDiscount);
-            yield put(fetchSuccessDsc(dsc, action.userName))
+            yield put(fetchSuccessDsc(dsc, action.userName));
         } else {
             const couponCookie = helper.getCookie('dsc');
             const coupon = (!!couponCookie) ? couponCookie : generalOptions.dsc;
@@ -55,6 +56,7 @@ function * fetchUser() {
             } else {
                 const user = yield call(getUserCheckAccess);
                 yield call(sendStats, stats, user.info.token);
+                yield put(fetchMail(user.info.mail));
                 yield put(fetchDiscount(user.info.discount, user.info.name));
             }
         }
