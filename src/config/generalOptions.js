@@ -13,7 +13,7 @@ if (window.eduOptions) {
 if (generalOptions.new_api) {
     if (generalOptions.dev_mode) {
         generalOptions.siteApiUrl = `https://devnewapi.${generalOptions.hostname}`
-        generalOptions.siteMyUrl = `https://devmy.${generalOptions.hostname}`
+        generalOptions.siteMyUrl = `https://devnewmy.${generalOptions.hostname}`
     } else {
         generalOptions.siteApiUrl = `https://newapi.${generalOptions.hostname}`
         generalOptions.siteMyUrl = `https://newmy.${generalOptions.hostname}`

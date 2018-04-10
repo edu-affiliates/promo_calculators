@@ -45,6 +45,8 @@ const publicApi = {
     }
 }
 
+api.check_access.url = (generalOptions.new_api === 'true' ? '/api/v4/auth/check_access' : '/api/v3/auth/check_access');
+
 export const checkAccess = () => {
     return $.ajax({
         url: generalOptions.siteApiUrl + api.check_access.url,
