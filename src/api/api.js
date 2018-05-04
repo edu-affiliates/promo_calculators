@@ -45,7 +45,11 @@ const publicApi = {
     }
 }
 
-api.check_access.url = (generalOptions.new_api === 'true' ? '/api/v4/auth/check_access' : '/api/v3/auth/check_access');
+api.check_access.url = (generalOptions.new_api === true ? '/api/v4/auth/check_access' : '/api/v3/auth/check_access');
+
+api.check_coupon.url = (generalOptions.new_api === true ? '/api/v4/order/check_coupon' : '/api/v2/order/check_coupon');
+
+api.discounts_info.url = (generalOptions.new_api === true ? '/api/v4/user/discounts_info' : '/api/v2/user/discounts_info');
 
 export const checkAccess = () => {
     return $.ajax({

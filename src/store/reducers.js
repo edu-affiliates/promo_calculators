@@ -80,7 +80,8 @@ export const reducers = (state = initialState, action) => {
         case SET_INIT_SERVICE:
             const defaultService = state.tree.service[action.initServiceId];
             const defaultLevel = state.tree.level[defaultService.level[0]];
-            const defaultDeadline = state.tree.deadline[defaultLevel.deadline[0]];
+            const defaultDeadline = state.tree.deadline[defaultLevel.deadline[defaultLevel.deadline.length - 1]];
+            
             return Object.assign({}, state, {
                 serviceId: defaultService.id,
                 levelId: defaultLevel.id,
