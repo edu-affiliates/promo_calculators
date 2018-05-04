@@ -3,7 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import {handleInputEmail} from '../../../store/actions'
+import {handleInputEmail, handleValidEmail} from '../../../store/actions'
 import generalOptions from '../../../config/generalOptions';
 
 
@@ -35,6 +35,7 @@ class CLEmail extends React.Component {
         const value = e.target.value;
         this.handleEmptyInput(value);
         this.props.handleInputEmail(value);
+        this.props.handleValidEmail(false);
     }
 
     handleEmptyInput(value) {
@@ -47,11 +48,11 @@ class CLEmail extends React.Component {
     }
 
     render() {
-        const {email} = this.props;
-        const alert = (this.state.alert) ? <div className="cl-page-value__alert">
+        const {email, emailValid} = this.props;
+        const alert = (this.state.alert || this.props.emailValid) ? <div className="cl-page-value__alert">
             <span>Email is not valid</span>
             <span onClick={() => {
-                this.setState({alert: false})
+                this.setState({alert: false});this.props.handleValidEmail(false);
             }} className="cl-page-value__alert--cross">&times;</span>
         </div> : <div/>;
         return(
@@ -81,6 +82,7 @@ const mapStateToProps = (reduxState, ownProps) => {
     const state = reduxState.calculatorSmall[ownProps.calcId];
     return {
         email: state.email,
+        emailValid: state.emailValid
     }
 };
 
@@ -89,6 +91,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         handleInputEmail: (email) => {
             dispatch(handleInputEmail(email, ownProps.calcId));
+        },
+        handleValidEmail: (emailValid) => {
+            dispatch(handleValidEmail(emailValid, ownProps.calcId));
         }
     }
 };

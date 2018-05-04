@@ -15,8 +15,8 @@ if (generalOptions.new_api) {
         generalOptions.siteApiUrl = `https://devnewapi.${generalOptions.hostname}`
         generalOptions.siteMyUrl = `https://devnewmy.${generalOptions.hostname}`
     } else {
-        generalOptions.siteApiUrl = `https://api.${generalOptions.hostname}`
-        generalOptions.siteMyUrl = `https://my.${generalOptions.hostname}`
+        generalOptions.siteApiUrl = `https://newapi.${generalOptions.hostname}`
+        generalOptions.siteMyUrl = `https://newmy.${generalOptions.hostname}`
     }
 } else {
     if (generalOptions.dev_mode) {

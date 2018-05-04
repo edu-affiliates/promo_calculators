@@ -4,6 +4,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import generalOptions from '../../../config/generalOptions';
+import {handleValidEmail} from '../../../store/actions';
 
 class CLButtons extends React.Component {
 
@@ -13,8 +14,9 @@ class CLButtons extends React.Component {
 
     redirectTo(type) {
         const regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        const {serviceId, levelId, deadlineId, countPages, email} = this.props;
+        const {serviceId, levelId, deadlineId, countPages, email, emailValid} = this.props;
         const emailUrl = (generalOptions.email) ? ('&email=' + encodeURIComponent(email)) : ''
+        let emlValid;
         let redirectTo = generalOptions.siteMyUrl
             + `/${type}.html?csi=` + serviceId
             + '&cli='  + levelId
@@ -29,7 +31,12 @@ class CLButtons extends React.Component {
         }
         if (generalOptions.email) {
             if (email != '' && regExp.test(String(email).toLowerCase())) {
+                let emlValid = false;
+                this.props.handleValidEmail(emlValid);
                 location.href = redirectTo;
+            } else {
+                emlValid = true;
+                this.props.handleValidEmail(emlValid);
             }
         } else {
             location.href = redirectTo;
@@ -108,12 +115,17 @@ const mapStateToProps = (reduxState, ownProps) => {
         levelId: state.level.id,
         deadlineId: state.deadline.id,
         countPages: state.pageNumber,
-        email: state.email
+        email: state.email,
+        emailValid: state.emailValid
     }
 };
 
-const mapDispatchToProps = dispatch => {
-    return {}
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        handleValidEmail: (emailValid) => {
+            dispatch(handleValidEmail(emailValid, ownProps.calcId));
+        }
+    }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CLButtons);

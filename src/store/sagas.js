@@ -3,14 +3,15 @@
 import generalOptions from '../config/generalOptions'
 import helper from '../api/helper'
 import {call, put, select, takeEvery} from 'redux-saga/effects'
-import {FETCH_SERVICE, FETCH_INIT_TREE, FETCH_USER, FETCH_DISCOUNT} from './actions'
+import {FETCH_SERVICE, FETCH_INIT_TREE, FETCH_USER, FETCH_DISCOUNT, IS_LOG, handleInputEmail} from './actions'
 import {
     fetchSuccess,
     fetchSuccessSingle,
     fetchSuccessDsc,
     changeService,
     setInitService,
-    fetchDiscount
+    fetchDiscount,
+    fetchMail
 } from './actions'
 import {
     getStats,
@@ -48,14 +49,27 @@ function * fetchUser() {
         if (generalOptions.apiMode === 'M') {
             const stats = getStats();
             const xsrf = helper.getCookie('_xsrf');
+            const user = yield call(getUserCheckAccess);
             if (xsrf) {
-                yield call(sendStats, stats, xsrf);
-                const discount = yield call(getUserDiscountInfo);
-                yield put(fetchDiscount(discount));
+                yield call(sendStats, stats, user.info.token);
             } else {
-                const user = yield call(getUserCheckAccess);
                 yield call(sendStats, stats, user.info.token);
                 yield put(fetchDiscount(user.info.discount, user.info.name));
+            }
+
+            if (user.info.name) {
+                for (let i=0; i<25; i++) {
+                    if (generalOptions.new_api) {
+                        yield put(handleInputEmail(user.info.email, i));
+                    } else {
+                        yield put(handleInputEmail(user.info.mail, i));
+                    }
+                }
+
+                if (generalOptions.dsc) {
+                    const dsc = yield call(getDiscount, generalOptions.dsc);
+                    yield put(fetchSuccessDsc(dsc, user.info.name))
+                }
             }
         }
     } catch (e) {
@@ -111,3 +125,5 @@ function * mysaga() {
 }
 
 export default mysaga
+
+
