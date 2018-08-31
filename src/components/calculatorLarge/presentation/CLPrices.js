@@ -3,6 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import generalOptions from '../../../config/generalOptions';
 
 class CLPrices extends React.Component {
 
@@ -15,11 +16,11 @@ class CLPrices extends React.Component {
         //show if discount more than zero
         const fullPriceElement = (discount === 0) ? <div/> : <div className="cl-price cl-price--full">
             <span className="cl-price--line-throw"/>
-            <span className="cl-price--currency">$</span>{(fullPrice * pageNumber).toFixed(2)}
+            <span className="cl-price--currency">{generalOptions.currency}</span>{(fullPrice * pageNumber).toFixed(2)}
         </div>;
         const dscPriceElement = <div className="cl-price cl-price--dsc">
                         <span
-                            className="cl-price--currency">$</span>{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                            className="cl-price--currency">{generalOptions.currency}</span>{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
         </div>;
         return (
             <div className="cl-prices-group">

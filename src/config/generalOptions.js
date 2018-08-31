@@ -3,6 +3,7 @@ let hostname = '99papers.com'
 let generalOptions = {
     'hostname': hostname,
     'website_id': 432,
+    'currency': '$',
     'service_ids': '1674, 1675, 1673, 1690',
 };
 

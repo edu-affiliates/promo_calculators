@@ -3,6 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import generalOptions from '../../../config/generalOptions';
 
 //presentation of the price in calc small
 class CSPrices extends React.Component {
@@ -16,7 +17,7 @@ class CSPrices extends React.Component {
             <div className="cs-price ">
                 <div className="cs-price--full">
                     <span className="cs-price--line-throw"/>
-                    ${(fullPrice * pageNumber).toFixed(2)}
+                    {generalOptions.currency}{(fullPrice * pageNumber).toFixed(2)}
                 </div>
             </div>;
 
@@ -27,7 +28,7 @@ class CSPrices extends React.Component {
                     {cs}
                     <div className="cs-price ">
                         <div className="cs-price--dsc">
-                            ${(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                            {generalOptions.currency}{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
                         </div>
                     </div>
                 </div>

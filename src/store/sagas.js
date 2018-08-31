@@ -26,21 +26,21 @@ import {
 /** process api call for the discount **/
 
 function * setDiscount(action) {
-    try {
-        if (!!action.discount && action.discount !== 0) {
-            const dsc = yield call(getUserDiscount);
-            yield put(fetchSuccessDsc(dsc, action.userName))
-        } else {
-            const couponCookie = helper.getCookie('dsc');
-            const coupon = (!!couponCookie) ? couponCookie : generalOptions.dsc;
-            if (coupon) {
-                const dsc = yield call(getDiscount, coupon);
-                yield put(fetchSuccessDsc(dsc, action.userName))
-            }
-        }
-    } catch (e) {
-        console.log(e);
-    }
+    // try {
+    //     if (!!action.discount && action.discount !== 0) {
+    //         const dsc = yield call(getUserDiscount);
+    //         yield put(fetchSuccessDsc(dsc, action.userName))
+    //     } else {
+    //         const couponCookie = helper.getCookie('dsc');
+    //         const coupon = (!!couponCookie) ? couponCookie : generalOptions.dsc;
+    //         if (coupon) {
+    //             const dsc = yield call(getDiscount, coupon);
+    //             yield put(fetchSuccessDsc(dsc, action.userName))
+    //         }
+    //     }
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }
 
 /** process api calls for the user info and statistics **/
@@ -65,11 +65,11 @@ function * fetchUser() {
                         yield put(handleInputEmail(user.info.mail, i));
                     }
                 }
+            }
 
-                if (generalOptions.dsc) {
-                    const dsc = yield call(getDiscount, generalOptions.dsc);
-                    yield put(fetchSuccessDsc(dsc, user.info.name))
-                }
+            if (generalOptions.dsc) {
+                const dsc = yield call(getDiscount, generalOptions.dsc);
+                yield put(fetchSuccessDsc(dsc, user.info.name))
             }
         }
     } catch (e) {

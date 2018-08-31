@@ -65,7 +65,7 @@ class TPTableModal extends React.Component {
         const fullPriceDiv = (discount === 0) ? <div/> : <div className="tp-modal__price-full-container">
             <div className="tp-modal__price-full">
                 <span className="tp-modal__price-line-throw"/>
-                ${(fullPrice * pageNumber).toFixed(2)}
+                {generalOptions.currency}{(fullPrice * pageNumber).toFixed(2)}
             </div>
         </div>;
         return (
@@ -101,7 +101,7 @@ class TPTableModal extends React.Component {
                         <div className="tp-modal__price-container">
                             {fullPriceDiv}
                             <div className="tp-modal__price-dsc">
-                                ${(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                            {generalOptions.currency}{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
                             </div>
                         </div>
                     </div>

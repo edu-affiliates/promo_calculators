@@ -65,21 +65,22 @@ export const checkAccess = () => {
 };
 
 export const fetchStatsOld = (stats, xsrf) => {
-    return $.ajax({
-        url: generalOptions.siteApiUrl + api.stat_old.url,
-        type: api.stat_old.type,
-        data: {
-            'rid': stats.rid || stats.ref_id,
-            'sid': stats.sid || stats.sub_id,
-            'url': stats.referrer,
-            '_xsrf': xsrf
-        },
-        cache: false,
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-    })
+    if (!generalOptions.new_api)
+        return $.ajax({
+            url: generalOptions.siteApiUrl + api.stat_old.url,
+            type: api.stat_old.type,
+            data: {
+                'rid': stats.rid || stats.ref_id,
+                'sid': stats.sid || stats.sub_id,
+                'url': stats.referrer,
+                '_xsrf': xsrf
+            },
+            cache: false,
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+        })
 };
 
 export const fetchStats = (stats, xsrf) => {
