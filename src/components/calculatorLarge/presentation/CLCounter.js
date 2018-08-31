@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {plusPage, minusPage, handleInputPageNumber} from '../../../store/actions'
+import generalOptions from '../../../config/generalOptions';
 
 class CLCounter extends React.Component {
 
@@ -78,7 +79,7 @@ class CLCounter extends React.Component {
                     </div>
                     <div className="cl-single-price">
                         <span className="cl-single-price__title">Price per page:</span>
-                        <span className="cl-single-price__value">$ {(fullPrice * (1 - discount)).toFixed(2)}</span>
+                        <span className="cl-single-price__value">{generalOptions.currency} {(fullPrice * (1 - discount)).toFixed(2)}</span>
                     </div>
                 </div>
                 {alert}
