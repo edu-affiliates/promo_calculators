@@ -18,8 +18,13 @@ class CalculatorSmallTitle extends React.Component {
         if (discount !== 0) {
             if (!!ctd) {
                 let title, subtitle;
-                //set custom title with discount
-                title = (ctd.substr(0, ctd.indexOf('%')) + discount * 100 + ctd.substr(ctd.indexOf('%')));
+                // if there is %-sign in title discount
+                if (ctd.indexOf('%') !== -1) {
+                  //put before % discount-value
+                  title = (ctd.substr(0, ctd.indexOf('%')) + discount * 100 + ctd.substr(ctd.indexOf('%')));
+                } else {
+                  title = ctd;
+                }
                 //check if subtitle exist
                 if (title.indexOf('.') !== -1) {
                     title = title.substr(0, title.indexOf('.') + 1);
