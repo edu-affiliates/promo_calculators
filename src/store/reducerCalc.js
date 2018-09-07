@@ -11,7 +11,7 @@ import {
   FETCH_MAIL,
 
 } from "./actions";
-import {currentLevelList, currentDeadlineList, checkMaxPageNumber, filterServices, checkEmail, checkValidEmail} from "./reducerLogic";
+import {currentLevelList, currentDeadlineList, currencyService, checkMaxPageNumber, filterServices, checkEmail, checkValidEmail} from "./reducerLogic";
 
 export const calcSmallReducers = (singleCalcState, action, tree, allServices) => {
   
@@ -27,11 +27,13 @@ export const calcSmallReducers = (singleCalcState, action, tree, allServices) =>
       const selectedService = tree.service[action.id];
       const levelList = currentLevelList(tree, action.id);
       const deadlineList = currentDeadlineList(tree, levelList[0].id);
+      const currency = currencyService(tree);
       
       return Object.assign({}, singleCalcState, {
           currentServices: allServices,
           currentLevels: levelList,
           currentDeadlines: deadlineList,
+          currency: currency,
           service: selectedService,
           level: levelList[0],
           deadline: deadlineList[0],

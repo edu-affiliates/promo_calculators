@@ -9,6 +9,7 @@ const initialState = {
     serviceId: {},
     levelId: {},
     deadlineId: {},
+    currency: '',
     email: '',
     emailValid: false
 };

@@ -47,7 +47,7 @@ class CLCounter extends React.Component {
     }
 
     render() {
-        const {onClickPlus, onClickMinus, pageNumber, maxPageNumber, fullPrice, discount} = this.props;
+        const {onClickPlus, onClickMinus, pageNumber, maxPageNumber, fullPrice, discount, currency} = this.props;
         const alert = (this.state.alert) ? <div className="cl-page-value__alert">
             <span>This is maximum number of pages for current deadline.</span>
             <span onClick={() => {
@@ -79,7 +79,7 @@ class CLCounter extends React.Component {
                     </div>
                     <div className="cl-single-price">
                         <span className="cl-single-price__title">Price per page:</span>
-                        <span className="cl-single-price__value">{generalOptions.currency} {(fullPrice * (1 - discount)).toFixed(2)}</span>
+                        <span className="cl-single-price__value">{currency} {(fullPrice * (1 - discount)).toFixed(2)}</span>
                     </div>
                 </div>
                 {alert}
@@ -106,6 +106,7 @@ const mapStateToProps = (reduxState, ownProps) => {
         fullPrice: state.deadline.price,
         maxPageNumber: state.deadline.max_pages,
         pageNumber: state.pageNumber,
+        currency: state.currency
     }
 };
 

@@ -87,7 +87,6 @@ function * fetchServiceTree(action) {
             yield put(setInitService(defaultId))
         } else {
             const tree = yield call(getTree);
-
             yield call(helper.putToLocalStorage, 'tree', tree);
             yield put(fetchSuccess(tree));
             yield put(setInitService(defaultId))
@@ -106,7 +105,6 @@ function * fetchServiceSingle(action) {
             yield put(changeService(action.id, action.calcId))
         } else {
             const tree = yield call(getTree, action.id);
-            // console.log(tree);
             yield put(fetchSuccessSingle(tree, action.id));
             yield put(changeService(action.id, action.calcId))
         }
