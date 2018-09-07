@@ -64,11 +64,11 @@ class TPTableModal extends React.Component {
     }
 
     render() {
-        const {onClickPlus, onClickMinus, fullPrice, discount, pageNumber, service, level} = this.props;
+        const {onClickPlus, onClickMinus, fullPrice, discount, pageNumber, service, level, currency} = this.props;
         const fullPriceDiv = (discount === 0) ? <div/> : <div className="tp-modal__price-full-container">
             <div className="tp-modal__price-full">
                 <span className="tp-modal__price-line-throw"/>
-                {generalOptions.currency}{(fullPrice * pageNumber).toFixed(2)}
+                {currency}{(fullPrice * pageNumber).toFixed(2)}
             </div>
         </div>;
         return (
@@ -104,7 +104,7 @@ class TPTableModal extends React.Component {
                         <div className="tp-modal__price-container">
                             {fullPriceDiv}
                             <div className="tp-modal__price-dsc">
-                            {generalOptions.currency}{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                            {currency}{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
                             </div>
                         </div>
                     </div>
@@ -131,7 +131,6 @@ TPTableModal.propTypes = {
     service: PropTypes.object.isRequired,
     level: PropTypes.object.isRequired,
     deadline: PropTypes.object.isRequired,
-
 };
 
 //container to match redux state to component props and dispatch redux actions to callback props
@@ -145,6 +144,7 @@ const mapStateToProps = (reduxState, ownProps) => {
         service: state.service,
         level: state.level,
         deadline: state.deadline,
+        currency: state.currency
     }
 };
 

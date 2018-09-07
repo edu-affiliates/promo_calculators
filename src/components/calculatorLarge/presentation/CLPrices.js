@@ -12,15 +12,15 @@ class CLPrices extends React.Component {
     }
 
     render() {
-        const {fullPrice, discount, pageNumber} = this.props;
+        const {fullPrice, discount, pageNumber, currency} = this.props;
         //show if discount more than zero
         const fullPriceElement = (discount === 0) ? <div/> : <div className="cl-price cl-price--full">
             <span className="cl-price--line-throw"/>
-            <span className="cl-price--currency">{generalOptions.currency}</span>{(fullPrice * pageNumber).toFixed(2)}
+            <span className="cl-price--currency">{currency}</span>{(fullPrice * pageNumber).toFixed(2)}
         </div>;
         const dscPriceElement = <div className="cl-price cl-price--dsc">
                         <span
-                            className="cl-price--currency">{generalOptions.currency}</span>{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                            className="cl-price--currency">{currency}</span>{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
         </div>;
         return (
             <div className="cl-prices-group">
@@ -46,7 +46,8 @@ const mapStateToProps = (reduxState, ownProps) => {
     return {
         fullPrice: state.deadline.price,
         discount: reduxState.discount,
-        pageNumber: state.pageNumber
+        pageNumber: state.pageNumber,
+        currency: state.currency
     }
 };
 

@@ -18,6 +18,27 @@ export const allServiceList = (tree) => {
     return defaultServices.concat(services);
 };
 
+/** return all currency from api **/
+export const currencyService = (tree) => {
+    let currency = '';
+    switch (tree.tree.undefined.base_currency) {
+        case 'USD':
+            currency = '$';
+            break;
+        case 'AUD':
+            currency = '$';
+            break;
+        case 'GBP':
+            currency = '£';
+            break;
+        default:
+            currency = '$';
+            break;
+    }
+    /** return symbol currency from api **/
+    return currency;
+};
+
 
 export const currentLevelList = (tree, serviceID) => {
     const levelsID = tree.service[serviceID].level;

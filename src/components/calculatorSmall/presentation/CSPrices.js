@@ -12,12 +12,12 @@ class CSPrices extends React.Component {
     }
 
     render() {
-        const {fullPrice, discount, pageNumber} = this.props;
+        const {fullPrice, discount, pageNumber, currency} = this.props;
         const cs = (discount === 0 ) ? <div/> :
             <div className="cs-price ">
                 <div className="cs-price--full">
                     <span className="cs-price--line-throw"/>
-                    {generalOptions.currency}{(fullPrice * pageNumber).toFixed(2)}
+                    {currency}{(fullPrice * pageNumber).toFixed(2)}
                 </div>
             </div>;
 
@@ -28,7 +28,7 @@ class CSPrices extends React.Component {
                     {cs}
                     <div className="cs-price ">
                         <div className="cs-price--dsc">
-                            {generalOptions.currency}{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                            {currency}{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,8 @@ const mapStateToProps = (reduxState, ownProps) => {
     return {
         fullPrice: state.deadline.price,
         discount: reduxState.discount,
-        pageNumber: state.pageNumber
+        pageNumber: state.pageNumber,
+        currency: state.currency
     }
 };
 

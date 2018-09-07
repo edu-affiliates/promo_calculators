@@ -21,8 +21,7 @@ import {
     VALID_EMAIL,
     FETCH_MAIL,
     SET_INIT_SERVICE,
-    changeService,
-    handleInputEmail,
+    changeService
 } from './actions';
 
 const defaultCalcState = {
@@ -35,7 +34,8 @@ const defaultCalcState = {
     level: {},
     deadline: {},
     email: '',
-    emailValid: false
+    emailValid: false,
+    currency: ''
 }
 
 const defaultId = generalOptions.service_ids.split(',')[0].trim();
