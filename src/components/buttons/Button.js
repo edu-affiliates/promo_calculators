@@ -25,6 +25,7 @@ class Button extends React.Component {
             + `/${type}.html?cli=` + levelId
             + '&cdi=' + deadlineId
             + '&ccu=' + 1;
+        
         if (generalOptions.rid) {
             redirectTo += `&rid=${generalOptions.rid}`
         }
@@ -39,7 +40,11 @@ class Button extends React.Component {
         if (type != 'dashboard') {
             location.href = redirectTo;
         } else {
-            location.href = generalOptions.siteMyUrl + `/${type}.html`;
+            if (generalOptions.new_api) {
+                location.href = generalOptions.siteMyUrl + `/${type}`;
+            } else {
+                location.href = generalOptions.siteMyUrl + `/${type}.html`;
+            }
         }
     }
 
