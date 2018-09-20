@@ -22,7 +22,7 @@ class Button extends React.Component {
             }
         }
         let redirectTo = generalOptions.siteMyUrl
-            + `/${type}.html?cli=` + levelId
+            + `/${type}?cli=` + levelId
             + '&cdi=' + deadlineId
             + '&ccu=' + 1;
         
@@ -40,11 +40,7 @@ class Button extends React.Component {
         if (type != 'dashboard') {
             location.href = redirectTo;
         } else {
-            if (generalOptions.new_api) {
-                location.href = generalOptions.siteMyUrl + `/${type}`;
-            } else {
-                location.href = generalOptions.siteMyUrl + `/${type}.html`;
-            }
+            location.href = generalOptions.siteMyUrl + `/${type}`;
         }
     }
 

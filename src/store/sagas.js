@@ -59,11 +59,7 @@ function * fetchUser() {
 
             if (user.info.name) {
                 for (let i=0; i<25; i++) {
-                    if (generalOptions.new_api) {
-                        yield put(handleInputEmail(user.info.email, i));
-                    } else {
-                        yield put(handleInputEmail(user.info.mail, i));
-                    }
+                    yield put(handleInputEmail(user.info.email, i));
                 }
             }
 

@@ -11,22 +11,13 @@ if (window.eduOptions) {
     Object.assign(generalOptions, window.eduOptions)
 }
 
-if (generalOptions.new_api) {
-    if (generalOptions.dev_mode) {
-        generalOptions.siteApiUrl = `https://devnewapi.${generalOptions.hostname}`
-        generalOptions.siteMyUrl = `https://devnewmy.${generalOptions.hostname}`
-    } else {
-        generalOptions.siteApiUrl = `https://newapi.${generalOptions.hostname}`
-        generalOptions.siteMyUrl = `https://newmy.${generalOptions.hostname}`
-    }
+
+if (generalOptions.dev_mode) {
+    generalOptions.siteApiUrl = `https://devapi.${generalOptions.hostname}`
+    generalOptions.siteMyUrl = `https://devmy.${generalOptions.hostname}`
 } else {
-    if (generalOptions.dev_mode) {
-        generalOptions.siteApiUrl = `https://devapi.${generalOptions.hostname}`
-        generalOptions.siteMyUrl = `https://devmy.${generalOptions.hostname}`
-    } else {
-        generalOptions.siteApiUrl = `https://api.${generalOptions.hostname}`
-        generalOptions.siteMyUrl = `https://my.${generalOptions.hostname}`
-    }
+    generalOptions.siteApiUrl = `https://api.${generalOptions.hostname}`
+    generalOptions.siteMyUrl = `https://my.${generalOptions.hostname}`
 }
 
 export default generalOptions
