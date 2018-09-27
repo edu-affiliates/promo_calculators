@@ -40,7 +40,11 @@ class Button extends React.Component {
         if (type != 'dashboard') {
             location.href = redirectTo;
         } else {
-            location.href = generalOptions.siteMyUrl + `/${type}`;
+            if (generalOptions.dsc) {
+                location.href = generalOptions.siteMyUrl + `/${type}?dsc=${generalOptions.dsc}`;
+            } else {
+                location.href = generalOptions.siteMyUrl + `/${type}`;
+            }
         }
     }
 

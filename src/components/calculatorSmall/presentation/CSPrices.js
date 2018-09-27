@@ -4,6 +4,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import generalOptions from '../../../config/generalOptions';
+import helper from '../../../api/helper';
 
 //presentation of the price in calc small
 class CSPrices extends React.Component {
@@ -13,6 +14,7 @@ class CSPrices extends React.Component {
 
     render() {
         const {fullPrice, discount, pageNumber, currency} = this.props;
+        let fullPriceDsc = helper.truncateDecimals(fullPrice * (1 - discount), 2);
         const cs = (discount === 0 ) ? <div/> :
             <div className="cs-price ">
                 <div className="cs-price--full">
@@ -20,6 +22,7 @@ class CSPrices extends React.Component {
                     {currency}{(fullPrice * pageNumber).toFixed(2)}
                 </div>
             </div>;
+        
 
         return (
             <div className="cs-prices-group">
@@ -28,7 +31,7 @@ class CSPrices extends React.Component {
                     {cs}
                     <div className="cs-price ">
                         <div className="cs-price--dsc">
-                            {currency}{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                            {currency}{(helper.truncateDecimals(fullPriceDsc * pageNumber, 2)).toFixed(2)}
                         </div>
                     </div>
                 </div>

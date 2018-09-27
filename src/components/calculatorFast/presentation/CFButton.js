@@ -14,7 +14,7 @@ class CFButtons extends React.Component {
     redirectTo(type) {
         const {serviceId, levelId, deadlineId, countPages} = this.props;
         let redirectTo = generalOptions.siteMyUrl
-            + `/${type}.html?csi=` + serviceId
+            + `/${type}?csi=` + serviceId
             + '&cli=' + levelId
             + '&cdi=' + deadlineId
             + '&ccu=' + countPages;

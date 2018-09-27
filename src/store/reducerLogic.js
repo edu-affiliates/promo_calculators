@@ -26,7 +26,7 @@ export const currencyService = (tree) => {
             currency = '$';
             break;
         case 'AUD':
-            currency = '$';
+            currency = 'A$';
             break;
         case 'GBP':
             currency = '£';

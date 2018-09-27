@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
+import helper from '../../../api/helper';
 
 class Price extends React.Component {
 
@@ -11,12 +12,13 @@ class Price extends React.Component {
 
     render() {
         const {discount, fullPrice, pageNumber} = this.props;
+        let fullPriceDsc = helper.truncateDecimals(fullPrice * (1 - discount), 2);
         return (
             <div className="cswb__price">
                 <span className="cswb__price__title">Estimated price:</span>
                 <div className="cswb__prices">
                     <span className="cswb__price__old"> {(fullPrice * pageNumber).toFixed(2)}</span>
-                    <span className="cswb__price__value"> {(fullPrice * (1 - discount) * pageNumber).toFixed(2)}</span>
+                    <span className="cswb__price__value"> {(helper.truncateDecimals(fullPriceDsc * pageNumber, 2)).toFixed(2)}</span>
                 </div>
             </div>
         )

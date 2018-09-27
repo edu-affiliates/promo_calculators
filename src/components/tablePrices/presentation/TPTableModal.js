@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import generalOptions from '../../../config/generalOptions';
+import helper from '../../../api/helper';
 import {plusPage, minusPage, handleInputPageNumber} from '../../../store/actions'
 
 
@@ -40,7 +41,7 @@ class TPTableModal extends React.Component {
     redirectTo(type) {
         const {service, level, deadline, pageNumber} = this.props;
         let redirectTo = generalOptions.siteMyUrl
-            + `/${type}.html?csi=` + service.id
+            + `/${type}?csi=` + service.id
             + '&cli=' + level.id
             + '&cdi=' + deadline.id
             + '&ccu=' + pageNumber;
@@ -65,10 +66,11 @@ class TPTableModal extends React.Component {
 
     render() {
         const {onClickPlus, onClickMinus, fullPrice, discount, pageNumber, service, level, currency} = this.props;
+        let fullPriceDsc = helper.truncateDecimals(fullPrice * (1 - discount), 2);
         const fullPriceDiv = (discount === 0) ? <div/> : <div className="tp-modal__price-full-container">
             <div className="tp-modal__price-full">
                 <span className="tp-modal__price-line-throw"/>
-                {currency}{(fullPrice * pageNumber).toFixed(2)}
+                {currency}{(helper.truncateDecimals(fullPrice * pageNumber, 2)).toFixed(2)}
             </div>
         </div>;
         return (
@@ -104,7 +106,7 @@ class TPTableModal extends React.Component {
                         <div className="tp-modal__price-container">
                             {fullPriceDiv}
                             <div className="tp-modal__price-dsc">
-                            {currency}{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                            {currency}{(helper.truncateDecimals(fullPriceDsc * pageNumber, 2)).toFixed(2)}
                             </div>
                         </div>
                     </div>

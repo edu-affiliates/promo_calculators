@@ -13,7 +13,7 @@ class Button extends React.Component {
     redirectTo(type) {
         const {serviceId, levelId, deadlineId, pageNumber} = this.props;
         let redirectTo = generalOptions.siteMyUrl
-            + `/${type}.html?csi=` + serviceId
+            + `/${type}?csi=` + serviceId
             + '&cli=' + levelId
             + '&cdi=' + deadlineId
             + '&ccu=' + pageNumber;

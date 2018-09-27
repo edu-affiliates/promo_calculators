@@ -18,7 +18,7 @@ class CalculatorSmallButtons extends React.Component {
         const emailUrl = (generalOptions.email) ? ('&email=' + encodeURIComponent(email)) : '';
         let emlValid;
         let redirectTo = generalOptions.siteMyUrl
-            + `/${type}.html?csi=` + serviceId
+            + `/${type}?csi=` + serviceId
             + '&cli='  + levelId
             + '&cdi='  + deadlineId
             + '&ccu='  + countPages 

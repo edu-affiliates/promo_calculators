@@ -4,6 +4,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import generalOptions from '../../../config/generalOptions';
+import helper from '../../../api/helper';
 
 class CLPrices extends React.Component {
 
@@ -13,6 +14,7 @@ class CLPrices extends React.Component {
 
     render() {
         const {fullPrice, discount, pageNumber, currency} = this.props;
+        let fullPriceDsc = helper.truncateDecimals(fullPrice * (1 - discount), 2);
         //show if discount more than zero
         const fullPriceElement = (discount === 0) ? <div/> : <div className="cl-price cl-price--full">
             <span className="cl-price--line-throw"/>
@@ -20,7 +22,7 @@ class CLPrices extends React.Component {
         </div>;
         const dscPriceElement = <div className="cl-price cl-price--dsc">
                         <span
-                            className="cl-price--currency">{currency}</span>{(fullPrice * (1 - discount) * pageNumber).toFixed(2)}
+                            className="cl-price--currency">{currency}</span>{(helper.truncateDecimals(fullPriceDsc * pageNumber, 2)).toFixed(2)}
         </div>;
         return (
             <div className="cl-prices-group">
