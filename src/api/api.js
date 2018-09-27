@@ -48,10 +48,10 @@ const new_api = {
         url: '/api/v4/auth/check_access',
         type: 'GET'
     },
-    stat_old: {
-        url: '/api/v2/auth/log_ref_stats',
-        type: 'POST'
-    },
+    // stat_old: {
+    //     url: '/api/v4/auth/log_ref_stats',
+    //     type: 'POST'
+    // },
     stat: {
         url: '/api/v2/statistic/hit',
         type: 'POST'
@@ -96,24 +96,24 @@ export const checkAccess = () => {
     })
 };
 
-export const fetchStatsOld = (stats, xsrf) => {
-    if (!generalOptions.new_api)
-        return $.ajax({
-            url: generalOptions.siteApiUrl + new_api.stat_old.url,
-            type: api.stat_old.type,
-            data: {
-                'rid': stats.rid || stats.ref_id,
-                'sid': stats.sid || stats.sub_id,
-                'url': stats.referrer,
-                '_xsrf': xsrf
-            },
-            cache: false,
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-        })
-};
+// export const fetchStatsOld = (stats, xsrf) => {
+//     if (!generalOptions.new_api)
+//         return $.ajax({
+//             url: generalOptions.siteApiUrl + new_api.stat_old.url,
+//             type: api.stat_old.type,
+//             data: {
+//                 'rid': stats.rid || stats.ref_id,
+//                 'sid': stats.sid || stats.sub_id,
+//                 'url': stats.referrer,
+//                 '_xsrf': xsrf
+//             },
+//             cache: false,
+//             xhrFields: {
+//                 withCredentials: true
+//             },
+//             crossDomain: true,
+//         })
+// };
 
 export const fetchStats = (stats, xsrf) => {
     return $.ajax({
@@ -126,7 +126,7 @@ export const fetchStats = (stats, xsrf) => {
         },
         crossDomain: true,
         success: () => {
-            fetchStatsOld(stats, xsrf)
+            // fetchStatsOld(stats, xsrf)
         }
     })
 };
