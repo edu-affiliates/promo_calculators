@@ -14,7 +14,7 @@ class CSPrices extends React.Component {
 
     render() {
         const {fullPrice, discount, pageNumber, currency} = this.props;
-        let fullPriceDsc = helper.truncateDecimals(fullPrice * (1 - discount), 2);
+        let fullPriceDsc = helper.truncateDecimals(+(fullPrice * (1 - discount)).toFixed(10), 2);
         const cs = (discount === 0 ) ? <div/> :
             <div className="cs-price ">
                 <div className="cs-price--full">
@@ -52,11 +52,12 @@ CSPrices.propTypes = {
 
 const mapStateToProps = (reduxState, ownProps) => {
     const state = reduxState.calculatorSmall[ownProps.calcId];
+    
     return {
         fullPrice: state.deadline.price,
         discount: reduxState.discount,
         pageNumber: state.pageNumber,
-        currency: state.currency
+        currency: reduxState.currency
     }
 };
 

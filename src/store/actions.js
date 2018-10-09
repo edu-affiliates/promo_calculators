@@ -2,6 +2,7 @@ export const FETCH_INIT_TREE = 'FETCH_INIT_TREE';
 export const FETCH_USER = 'FETCH_USER';
 export const FETCH_MAIL = 'FETCH_MAIl';
 export const FETCH_DISCOUNT = 'FETCH_DISCOUNT';
+export const FETCH_CURRENCY = 'FETCH CURRENCY';
 
 export const FETCH_SERVICE = 'FETCH_SERVICE';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
@@ -90,4 +91,7 @@ export function initCalc(calcId) {
 }
 export function setInitService(initServiceId) {
     return {type: SET_INIT_SERVICE, initServiceId: initServiceId}
+}
+export function fetchCurrency(currency) {
+    return {type: FETCH_CURRENCY, currency: currency}
 }

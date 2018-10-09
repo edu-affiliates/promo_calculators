@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {plusPage, minusPage, handleInputPageNumber} from '../../../store/actions'
 import generalOptions from '../../../config/generalOptions';
+import helper from '../../../api/helper';
 
 class CLCounter extends React.Component {
 
@@ -79,7 +80,7 @@ class CLCounter extends React.Component {
                     </div>
                     <div className="cl-single-price">
                         <span className="cl-single-price__title">Price per page:</span>
-                        <span className="cl-single-price__value">{currency} {(fullPrice * (1 - discount)).toFixed(2)}</span>
+                        <span className="cl-single-price__value">{currency} {helper.truncateDecimals(+(fullPrice * (1 - discount)).toFixed(10), 2).toFixed(2)}</span>
                     </div>
                 </div>
                 {alert}
@@ -106,7 +107,7 @@ const mapStateToProps = (reduxState, ownProps) => {
         fullPrice: state.deadline.price,
         maxPageNumber: state.deadline.max_pages,
         pageNumber: state.pageNumber,
-        currency: state.currency
+        currency: reduxState.currency
     }
 };
 

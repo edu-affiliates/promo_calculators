@@ -12,7 +12,7 @@ class Price extends React.Component {
 
     render() {
         const {discount, fullPrice, pageNumber} = this.props;
-        let fullPriceDsc = helper.truncateDecimals(fullPrice * (1 - discount), 2);
+        let fullPriceDsc = helper.truncateDecimals(+(fullPrice * (1 - discount)).toFixed(10), 2);
         return (
             <div className="cswb__price">
                 <span className="cswb__price__title">Estimated price:</span>

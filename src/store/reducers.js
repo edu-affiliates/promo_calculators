@@ -21,7 +21,8 @@ import {
     VALID_EMAIL,
     FETCH_MAIL,
     SET_INIT_SERVICE,
-    changeService
+    changeService,
+    FETCH_CURRENCY
 } from './actions';
 
 const defaultCalcState = {
@@ -47,6 +48,7 @@ export const reducers = (state = initialState, action) => {
             const mergedServices = Object.assign({}, state.tree.service, action.tree.entities.service);
             const mergedLevels = Object.assign({}, state.tree.level, action.tree.entities.level);
             const mergedDeadline = Object.assign({}, state.tree.deadline, action.tree.entities.deadline);
+            
             return Object.assign({}, state, {
                 tree: {
                     service: mergedServices,
@@ -69,6 +71,10 @@ export const reducers = (state = initialState, action) => {
         case FETCH_MAIL:
             return Object.assign({}, state, {
                 email: !!action.email ? action.email: ''
+            });
+        case FETCH_CURRENCY:
+            return Object.assign({}, state, {
+                currency: !!action.currency ? action.currency: ''
             });
         case INIT_CALC:
             const calcState = state.inited ? calcSmallReducers(defaultCalcState, changeService(defaultId, action.calcId), state.tree, state.allServices) : defaultCalcState;

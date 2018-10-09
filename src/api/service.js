@@ -35,6 +35,7 @@ export function getStats() {
             return p
         }, {}
     );
+    
     const clientParams = {
         segment_id: generalOptions.segment_id,
         rid: generalOptions.rid,

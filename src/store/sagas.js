@@ -3,7 +3,7 @@
 import generalOptions from '../config/generalOptions'
 import helper from '../api/helper'
 import {call, put, select, takeEvery} from 'redux-saga/effects'
-import {FETCH_SERVICE, FETCH_INIT_TREE, FETCH_USER, FETCH_DISCOUNT, IS_LOG, handleInputEmail} from './actions'
+import {FETCH_SERVICE, FETCH_INIT_TREE, FETCH_USER, FETCH_DISCOUNT, handleInputEmail} from './actions'
 import {
     fetchSuccess,
     fetchSuccessSingle,
@@ -11,17 +11,17 @@ import {
     changeService,
     setInitService,
     fetchDiscount,
-    fetchMail
+    fetchCurrency
 } from './actions'
 import {
     getStats,
     sendStats,
     getUserCheckAccess,
-    getUserDiscountInfo,
-    getUserDiscount,
     getTree,
     getDiscount
 } from '../api/service'
+
+import {currencyService} from "./reducerLogic";
 
 /** process api call for the discount **/
 
@@ -81,11 +81,13 @@ function * fetchServiceTree(action) {
         if (treeLocalStorage) {
             yield put(fetchSuccess(treeLocalStorage));
             yield put(setInitService(defaultId))
+            yield put(fetchCurrency(currencyService(treeLocalStorage)))
         } else {
             const tree = yield call(getTree);
             yield call(helper.putToLocalStorage, 'tree', tree);
             yield put(fetchSuccess(tree));
             yield put(setInitService(defaultId))
+            yield put(fetchCurrency(currencyService(tree)))
         }
     } catch (e) {
         yield put({type: 'USER_FETCH_FAILED', message: e.message});

@@ -66,7 +66,7 @@ class TPTableModal extends React.Component {
 
     render() {
         const {onClickPlus, onClickMinus, fullPrice, discount, pageNumber, service, level, currency} = this.props;
-        let fullPriceDsc = helper.truncateDecimals(fullPrice * (1 - discount), 2);
+        let fullPriceDsc = helper.truncateDecimals(+(fullPrice * (1 - discount)).toFixed(10), 2);
         const fullPriceDiv = (discount === 0) ? <div/> : <div className="tp-modal__price-full-container">
             <div className="tp-modal__price-full">
                 <span className="tp-modal__price-line-throw"/>
@@ -146,7 +146,7 @@ const mapStateToProps = (reduxState, ownProps) => {
         service: state.service,
         level: state.level,
         deadline: state.deadline,
-        currency: state.currency
+        currency: reduxState.currency
     }
 };
 

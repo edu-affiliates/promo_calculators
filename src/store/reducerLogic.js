@@ -21,7 +21,8 @@ export const allServiceList = (tree) => {
 /** return all currency from api **/
 export const currencyService = (tree) => {
     let currency = '';
-    switch (tree.tree.undefined.base_currency) {
+    
+    switch (tree.entities.tree.undefined.base_currency) {
         case 'USD':
             currency = '$';
             break;

@@ -8,8 +8,7 @@ import {
   INPUT_EMAIL,
   VALID_EMAIL,
   INPUT_PAGE_NUMBER,
-  FETCH_MAIL,
-
+  FETCH_CURRENCY
 } from "./actions";
 import {currentLevelList, currentDeadlineList, currencyService, checkMaxPageNumber, filterServices, checkEmail, checkValidEmail} from "./reducerLogic";
 
@@ -27,13 +26,11 @@ export const calcSmallReducers = (singleCalcState, action, tree, allServices) =>
       const selectedService = tree.service[action.id];
       const levelList = currentLevelList(tree, action.id);
       const deadlineList = currentDeadlineList(tree, levelList[0].id);
-      const currency = currencyService(tree);
       
       return Object.assign({}, singleCalcState, {
           currentServices: allServices,
           currentLevels: levelList,
           currentDeadlines: deadlineList,
-          currency: currency,
           service: selectedService,
           level: levelList[0],
           deadline: deadlineList[0],
@@ -67,6 +64,10 @@ export const calcSmallReducers = (singleCalcState, action, tree, allServices) =>
     case VALID_EMAIL:
       return Object.assign({}, singleCalcState, {
         emailValid: checkValidEmail(action.emailValid)
+      });
+    case FETCH_CURRENCY:   
+      return Object.assign({}, singleCalcState, {
+        currency: checkEmail(action.currency)
       });
 
     case PLUS_PAGE:

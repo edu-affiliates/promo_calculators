@@ -14,7 +14,7 @@ class CLPrices extends React.Component {
 
     render() {
         const {fullPrice, discount, pageNumber, currency} = this.props;
-        let fullPriceDsc = helper.truncateDecimals(fullPrice * (1 - discount), 2);
+        let fullPriceDsc = helper.truncateDecimals(+(fullPrice * (1 - discount)).toFixed(10), 2);
         //show if discount more than zero
         const fullPriceElement = (discount === 0) ? <div/> : <div className="cl-price cl-price--full">
             <span className="cl-price--line-throw"/>
@@ -49,7 +49,7 @@ const mapStateToProps = (reduxState, ownProps) => {
         fullPrice: state.deadline.price,
         discount: reduxState.discount,
         pageNumber: state.pageNumber,
-        currency: state.currency
+        currency: reduxState.currency
     }
 };
 
