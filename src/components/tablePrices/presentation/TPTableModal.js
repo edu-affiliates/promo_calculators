@@ -106,7 +106,7 @@ class TPTableModal extends React.Component {
                         <div className="tp-modal__price-container">
                             {fullPriceDiv}
                             <div className="tp-modal__price-dsc">
-                            {currency}{(helper.truncateDecimals(fullPriceDsc * pageNumber, 2)).toFixed(2)}
+                            {currency}{(fullPriceDsc * pageNumber).toFixed(2)}
                             </div>
                         </div>
                     </div>

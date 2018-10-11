@@ -31,7 +31,7 @@ class CSPrices extends React.Component {
                     {cs}
                     <div className="cs-price ">
                         <div className="cs-price--dsc">
-                            {currency}{(helper.truncateDecimals(fullPriceDsc * pageNumber, 2)).toFixed(2)}
+                            {currency}{(fullPriceDsc * pageNumber).toFixed(2)}
                         </div>
                     </div>
                 </div>

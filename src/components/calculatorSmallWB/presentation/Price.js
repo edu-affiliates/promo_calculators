@@ -18,7 +18,7 @@ class Price extends React.Component {
                 <span className="cswb__price__title">Estimated price:</span>
                 <div className="cswb__prices">
                     <span className="cswb__price__old"> {(fullPrice * pageNumber).toFixed(2)}</span>
-                    <span className="cswb__price__value"> {(helper.truncateDecimals(fullPriceDsc * pageNumber, 2)).toFixed(2)}</span>
+                    <span className="cswb__price__value"> {(fullPriceDsc * pageNumber).toFixed(2)}</span>
                 </div>
             </div>
         )

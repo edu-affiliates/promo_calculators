@@ -22,7 +22,7 @@ class CLPrices extends React.Component {
         </div>;
         const dscPriceElement = <div className="cl-price cl-price--dsc">
                         <span
-                            className="cl-price--currency">{currency}</span>{(helper.truncateDecimals(fullPriceDsc * pageNumber, 2)).toFixed(2)}
+                            className="cl-price--currency">{currency}</span>{(fullPriceDsc * pageNumber).toFixed(2)}
         </div>;
         return (
             <div className="cl-prices-group">

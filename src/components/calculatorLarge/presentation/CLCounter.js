@@ -49,6 +49,7 @@ class CLCounter extends React.Component {
 
     render() {
         const {onClickPlus, onClickMinus, pageNumber, maxPageNumber, fullPrice, discount, currency} = this.props;
+        let fullPriceDsc = helper.truncateDecimals(+(fullPrice * (1 - discount)).toFixed(10), 2);
         const alert = (this.state.alert) ? <div className="cl-page-value__alert">
             <span>This is maximum number of pages for current deadline.</span>
             <span onClick={() => {
@@ -80,7 +81,7 @@ class CLCounter extends React.Component {
                     </div>
                     <div className="cl-single-price">
                         <span className="cl-single-price__title">Price per page:</span>
-                        <span className="cl-single-price__value">{currency} {helper.truncateDecimals(+(fullPrice * (1 - discount)).toFixed(10), 2).toFixed(2)}</span>
+                        <span className="cl-single-price__value">{currency} {fullPriceDsc.toFixed(2)}</span>
                     </div>
                 </div>
                 {alert}
