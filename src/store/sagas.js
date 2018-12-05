@@ -23,39 +23,15 @@ import {
 
 import {currencyService} from "./reducerLogic";
 
-/** process api call for the discount **/
 
-function * setDiscount(action) {
-    // try {
-    //     if (!!action.discount && action.discount !== 0) {
-    //         const dsc = yield call(getUserDiscount);
-    //         yield put(fetchSuccessDsc(dsc, action.userName))
-    //     } else {
-    //         const couponCookie = helper.getCookie('dsc');
-    //         const coupon = (!!couponCookie) ? couponCookie : generalOptions.dsc;
-    //         if (coupon) {
-    //             const dsc = yield call(getDiscount, coupon);
-    //             yield put(fetchSuccessDsc(dsc, action.userName))
-    //         }
-    //     }
-    // } catch (e) {
-    //     console.log(e);
-    // }
-}
-
-/** process api calls for the user info and statistics **/
-function * fetchUser() {
+/** process api call for the initial state **/
+function * fetchServiceTree(action) {
     try {
         if (generalOptions.apiMode === 'M') {
             const stats = getStats();
-            const xsrf = helper.getCookie('_xsrf');
             const user = yield call(getUserCheckAccess);
-            if (xsrf) {
-                yield call(sendStats, stats, user.info.token);
-            } else {
-                yield call(sendStats, stats, user.info.token);
-                yield put(fetchDiscount(user.info.discount, user.info.name));
-            }
+            yield call(sendStats, stats, user.info.token);
+            yield put(fetchDiscount(user.info.discount, user.info.name));
 
             if (user.info.name) {
                 for (let i=0; i<25; i++) {
@@ -68,16 +44,7 @@ function * fetchUser() {
                 yield put(fetchSuccessDsc(dsc, user.info.name))
             }
         }
-    } catch (e) {
-        console.log(e);
-    }
-}
-
-/** process api call for the initial state **/
-function * fetchServiceTree(action) {
-    try {
-        // helper.
-        // const treeLocalStorage = yield call(helper.getFromLocalStorage, 'tree');
+        
         const defaultId = generalOptions.service_ids.split(',')[0].trim();
 
         const tree = yield call(getTree);
@@ -111,8 +78,6 @@ function * fetchServiceSingle(action) {
 /* saga dispatch actions
  */
 function * mysaga() {
-    yield takeEvery(FETCH_USER, fetchUser);
-    yield takeEvery(FETCH_DISCOUNT, setDiscount);
     yield takeEvery(FETCH_INIT_TREE, fetchServiceTree);
     yield takeEvery(FETCH_SERVICE, fetchServiceSingle);
 }

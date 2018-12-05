@@ -32,13 +32,14 @@ export function minusPage(calcId) {
 export function changeService(id, calcId) {
     return {type: CHANGE_SERVICE, id: id, calcId: calcId}
 }
+
 export function changeLevel(id, calcId) {
     return {type: CHANGE_LEVEL, id: id, calcId: calcId}
 }
+
 export function changeDeadline(id, calcId) {
     return {type: CHANGE_DEADLINE, id: id, calcId: calcId}
 }
-
 
 export function filterServices(search, calcId) {
     return {type: FILTER_SERVICES, search: search, calcId: calcId}
@@ -60,6 +61,7 @@ export function handleValidEmail(emailValid, calcId) {
 export function fetchInitTree() {
     return {type: FETCH_INIT_TREE}
 }
+
 export function fetchService(serviceId, calcId) {
     return {type: FETCH_SERVICE, id: serviceId, calcId: calcId}
 }
@@ -67,6 +69,7 @@ export function fetchService(serviceId, calcId) {
 export function fetchUser() {
     return {type: FETCH_USER}
 }
+
 export function fetchMail(email) {
     return {type: FETCH_MAIL, email: email}
 }
@@ -79,9 +82,11 @@ export function fetchDiscount(discount, userName) {
 export function fetchSuccess(tree) {
     return {type: FETCH_SUCCESS, tree: tree}
 }
+
 export function fetchSuccessDsc(dsc, userName) {
     return {type: FETCH_SUCCESS_DSC, dsc: dsc, userName: userName}
 }
+
 export function fetchSuccessSingle(tree, id) {
     return {type: FETCH_SUCCESS_SINGLE, tree: tree, id: id}
 }
@@ -89,9 +94,11 @@ export function fetchSuccessSingle(tree, id) {
 export function initCalc(calcId) {
     return {type: INIT_CALC, calcId: calcId}
 }
+
 export function setInitService(initServiceId) {
     return {type: SET_INIT_SERVICE, initServiceId: initServiceId}
 }
+
 export function fetchCurrency(currency) {
     return {type: FETCH_CURRENCY, currency: currency}
 }

@@ -115,7 +115,6 @@ export const reducers = (state = initialState, action) => {
                     }
                 )
             };
-        // calculatorSmall: calcSmallReducers(state.calculatorSmall[action.calcId], action, state.tree)
         default:
             return state;
     }
