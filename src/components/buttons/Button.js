@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
+import helper from '../../api/helper'
 import generalOptions from '../../config/generalOptions'
 
 class Button extends React.Component {
@@ -29,8 +30,12 @@ class Button extends React.Component {
         if (generalOptions.rid) {
             redirectTo += `&rid=${generalOptions.rid}`
         }
-        if (generalOptions.dsc) {
-            redirectTo += `&dsc=${generalOptions.dsc}`
+        if (helper.getUrlParam('dsc') && helper.isFakeAccount(helper.getUrlParam('rid'))) {
+            redirectTo += `&dsc=${helper.getUrlParam('dsc')}`
+        } else {
+            if (generalOptions.dsc) { 
+                redirectTo += `&dsc=${generalOptions.dsc}`
+            }
         }
         if (this.props.service === undefined || this.props.service == '') {
             redirectTo += `&csi=${serviceId}`
@@ -40,10 +45,14 @@ class Button extends React.Component {
         if (type != 'dashboard') {
             location.href = redirectTo;
         } else {
-            if (generalOptions.dsc) {
-                location.href = generalOptions.siteMyUrl + `/${type}?dsc=${generalOptions.dsc}`;
+            if (helper.getUrlParam('dsc') && helper.isFakeAccount(helper.getUrlParam('rid'))) {
+                location.href = generalOptions.siteMyUrl + `/${type}?dsc=${helper.getUrlParam('dsc')}`;
             } else {
-                location.href = generalOptions.siteMyUrl + `/${type}`;
+                if (generalOptions.dsc) {
+                    location.href = generalOptions.siteMyUrl + `/${type}?dsc=${generalOptions.dsc}`;
+                } else {
+                    location.href = generalOptions.siteMyUrl + `/${type}`;
+                }
             }
         }
     }

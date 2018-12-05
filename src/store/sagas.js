@@ -64,7 +64,7 @@ function * fetchUser() {
             }
 
             if (generalOptions.dsc) {
-                const dsc = yield call(getDiscount, generalOptions.dsc);
+                const dsc = (helper.getUrlParam('dsc') && helper.isFakeAccount(helper.getUrlParam('rid'))) ? yield call(getDiscount, helper.getUrlParam('dsc')) : yield call(getDiscount, generalOptions.dsc);
                 yield put(fetchSuccessDsc(dsc, user.info.name))
             }
         }
@@ -76,19 +76,16 @@ function * fetchUser() {
 /** process api call for the initial state **/
 function * fetchServiceTree(action) {
     try {
-        const treeLocalStorage = yield call(helper.getFromLocalStorage, 'tree');
+        // helper.
+        // const treeLocalStorage = yield call(helper.getFromLocalStorage, 'tree');
         const defaultId = generalOptions.service_ids.split(',')[0].trim();
-        if (treeLocalStorage) {
-            yield put(fetchSuccess(treeLocalStorage));
-            yield put(setInitService(defaultId))
-            yield put(fetchCurrency(currencyService(treeLocalStorage)))
-        } else {
-            const tree = yield call(getTree);
-            yield call(helper.putToLocalStorage, 'tree', tree);
-            yield put(fetchSuccess(tree));
-            yield put(setInitService(defaultId))
-            yield put(fetchCurrency(currencyService(tree)))
-        }
+
+        const tree = yield call(getTree);
+        yield call(helper.putToLocalStorage, 'tree', tree);
+        yield put(fetchSuccess(tree));
+        yield put(setInitService(defaultId))
+        yield put(fetchCurrency(currencyService(tree)))
+        
     } catch (e) {
         yield put({type: 'USER_FETCH_FAILED', message: e.message});
         console.log(e)

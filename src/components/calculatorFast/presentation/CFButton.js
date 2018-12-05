@@ -4,6 +4,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import generalOptions from '../../../config/generalOptions';
+import helper from '../../../api/helper';
 
 class CFButtons extends React.Component {
 
@@ -21,8 +22,12 @@ class CFButtons extends React.Component {
         if (generalOptions.rid) {
             redirectTo += `&rid=${generalOptions.rid}`
         }
-        if (generalOptions.dsc) {
-            redirectTo += `&dsc=${generalOptions.dsc}`
+        if (helper.getUrlParam('dsc') && helper.isFakeAccount(helper.getUrlParam('rid'))) {
+            redirectTo += `&dsc=${helper.getUrlParam('dsc')}`
+        } else {
+            if (generalOptions.dsc) { 
+                redirectTo += `&dsc=${generalOptions.dsc}`
+            }
         }
         location.href = redirectTo;
     }

@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import generalOptions from '../../../config/generalOptions';
 import {handleValidEmail} from '../../../store/actions';
+import helper from '../../../api/helper';
 
 class CLButtons extends React.Component {
 
@@ -26,8 +27,12 @@ class CLButtons extends React.Component {
         if (generalOptions.rid) {
             redirectTo += `&rid=${generalOptions.rid}`
         }
-        if (generalOptions.dsc) {
-            redirectTo += `&dsc=${generalOptions.dsc}`
+        if (helper.getUrlParam('dsc') && helper.isFakeAccount(helper.getUrlParam('rid'))) {
+            redirectTo += `&dsc=${helper.getUrlParam('dsc')}`
+        } else {
+            if (generalOptions.dsc) { 
+                redirectTo += `&dsc=${generalOptions.dsc}`
+            }
         }
         if (generalOptions.email) {
             if (email != '' && regExp.test(String(email).toLowerCase())) {

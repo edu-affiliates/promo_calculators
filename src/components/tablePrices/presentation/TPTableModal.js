@@ -48,8 +48,12 @@ class TPTableModal extends React.Component {
         if (generalOptions.rid) {
             redirectTo += `&rid=${generalOptions.rid}`
         }
-        if (generalOptions.dsc) {
-          redirectTo += `&dsc=${generalOptions.dsc}`
+        if (helper.getUrlParam('dsc') && helper.isFakeAccount(helper.getUrlParam('rid'))) {
+            redirectTo += `&dsc=${helper.getUrlParam('dsc')}`
+        } else {
+            if (generalOptions.dsc) { 
+                redirectTo += `&dsc=${generalOptions.dsc}`
+            }
         }
         location.href = redirectTo;
     }
