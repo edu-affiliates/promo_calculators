@@ -49,7 +49,7 @@ class CalculatorSmallSelect extends React.Component {
                      className={`cs-select cs-select--${this.props.type}`}>
                     {(!!service) ? service : this.cutLevelName(this.props.current)}
                 </div>
-                <div className={(this.props.openDropdown[this.props.type]) ? 'open' : ''}>
+                <div className={`open`} style={{display: (this.props.openDropdown[this.props.type]) ? 'block' : 'none'}}>
                     <div className={`cs-dropdown-wrap cs-dropdown-wrap--${this.props.type}`}>
                         {searchService}
                         <ul className="cs-dropdown">

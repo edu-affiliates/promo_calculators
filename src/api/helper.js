@@ -44,7 +44,7 @@ class Helper {
         }
       
         document.cookie = updatedCookie;
-      }
+    }
 
     truncateDecimals (num, digits) {
         let numS = num.toString(),

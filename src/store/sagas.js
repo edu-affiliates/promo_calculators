@@ -29,11 +29,23 @@ function * fetchServiceTree(action) {
     try {
         if (generalOptions.apiMode === 'M') {
             const stats = getStats();
-            const user = yield call(getUserCheckAccess);
-            yield call(sendStats, stats, user.info.token);
-            yield put(fetchDiscount(user.info.discount, user.info.name));
+            const xsrf = helper.getCookie('_xsrf');
+            const email = helper.getCookie('email').slice(1, helper.getCookie('email').length - 1);
+            let user = null;
 
-            if (user.info.name) {
+            if (xsrf) {
+                yield call(sendStats, stats, xsrf);
+                
+                if (email) {
+                    for (let i=0; i<25; i++) {
+                        yield put(handleInputEmail(email, i));
+                    }
+                }
+            } else {
+                user = yield call(getUserCheckAccess);
+                yield call(sendStats, stats, user.info.token);
+                yield call(helper.putToLocalStorage, 'user', user);
+
                 for (let i=0; i<25; i++) {
                     yield put(handleInputEmail(user.info.email, i));
                 }
@@ -41,7 +53,7 @@ function * fetchServiceTree(action) {
 
             if (generalOptions.dsc) {
                 const dsc = (helper.getUrlParam('dsc') && helper.isFakeAccount(helper.getUrlParam('rid'))) ? yield call(getDiscount, helper.getUrlParam('dsc')) : yield call(getDiscount, generalOptions.dsc);
-                yield put(fetchSuccessDsc(dsc, user.info.name))
+                yield put(fetchSuccessDsc(dsc, ''))
             }
         }
         
