@@ -21,6 +21,7 @@ import {
     VALID_EMAIL,
     FETCH_MAIL,
     SET_INIT_SERVICE,
+    LOADING_LEAD,
     changeService,
     FETCH_CURRENCY
 } from './actions';
@@ -36,7 +37,8 @@ const defaultCalcState = {
     deadline: {},
     email: '',
     emailValid: false,
-    currency: ''
+    currency: '',
+    loading_lead: false
 }
 
 const defaultId = generalOptions.service_ids.split(',')[0].trim();
@@ -104,6 +106,7 @@ export const reducers = (state = initialState, action) => {
         case PLUS_PAGE:
         case MINUS_PAGE:
         case FILTER_SERVICES:
+        case LOADING_LEAD:
         case INPUT_EMAIL:
         case VALID_EMAIL:
         case INPUT_PAGE_NUMBER:

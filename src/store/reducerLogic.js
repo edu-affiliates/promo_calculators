@@ -76,6 +76,10 @@ export const checkValidEmail = (emailValid) => {
     return emailValid;
 }
 
+export const checkLoadingLead = (loading_lead) => {
+    return loading_lead;
+}
+
 export const filterServices = (allServices, search) => {
     return allServices.filter((service) => {
         return service.name.toLocaleLowerCase().indexOf(search.toLowerCase()) !== -1;

@@ -31,7 +31,10 @@ function * fetchServiceTree(action) {
             const stats = getStats();
             const xsrf = helper.getCookie('_xsrf');
             const email = helper.getCookie('email').slice(1, helper.getCookie('email').length - 1);
+            const email_storage = (helper.getFromLocalStorage('user')) ? helper.getFromLocalStorage('user').info.email : null;
+            const sub_domain = document.referrer.split('/')[2];
             let user = null;
+            //document.referrer
 
             if (xsrf) {
                 yield call(sendStats, stats, xsrf);
@@ -40,9 +43,27 @@ function * fetchServiceTree(action) {
                     for (let i=0; i<25; i++) {
                         yield put(handleInputEmail(email, i));
                     }
+                } else if (email_storage) {
+                    for (let i=0; i<25; i++) {
+                        yield put(handleInputEmail(email_storage, i));
+                    }
                 }
+
+                if (sub_domain === 'my.' + generalOptions.hostname || sub_domain === 'devmy.' + generalOptions.hostname) {
+                    user = yield call(getUserCheckAccess);     
+                    
+                    yield call(helper.putToLocalStorage, 'user', user);
+
+                    for (let i=0; i<25; i++) {
+                        yield put(handleInputEmail(user.info.email, i));
+                    }
+                }
+
             } else {
                 user = yield call(getUserCheckAccess);
+
+                // helper.setCookie('_xsrf', user.info.token, ''); // for local development
+                
                 yield call(sendStats, stats, user.info.token);
                 yield call(helper.putToLocalStorage, 'user', user);
 
@@ -53,6 +74,13 @@ function * fetchServiceTree(action) {
 
             if (generalOptions.dsc) {
                 const dsc = (helper.getUrlParam('dsc') && helper.isFakeAccount(helper.getUrlParam('rid'))) ? yield call(getDiscount, helper.getUrlParam('dsc')) : yield call(getDiscount, generalOptions.dsc);
+                yield put(fetchSuccessDsc(dsc, ''))
+            }
+        }
+
+        if (generalOptions.apiMode === 'C') {
+            if (generalOptions.static_dsc) {
+                const dsc = generalOptions.static_dsc / 100;
                 yield put(fetchSuccessDsc(dsc, ''))
             }
         }

@@ -7,10 +7,11 @@ import {
   FILTER_SERVICES,
   INPUT_EMAIL,
   VALID_EMAIL,
+  LOADING_LEAD,
   INPUT_PAGE_NUMBER,
   FETCH_CURRENCY
 } from "./actions";
-import {currentLevelList, currentDeadlineList, currencyService, checkMaxPageNumber, filterServices, checkEmail, checkValidEmail} from "./reducerLogic";
+import {currentLevelList, checkLoadingLead, currentDeadlineList, currencyService, checkMaxPageNumber, filterServices, checkEmail, checkValidEmail} from "./reducerLogic";
 
 export const calcSmallReducers = (singleCalcState, action, tree, allServices) => {
   
@@ -65,6 +66,12 @@ export const calcSmallReducers = (singleCalcState, action, tree, allServices) =>
       return Object.assign({}, singleCalcState, {
         emailValid: checkValidEmail(action.emailValid)
       });
+
+    case LOADING_LEAD:
+      return Object.assign({}, singleCalcState, {
+        loading_lead: true
+      });
+
     case FETCH_CURRENCY:   
       return Object.assign({}, singleCalcState, {
         currency: checkEmail(action.currency)

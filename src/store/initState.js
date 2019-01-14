@@ -11,6 +11,7 @@ const initialState = {
     deadlineId: {},
     currency: '',
     email: '',
-    emailValid: false
+    emailValid: false,
+    loading_lead: false
 };
 export default initialState

@@ -55,7 +55,7 @@ class CSCounter extends React.Component {
             }} className="cs-page-value__alert--cross">&times;</span>
         </div> : <div/>;
         return (
-            <div className="cs-counter-group">
+            <div className="cs-counter-group  cs-counter-group__height">
                 <div className="cs-counter-wrap">
                     <div onClick={onClickMinus} className="cs-counter cs-counter--minus">
                         <span>&#65293;</span>

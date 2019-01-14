@@ -21,6 +21,9 @@ export const VALID_EMAIL = 'VALID_EMAIL';
 export const INIT_CALC = 'INIT_CALC';
 export const SET_INIT_SERVICE = 'SET_INIT_SERVICE';
 
+export const LOADING_LEAD = 'LOADING_LEAD';
+
+
 export function plusPage(calcId) {
     return {type: PLUS_PAGE, calcId: calcId}
 }
@@ -55,6 +58,11 @@ export function handleInputEmail(email, calcId) {
 
 export function handleValidEmail(emailValid, calcId) {
     return {type: VALID_EMAIL, emailValid: emailValid, calcId: calcId}
+}
+
+//saga dispath mautic leads
+export function loadingLead(loading_lead, calcId) {
+    return {type: LOADING_LEAD, loading_lead: loading_lead, calcId: calcId}
 }
 
 // saga dispatch actions
