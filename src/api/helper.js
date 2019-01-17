@@ -80,5 +80,10 @@ class Helper {
         return is_fake_id
     }
 
+    validateGlobalEmail(value) {
+        const pattern = new RegExp('^([a-zA-Z0-9_\\+\\.-]+)@([a-zA-Z0-9\\.-]+)\\.([a-zA-Z\\.]{2,6})$');
+        return pattern.test(value);
+    };
+
 }
 export default  new Helper()

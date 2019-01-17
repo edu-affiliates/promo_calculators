@@ -21,8 +21,7 @@ class CLEmail extends React.Component {
     handleBlur(e) {
         const value = e.target.value;
         this.setState({emptyInput: false});
-        const regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (value == '' || !regExp.test(String(value).toLowerCase())) {
+        if (value == '' || !helper.validateGlobalEmail(email)) {
             this.setState({alert: true});
             
         } else {

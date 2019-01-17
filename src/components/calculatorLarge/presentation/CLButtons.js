@@ -15,7 +15,6 @@ class CLButtons extends React.Component {
     }
 
     redirectTo(type) {
-        const regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const {service: serviceId, level: levelId, deadline: deadlineId, countPages, email} = this.props;
         
         let emailUrl = (generalOptions.email) ? ('&email=' + encodeURIComponent(email)) : '';
@@ -46,7 +45,7 @@ class CLButtons extends React.Component {
         }
         
         if (generalOptions.email) {
-            if (email != '' && regExp.test(String(email).toLowerCase())) {
+            if (email != '' && helper.validateGlobalEmail(email)) {
                 this.props.handleValidEmail(false);
                 this.props.loadingLead(true);
                 appendLead(data_lead, redirectTo);
